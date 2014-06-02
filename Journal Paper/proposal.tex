@@ -1,0 +1,64 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{dsfont}
+\usepackage{bbm}
+\usepackage{setspace}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+\author{An Jiang \\
+School of ECSE,\\
+Mcgill University,\\
+ID:   260501472}
+\title{Some Properties for ROC of Extended Neyman Pearson Testing}
+\begin{document}
+\begin{spacing}{2.0}
+\maketitle
+\section*{Abstract}
+Neyman Pearson testing(NP for short) is firstly proposed by J.Neyman and E.S.Pearson in 1933 in \cite{neyman1933problem}. After that they went on their study on NP testing and published a serious of papers on that. In 1939, Abraham Wald summarized the papers of Neyman and Pearson in \cite{wald1939contributions}. Dantzig, G.B. and Wald, discussed the questions of existence of optimal value and the necessary and sufficient conditions for optimal value for NP testing in \cite{dantzig1951fundamental}. Lemma summarized all of the conclusions given by previous people in \cite{LehmannTest}.  
+There are three main objects for this report:
+\\(\rmnum{1}) Find out whether the ROC for extended NP is convex.
+\\(\rmnum{2}) Find out the direction of the norm of the tangent hyper plane at any point on the ROC.
+\\(\rmnum{3}) Find out a method  to solve the following problem using extended NP:
+\[
+  max \;\;\;\;\;P_d
+  \]
+  \[
+  s.t. \;\;\;\;\;\;P_{f_i}\leq c_i \;\;(i=1,2,...,m)
+  \]
+  Here $P_d$ represents for the probability of detection, $P_{f_i}$ represents for the probability of false alarm of the $i$'s hypotheses. The problem above has advantage over extended NP in engineering because extended NP has following form\cite{LehmannTest}:
+  \[
+  max \;\;\;\;\;P_d
+  \]
+  \[
+  s.t. \;\;\;\;\;\;P_{f_i}= c_i \;\;(i=1,2,...,m)
+  \]
+  which means it confines that the probability of false alarm must be equal to some value. Instead in (\rmnum{3}), it only confines the probability of false alarm is no larger than the given value.
+
+  The method that will be used to study these properties includes Taylor expansion, Delta function \cite{hassani2009dirac} and some conclusions from measure \cite{halmmm}. One challenge comes from the form of  $P_d$ and $P_{f_i}$ in extended NP, which are given in the following:
+  \[
+  P_d = \int \limits_{\mathcal{S}} f_0(x) \mathrm{d} x\,,
+  \]
+  \[
+   P_{f_i} = \int \limits_{\mathcal{S}} f_i(x) \mathrm{d} x\,.
+   \]
+   The set of $\mathcal{S}$ is defined as following:
+   \[
+    \mathcal{S} :  \left\{x \bigg| \sum_{i=1}^{i=m}k_i\frac{f_i(x)}{f_0(x)} < 1 \right\}\,.
+   \]
+   The above form of $P_d$ and $P_{f_i}$ imply that it's hard to find out a close form expression for $P_d$ with respect to $P_{f_i}$ and that make computation hard. 
+   
+   A complete answer for the first two questions above will be given in the report and detail proof will be presented. A new method based on extended NP for solving the (\rmnum{3}) will be given with  proof.
+
+% This is for the reference.
+\bibliographystyle{ieeetr}	% (uses file "plain.bst")
+\bibliography{mybib}		% expects file "myrefs.bib"
+\end{spacing}
+\end{document} 
