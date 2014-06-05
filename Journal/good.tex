@@ -380,66 +380,79 @@ By using \textbf{Conclusion 1}, we can derive the $P_d$ for $(c_1, c_2) \notin \
 The M-ROC surface is plotted in Figure \ref{pic: LJS for chisquare}.
 
 \section{Energy Based Spectrum Sensing for two Primary Users}
-In this section, an example for applying MSA to energy based spectrum sensing for two primary users is illustrated.
+In this section, an example for applying MENP to energy based spectrum sensing for two primary users is illustrated.
 
 \subsection{System Model}
-Consider a cognitive radio system where the frequency can be occupied by one of the two  distinct primary signals $\{ s_1, s_2 \}$ or it could be vacant.
-Let  $H_0$  denote the channel is vacant, and $H_i, i = 1, 2$, denote the channel is occupied by primary user signal $s_i, i=1, 2$. We tend  to testing $H_0$ against $\overline{H}_0$ using NP testing. The problem can be abstracted into following optimization problem:
+We consider a cognitive radio network where the licensed frequency spectrum could be occupied by exactly one of 2 distinct signals $\{s_1, s_2\}$ or it could be vacant.
+Let $\mathcal{H}_0$ denote the hypothesis under which the channel is free, $\mathcal{H}_1$ denote the hypothesis under which the channel is occupied by $s_1$ and $\mathcal{H}_2$ denote the hypothesis under which the channel is occupied by $s_2$. We are interested to test $H_0$ against $\bar{\mathcal{H}_0}$, where $\mathcal{H}_0$ denotes the hypothesis under which the channel is not free using.
+
+In Fig. \ref{pic: block diagram}, the block diagram of the system considered in this paper is given. 
+The detector consists a measuring device and a testing device. 
+The measuring device observes the noisy version of the signals that could be present in the channel and calculate the signal's energy. 
+With the signal's energy, the testing device employs MENP to decide the state of the channel.
+The input to the measuring device is given by
 \begin{equation}
-  \label{equ: energy spectrum sensing}
-  \begin{split}
-  \max \;\;\;\;\;\;\;\;\;\;\;\;\;\;\; &P_d\,,\\
-  \text{s.t.} \;\;\;\;\;\;\;\;\;\;\;\;\;\;\; &P_{f_i} \leq c_i\;\;\;\;(i = 1, 2)\,.
-  \end{split}
+x[n] = \begin{cases}
+\omega[n]\;\;\;\;\;\;&\text{when $\mathcal{H}_0$ is true}\\
+s_1[n]+\omega[n]\;\;\;\;\;\;&\text{when $\mathcal{H}_1$ is true}\\
+s_2[n]+\omega[n]\;\;\;\;\;\;&\text{when $\mathcal{H}_2$ is true}
+\end{cases}
+\end{equation}
+where $n = \{0, ..., N-1\}$ are observation instances.
+Both $s_i[n]\;\;(i=1, 2)$ and $\omega[n]$ are modeled as zero-mean independent and identically distributed (iid) circularly symmetric complex Gaussian (CSCG) random variables with variances $2\sigma_{s_i}^2\;\;(i=1, 2)$ and $2\sigma_{\omega}^2$, i.e., $s_m[n] \sim \mathcal{CN}(0, 2\sigma_{s_i}^2)\;\;(i=1, 2)$ and $\omega[n] \sim \mathcal{CN}(0, \sigma_{\omega}^2)$. In this example, our goal is plotting the M-ROC figure for our detector. 
+
+In our model, the testing device is a energy detector, hence the output of the testing device is given by
+\begin{equation}
+\label{equ: testing device}
+X = \sum{n=1}^{N}|x[n]|^2 = \sum_{n=1}^{N}(x_r[n]^2+x_i[n]^2)\,,
+\end{equation}
+where $x_r[n]$ and $x_i[n]$ are respectively the real and imaginary part of signal $x_[n]$. In the following, the PDFs of $X$ under different hypotheses will be calculated. 
+
+Because the noise and signal samples are independent, when $s_i[n]$ is presented in the channel, $x[n] = s_i[n]+\omega[n] \sim \mathcal{CN}(0, 2(\sigma_{s_i}^2 + \sigma_\omega^2))$. 
+When the channel is vacant, $x[n] = \omega[n] \sim \mathcal{CN}(0, 2\simga_\omega^2)$. 
+Under both circumstance, $x[n]$ is a iid CSCG random variable. 
+
+Define $\sigma_1^2 = \sigma_\omega^2 + \sigma_{s_1}^2$, $\sigma_2^2 = \sigma_\omega^2 + \sigma_{s_2}^2$ and $\sigma_0^2 = \sigma_\omega^2$. 
+In the situation when $s_1$ is presented in the channel, $x[n]$ are iid CSCG random variables with variance $2\sigma_1^2$, i.e., $x[n] \sim \mathcal{CN}(0, 2\sigma_1^2)$, which can be written as $\begin{pmatrix} x_r[n] \\ x_i[n] \end{pmatrix} \sim \mathcal{N}\Big( \begin{bmatrix} 0 \\ 0 \end{bmatrix}, \begin{bmatrix} \sigma_1^2 & 0\\ 0 & \sigma_1^2 \end{bmatrix} \Big)$
+
+Since \eqref{equ: testing device} can be given by
+ \begin{equation}
+ \frac{X}{\sigma_1^2} = \sum_{n=1}^{N}((\frac{x_r[n]}{\sigma_1})^2 + (\frac{x_i[n]}{\sigma_2})^2 ),
+\end{equation}
+we can conclude $\frac{X}{\sigma_1^2}$ is subject to Chi-Square distribution with $2N$ degree of freedom in the situation when signal $s_1$ is presented at the channel, i.e., $\frac{X}{\sigma_1^2} \sim \mathcal{X}_{2N}$ when $H_1$ is true. 
+
+By using the same method, it can be shown $\frac{X}{\sigma_2^2} \sim \mathcal{X}_{2N}$ when $H_2$ is true and $\frac{X}{\sigma_0^2} \sim \mathcal{X}_{2N}$ when $H_0$ is true. Hence we have
+\begin{equation}
+\label{equ: abstract}
+\begin{cases}
+\frac{X}{\sigma_0^2} \sim \mathcal{X}_{2N}\;\;\;\;\text{when $H_0$ is true}\,,\\
+\frac{X}{\sigma_1^2} \sim \mathcal{X}_{2N}\;\;\;\;\text{when $H_1$ is true}\,,\\
+\frac{X}{\sigma_2^2} \sim \mathcal{X}_{2N}\;\;\;\;\text{when $H_2$ is true}\,.
+\end{cases}
 \end{equation}
 
-Our object is to achieve the figure for $P_d$ vs. $c_1, c_2$ (MS-ROC).
+\subsection{Simulation result}
+In this section, we provide the simulation result to show the performance of MENP test for energy based spectrum sensing by plotting M-ROC.  
+Assume $\sigma_\omega^2 = 1$, $\sigma_{s_1}^2 = 0.1$ and $\sigma_{s_2}^2  = 0.15$, N=120.
 
-In Fig.~\ref{pic: block diagram}, a block diagram of system is illustrated.  The system consists of a measuring device followed by a testing device. The role of the measuring device is to output a suitable testing statistics. The role of the testing device is to decide whether the channel is free according to  the output of the measuring device. The input of the measuring device is
-
+Since \eqref{equ: abstract} has the same form of \eqref{equ: Chisquare Hypothesis}, the conclusions for \eqref{equ: Chisquare Hypothesis} can be used. 
+It is proved in section ``Chi-Square Example'', for the given constraints $P_{f_1} \leq c_1$ and $P_{f_2} \leq c_2$, if $c_1$ and $c_2$ can be achieved by ENP test with non-negative parameters, the decision rule has following form:
 \begin{equation}
-  \label{equ: expression of x}
-  x[n]=\begin{cases}
-    \omega[n]\;\;\;\;\;\;\;\;\;\;\;\;\;\;&\text{when no primary user is occupying the channel}\\
-    \omega[n] + s_i[n]\;\;&\text{when primary user $i$ is occupying the channel}\,.
-  \end{cases}
+\delta:\;\;\;\;x\substack{H_0 \\ \leq \\ > \\ \bar{H}_0} \lambda
 \end{equation}
+where $\lambda \geq 0$. 
 
-Here $n = 1, 2, ..., N$, and $m= 1, 2$. We also assume that $s_i[n]$ and $\omega[n]$ are i.i.d. circular symmetric complex Gaussian(CSCG) random variables with variance $2\sigma_{s_i}^2$ and $2\sigma_{\omega}^2$, in other words, $s[n] \sim \mathcal{CN}(0, 2\sigma_{s_i}^2) $ and $\omega[n] \sim \mathcal{CN}(0, 2\sigma_\omega^2)$. Since the noise and the signal are independent, $s_i[n] + \omega[n] \sim \mathcal{CN}(0, 2(\sigma_\omega^2 + \sigma_{s_i}^2))$.
-
-Since the testing device is a energy detector. Hence the output of  the testing device is
-\begin{equation}
-  \label{equ: output of energy detector}
-  X = \sum_{n=1}^{N}|x[n]|^2 = \sum_{n=1}^{N}(x_r[n]^2+x_i[n]^2)\,,
-\end{equation}
-$x_r$ and $x_i$ are respectively the real and imaginary part of signal $x$. Substitute \eqref{equ: expression of x} into \eqref{equ: output of energy detector} and define $\sigma_{i}^2 = \sigma_\omega^2 + \sigma_{s_i}^2$,
-
-  \begin{equation}
-   \label{v3eq7}
-   \begin{cases}
-     \frac{X}{\sigma_\omega^2} \sim \mathcal{X}_{2N}\;\;\;\;\;\;\;\;\;\;&\text{when $H_0$ is true}\,,\\
-     \frac{X}{\sigma_1^2} \sim \mathcal{X}_{2N}\;\;\;\;\;\;\;\;\;\;&\text{when $H_1$ is true}\,,\\
-     \frac{X}{\sigma_{2}^2} \sim \mathcal{X}_{2N}\;\;\;\;\;\;\;\;\;\;&\text{when $H_{2}$ is true}\,.
-   \end{cases}
- \end{equation}
-
-
-Since $\sigma_\omega^2 < \sigma_1^2, \sigma_2^2$, this problem has the same form as that of Chi-Square example given in last section.  Using the conclusions given in Chi-Square example,  the decision rule is
-\begin{equation}
-\label{equ: decision rule for spectrum sensing}
-\delta:\;\;\;\;\;\;\;\; x \substack{H_0 \\ \leq \\ > \\\bar{H}_0} \lambda\,,
- \end{equation}
-where $\lambda \in [0, \infty)$ and  the corresponding $P_d$ is given in \eqref{equ: curve equation}. By using this decision rule,  MS-ROC will be achieved.
-
-\subsection{Simulaiton result}
-Assume $\sigma_\omega^2 = 1$, $\sigma_{s_1}^2 = 0.1$ and $\sigma_{s_2}^2  = 0.15$, N=120. By simulation, the MS-ROC is given in Figure \ref{pic: simulation result}. The bold black line in the middle of the figure achieved by \eqref{equ: curve equation}. For other points, the value of $P_d$ is dereived by decision rule \eqref{equ: decision rule for spectrum sensing} under the constraint $P_{f_1} \leq c_1$ and $P_{f_2} \leq c_2$.
+In our simulation, we get the corresponding $P_d$, $c_1$ and $c_2$ by increasing the value of $\lambda$ from $0$ to $100$. The outcome is plotted in Fig \ref{pic: simulation result} by bold curve. 
+After that, in order to achieve the whole M-ROC surface, we utilize \textbf{Conclusion 1} given in ``Gaussian Example''. The whole M-ROC is given in Fig. \ref{pic: simulation result}.
 
 \section{Conclusions}
-The authors give an algorithm to solve problems like spectrum sensing for multiple primary users.
-This algorithm gives optimal solution to the problem that maximize $P_d$ under the constraint that $P_{f_i} \leq c_i$, where $c_i \in [0, 1]$, when PDFs satisfy certain conditions.
-Two examples were given to illustrate how to use the algorithm when there are three hypotheses, their respectively characters are demonstraed.
-This paper shows that concerning energy based spectrum sensing for two primary users, the decision rule is simple.
-
+In this paper, we explore the new field of spectrum sensing with emphasis on providing different levels of protections for various primary users. 
+The proposed MENP test could achieve the largest probability of detection detection under the constraints of probability of false alarms. 
+After that, we approach M-ROC to represent the relationship between the probability of detection and the constraint conditions. Two examples respectively concerning Gaussian distribution and Chi-Square distribution are given to show the properties of M-ROC. 
+We also proposed an energy based detector for two different types of primary users.
+For simplicity, we assume the signal samples of the primary users subject to iid CSCG distribution and the variance of the signal and the noise are known to the detector.
+By simulation, we showed the performance of this detector. 
+In this work we assume the detector has the information of the signals' variance. There are other ways dealing with unknown parameters, for example using cyclostationary property to estimate the variance of the primary users. This could be a future topic.  
 
 \appendix
 \subsection{Proof for Lemma 1}
