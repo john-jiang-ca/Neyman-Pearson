@@ -43,22 +43,21 @@ Neyman Pearson, Hypothesis Testing, Spectrum Sensin, Cognitive Radio
 The increasing radio spectrum demand for wireless communication is driving the development of new approaches for its usage, such as Cognitive Radio (CR)\cite{a001}. The concept behind CR networks is the unlicensed use of radio spectrum while ensuring no interference to the licensed users. \cite{goldsmith2009breaking}.
 To achieve this goal, a CR system must have ``cognitive" abilities to identify opportunities for communication\cite{buddhikot2007understanding}. In CR systems, the spectrum sensing component brings in such capabilities \cite{tandra2009spectrum}.
 
- Spectrum sensing has been a subject for extensive studies in the last years\cite{axell2012spectrum}. Common techniques for spectrum sensing are based on energy detection, exploitation of cyclostationary properties of  the signal being sensed, and also could use preamble sequences that are embedded in the signals \cite{cabric2004implementation}.  In \cite{axell2011optimal}, the authors point out that for OFDM signals when the variances of the noise and signal are known, the performance of energy based spectrum sensing is very close to optimal. Cooperative spectrum sensing \cite{ganesan2005cooperative}, employing multiple sensors that are geographically scattered, are effective against shadowing.
+ Spectrum sensing has been a subject for extensive studies in the last years\cite{axell2012spectrum}. Common techniques for spectrum sensing are based on energy detection, exploitation of cyclostationarity properties of  the signal being sensed, and also could use preamble sequences that are embedded in the signals \cite{cabric2004implementation}.  In \cite{axell2011optimal}, the authors point out that for OFDM signals when the variances of the noise and signal are known, the performance of energy based spectrum sensing is very close to optimal. Cooperative spectrum sensing \cite{ganesan2005cooperative}, employing multiple sensors that are geographically scattered, are effective against shadowing.
 Different sensing algorithms and DSP techniques have been introduced for specific situations, such as in \cite{tian2007compressed} where the authors study algorithms for wide band spectrum sensing focusing on sub-Neyquist sampling techniques. In  \cite{sun2013wideband} and  \cite{sun2013wideband2} the authors propose compressed sensing and sub-Nyquist sampling techniques for wide band spectrum sensing.
 
 In order to detect a free frequency channel, a spectrum sensing scheme solves a binary hypotheses testing problem, where the null hypothesis refers to the event that a user is not using the channel and the alternative hypothesis refers to the event that a user is occupying the channel. If the a-prior probabilities of null and alternative hypotheses are known, then such a problem can be solved using a Bayesian framework \cite{poor1994introduction}. The situation when Baysian framework could be used is considered in \cite{zeng2010review} and the performance of such scheme is analyzed.
-Even though the Baysian framework can be used in some situations, in more often cases, the a-prior probabilities are not available. In such situation Neyman Pearson testing is employed \cite{poor1994introduction}.When there is a single type of primary user (two hypotheses), NP testing will achieve the largest probability of detecting a vacant channel when no primary user is present under a constraint on the probability that the channel will be declared vacant when in fact a primary user is present.
-Traditional NP testing has been extensively used for two hypotheses. In such cases,  the performance is characterized by the Receiver Operating Characteristic (ROC) curve, which represents the relationship between probability of detection and probability of false alarm \cite{poor1994introduction}.
+Even though the Baysian framework can be used in some situations, in more often cases, the a-prior probabilities are not available. In such situations Neyman Pearson testing is employed \cite{poor1994introduction}.When there is a single type of primary user (two hypotheses), NP testing will achieve the largest probability of detecting a vacant channel when no primary user is present under a constraint on the probability that the channel will be declared vacant when in fact a primary user is present.
+Traditional NP testing has been extensively used for two hypotheses problem. In such cases,  the performance is characterized by the Receiver Operating Characteristic (ROC) curve, which represents the relationship between probability of detection and probability of false alarm \cite{poor1994introduction}.
 
-In spectrum sensing application, there may be more than one type of primary users. For example in IEEE 802.22 \cite{shellhammer2008spectrum} the channel can be occupied by Analog-TV Digital-TV and wireless microphone. In such cases, extended NP (ENP) can provide important advantage \cite{zhang1999design}. A detector based on ENP testing can ensure the largest probability of detection under a constraint of false alarm for each primary user type \cite{LehmannTest}.
+In spectrum sensing application, there may be more than one type of primary users. For example in IEEE 802.22 \cite{shellhammer2008spectrum} the channel can be occupied by Analog-TV Digital-TV and wireless microphone. In such cases, an extended NP (ENP) test can provide important advantages \cite{zhang1999design}. A detector based on ENP testing can ensure the largest probability of detection under a separate constraint of false alarm for each primary user type \cite{LehmannTest}.
 
-However when the detector applying ENP,  the achievable scope of false alarm probabilities is limited. To solve this issue, we prove the properties of ENP and based on that we propose Modified Extended Neyman Pearson (MENP) test. By using MENP, we can achieve the largest probability of detection under any probabilities of false alarm constraints.
-The structure of the paper is given as follows: in the second section, properties of ENP test are given; based on that MENP is proposed; then ROC surface of MENP (M-ROC) is introduced and its properties are  given when $M = 2$; an example of applying MENP to energy based spectrum sensing is given in the end.
+With an ENP detector, the achievable false alarm probabilities are limited. In this work we analyze the properties of the ENP test and propose the Modified Extended Neyman Pearson (MENP) test, that circumvents the limitations of the false alarm probabilities. The structure of the remaining of this paper is [TO BE ADDED].
 
 \section{Extended Neyman Pearson Test}
 
 \subsection{Introduction to Extended Neyman Pearson Test}
-The theories of hypotheses testing have been a subject of continuous studies, and have found applications in various fields such as radar systems, spectrum sensing for cognitive communication systems, and in  medical science. One type of hypotheses testing problem can be abstracted as  follows: assume $M+1$  hypotheses $H_0$, $H_1$, ..., $H_{M}$, inducing $M+1$  Probability Density Functions (PDFs) on the observable y.
+The theories of hypotheses testing have been a subject of continuous studies, and have found applications in various fields such as radar systems, spectrum sensing for cognitive communication systems, and in  medical science. One type of hypotheses testing problem can be abstracted as  follows: assume $M+1$  hypotheses $H_0$, $H_1$, ..., $H_{M}$, inducing $M+1$  Probability Density Functions (PDFs) on the observable $Y$.
 
   \begin{equation}
 \label{equ:hypothesis}
@@ -104,7 +103,7 @@ f_{0}(x)<\sum\limits_{j=1}^M k_j f_j(x)\;\;\;\;\text{when $x \notin \mathcal{S}$
 \label{4}
 \int \limits_\mathcal{S} f_{0}(x)\mathrm{d}x
 \end{equation}
-among all $\mathcal{S}$ satisfying
+among all $\mathcal{S} \in \mathcal{C}_{\mathcal{S}}$ satisfying
 \begin{equation}
 \label{5}
 \int \limits_\mathcal{S} f_i(x)\mathrm{d}x\leq c_i,\;\;\;\;i=1,...,M.
@@ -177,7 +176,7 @@ Under}
 \begin{equation}
   \label{equ: lemma 3 equation}
   \begin{split}
-    P_d^\prime &> P_d\\
+    P_d^\prime &\geq P_d\\
     P_{f_i}^\prime &\leq P_{f_i}\;\;\;\;i = 1, 2, ..., M\,.
   \end{split}
 \end{equation}
@@ -195,17 +194,15 @@ In practice (e.g. spectrum sensing in CR communication system), the following pr
       \end{split}
       \end{equation}
 
-According to ENP Lemma, this problem can by solved by ENP test only when  $c_i \;(i = 1, ..., M)$ satisfy $c_i = \int_{-\infty}^{\infty}u(f_0 - \sum_{j=1}^{M}k_jf_j(x))f_i(x)\mathrm{d}x \;(i=1, ..., M)$, where $k_i$ are non-negative.
-
+According to ENP Lemma, this problem can by solved by ENP test only when their all parameters $k_i \geq 0, \;\;i=1, ..., M$ such that 
 \begin{equation}
 \label{equ: condition for ENP}
 \begin{split}
-\exists\;\;\;\;\;\;\;&k_i \geq 0\\
-\textbf{s.t.}\;\;\;\;\;\;&c_i = \int_{-\infty}^{\infty}u(f_0 - \sum_{j=1}^{M}k_jf_j(x))f_i(x)\mathrm{d}x \;\;i = 1, ..., M
+c_i = \int_{-\infty}^{\infty}u(f_0 - \sum_{j=1}^{M}k_jf_j(x))f_i(x)\mathrm{d}x \;\;i = 1, ..., M
 \end{split}
 \end{equation}
 
-If the given $c_i\;\;i = 1, 2, ..., M$ do not satisfy \eqref{equ: condition for ENP}, no previous work solves the problem. In the following, Modified Extended Neyman Pearson Test (MENP) is given considering \eqref{equ: problemstate}.
+The case when the given $c_i\;\;i = 1, 2, ..., M$ do not satisfy \eqref{equ: condition for ENP} was not considered so far. Next we proposed the Modified Extended Neyman Pearson Test (MENP) is given considering \eqref{equ: problemstate}.
 
 %define \JUDGEMENT
 \def \JUDGEMENT{u(f_0(x) - \sum_{j=1}^{M}k_j f_j(x))}
@@ -215,39 +212,36 @@ $F(\mathbf{a})$ denote the largest $P_d$ under the constraints $P_{f_i} = a_i\;\
 Also define the set $\mathcal{A}_\mathbf{c} = \{
   \mathbf{P}_f | 0 \leq P_{f_i} \leq c_i
   \;\;i=1, 2, ..., M\}\,.
-$ and set $\alpha^+ \triangleq \{\mathbf{P}_f | P_{f_i} = \int_{-\infty}^{\infty} \JUDGEMENT f_i(x) \mathrm{d}x, \text{where\;\;} k_i \geq 0\}$.
+$ and set $\alpha^+ \triangleq \{\mathbf{P}_f | P_{f_i} = \int_{-\infty}^{\infty} \JUDGEMENT f_i(x) \mathrm{d}x, \text{where\;\;} k_i \geq 0 \;\;i=1, ..., M\}$.
 
 \noindent \textbf{Modified Extended Neyman Pearson test}
 
 \noindent \textit{
 If \textnormal{\textbf{Condition 1}} is satisfied, then:
-\\\textnormal{(\rmnum{1})} If $\mathbf{c} \in \alpha^+$. Assume $\mathbf{k}^0 = [k_1^0, k_2^0, ..., k_M^0]^T$ satisfy
+\\\textnormal{(\rmnum{1})} Assume $\mathbf{c} \in \alpha^+$. Then there must be a $\mathbf{k}^0 = [k_1^0, k_2^0, ..., k_M^0]^T$ with $k_i \geq 0\;\;i=1, ..., M$ satisfying
 }
 \begin{equation}
 \label{equ:Pf}
   P_{f_i}^0 = \int_{-\infty}^{\infty} u(f_0(x) - \sum_{j=1}^{M}k_j^0f_j(x))f_i(x)\mathrm{d}x = c_i \;\; (i= 1, 2, ..., M)\,.
 \end{equation}
 \textit{
-The decision rule $\delta $ that can satisfy  \eqref{equ: problemstate} is:
+and the decision rule $\delta $ solving  \eqref{equ: problemstate} is:
 }
 \begin{equation}
 \label{equ:decision rule}
-\delta:\;\;\;\;\frac{f_0(x)}{k_1^0f_1(x) + k_2^0f_2(x) + ... + k_M^0f_M(x) } \substack{H_0 \\ \geq \\ < \\ \bar{H}_0} 1\;\;\;\;k_1^0, ..., k_M^0 \geq 0
+\delta:\;\;\;\;\frac{f_0(x)}{\sum_{i=1}^{M}k_i^0f_i(x)} \substack{H_0 \\ \geq \\ < \\ \bar{H}_0} 1
 \end{equation}
 \textit{
-\noindent \textnormal{(\rmnum{2})} If $\mathbf{c} \notin \alpha^+$, Let $\mathcal{C} = \mathcal{A}_{\mathbf{c}} \cap \alpha^+$, and $\mathbf{a}^0 = [a_1^0, a_2^0, ..., a_M^0]^T \in \mathcal{C}$ be such that
+\noindent \textnormal{(\rmnum{2})} Assuming $\mathbf{c} \notin \alpha^+$, Let $\mathcal{C} = \mathcal{A}_{\mathbf{c}} \cap \alpha^+$, and $\mathbf{a}^0 = [a_1^0, a_2^0, ..., a_M^0]^T \in \mathcal{C}$ be such that
 }
 \begin{equation}
-\begin{split}
 \label{equ: F0}
-\max\;\;\;\;&F(\mathbf{a}) = F(\mathbf{a}^0)\\
-\text{s.t.}\;\;\;\;&\mathbf{a} \in \mathcal{C}
-\end{split}
+\max_{\mathbf{a} \in \mathcal{C}}\;\;\;\;F(\mathbf{a}) = F(\mathbf{a}^0)\\
 \end{equation}
 \textit{
 Since $\mathbf{a}^0 \in \mathcal{A}_{\mathbf{c}} \cap \alpha^+$, from \textnormal{(\rmnum{1})} we have that there exists a different vector $\mathbf{k}^0$ such that}  \eqref{equ:decision rule} \textit{ maximizes $P_d$ under the constraints $P_{f_i} = a_i^0, \;i=1, ..., M$. Here since $a_i^0 \leq c_i^0, \;i=1, ..., M$ this decision rule  satisfies} \eqref{equ: problemstate}.
 
-In  (\rmnum{2}), even though the task of finding $\mathbf{a}^0$ seems to be complicated, in practice, it is easy. Since the definition of $F(\mathbf{a})$ can be written as
+In  (\rmnum{2}), even though the task of finding $\mathbf{a}^0$ seems to be complicated, in practice, it is not so. Since when $\mathbf{a} \in \alpha^+$ we have 
 \begin{equation}
   \begin{split}
     \max\;\;\;\;&P_d = F(\mathbf{a})\\
@@ -263,24 +257,25 @@ when $\mathbf{a} \in \alpha^+$, according to ENP Lemma, $F(\mathbf{a})$ also sat
   \end{split}
 \end{equation}
 
-In equation \eqref{equ: F}, when one of $a_i, i = 1, ..., M$ increases and other $a_i$ remain the same, the constraints is more relaxed, so $P_d$ will not decrease. Hence we can conclude $F(\mathbf{a})$ is a non-decreasing function when $\mathbf{a} \in \alpha^+$. Hence we can conclude $\mathbf{a}^0$ has the largest $a_i^0$ among all $\mathbf{a} \in \mathcal{C}$.
+In \eqref{equ: F}, when one of $a_i, i = 1, ..., M$ increases and other $a_i$ remain the same, the constraints is more relaxed, so $P_d$ will not decrease. Hence we can conclude $F(\mathbf{a})$ is a non-decreasing function when $\mathbf{a} \in \alpha^+$. Hence we can conclude $\mathbf{a}^0$ has the largest components $a_i^0$ among all $\mathbf{a} \in \mathcal{C}$. 
 
-From (\rmnum{1}) and (\rmnum{2}), it can also be concluded that for any given $(c_1, c_2, ..., c_M)$, the decision rule has following form:
-\begin{equation}
-\frac{f_0(x)}{k_1f_1(x)+k_2f_2(x)+ ... + k_Mf_M(x)} \substack{H_0 \\ \geq \\ < \\ \bar{H_0}} 1\;\;\;\;k_1, k_2, ..., k_M \geq 0
-\end{equation}
+When trying to find $\mathbf{a}^0$, we only need to iterate $\mathbf{a} \in \alpha$ who have the largest components $a_i$ instead of all $\mathbf{a} \in \alpha$.
+
+From (\rmnum{1}) and (\rmnum{2}), it can also be concluded that for any given $(c_1, c_2, ..., c_M)$, the decision rule has form given by \eqref{equ: decision rule} with $k_i \geq 0\;\;i=1, ..., M$.
 
 The proof that MENP achieves the optimal decision rule is given in the appendix.
 
 \section{The ROC surface of MENP}
 
 The ROC surface of MENP (M-ROC) depicts the relationship between $P_d$ and $c_1, c_2, ..., c_M$. In one hand, it  illustrates the largest $P_d$ can that can be achieved under the constraints $P_{f_i} \leq c_i (i = 1, 2, ..., M)$, on the other hand, it provides the range of $\mathbf{c}$ for a given $P_d$.
-Points $(P_d, c_1, c_2, ..., c_M)$ on M-ROC  surface can be divided into two types: 1.  those with $[c_1, c_2, ..., c_M] \in \alpha^+$, define the set of points as $M_0$; 2. those with $[c_1, c_2, ..., c_M] \notin \alpha^+$, define the set of points as $M_1$. Obviously points in $M_0$ can be achieved by MENP (\rmnum{1}) and points in $M_1$ can  be achieved by MENP (\rmnum{2}). Next we consider a property of M-ROC surface.
+Points $(P_d, c_1, c_2, ..., c_M)$ on M-ROC  surface can be divided into two types: 
+\\1. Those with $[c_1, c_2, ..., c_M] \in \alpha^+$. Define this set of points as $M_0$; 
+\\2. Those with $[c_1, c_2, ..., c_M] \notin \alpha^+$. Define this set of points as $M_1$. Obviously points in $M_0$ can be achieved by MENP (\rmnum{1}) and points in $M_1$ can  be achieved by MENP (\rmnum{2}). Next we consider a property of M-ROC surface.
 
 \noindent\textbf{Property 1}
 
 \noindent  \textit{
-\noindent For a given $\alpha \in [0,1)$,  M-ROC surface segment with points satisfying $P_d \geq \alpha$ is  convex.
+\noindent For a given $\alpha \in [0,1)$, an M-ROC surface segment with points satisfying $P_d \geq \alpha$ is  convex.
 }
 
 The proof is given in the appendix.
@@ -297,28 +292,27 @@ Assume three hypotheses given as:
 \end{split}
 \end{equation}
 where $\mathcal{N}(\mu,\sigma^2)$ denotes a Gaussian PDF with mean $\mu$ and variance $\sigma^2$.
-To achieve M-ROC surface, we first consider points in region $M_0$.The decision rule in region $M_0$ is given by \eqref{equ: decision rule}
-with $k_1, k_2 \geq 0$ and $M = 2$, the expression for $P_d$, $P_{f_1}$ and $P_{f_2}$ are given by \eqref{equ: pf and pd} with $M = 2$ (according to \textbf{Neyman Pearson Lemma}, if $k_1, k_2 \geq 0$, $P_{f_1} = c_1$ and $P_{f_2} = c_2$).
+To form the M-ROC surface, we first consider points in region $M_0$.The decision rule in region $M_0$ is given by \eqref{equ: decision rule}
+with $M=2,\;\;k_1, k_2 \geq 0$, the expression for $P_d$, $P_{f_1}$ and $P_{f_2}$ are given by \eqref{equ: pf and pd} (according to \textbf{Neyman Pearson Lemma}, if $k_1, k_2 \geq 0$, $P_{f_1} = c_1$ and $P_{f_2} = c_2$).
 
-We use Matlab to achieve the points in region $M_0$. The values of $k_1$ and $k_2$ range from $0$ to $100$ with step $0.01$. Substitute the value of $k_1$ and $k_2$ into \eqref{equ: decision rule}, then we have the corresponding $P_d$ $P_{f_1}$ and $P_{f_2}$.  In Figure \ref{pic: surface for m0 gaussian}, points belong to region $M_0$ are plotted.
-Figure \ref{pic: contour for m0 gaussian} is the projection of Figure \ref{pic: surface for m0 gaussian} on $c_1, c_2$ plane.
-In Figure \ref{pic: contour for m0 gaussian}, region $N_0$ is the projection of region $M_0$ on $c_1 - c_2$ plane. Since $M_0$ is the set of points whose $[c_1, c_2] \in \alpha^+$, $N_0$ is the region whose points belongs to $\alpha^+$.
-Define curve $L_1$ is the set of points that satisfy following conditions: (1) $(c_1, c_2) \in N_0$; (2) $(c_1, c_2+\epsilon) \notin N_0$, where $\epsilon \rightarrow 0$. Define curve $L_2$ is the set of points that satisfy following conditions: (1) $(c_1, c_2) \in N_0$; (2) $(c_1 + \epsilon, c_2) \notin N_0$, where $\epsilon \rightarrow 0$.
-$N_1$ denotes the region enclosed by line $c_1 = 0$, $c_2 = 1$ and curve $L_1$.
-$N_2$ denotes the region enclosed by line $c_1 = 1$, $c_2 = 0$ and curve $L_2$.
+We use Matlab to illustrate region $M_0$. The values of $k_1$ and $k_2$ range from $0$ to $100$ with step $0.01$. Substituting the value of $k_1$ and $k_2$ into \eqref{equ: pf and pd}, then we have the corresponding $P_d$ $P_{f_1}$ and $P_{f_2}$.  The set $M_0$ is illustrated in Figure \ref{pic: surface for m0 gaussian}. Figure \ref{pic: contour for m0 gaussian} presents the projection of Figure \ref{pic: surface for m0 gaussian} on $c_1, c_2$ plane.
+In Figure \ref{pic: contour for m0 gaussian}, region $N_0$ is the projection of region $M_0$ on $c_1 - c_2$ plane. Since $M_0$ is the set of points with $[c_1, c_2] \in \alpha^+$, $N_0$ is the region of points that belong to $\alpha^+$.
+Define curve $L_1$ as the set of points that satisfy following conditions: (1) $(c_1, c_2) \in N_0$; (2) $(c_1, c_2+\epsilon) \notin N_0$, for any $\epsilon \geq 0$. Define curve $L_2$ as the set of points that satisfy the following conditions: (1) $(c_1, c_2) \in N_0$; (2) $(c_1 + \epsilon, c_2) \notin N_0$, for any $\epsilon \rightarrow 0$.
+$N_1$ denotes the region enclosed by line $c_1 = 0$, $c_2$; line $c_1$, $c_2 = 1$ and curve $L_1$.
+$N_2$ denotes the region enclosed by line $c_1 = 1$, $c_2$; line $c_1$, $c_2 = 0$ and curve $L_2$.
 The region of $N_0$ $N_1$ and $N_2$ are shown in Figure \ref{pic: contour for m0 gaussian}.
 
 \textbf{Conclusion 1}
-\textit{\\(1) For points belong to region $N_1$ or curve $L_1$, if they have the same $c_1$ value, they have the same decision rule and same $P_d$.
-\\(2) For points belong to region $N_2$ or curve $L_2$, if they have the same $c_2$ value, they have the same decision rule and same $P_d$.
+\textit{\\(1) All points belonging to region $N_1$ or curve $L_1$, if they have the same $c_1$, they have the same decision rule and same $P_d$.
+\\(2) All points belonging to region $N_2$ or curve $L_2$, if they have the same $c_2$, they have the same decision rule and same $P_d$.
 }
 The proof is given in the appendix.
 
 
-Since we have already know $P_d$ for points in region $N_0$ and curve $L_1$ and curve $L_2$ belongs to $N_0$ by Matlab, we can get the $P_d$ for points lie in $N_1$ and $N_2$. M-ROC surface for this example is given in Figure  \ref{pic: LJS} and the contour of M-ROC surface is given in Figure \ref{pic: LJS contour}.
+Since we already know $P_d$ for points in region $N_0$ and curves $L_1$ and $L_2$ belong to $N_0$, we can get the $P_d$ for points for $N_1$ and $N_2$. M-ROC surface for this example is given in Figure  \ref{pic: LJS} and the contour of M-ROC surface is given in Figure \ref{pic: LJS contour}.
 
 %different subsection
-\subsection{Chi-Square Situation}
+\subsection{Chi-Square Hypotheses}
 Assume three hypotheses  given as:
 \begin{equation}
   \label{equ: Chisquare Hypothesis}
@@ -328,7 +322,7 @@ Assume three hypotheses  given as:
     H_2:\;\;\;\;\;\;\;\;\frac{X}{\sigma_2^2} \sim \mathcal{X}^2(2N)\,,
   \end{split}
 \end{equation}
-where $\mathcal{X}^2(2N)$ is the Chi-square distribution with  $2N$ degree freedom($N$ is an integer, $\sigma_0^2 < \sigma_1^2, \sigma_2^2$). By random variable transformation\cite{mark2011probability}, we can get the PDFs for different hypotheses:
+where $\mathcal{X}^2(2N)$ is the Chi-square distribution with  $2N$ degree freedom($N$ is an integer, $\sigma_0^2 < \sigma_1^2, \sigma_2^2$ and $\sigma_1^2 \neq \sigma_2^2$). By random variable transformation\cite{mark2011probability}, we can get the PDFs for different hypotheses:
 
 \def \CHISQU[#1]{\frac{1}{#1 2^N\Gamma(N)}\left(\frac{x}{#1}\right)^{N-1}\exp\left(-\frac{x}{2#1}\right)\\}
 \begin{equation}
@@ -340,24 +334,25 @@ where $\mathcal{X}^2(2N)$ is the Chi-square distribution with  $2N$ degree freed
   \end{split}
 \end{equation}
 
-To achieve M-ROC surface, we first consider points in region $M_0$.  The decision rule in region $M_0$ is given by \eqref{equ: decision rule}
-with $k_1, k_2 \geq 0$ and $M = 2$, the expression for $P_d$, $P_{f_1}$ and $P_{f_2}$ are given by \eqref{equ: pf and pd} with $M = 2$ (according to \textbf{Neyman Pearson Lemma}, if $k_1, k_2 \geq 0$, $P_{f_1} = c_1$ and $P_{f_2} = c_2$).
+To form the M-ROC surface, we first consider points in region $M_0$.  The decision rule in region $M_0$ is given by \eqref{equ: decision rule}
+with $k_1, k_2 \geq 0$ and $M = 2$, and the expression for $P_d$, $P_{f_1}$ and $P_{f_2}$ are given by \eqref{equ: pf and pd} with $M = 2$ (according to \textbf{Neyman Pearson Lemma}. If $k_1, k_2 \geq 0$, $P_{f_1} = c_1$ and $P_{f_2} = c_2$).
 
-In the following, we will prove: in this example, the region achieved by ENP test with $k_1 \geq 0$ and $k_2 \geq 0$ is a curve.
+In the following, we will prove that in this example the region achieved by ENP test with $k_1 \geq 0$ and $k_2 \geq 0$ degenerates a curve.
 
-The decision rule for ENP test with $k_1, k_2 \geq 0$ can be written as following:
+The decision rule for ENP test with $k_1, k_2 \geq 0$ can be written as:
 \begin{equation}
 \label{equ: decision rule chi}
   \frac{k_1f_1(x) + k_2f_2(x)}{f_0(x)} \substack{\bar{H_0} \\ \geq \\ < \\ H_0} 1
 \end{equation}
-Substitute the $f_0(x), f_1(x)$ and $f_2(x)$ into \eqref{equ: decision rule chi}, we get:
+Substituting $f_0(x), f_1(x)$ and $f_2(x)$ from \eqref{equ: Chisquare Distribution} into \eqref{equ: decision rule chi}, we get:
 \begin{equation}
   \label{equ: decision rule chi 1}
   k_1'\exp{(\frac{1}{2\sigma_0^2} - \frac{1}{2\sigma_1^2})x} + k_2'\exp{(\frac{1}{2\sigma_0^2} - \frac{1}{2\sigma_2^2})x} \substack{\bar{H_0} \\ \geq \\ < \\ H_0} 1
 \end{equation}
-where $k_1' = k_1(\frac{\sigma_0}{\sigma_1})^{2N}$ and $k_2' = k_2(\frac{\sigma_0}{\sigma_2})^{2N}$. Define $p_1 = \frac{1}{2\sigma_0^2} - \frac{1}{2\sigma_1^2}$ and $p_2 = \frac{1}{2\sigma_0^2} - \frac{1}{2\sigma_2^2}$. Let $g(x) =  k_1'\exp{p_1x}+k_2'\exp{p_2x}$.
+where $k_1' = k_1(\frac{\sigma_0}{\sigma_1})^{2N}$ and $k_2' = k_2(\frac{\sigma_0}{\sigma_2})^{2N}$. Define $p_1 = \frac{1}{2\sigma_0^2} - \frac{1}{2\sigma_1^2}$ and $p_2 = \frac{1}{2\sigma_0^2} - \frac{1}{2\sigma_2^2}$, and $g(x) =  k_1'\exp{p_1x}+k_2'\exp{p_2x}$.
 
-From the condition that $\sigma_0^2 \leq \sigma_1^2$ and $\sigma_0^2 \leq \sigma_2^2$,  we can conclude $k_1', k_2', p_1, p_2$ are positive. Hence $g(x)$ is a monotonically increasing function with $x$ and $g^{-1}$ exists. Assume $x_0 = g^{-1}(1)$, then the decision rule is
+The parameters $k_1', k_2'$ are always non-negative when $k_1, k_2$ are such, and from 
+ the condition $\sigma_0^2 \leq \sigma_1^2$ and $\sigma_0^2 \leq \sigma_2^2$,  we can conclude $p_1, p_2$ are positive. Hence $g(x)$ is a monotonically increasing function with $x$ and $g^{-1}$ exists. Assume $x_0 = g^{-1}(1)$, then the decision rule is
 \begin{equation}
   \label{equ: decision rule chi 2}
   x \substack{\bar{H}_0 \\ \geq \\ < \\ H_0} x_0\;\;\;\;(x_0 \geq 0)\,.
@@ -372,25 +367,24 @@ Under decision rule \eqref{equ: decision rule chi 2}, the expression of $P_d$, $
             P_{f_2} = \text{Pr}(X \leq x_0 | H_2) = F_2(x_0)
   \end{split}
 \end{equation}
-where $F_0, F_1$ and  $F_2$  are the CDFs of $X$ under $H_0$, $H_1$ and $H_2$.
-If the ROC with $k_1, k_2 \geq 0$ is a surface, there would exist at least two points satisfy following condition: the two points have the same $P_{f_1}$ but different $P_{f_2}$.
-From \eqref{equ: chi pd}, if we know the value of $P_{f_1}$,  we can derive the value of $x_0$ and $P_{f_2}$. Hence for a given $P_{f_1}$, there is only one $P_{f_2}$ corresponds with it. We can conclude that the ENP ROC with $k_1, k_2 \geq 0$ is a curve.
+where $F_0, F_1$ and  $F_2$  are the CDFs of $X$ under $H_0$, $H_1$ and $H_2$ that in this case are monotonically increasing functions.
+From \eqref{equ: chi pd},  $P_{f_1}$ determines $x_0$ that in turn determines $P_{f_2}$. Hence for a given $P_{f_1}$, there is only one corresponding $P_{f_2}$. Hence the ENP ROC with $k_1, k_2 \geq 0$ is a curve in this case.
 
 By using \textbf{Conclusion 1}, we can derive the $P_d$ for $(c_1, c_2) \notin \alpha^+$.
-The M-ROC surface is plotted in Figure \ref{pic: LJS for chisquare}.
+The M-ROC surface is plotted in Figure \ref{pic: LJS for chisquare} for the situation when $\sigma_0^2 = 1$, $\sigma_1^2 = 1.1$ $\sigma_2^2 = 1.15$ and $N=120$.
 
 \section{Energy Based Spectrum Sensing for two Primary Users}
 In this section, an example for applying MENP to energy based spectrum sensing for two primary users is illustrated.
 
 \subsection{System Model}
-We consider a cognitive radio network where the licensed frequency spectrum could be occupied by exactly one of 2 distinct signals $\{s_1, s_2\}$ or it could be vacant.
-Let $\mathcal{H}_0$ denote the hypothesis under which the channel is free, $\mathcal{H}_1$ denote the hypothesis under which the channel is occupied by $s_1$ and $\mathcal{H}_2$ denote the hypothesis under which the channel is occupied by $s_2$. We are interested to test $H_0$ against $\bar{\mathcal{H}_0}$, where $\mathcal{H}_0$ denotes the hypothesis under which the channel is not free using.
+We consider a cognitive radio network where the licensed frequency spectrum could be occupied by exactly one of two distinct signals $\{s_1, s_2\}$ or it could be vacant.
+$\mathcal{H}_0$ denotes the hypothesis under which the channel is free, $\mathcal{H}_1$ denotes the hypothesis under which the channel is occupied by $s_1$ and $\mathcal{H}_2$ denotes the hypothesis under which the channel is occupied by $s_2$. We are interested to test $H_0$ against $\bar{\mathcal{H}_0}$.
 
 In Fig. \ref{pic: block diagram}, the block diagram of the system considered in this paper is given. 
 The detector consists a measuring device and a testing device. 
 The measuring device observes the noisy version of the signals that could be present in the channel and calculate the signal's energy. 
-With the signal's energy, the testing device employs MENP to decide the state of the channel.
-The input to the measuring device is given by
+With the signal's energy, the testing device employs MENP test to decide the state of the channel.
+The input of the measuring device is given by
 \begin{equation}
 x[n] = \begin{cases}
 \omega[n]\;\;\;\;\;\;&\text{when $\mathcal{H}_0$ is true}\\
@@ -401,20 +395,20 @@ s_2[n]+\omega[n]\;\;\;\;\;\;&\text{when $\mathcal{H}_2$ is true}
 where $n = \{0, ..., N-1\}$ are observation instances.
 Both $s_i[n]\;\;(i=1, 2)$ and $\omega[n]$ are modeled as zero-mean independent and identically distributed (iid) circularly symmetric complex Gaussian (CSCG) random variables with variances $2\sigma_{s_i}^2\;\;(i=1, 2)$ and $2\sigma_{\omega}^2$, i.e., $s_m[n] \sim \mathcal{CN}(0, 2\sigma_{s_i}^2)\;\;(i=1, 2)$ and $\omega[n] \sim \mathcal{CN}(0, \sigma_{\omega}^2)$. In this example, our goal is plotting the M-ROC figure for our detector. 
 
-In our model, the testing device is a energy detector, hence the output of the testing device is given by
+In our model, the testing device is an energy detector, hence the output of the testing device is given by
 \begin{equation}
 \label{equ: testing device}
-X = \sum{n=1}^{N}|x[n]|^2 = \sum_{n=1}^{N}(x_r[n]^2+x_i[n]^2)\,,
+X = \sum_{n=1}^{N}|x[n]|^2 = \sum_{n=1}^{N}(x_r[n]^2+x_i[n]^2)\,,
 \end{equation}
-where $x_r[n]$ and $x_i[n]$ are respectively the real and imaginary part of signal $x_[n]$. In the following, the PDFs of $X$ under different hypotheses will be calculated. 
+where $x_r[n]$ and $x_i[n]$ are respectively the real and imaginary part of signal $x[n]$. In the following, we firstly calculate the PDFs of $X$ under different hypotheses. 
 
 Because the noise and signal samples are independent, when $s_i[n]$ is presented in the channel, $x[n] = s_i[n]+\omega[n] \sim \mathcal{CN}(0, 2(\sigma_{s_i}^2 + \sigma_\omega^2))$. 
-When the channel is vacant, $x[n] = \omega[n] \sim \mathcal{CN}(0, 2\simga_\omega^2)$. 
-Under both circumstance, $x[n]$ is a iid CSCG random variable. 
+When the channel is vacant, $x[n] = \omega[n] \sim \mathcal{CN}(0, 2\sigma_\omega^2)$. 
+Under both circumstance, $x[n]$ are iid CSCG random variables. 
 
-Define $\sigma_1^2 = \sigma_\omega^2 + \sigma_{s_1}^2$, $\sigma_2^2 = \sigma_\omega^2 + \sigma_{s_2}^2$ and $\sigma_0^2 = \sigma_\omega^2$. 
-In the situation when $s_1$ is presented in the channel, $x[n]$ are iid CSCG random variables with variance $2\sigma_1^2$, i.e., $x[n] \sim \mathcal{CN}(0, 2\sigma_1^2)$, which can be written as $\begin{pmatrix} x_r[n] \\ x_i[n] \end{pmatrix} \sim \mathcal{N}\Big( \begin{bmatrix} 0 \\ 0 \end{bmatrix}, \begin{bmatrix} \sigma_1^2 & 0\\ 0 & \sigma_1^2 \end{bmatrix} \Big)$
-
+Define $\sigma_0^2 = \sigma_\omega^2$, $\sigma_1^2 = \sigma_\omega^2 + \sigma_{s_1}^2$ and $\sigma_2^2 = \sigma_\omega^2 + \sigma_{s_2}^2$. 
+In the situation when $s_1$ is presented in the channel, $x[n]$ are iid CSCG random variables with variance $2\sigma_1^2$, i.e., $x[n] \sim \mathcal{CN}(0, 2\sigma_1^2)$, which can be written as $\begin{pmatrix} x_r[n] \\ x_i[n] \end{pmatrix} \sim \mathcal{N}\Big( \begin{bmatrix} 0 \\ 0 \end{bmatrix}, \begin{bmatrix} \sigma_1^2 & 0\\ 0 & \sigma_1^2 \end{bmatrix} \Big)$.
+Hence we can conclude $\frac{x_r[n]}{\sigma_1} \sim \mathcal{C}(0, 1)$, $\frac{x_i[n]}{\sigma_1} \sim \mathcal{C}(0, 1)$. We also know the real part and imaginary part are independent. 
 Since \eqref{equ: testing device} can be given by
  \begin{equation}
  \frac{X}{\sigma_1^2} = \sum_{n=1}^{N}((\frac{x_r[n]}{\sigma_1})^2 + (\frac{x_i[n]}{\sigma_2})^2 ),
@@ -425,15 +419,15 @@ By using the same method, it can be shown $\frac{X}{\sigma_2^2} \sim \mathcal{X}
 \begin{equation}
 \label{equ: abstract}
 \begin{cases}
-\frac{X}{\sigma_0^2} \sim \mathcal{X}_{2N}\;\;\;\;\text{when $H_0$ is true}\,,\\
-\frac{X}{\sigma_1^2} \sim \mathcal{X}_{2N}\;\;\;\;\text{when $H_1$ is true}\,,\\
-\frac{X}{\sigma_2^2} \sim \mathcal{X}_{2N}\;\;\;\;\text{when $H_2$ is true}\,.
+\frac{X}{\sigma_0^2} \sim \mathcal{X}_{2N}\;\;\;\;\text{when $\mathcal{H_0}$ is true}\,,\\
+\frac{X}{\sigma_1^2} \sim \mathcal{X}_{2N}\;\;\;\;\text{when $\mathcal{H_1}$ is true}\,,\\
+\frac{X}{\sigma_2^2} \sim \mathcal{X}_{2N}\;\;\;\;\text{when $\mathcal{H_2}$ is true}\,.
 \end{cases}
 \end{equation}
 
 \subsection{Simulation result}
 In this section, we provide the simulation result to show the performance of MENP test for energy based spectrum sensing by plotting M-ROC.  
-Assume $\sigma_\omega^2 = 1$, $\sigma_{s_1}^2 = 0.1$ and $\sigma_{s_2}^2  = 0.15$, N=120.
+Assume $\sigma_\omega^2 = 1$, $\sigma_{s_1}^2 = 0.1$, $\sigma_{s_2}^2  = 0.15$ and N=120.
 
 Since \eqref{equ: abstract} has the same form of \eqref{equ: Chisquare Hypothesis}, the conclusions for \eqref{equ: Chisquare Hypothesis} can be used. 
 It is proved in section ``Chi-Square Example'', for the given constraints $P_{f_1} \leq c_1$ and $P_{f_2} \leq c_2$, if $c_1$ and $c_2$ can be achieved by ENP test with non-negative parameters, the decision rule has following form:
@@ -442,13 +436,15 @@ It is proved in section ``Chi-Square Example'', for the given constraints $P_{f_
 \end{equation}
 where $\lambda \geq 0$. 
 
-In our simulation, we get the corresponding $P_d$, $c_1$ and $c_2$ by increasing the value of $\lambda$ from $0$ to $100$. The outcome is plotted in Fig \ref{pic: simulation result} by bold curve. 
-After that, in order to achieve the whole M-ROC surface, we utilize \textbf{Conclusion 1} given in ``Gaussian Example''. The whole M-ROC is given in Fig. \ref{pic: simulation result}.
+In our Monte Carlo simulation, we get the corresponding $P_d$, $c_1$ and $c_2$ by increasing the value of $\lambda$ from $0$ to $100$. All simulations are run until at least 400 detections (and miss detections) are observed. 
+The outcome is plotted in Fig \ref{pic: simulation result} by bold curve. 
+After that, we utilize \textbf{Conclusion 1} given in ``Gaussian Example'' to achieve the whole M-ROC surface. 
+The whole M-ROC surface is given in Fig. \ref{pic: simulation result}.
 
 \section{Conclusions}
 In this paper, we explore the new field of spectrum sensing with emphasis on providing different levels of protections for various primary users. 
-The proposed MENP test could achieve the largest probability of detection detection under the constraints of probability of false alarms. 
-After that, we approach M-ROC to represent the relationship between the probability of detection and the constraint conditions. Two examples respectively concerning Gaussian distribution and Chi-Square distribution are given to show the properties of M-ROC. 
+The proposed MENP test could achieve the largest probability of detection detection under multiple constraints of probability of false alarms. 
+After that, we approach M-ROC surface to represent the relationship between the probability of detection and the constraint conditions. Two examples respectively concerning Gaussian distribution and Chi-Square distribution are given to show the properties of M-ROC surface. 
 We also proposed an energy based detector for two different types of primary users.
 For simplicity, we assume the signal samples of the primary users subject to iid CSCG distribution and the variance of the signal and the noise are known to the detector.
 By simulation, we showed the performance of this detector. 
