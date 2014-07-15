@@ -1,4 +1,4 @@
-\documentclass[12pt,journal,a4paper,twoside,onecolumn,draft]{IEEEtran}
+\documentclass[12pt,journal,a4paper,twoside,onecolumn]{IEEEtran}
 \usepackage{amssymb}
 \usepackage{mathtools}
 \usepackage{ amsmath, bm }
@@ -577,7 +577,7 @@ Hence the normal at this point is
 
 
 \subsection{Proof for Lemma 3}
-Assume $\mathbf{P} (P_d, P_{f_1}, ..., P_{f_M})$ is a point on the ROC and it cannot be achieved by ENP test with all non-negative parameters. Assume it can be achieved by ENP test with parameter $\mathbf{k} = [k_1, k_2, ..., k_M]^T$ and $k_l$ is negative.
+Assume $\mathbf{P} (P_d, P_{f_1}, ..., P_{f_M})$ is a point on the ROC and it cannot be achieved by ENP test with non-negative parameters. Assume it can be achieved by ENP test with parameter $\mathbf{k} = [k_1, k_2, ..., k_M]^T$ and $k_l$ is negative.
 
  If there exists a tangent hyper plane at point $\mathbf{P}$, according to \textbf{Lemma 2}, $\frac{\partial P_d}{\partial P_{f_l}} = k_l < 0$. Consider another point $\mathbf{P}' (P_d', P_{f_1}', ..., P_{f_M}')$, here $P_{f_i} = P_{f_i}' (i \neq l)$ and $P_{f_l}' = P_{f_l} - \epsilon \;\;(\epsilon \rightarrow 0 \text{and} \epsilon >0)$. The partial derivative can be written in following form:
  \begin{equation}
@@ -600,7 +600,17 @@ Since $k_l < 0$, $P_d' > P_d$. By comparing $\mathbf{P}'$ with $\mathbf{P}$, we 
 \end{equation}
 
 If there is no tangent hyper plane at point $\mathbf{P}$, we use another point to approximate $\mathbf{P}$. 
-Assume $\mathbf{P}' (P_d', P_{f_1}', ..., P_{f_M}')$ is a point achieved by ENP parameters $\mathbf{k}=[k_1', k_2', ..., k_M']^T$, where $k_i' = k_i \;(i \neq l)$ and $k_l' = k_l + \delta$ and there exists a tangent hyper plane at point $\mathbf{P}'$. From \eqref{pro: Pf par k} and \eqref{pro: Pd par k}, the expression inside the integration are all non-negative, hence we have $\frac{\partial P_{f_n}}{\partial k_i} \leq 0$ and $\frac{\partial P_d}{\partial k_i} \leq 0$. Since $k_i' = k_i (i \neq l)$ and $k_l' = k_l + \delta$, we have $P_d' \leq P_d$ and $P_{f_i}' \leq P_{f_i}$. Define $\alpha = P_d - P_d'$ and the expression of $P_d$ and $P_d'$ can be written as
+Assume $\mathbf{P}' (P_d', P_{f_1}', ..., P_{f_M}')$ is a point achieved by ENP parameters $\mathbf{k}=[k_1', k_2', ..., k_M']^T$, where $k_i' = k_i \;(i \neq s)$ ($s$ could be any integer between $0$ and $M$) and $k_s' = k_s + \delta$ ($\delta \rightarrow 0, \delta > 0$) and there exists a tangent hyper plane at point $\mathbf{P}'$. From \eqref{pro: Pf par k} and \eqref{pro: Pd par k}, the expression inside the integration are all non-negative, hence we have $\frac{\partial P_{f_n}}{\partial k_i}|_{P'} \leq 0$ and $\frac{\partial P_d}{\partial k_i}|_{P'} \leq 0$. Using Taylor expression for point $P'$,
+\begin{equation}
+\begin{split}
+P_d &= P_d' + \sum_{i=1}^{M}\frac{\partial P_d}{\partial k_i}\bigg|_{P'}(k_i - k_i') + o(\sum_{i=1}^{M}(k_i-k_i')^2)\\
+&= P_d' - \delta\frac{\partial P_d}{\partial k_s} \geq P_d'\,.
+\end{split}
+\end{equation}
+In the same method, we can prove $P_{f_i}' \leq P_{f_i}$.
+
+Define $\alpha = P_d - P_d'$ and the expression of $P_d$ and $P_d'$ can be written as
+
 \begin{equation}
   P_d = \int_{\mathcal{S}}f_0(x)\mathrm{d}x 
 \end{equation}
@@ -610,15 +620,15 @@ and
 \end{equation}
 where $\mathcal{S}$ is defined as 
 \begin{equation}
-x \in \mathcal{S} iff f_0(x) \geq \sum_{j=1}^M k_jf_j(x)
+x \in \mathcal{S} \text{iff} f_0(x) \geq \sum_{j=1}^M k_jf_j(x)
 \end{equation}
 $\mathcal{S}'$ is defined as
 \begin{equation}
-x \in \mathcal{S} iff f_0(x) \geq \sum_{j=1}^M k_j'f_j(x)\,.
+x \in \mathcal{S} \text{iff} f_0(x) \geq \sum_{j=1}^M k_j'f_j(x)\,.
 \end{equation}
-Since $k_i' = k_i (i \neq l)$ and $k_l' \rightarrow k_l$, we know $\mathcal{S}' \rightarrow \mathcal{S}$ and $P_d' \rightarrow P_d$. We can conclude $\alpha \rightarrow 0$.
+Since $k_i' = k_i (i \neq s)$ and $k_s' \rightarrow k_s$, we know $\mathcal{S}' \rightarrow \mathcal{S}$ and $P_d' \rightarrow P_d$. We can conclude $\alpha \rightarrow 0$.
 
-In previous, we have proved for point $\mathbf{P}'$, there exists a point $\mathbf{P}'' (P_d'', P_{f_1}'', ..., P_{f_M}'')$, where $P_d'' = P_d' - \epsilon k_l'$ and $P_{f_i}'' \leq P_{f_i}'$. We let $\epsilon > \frac{\alpha}{|k_l'|}$ and $P_d'' > P_d$. Hence for point $\mathbf{P}''$, we have 
+Since there exists a tangent hyperplane on the ROC surface at point $\mathbf{P}'$, there exists a point $\mathbf{P}'' (P_d'', P_{f_1}'', ..., P_{f_M}'')$, where $P_d'' = P_d' - \epsilon k_l'$ and $P_{f_i}'' \leq P_{f_i}'$. We let $\epsilon > \frac{\alpha}{|k_l'|}$ and $P_d'' > P_d$. Hence for point $\mathbf{P}''$, we have 
 \begin{equation}
 \begin{split}
 P_d'' > P_d\\
@@ -627,10 +637,9 @@ P_{f_i}'' \leq P_{f_i}
 \end{equation}
 
 
-\subsection{Proof for Leib-Jiang Algorithm }
-Leib-Jiang Algorithm (\rmnum{1}) is given in \textbf{Neyman Pearson Lemma}. Here only the situation  $\mathbf{c} \notin \alpha^+$ needs to be proved.
-Define $m$ dimension vector $\mathbf{b}^T = [b_1, b_2, ..., b_m]$, and set $\mathcal{B} = \{ \mathbf{b} |  b_i \in [0, c_i] \}$, $c_i$
-is given in \eqref{equ: problemstate}. For $P_{f_i} = b_i (i = 1, 2, ..., m)$ (if this there is decision rule to achieve this condition), denote the largest $P_d$ can be given by NP testing by $G(\mathbf{b})$. The problem given in \eqref{equ: problemstate} can be transform into
+\subsection{Proof for MENP test}
+MENP test (\rmnum{1}) is part of in \textbf{Neyman Pearson Lemma}. In the following, we will prove MENP test (\rmnum{2}). Define $m$ dimension vector $\mathbf{b}^T = [b_1, b_2, ..., b_M]$, and set $\mathcal{B} = \{ \mathbf{b} |  b_i \in [0, c_i] \}$, $c_i$
+is given in \eqref{equ: problemstate}. For $P_{f_i} = b_i (i = 1, 2, ..., M)$, denote the largest $P_d$ can be given by NP testing by $G(\mathbf{b})$. The problem given in \eqref{equ: problemstate} can be written as
 \begin{equation}
 \label{equ: problem transformation}
 \begin{split}
@@ -638,9 +647,9 @@ is given in \eqref{equ: problemstate}. For $P_{f_i} = b_i (i = 1, 2, ..., m)$ (i
 \text{s.t.}\;\;\;\;\;\;\;\;& \mathbf{b} \in \mathcal{B}\,.
 \end{split}
 \end{equation}
-All $\mathbf{b}$ can be divided into three types: (1) There exist decision rule for $P_{f_i} = b_i (i = 1, ..., M)$, but at least one $k_i$ is negative; (2) No decision rule can achieve $P_{f_i} = b_i (i = 1, ..., m)$; (3) $\mathbf{b} \in \alpha^+$;
+$\mathbf{b}$ can be classified into three types: (1) there only exists ENP decision rule with negative parameters can achieve $P_{f_i} = b_i (i = 1, ..., M)$; (2) no decision rule can achieve $P_{f_i} = b_i (i = 1, ..., M)$; (3) there exists ENP decision rule with all non-negative parameters can achieve $P_{f_i} = b_i (i = 1, ..., M)$, which means $\mathbf{b} \in \alpha^+$.
 
-In situation (1), according to \textbf{Lemma 3} or \textbf{Lemma 4},  points in this region cannot satisfy \eqref{equ: problem transformation} or can be replaced by a point in $\alpha^+$; in the second situation, there doesn't exist $P_d$, hence it cannot satisfy \eqref{equ: problem transformation}. Hence if $\mathbf{b}$ satisfy \eqref{equ: problem transformation}, $\mathbf{b} \in \alpha^+$.  Problem given by \eqref{equ: problemstate} can be transform into
+If a $\mathbf{b}$ belongs to type (1), according to \textbf{Lemma 3},  points in this region cannot satisfy \eqref{equ: problemstate}, so it cannot be the solution for  \eqref{equ: problem transformation}; if $\mathbf{b}$ belongs to type (2), there is no decision rule satisfying $P_{f_i} = b_i (i = 1, 2, ..., M)$, hence it cannot be the solution for \eqref{equ: problem transformation}. Hence we can conclude if $\mathbf{b}$ satisfy \eqref{equ: problem transformation}, $\mathbf{b} \in \alpha^+$.  Problem given by \eqref{equ: problemstate} can be transform into
 \begin{equation}
 \label{equ: problem transformation 2}
 \begin{split}
@@ -648,7 +657,7 @@ In situation (1), according to \textbf{Lemma 3} or \textbf{Lemma 4},  points in 
 \text{s.t.}\;\;\;\;\;\;\;\;& \mathbf{b} \in \mathcal{B} \cap \alpha^+ \,.
 \end{split}
 \end{equation}
-Leib-Jiang algorithm (\rmnum{2}) is proved.
+MENP test (\rmnum{2}) is proved.
 
 \subsection{Proof for Property 1}
 Define set $\mathcal{C}_\alpha = \{
@@ -679,29 +688,29 @@ In the same way, we can prove: For points belong to region $N_2$ or curve $L_2$,
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=12cm]{ROC.eps}
-\caption{Region that can be achieved by Neyman Pearson testing with $k_i \geq 0$.}
+\includegraphics[width=12cm]{singleROC.eps}
+\caption{Region that can be achieved by Neyman Pearson testing with $k_i \geq 0 (i=1, ..., M)$.}
 \label{pic: surface for m0 gaussian}
 \end{figure}
 \newpage
 \begin{figure}[!t]
 \centering
-\includegraphics[width=12cm]{region.eps}
-\caption{Region that can be achieved by Neyman Pearson testing with $k_i \geq 0$.}
+\includegraphics[width=12cm]{singlecontour.eps}
+\caption{Region that can be achieved by Neyman Pearson testing with $k_i \geq 0 (i=1, ..., M)$.}
 \label{pic: contour for m0 gaussian}
 \end{figure}
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=12cm]{LJROC.eps}
-\caption{The ROC of Leib-Jiang Algorithm.}
+\includegraphics[width=12cm]{ROC2.eps}
+\caption{The M-ROC surface for Gaussian Hypotheses.}
 \label{pic: LJS}
 \end{figure}
 
 \begin{figure}[!t]
 \centering
 \includegraphics[width=12cm]{LJcontour.eps}
-\caption{Contour for the Leib-Jiang ROC.}
+\caption{Contour for M-ROC surface.}
 \label{pic: LJS contour}
 \end{figure}
 
@@ -709,7 +718,7 @@ In the same way, we can prove: For points belong to region $N_2$ or curve $L_2$,
 \begin{figure}[!t]
 \centering
 \includegraphics[width=12cm]{chi2ROC.eps}
-\caption{The Leib-Jiang ROC for the Chi-square example.}
+\caption{The M-ROC for the Chi-square example.}
 \label{pic: LJS for chisquare}
 \end{figure}
 
@@ -724,14 +733,14 @@ In the same way, we can prove: For points belong to region $N_2$ or curve $L_2$,
 \begin{figure}[!t]
 \centering
 \includegraphics[width=12cm]{simu_chi2ROC.eps}
-\caption{Analysis performance for Leib-Jiang Algorithm for $\sigma_\omega^2=1$, $\sigma_{s_1}^2=0.1$ $\sigma_{s_2}^2 = 0.15$, $N=120$.}
+\caption{Analysis performance of MENP test for $\sigma_\omega^2=1$, $\sigma_{s_1}^2=0.1$ $\sigma_{s_2}^2 = 0.15$, $N=120$.}
 \label{317}
 \end{figure}
 
 \begin{figure}[!t]
 \centering
 \includegraphics[width=12cm]{simu_c.eps}
-\caption{Monte Carlo Simulation for Leib-Jiang Algorithm for $\sigma_\omega^2=1$, $\sigma_{s_1}^2=0.1$ $\sigma_{s_2}^2 = 0.15$, $N=120$.}
+\caption{Monte Carlo Simulation of MENP test for $\sigma_\omega^2=1$, $\sigma_{s_1}^2=0.1$ $\sigma_{s_2}^2 = 0.15$, $N=120$.}
 \label{pic: simulation result}
 \end{figure}
 
