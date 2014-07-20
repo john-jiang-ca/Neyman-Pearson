@@ -241,7 +241,8 @@ and the decision rule $\delta $ solving  \eqref{equ: problemstate} is:
 \textit{
 Since $\mathbf{a}^0 \in \mathcal{A}_{\mathbf{c}} \cap \alpha^+$, from \textnormal{(\rmnum{1})} we have that there exists a different vector $\mathbf{k}^0$ such that}  \eqref{equ:decision rule} \textit{ maximizes $P_d$ under the constraints $P_{f_i} = a_i^0, \;i=1, ..., M$. Here since $a_i^0 \leq c_i^0, \;i=1, ..., M$ this decision rule  satisfies} \eqref{equ: problemstate}.
 
-In  (\rmnum{2}), even though the task of finding $\mathbf{a}^0$ seems to be complicated, in practice, it is not so. Since when $\mathbf{a} \in \alpha^+$ we have 
+In the following, a method of finding $\mathbf{a}^0$ in (\rmnum{2}) is introduced. 
+Since when $\mathbf{a} \in \alpha^+$ we have 
 \begin{equation}
   \begin{split}
     \max\;\;\;\;&P_d = F(\mathbf{a})\\
@@ -257,9 +258,9 @@ when $\mathbf{a} \in \alpha^+$, according to ENP Lemma, $F(\mathbf{a})$ also sat
   \end{split}
 \end{equation}
 
-In \eqref{equ: F}, when one of $a_i, i = 1, ..., M$ increases and other $a_i$ remain the same, the constraints is more relaxed, so $P_d$ will not decrease. Hence we can conclude $F(\mathbf{a})$ is a non-decreasing function when $\mathbf{a} \in \alpha^+$. Hence we can conclude $\mathbf{a}^0$ has the largest components $a_i^0$ among all $\mathbf{a} \in \mathcal{C}$. 
+In \eqref{equ: F}, when one of $a_i, i = 1, ..., M$ increases and other $a_i$ remain the same, the constraints is more relaxed, so $P_d$ will not decrease. So it can be inferred that $F(\mathbf{a})$ is a non-decreasing function of $\mathbf{a}$ when $\mathbf{a} \in \alpha^+$. Hence we can conclude $\mathbf{a}^0$ has the largest components $a_i^0$ among all $\mathbf{a} \in \mathcal{C}$. 
 
-When trying to find $\mathbf{a}^0$, we only need to iterate $\mathbf{a} \in \alpha$ who have the largest components $a_i$ instead of all $\mathbf{a} \in \alpha$.
+When trying to find $\mathbf{a}^0$, we only need to iterate $\mathbf{a} \in \alpha$ who have the largest components $a_i$.
 
 From (\rmnum{1}) and (\rmnum{2}), it can also be concluded that for any given $(c_1, c_2, ..., c_M)$, the decision rule has form given by \eqref{equ: decision rule} with $k_i \geq 0\;\;i=1, ..., M$.
 
@@ -267,15 +268,33 @@ The proof that MENP achieves the optimal decision rule is given in the appendix.
 
 \section{The ROC surface of MENP}
 
-The ROC surface of MENP (M-ROC) depicts the relationship between $P_d$ and $c_1, c_2, ..., c_M$. In one hand, it  illustrates the largest $P_d$ can that can be achieved under the constraints $P_{f_i} \leq c_i (i = 1, 2, ..., M)$, on the other hand, it provides the range of $\mathbf{c}$ for a given $P_d$.
+The ROC surface of MENP (M-ROC) depicts the relationship between $P_d$ and $c_1, c_2, ..., c_M$. On one hand, it  illustrates the largest $P_d$ can that can be achieved under the constraints $P_{f_i} \leq c_i (i = 1, 2, ..., M)$, on the other hand, it provides the range of $\mathbf{c}$ for a given $P_d$.
 Points $(P_d, c_1, c_2, ..., c_M)$ on M-ROC  surface can be divided into two types: 
 \\1. Those with $[c_1, c_2, ..., c_M] \in \alpha^+$. Define this set of points as $M_0$; 
-\\2. Those with $[c_1, c_2, ..., c_M] \notin \alpha^+$. Define this set of points as $M_1$. Obviously points in $M_0$ can be achieved by MENP (\rmnum{1}) and points in $M_1$ can  be achieved by MENP (\rmnum{2}). Next we consider a property of M-ROC surface.
+\\2. Those with $[c_1, c_2, ..., c_M] \notin \alpha^+$. Define this set of points as $M_1$. 
+
+Obviously points in $M_0$ can be achieved by MENP (\rmnum{1}) and points in $M_1$ can  be achieved by MENP (\rmnum{2}). Next we consider a property of M-ROC surface.
 
 \noindent\textbf{Property 1}
 
 \noindent  \textit{
 \noindent For a given $\alpha \in [0,1)$, an M-ROC surface segment with points satisfying $P_d \geq \alpha$ is  convex.
+}
+
+\noindent \textbf{Property 2}
+\noindent \textit{
+  \noindent Assume hypotheses given as:
+}
+\begin{equation}
+\begin{split}
+H_0:\;\;\;\;\;\;&X \sim f_0(x)\\
+H_1:\;\;\;\;\;\;&X \sim f_1(x)\\
+  &......\\
+H_M:\;\;\;\;\;\;&X \sim f_M(x)
+\end{split}
+\end{equation}
+\textit{
+  define $g(x) = \frac{\sum_{i=1}^{M}k_if_i(x)}{f_0(x)}$. If $g(x)$ is a monotonically increasing function with $x$ and the CDFs of hypotheses $H_i (i = 0, ..., M)$ are monotonically increasing function, then the region $M_0$ degenerates a curve and the decision rule for $M_0$ is $x \substack{\bar{H}_0 \\ \geq \\ < \\H_0} x_0$. 
 }
 
 The proof is given in the appendix.
@@ -306,10 +325,48 @@ The region of $N_0$ $N_1$ and $N_2$ are shown in Figure \ref{pic: contour for m0
 \textit{\\(1) All points belonging to region $N_1$ or curve $L_1$, if they have the same $c_1$, they have the same decision rule and same $P_d$.
 \\(2) All points belonging to region $N_2$ or curve $L_2$, if they have the same $c_2$, they have the same decision rule and same $P_d$.
 }
+
 The proof is given in the appendix.
 
-
 Since we already know $P_d$ for points in region $N_0$ and curves $L_1$ and $L_2$ belong to $N_0$, we can get the $P_d$ for points for $N_1$ and $N_2$. M-ROC surface for this example is given in Figure  \ref{pic: LJS} and the contour of M-ROC surface is given in Figure \ref{pic: LJS contour}.
+
+In the following, we consider a more general case: assume $M+1$ hypotheses given as
+\begin{equation}
+\label{equ: m+1 Gaussian Hypo}
+\begin{split}
+H_0:\;\;\;\;\;\;&X\sim \mathcal{N}(\mu_0, \sigma_0^2)\\
+H_1:\;\;\;\;\;\;&X\sim \mathcal{N}(\mu_1, \sigma_1^2)\\
+  ......\\
+H_M:\;\;\;\;\;\;&X\sim \mathcal{N}(\mu_M, \sigma_M^2)
+\end{split}
+\end{equation}
+We will prove when $\sigma_0^2 = \sigma_1^2 = ... = \sigma_M^2$ and $\mu_0 < \mu_i (i = 1, ..., M)$, the region achieved by ENP test with $k_i \geq 0 (i = 1, ..., M)$ degenerates a curve.
+
+Define $g(x) = \frac{\sum_{i=1}^{M}k_if_i(x)}{f_0(x)}$, $g(x)$ can be written as 
+\begin{equation}
+\label{equ: define gx}
+g(x) = \sum_{i=1}^{M}k_1\frac{f_i(x)}{f_0(x)}.
+\end{equation}
+Since $f_i(x) (i = 0, 1, ..., M)$ are the PDFs of Gaussian distribution with mean $\mu_i$ and variance $\sigma_i^2$, we have 
+\begin{equation}
+\label{equ: gaussian PDF}
+f_i(x) = \frac{1}{\sqrt{2\pi\sigma_i^2}}\exp(-\frac{(x-\mu_i)^2}{2\sigma_i^2}).
+\end{equation}
+Substitute \eqref{equ: gaussian PDF} into \eqref{equ: define gx},
+\begin{equation}
+\label{g00}
+g(x) = \sum_{i=1}^{M}\frac{\frac{1}{\sqrt{2\pi\sigma_i^2}}\exp(-\frac{(x-\mu_i)^2}{2\sigma_i^2})}{\frac{1}{\sqrt{2\pi\sigma_0^2}}\exp(-\frac{(x-\mu_0)^2}{2\sigma_0^2})}
+\end{equation}
+Substitute the condition $\sigma_i^2 = \sigma_0^2 (i = 1, ..., M)$ into \eqref{g00}, we have 
+\begin{equation}
+\label{equ: gx cc}
+g(x) = \sum_{i=1}^{M}k_i\exp(\frac{(\mu_i - \mu_0)(2x-\mu_i - \mu_0)}{2\sigma_0^2})
+\end{equation}
+Define $c_i = \frac{\mu_i - \mu_0}{2\sigma_0^2}$, \eqref{equ: gx cc} can be written as
+\begin{equation}
+g(x) = \sum_{i=1}^{M}k_i\exp(c_i(2x-\mu_0 - \mu_i)
+\end{equation}
+According to the condition $\mu_0 < \mu_i (i=1, ..., M)$, we know $c_i >0$. Hence it can be conclude that $g(x)$ is a monotonically increasing function with $x$. According to \textbf{Property 2} we know the region $M_0$ (region achieved by ENP test with $k_i \geq 0 (i=1, ..., M)$) degenerates a curve.
 
 %different subsection
 \subsection{Chi-Square Hypotheses}
@@ -317,68 +374,79 @@ Assume three hypotheses  given as:
 \begin{equation}
   \label{equ: Chisquare Hypothesis}
   \begin{split}
-    H_0:\;\;\;\;\;\;\;\;\frac{X}{\sigma_0^2} \sim \mathcal{X}^2(2N)\\
-    H_1:\;\;\;\;\;\;\;\;\frac{X}{\sigma_1^2} \sim \mathcal{X}^2(2N)\\
-    H_2:\;\;\;\;\;\;\;\;\frac{X}{\sigma_2^2} \sim \mathcal{X}^2(2N)\,,
+    H_0:\;\;\;\;\;\;\;\;&\frac{X}{\sigma_0^2} \sim \mathcal{X}^2(2N)\\
+    H_1:\;\;\;\;\;\;\;\;&\frac{X}{\sigma_1^2} \sim \mathcal{X}^2(2N)\\
+    &......\\
+    H_M:\;\;\;\;\;\;\;\;&\frac{X}{\sigma_2^M} \sim \mathcal{X}^2(2N)\,,
   \end{split}
 \end{equation}
-where $\mathcal{X}^2(2N)$ is the Chi-square distribution with  $2N$ degree freedom($N$ is an integer, $\sigma_0^2 < \sigma_1^2, \sigma_2^2$ and $\sigma_1^2 \neq \sigma_2^2$). By random variable transformation\cite{mark2011probability}, we can get the PDFs for different hypotheses:
+where $\mathcal{X}^2(2N)$ is the Chi-square distribution with  $2N$ degree freedom($N$ is an integer, $\sigma_0^2 < \sigma_1^2, ..., \sigma_M^2$ and $\sigma_i^2 \neq \sigma_j^2$ if $i \neq j$). By random variable transformation\cite{mark2011probability}, we can get the PDFs for different hypotheses:
 
 \def \CHISQU[#1]{\frac{1}{#1 2^N\Gamma(N)}\left(\frac{x}{#1}\right)^{N-1}\exp\left(-\frac{x}{2#1}\right)\\}
 \begin{equation}
   \label{equ: Chisquare Distribution}
   \begin{split}
-    H_0:\;\;\;\;\;\;\;\;f_0(x) = \CHISQU[\sigma_0^2]\\
-    H_1:\;\;\;\;\;\;\;\;f_1(x) = \CHISQU[\sigma_1^2]\\
-    H_2:\;\;\;\;\;\;\;\;f_2(x) = \CHISQU[\sigma_2^2]\,.
+    H_0:\;\;\;\;\;\;\;\;&f_0(x) = \CHISQU[\sigma_0^2]\\
+    H_1:\;\;\;\;\;\;\;\;&f_1(x) = \CHISQU[\sigma_1^2]\\
+    &......\\
+    H_M:\;\;\;\;\;\;\;\;&f_2(x) = \CHISQU[\sigma_M^2]\,.
   \end{split}
 \end{equation}
 
-To form the M-ROC surface, we first consider points in region $M_0$.  The decision rule in region $M_0$ is given by \eqref{equ: decision rule}
-with $k_1, k_2 \geq 0$ and $M = 2$, and the expression for $P_d$, $P_{f_1}$ and $P_{f_2}$ are given by \eqref{equ: pf and pd} with $M = 2$ (according to \textbf{Neyman Pearson Lemma}. If $k_1, k_2 \geq 0$, $P_{f_1} = c_1$ and $P_{f_2} = c_2$).
+In the following, we will prove that in this example the region achieved by ENP test with $k_i \geq 0 (i = 1, ..., M)$ degenerates a curve.
 
-In the following, we will prove that in this example the region achieved by ENP test with $k_1 \geq 0$ and $k_2 \geq 0$ degenerates a curve.
-
-The decision rule for ENP test with $k_1, k_2 \geq 0$ can be written as:
+The decision rule for ENP test with $k_i \geq 0 (i=1, ..., M)$ can be written as:
 \begin{equation}
 \label{equ: decision rule chi}
-  \frac{k_1f_1(x) + k_2f_2(x)}{f_0(x)} \substack{\bar{H_0} \\ \geq \\ < \\ H_0} 1
+  \frac{\sum_{i=1}^{M}k_if_i(x)}{f_0(x)} \substack{\bar{H_0} \\ \geq \\ < \\ H_0} 1
 \end{equation}
-Substituting $f_0(x), f_1(x)$ and $f_2(x)$ from \eqref{equ: Chisquare Distribution} into \eqref{equ: decision rule chi}, we get:
+Substituting $f_i(x) (i=1, ..., M)$ from \eqref{equ: Chisquare Distribution} into \eqref{equ: decision rule chi}, we get:
+
 \begin{equation}
   \label{equ: decision rule chi 1}
-  k_1'\exp{(\frac{1}{2\sigma_0^2} - \frac{1}{2\sigma_1^2})x} + k_2'\exp{(\frac{1}{2\sigma_0^2} - \frac{1}{2\sigma_2^2})x} \substack{\bar{H_0} \\ \geq \\ < \\ H_0} 1
+ \sum_{i=1}^{M}k_i'\exp{(\frac{1}{2\sigma_0^2} - \frac{1}{2\sigma_i^2})x} \substack{\bar{H_0} \\ \geq \\ < \\ H_0} 1
 \end{equation}
-where $k_1' = k_1(\frac{\sigma_0}{\sigma_1})^{2N}$ and $k_2' = k_2(\frac{\sigma_0}{\sigma_2})^{2N}$. Define $p_1 = \frac{1}{2\sigma_0^2} - \frac{1}{2\sigma_1^2}$ and $p_2 = \frac{1}{2\sigma_0^2} - \frac{1}{2\sigma_2^2}$, and $g(x) =  k_1'\exp{p_1x}+k_2'\exp{p_2x}$.
+where $k_i' = k_i(\frac{\sigma_0}{\sigma_i})^{2N} (i= 1, ..., M)$. Define $p_i = \frac{1}{2\sigma_0^2} - \frac{1}{2\sigma_i^2} (i=1, ..., M)$ and $g(x) =  \sum_{i=1}^{M}k_i'\exp{p_ix}$.
 
-The parameters $k_1', k_2'$ are always non-negative when $k_1, k_2$ are such, and from 
- the condition $\sigma_0^2 \leq \sigma_1^2$ and $\sigma_0^2 \leq \sigma_2^2$,  we can conclude $p_1, p_2$ are positive. Hence $g(x)$ is a monotonically increasing function with $x$ and $g^{-1}$ exists. Assume $x_0 = g^{-1}(1)$, then the decision rule is
+The parameters $k_i' (i=1, ..., M)$ are always non-negative when $k_i (i=1, ..., M)$ are such, and from 
+ the condition $\sigma_0^2 \leq \sigma_i^2 (i=1, ..., M)$ we can conclude $p_i (i=1, ..., M)$ are positive. Hence $g(x)$ is a monotonically increasing function with $x$. According to \textbf{Property 2}, we know the region achieved by ENP test with $k_i (i = 1, ..., M)$ degenerates a curve and the decision rule is
 \begin{equation}
   \label{equ: decision rule chi 2}
-  x \substack{\bar{H}_0 \\ \geq \\ < \\ H_0} x_0\;\;\;\;(x_0 \geq 0)\,.
+  x \substack{\bar{H}_0 \\ \geq \\ < \\ H_0} x_0\;\;\;\;\,.
 \end{equation}
 
-Under decision rule \eqref{equ: decision rule chi 2}, the expression of $P_d$, $P_{f_1}$ and $P_{f_2}$ can be written as
+Since under Chi-Square distribution, $f_i(x) =0 (i = 0, 1, ..., M)$ if $x<0$, we can conclude $x_0 \geq 0$.
+Under decision rule \eqref{equ: decision rule chi 2}, the expression of $P_d$, $P_{f_1}$, ..., $P_{f_M}$ can be written as
 \begin{equation}
 \label{equ: chi pd}
   \begin{split}
-    P_d = \text{Pr}(X \leq x_0 | H_0) = F_0(x_0)\\
-        P_{f_1} = \text{Pr}(X \leq x_0 | H_1) = F_1(x_0)\\
-            P_{f_2} = \text{Pr}(X \leq x_0 | H_2) = F_2(x_0)
+    P_d &= \text{Pr}(X \leq x_0 | H_0) = F_0(x_0)\\
+        P_{f_1} &= \text{Pr}(X \leq x_0 | H_1) = F_1(x_0)\\
+        &......\\
+            P_{f_M} &= \text{Pr}(X \leq x_0 | H_2) = F_M(x_0)
   \end{split}
 \end{equation}
-where $F_0, F_1$ and  $F_2$  are the CDFs of $X$ under $H_0$, $H_1$ and $H_2$ that in this case are monotonically increasing functions.
-From \eqref{equ: chi pd},  $P_{f_1}$ determines $x_0$ that in turn determines $P_{f_2}$. Hence for a given $P_{f_1}$, there is only one corresponding $P_{f_2}$. Hence the ENP ROC with $k_1, k_2 \geq 0$ is a curve in this case.
+where $F_0, F_1$, ..., $F_M$  are the CDFs of $X$ under $H_0$, $H_1$, ..., $H_M$ that in this case are monotonically increasing functions.
+
+In the following, an example for Chi-Square Hypotheses with $M=2$, $\sigma_0^2 = 1$, $\sigma_1^2 = 1.1$, $\sigma_2^2 = 1.15$ and $N=120$ is given.
+
+To form the M-ROC surface, we first consider points in region $M_0$ ($(c_1, c_2) \in \alpha$). As we have proved, the decision rule for this region is $x \substack{\bar{H}_0 \\\geq\\< \\ H_0 } x_0 (x_0 \geq 0)$ and the expression of $P_d$ $P_{f_1}$ $P_{f_2}$ can be derived by \eqref{equ: chi pd}.  According to Extended NP test, when $k_1, k_2 \geq 0$, we have $P_{f_1} = c_1$ and $P_{f_2} = c_2$. Hence $c_1$, $c_2$ and $P_d$ can be derived by
+\begin{equation}
+\begin{split}
+P_d &= F_0(x_0)\\
+c_1 &= F_1(x_0)\\
+c_2 &= F_2(x_0)\,.
+\end{split}
+\end{equation}
 
 By using \textbf{Conclusion 1}, we can derive the $P_d$ for $(c_1, c_2) \notin \alpha^+$.
-The M-ROC surface is plotted in Figure \ref{pic: LJS for chisquare} for the situation when $\sigma_0^2 = 1$, $\sigma_1^2 = 1.1$ $\sigma_2^2 = 1.15$ and $N=120$.
-
+The M-ROC surface is plotted in Figure \ref{pic: LJS for chisquare}.Since for points $(c_1, c_2) \in \alpha$, the decision rule is  $x \substack{\bar{H}_0 \\\geq\\< \\ H_0 } x_0 (x_0 \geq 0)$, according to \textbf{Conclusion 1}, we can conclude that for $(c_1, c_2) \notin \alpha^+$, the M-ENP decision rule also has the form of $x \substack{\bar{H}_0 \\\geq\\< \\ H_0 } x_0 (x_0 \geq 0)$.  
 \section{Energy Based Spectrum Sensing for two Primary Users}
 In this section, we consider an example for applying the MENP test to energy based spectrum sensing for two primary users.
 
 \subsection{System Model}
 Consider a cognitive radio system where the frequency can be occupied by one of the two  distinct primary signals $\{ s_1, s_2 \}$ or it could be vacant.
-Let  $H_0$  denote the hypothesis that the channel is vacant, and $H_i, i = 1, 2$, denote the hypothesis that the channel is occupied by primary user signal $s_i, i=1, 2$. We test $H_0$ against $\overline{H}_0$ using the ENP framewor. The problem can be abstracted into following optimization problem:
+Let  $H_0$  denote the hypothesis that the channel is vacant, and $H_i, i = 1, 2$, denote the hypothesis that the channel is occupied by primary user signal $s_i, i=1, 2$. We test $H_0$ against $\overline{H}_0$ using the ENP framework. The problem can be abstracted into following optimization problem:
 \begin{equation}
   \label{equ: energy spectrum sensing}
   \begin{split}
@@ -387,7 +455,7 @@ Let  $H_0$  denote the hypothesis that the channel is vacant, and $H_i, i = 1, 2
   \end{split}
 \end{equation}
 
-Our object is to plot the maximum $P_d$ vs. $c_1, c_2$ (M-ROC).
+Our object is to plot the maximum $P_d$ vs. $c_1, c_2$ (M-ROC) and find the specific decision rule for a given $c_1, c_2$.
 
 A block diagram of system is illustrated in Figure \ref{pic: block diagram}. The system consists of a measuring device followed by a testing device. The role of the measuring device is to output a suitable test statistics. The role of the testing device is to decide whether the channel is free based on the output of the measuring device. The input of the measuring device is
 
@@ -417,21 +485,44 @@ $x_R$ and $x_I$ are respectively the real and imaginary part of signal $x$. Subs
      \end{split}
  \end{equation}
 
-
-Since $\sigma_\omega^2 < \sigma_1^2, \sigma_2^2$, this problem has the same form as that of Chi-Square example given in last section.  Using the conclusions given in Chi-Square example,  the decision rule is
+Since $\sigma_\omega^2 < \sigma_1^2, \sigma_2^2$, this problem has the same form as that of Chi-Square example given in last section.
+Hence we can conclude that for any given $c_1, c_2$ the decision rule has following form
 \begin{equation}
 \label{equ: decision rule for spectrum sensing}
 \delta:\;\;\;\;\;\;\;\; x \substack{H_0 \\ \leq \\ > \\\bar{H}_0} x_0\,,
  \end{equation}
-where $x_0 \in [0, \infty)$ and  the corresponding $P_d$ is given in \eqref{equ: chi pd}. By using this decision rule,  MS-ROC can be formed.
+where $x_0 \in [0, \infty)$ and  the corresponding $P_d$ is given in \eqref{equ: chi pd}. In the following, we will illustrate how to find $x_0$ for a specific given $c_1$ and $c_2$.
+According to \eqref{equ: chi pd}, we have 
+\begin{equation}
+\begin{split}
+\label{equ: Pd c1}
+P_{d} &= F_0(x_0)\\
+P_{f_1} &= F_1(x_0) \leq c_1 \\
+P_{f_2} &= F_2(x_0) \leq c_2\,
+\end{split}
+\end{equation}
+where $F_0, F_1$ and $F_2$ are CDFs under hypotheses $H_0, H_1$ and $H_2$.
+
+Since $P_d = F_0(x_0)$ is an increasing function of $x_0$,  according to \eqref{equ: Pd c1}, \eqref{equ: energy spectrum sensing} can be written as  
+\begin{equation}
+\begin{split}
+\max\;\;\;\;&x_0\\
+\text{s.t.}\;\;\;\;&x_0 \leq F_1^{-1}(c_1)\\
+  &x_0 \leq F_2^{-1}(c_2)
+\end{split}
+\end{equation}
+If $F_1^{-1}(c_1) \geq F_2^{-1}(c_2)$, then we have $x_0 = F_2^{-1}(c_2)$; otherwise $x_0 = F_1^{-1}(c_1)$. Hence $x_0$ can be written as
+\begin{equation}
+x_0 = \min(F_1^{-1}(c_1), F_2^{-1}(c_2))
+\end{equation}
 
 \subsection{Simulation result}
-In this section, we provide both the performance analysis and the simulation result to show the performance of MENP test for energy based spectrum sensing by plotting M-ROC.  
+In this section, we provide the simulation result to show the performance of MENP test for energy based spectrum sensing by plotting M-ROC.  
 Assume $\sigma_\omega^2 = 1$, $\sigma_{s_1}^2 = 0.1$, $\sigma_{s_2}^2  = 0.15$ and N=120.
 
-In our Monte Carlo simulation, we get the corresponding $P_d$, $c_1$ and $c_2$ by increasing the value of $\lambda$ from $0$ to $100$. All simulations are run until at least 400 detections (and miss detections) are observed. 
+In our Monte Carlo simulation, we get the corresponding $P_d$, $c_1$ and $c_2$ by increasing the value of $x_0$ from $0$ to $100$. All simulations are run until at least 400 detections (and miss detections) are observed. 
 The outcome is plotted in Fig \ref{pic: simulation result} by bold curve. 
-After that, we utilize \textbf{Conclusion 1} given in ``Gaussian Example'' to achieve the whole M-ROC surface. 
+After that, we utilize \textbf{Conclusion 1} given in section ``Gaussian Hypothesis'' to achieve the whole M-ROC surface. 
 The whole M-ROC surface is given in Fig. \ref{pic: simulation result}.
 
 \section{Conclusions}
@@ -671,6 +762,33 @@ Since $P_{f_iA} \leq c_{iA}$ and $P_{f_iB} \leq c_{iB}$, we can have $\theta P_{
 
 According to the definition of Leib-Jiang Algorithm, points on $\alpha-$MS-ROC achieve the maximum of $P_d$ for the given $c_1, c_2, ..., c_M$. Hence points on  $\alpha-$MS-ROC are boundary points of  a convex set.
 
+\subsection{Proof for Property 2}
+According to the definition, $M_0$ is the region achieved by ENP test with $k_i \geq 0 (i=1, ..., M)$. The ENP decision rule is
+\begin{equation}
+\frac{\sum_{i=1}^{M}k_if_i(x)}{f_0(x)} \substack{\bar{H}_0 \\\geq\\< \\H_0}1
+\end{equation}
+which can be written as
+\begin{equation}
+\label{dec: gx}
+g(x)\substack{\bar{H}_0 \\\geq\\< \\H_0}1
+\end{equation}
+Since $g(x)$ is a monotonically increasing function with $x$, hence $g^{-1}(x)$ exists and \eqref{dec: gx} can be written as 
+\begin{equation}
+\label{dec: x0}
+x\substack{\bar{H}_0 \\\geq\\< \\H_0}x_0
+\end{equation}
+where $x_0 = g^{-1}(1)$.
+Under decision rule \eqref{dec: x0}, the expression of $P_d$, $P_{f_1}$, ..., $P_{f_M}$ can be written as 
+\begin{equation}
+\begin{split}
+\label{equ: pd under x0}
+P_d &= \text{Pf}(X \leq x_0 | H_0) = F_0(x_0)\\
+P_{f_1} &= \text{Pf}(X \leq x_0 | H_1) = F_1(x_0)\\
+  &......\\
+P_{f_M} &= \text{Pf}(X \leq x_0 | H_M) = F_M(x_0)
+\end{split}
+\end{equation}
+where $F_0$, $F_1$, ..., $F_M$ are the CDFs of $X$ under $H_0$, $H_1$, ..., $H_M$ that in this case are monotonically increasing functions. From \eqref{equ: pd under x0}, $P_{f_1}$ determines $x_0$ that in turn determines $P_{f_2}$, ..., $P_{f_M}$, $P_d$. Hence for a given $P_{f_1}$, there is only one corresponding $P_{f_i} (i= 1, ..., M)$. Hence the ENP ROC with $k_i \geq 0 (i = 1, ..., M)$ is a curve in this case. 
 \subsection{Proof for Conclusion 1}
 
 Consider points in region $N_1$. Since $(c_1, c_2) \notin N_0$, we use MENP (\rmnum{2}) to achieve $P_d$. As it is shown in Figure \ref{pic: contour for m0 gaussian}, $A$ is a point in $N_1$ with coordinate $(x, y)$. According to MENP (\rmnum{2}), $\mathcal{C}$ is the set of points lie in region enclosed by curve $L_1$ $L_2$ and line $c_1 = x$. For all points belongs to $\mathcal{C}$, point $B$ has the largest $c_1$ and $c_2$ value. As we proved function $F(c_1, c_2)$ is non-decreasing, point $B$ has the largest $P_d$ among all points belong to region $\mathcal{C}$. Hence we proved point $A$ and point $B$ have the same decision rule and same $P_d$. Since point in region $N_1$ with $c_1 = x$ has the same decision rule and $P_d$ with point $B$, we can conclude: for points belong to region $N_1$ or curve $L_1$, if they have the same $c_1$ value, they have the same decision rule and same $P_d$.
@@ -717,7 +835,7 @@ In the same way, we can prove: For points belong to region $N_2$ or curve $L_2$,
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=12cm]{chi2ROC.eps}
+\includegraphics[width=12cm]{simu_chi2ROC.eps}
 \caption{The M-ROC for the Chi-square example.}
 \label{pic: LJS for chisquare}
 \end{figure}
