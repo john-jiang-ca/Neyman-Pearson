@@ -1,0 +1,116 @@
+\begin{thebibliography}{10}
+
+\bibitem{pelcat20133gpp}
+M.~Pelcat, S.~Aridhi, J.~Piat, and J.-F. Nezan, ``3gpp long term evolution,''
+  in {\em Physical Layer Multi-Core Prototyping}, pp.~9--51, Springer, 2013.
+
+\bibitem{nonotice}
+C.~D. No, ``Notice of proposed rule making and order,''
+
+\bibitem{cox2014introduction}
+C.~Cox, {\em An Introduction to LTE: LTE, LTE-Advanced, SAE, VoLTE and 4G
+  Mobile Communications}.
+\newblock John Wiley \& Sons, 2014.
+
+\bibitem{mitola1999cognitive}
+J.~Mitola and G.~Q. Maguire~Jr, ``Cognitive radio: making software radios more
+  personal,'' {\em Personal Communications, IEEE}, vol.~6, no.~4, pp.~13--18,
+  1999.
+
+\bibitem{federal2005notice}
+F.~C. Commission {\em et~al.}, ``Notice of proposed rule making and order:
+  Facilitating opportunities for flexible, efficient, and reliable spectrum use
+  employing cognitive radio technologies,'' {\em ET docket}, no.~03-108, p.~73,
+  2005.
+
+\bibitem{umar2013comparative}
+R.~Umar and A.~U. Sheikh, ``A comparative study of spectrum awareness
+  techniques for cognitive radio oriented wireless networks,'' {\em Physical
+  Communication}, vol.~9, pp.~148--170, 2013.
+
+\bibitem{a001}
+S.~Haykin, ``Cognitive radio: brain-empowered wireless communications,'' {\em
+  Selected Areas in Communications, IEEE Journal on}, vol.~23, pp.~201 -- 220,
+  feb. 2005.
+
+\bibitem{buddhikot2007understanding}
+M.~M. Buddhikot, ``Understanding dynamic spectrum access: Models, taxonomy and
+  challenges,'' in {\em New Frontiers in Dynamic Spectrum Access Networks,
+  2007. DySPAN 2007. 2nd IEEE International Symposium on}, pp.~649--663, IEEE,
+  2007.
+
+\bibitem{tandra2009spectrum}
+R.~Tandra, S.~M. Mishra, and A.~Sahai, ``What is a spectrum hole and what does
+  it take to recognize one?,'' {\em Proceedings of the IEEE}, vol.~97, no.~5,
+  pp.~824--848, 2009.
+
+\bibitem{umar2012spectrum}
+R.~Umar and A.~U. Sheikh, ``Spectrum access and sharing for cognitive radio,''
+  {\em Developments in wireless network prototyping, design and deployment:
+  Future generations, IGI Global}, pp.~241--271, 2012.
+
+\bibitem{axell2010overview}
+E.~Axell, G.~Leus, and E.~G. Larsson, ``Overview of spectrum sensing for
+  cognitive radio,'' in {\em Cognitive Information Processing (CIP), 2010 2nd
+  International Workshop on}, pp.~322--327, IEEE, 2010.
+
+\bibitem{wang2011advances}
+B.~Wang and K.~R. Liu, ``Advances in cognitive radio networks: A survey,'' {\em
+  Selected Topics in Signal Processing, IEEE Journal of}, vol.~5, no.~1,
+  pp.~5--23, 2011.
+
+\bibitem{cabric2004implementation}
+D.~Cabric, S.~M. Mishra, and R.~W. Brodersen, ``Implementation issues in
+  spectrum sensing for cognitive radios,'' in {\em Signals, systems and
+  computers, 2004. Conference record of the thirty-eighth Asilomar conference
+  on}, vol.~1, pp.~772--776, IEEE, 2004.
+
+\bibitem{axell2011optimal}
+E.~Axell and E.~G. Larsson, ``Optimal and sub-optimal spectrum sensing of ofdm
+  signals in known and unknown noise variance,'' {\em Selected Areas in
+  Communications, IEEE Journal on}, vol.~29, no.~2, pp.~290--304, 2011.
+
+\bibitem{ganesan2005cooperative}
+G.~Ganesan and Y.~Li, ``Cooperative spectrum sensing in cognitive radio
+  networks,'' in {\em New Frontiers in Dynamic Spectrum Access Networks, 2005.
+  DySPAN 2005. 2005 First IEEE International Symposium on}, pp.~137--143, IEEE,
+  2005.
+
+\bibitem{tian2007compressed}
+Z.~Tian and G.~B. Giannakis, ``Compressed sensing for wideband cognitive
+  radios,'' in {\em Acoustics, Speech and Signal Processing, 2007. ICASSP 2007.
+  IEEE International Conference on}, vol.~4, pp.~IV--1357, IEEE, 2007.
+
+\bibitem{sun2013wideband}
+H.~Sun, A.~Nallanathan, C.-X. Wang, and Y.~Chen, ``Wideband spectrum sensing
+  for cognitive radio networks: a survey,'' {\em Wireless Communications,
+  IEEE}, vol.~20, no.~2, pp.~74--81, 2013.
+
+\bibitem{sun2013wideband2}
+H.~Sun, W.-Y. Chiu, J.~Jiang, A.~Nallanathan, and H.~V. Poor, ``Wideband
+  spectrum sensing with sub-nyquist sampling in cognitive radios,'' {\em arXiv
+  preprint arXiv:1302.1847}, 2013.
+
+\bibitem{poor1994introduction}
+H.~V. Poor, {\em An introduction to signal detection and estimation}.
+\newblock Springer, 1994.
+
+\bibitem{zeng2010review}
+Y.~Zeng, Y.-C. Liang, A.~T. Hoang, and R.~Zhang, ``A review on spectrum sensing
+  for cognitive radio: challenges and solutions,'' {\em EURASIP Journal on
+  Advances in Signal Processing}, vol.~2010, p.~2, 2010.
+
+\bibitem{shellhammer2008spectrum}
+S.~J. Shellhammer {\em et~al.}, ``Spectrum sensing in ieee 802.22,'' {\em IAPR
+  Wksp. Cognitive Info. Processing}, pp.~9--10, 2008.
+
+\bibitem{zhang1999design}
+Q.~Zhang, P.~K. Varshney, and Y.~Zhu, ``Design of extended neyman-pearson
+  hypothesis tests,'' in {\em AeroSense'99}, pp.~378--389, International
+  Society for Optics and Photonics, 1999.
+
+\bibitem{LehmannTest}
+E.~L. Lehmann, {\em Testing statistical hypotheses}.
+\newblock Wiley, 1959.
+
+\end{thebibliography}

@@ -1,0 +1,58 @@
+This is BibTeX, Version 0.99d (TeX Live 2013)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: abstract.aux
+The style file: ieeetr.bst
+Database file #1: mybib.bib
+Repeated entry---line 270 of file mybib.bib
+ : @article{zeng2010review
+ :                        ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 518 of file mybib.bib
+ : @article{axell2011optimal
+ :                          ,
+I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "akyildiz2011cooperative"
+Warning--empty journal in nonotice
+Warning--empty year in nonotice
+You've used 23 entries,
+            1876 wiz_defined-function locations,
+            610 strings with 7479 characters,
+and the built_in function-call counts, 6416 in all, are:
+= -- 656
+> -- 199
+< -- 0
++ -- 76
+- -- 53
+* -- 426
+:= -- 872
+add.period$ -- 25
+call.type$ -- 23
+change.case$ -- 20
+chr.to.int$ -- 0
+cite$ -- 25
+duplicate$ -- 349
+empty$ -- 644
+format.name$ -- 53
+if$ -- 1592
+int.to.chr$ -- 0
+int.to.str$ -- 23
+missing$ -- 26
+newline$ -- 75
+num.names$ -- 23
+pop$ -- 88
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 235
+stack$ -- 0
+substring$ -- 465
+swap$ -- 140
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 2
+while$ -- 72
+width$ -- 25
+write$ -- 228
+(There were 2 error messages)
