@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex abstract"] 1407003393 "abstract.aux" "abstract.bbl" "abstract" 1407003394
+["bibtex abstract"] 1407265628 "abstract.aux" "abstract.bbl" "abstract" 1407265630
   "/usr/local/texlive/2013/texmf-dist/bibtex/bst/base/ieeetr.bst" 1292289607 18361 1a00e58565e7f19bf2b3e1bfb82254ae ""
-  "abstract.aux" 1407003394 1643 7ead4652602f74b98bca5af2363e68d4 ""
+  "abstract.aux" 1407265629 1947 781af4290ef382105855d330dabc81da ""
   "abstract.bcf" 0 -1 0 ""
-  "mybib.bib" 1407002289 17406 3f1b7e9e2d25d92f21bd04d0352eb891 ""
+  "mybib.bib" 1407265296 18845 2e417d448b88540185f622f90f77113f ""
   (generated)
   "abstract.bbl"
   "abstract.blg"
-["pdflatex"] 1407003393 "abstract.tex" "abstract.pdf" "abstract" 1407003394
+["pdflatex"] 1407265628 "abstract.tex" "abstract.pdf" "abstract" 1407265630
   "/usr/local/texlive/2013/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2013/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1246382020 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
   "/usr/local/texlive/2013/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy8.tfm" 1246382020 1120 200be8b775682cdf80acad4be5ef57e4 ""
@@ -88,9 +88,9 @@
   "/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1369923225 1072746 3ce1f23f203cb4a0015ca3c8411dee4a ""
   "/usr/local/texlive/2013/texmf-var/web2c/pdftex/pdflatex.fmt" 1369923264 3827029 ad4432546849f432c3154779662c76c8 ""
   "/usr/local/texlive/2013/texmf.cnf" 1369923207 577 cbc827f6294276973a1952e86e8ad73a ""
-  "abstract.aux" 1407003394 1643 7ead4652602f74b98bca5af2363e68d4 ""
-  "abstract.bbl" 1407003393 4878 1c56f90bb0bf79ae19ddfd7b58a088b8 "bibtex abstract"
-  "abstract.tex" 1407003379 8954 1b3649916cf258a1c6a7bb46dc64cbf3 ""
+  "abstract.aux" 1407265629 1947 781af4290ef382105855d330dabc81da ""
+  "abstract.bbl" 1407265628 5941 a5f905740f8470bed63b0ceabf38e235 "bibtex abstract"
+  "abstract.tex" 1407265614 11351 e41acd2b49285c8254120dc50a05628f ""
   (generated)
   "abstract.pdf"
   "abstract.aux"

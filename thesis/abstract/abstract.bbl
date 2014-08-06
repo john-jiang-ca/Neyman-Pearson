@@ -59,11 +59,38 @@ B.~Wang and K.~R. Liu, ``Advances in cognitive radio networks: A survey,'' {\em
   Selected Topics in Signal Processing, IEEE Journal of}, vol.~5, no.~1,
   pp.~5--23, 2011.
 
+\bibitem{akyildiz2011cooperative}
+I.~F. Akyildiz, B.~F. Lo, and R.~Balakrishnan, ``Cooperative spectrum sensing
+  in cognitive radio networks: A survey,'' {\em Physical Communication},
+  vol.~4, no.~1, pp.~40--62, 2011.
+
 \bibitem{cabric2004implementation}
 D.~Cabric, S.~M. Mishra, and R.~W. Brodersen, ``Implementation issues in
   spectrum sensing for cognitive radios,'' in {\em Signals, systems and
   computers, 2004. Conference record of the thirty-eighth Asilomar conference
   on}, vol.~1, pp.~772--776, IEEE, 2004.
+
+\bibitem{poor1994introduction}
+H.~V. Poor, {\em An introduction to signal detection and estimation}.
+\newblock Springer, 1994.
+
+\bibitem{ma2009signal}
+J.~Ma, G.~Y. Li, and B.~H. Juang, ``Signal processing in cognitive radio,''
+  {\em Proceedings of the IEEE}, vol.~97, no.~5, pp.~805--823, 2009.
+
+\bibitem{urkowitz1967energy}
+H.~Urkowitz, ``Energy detection of unknown deterministic signals,'' {\em
+  Proceedings of the IEEE}, vol.~55, no.~4, pp.~523--531, 1967.
+
+\bibitem{goldsmith2009breaking}
+A.~Goldsmith, S.~A. Jafar, I.~Maric, and S.~Srinivasa, ``Breaking spectrum
+  gridlock with cognitive radios: An information theoretic perspective,'' {\em
+  Proceedings of the IEEE}, vol.~97, no.~5, pp.~894--914, 2009.
+
+\bibitem{tang2005some}
+H.~Tang, ``Some physical layer issues of wide-band cognitive radio systems,''
+  in {\em New frontiers in dynamic spectrum access networks, 2005. DySPAN 2005.
+  2005 first IEEE international symposium on}, pp.~151--159, IEEE, 2005.
 
 \bibitem{axell2011optimal}
 E.~Axell and E.~G. Larsson, ``Optimal and sub-optimal spectrum sensing of ofdm
@@ -90,10 +117,6 @@ H.~Sun, A.~Nallanathan, C.-X. Wang, and Y.~Chen, ``Wideband spectrum sensing
 H.~Sun, W.-Y. Chiu, J.~Jiang, A.~Nallanathan, and H.~V. Poor, ``Wideband
   spectrum sensing with sub-nyquist sampling in cognitive radios,'' {\em arXiv
   preprint arXiv:1302.1847}, 2013.
-
-\bibitem{poor1994introduction}
-H.~V. Poor, {\em An introduction to signal detection and estimation}.
-\newblock Springer, 1994.
 
 \bibitem{zeng2010review}
 Y.~Zeng, Y.-C. Liang, A.~T. Hoang, and R.~Zhang, ``A review on spectrum sensing
