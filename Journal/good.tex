@@ -52,7 +52,7 @@ Traditional NP testing has been extensively used for two hypotheses problem. In 
 
 In spectrum sensing application, there may be more than one type of primary users. For example in IEEE 802.22 \cite{shellhammer2008spectrum} the channel can be occupied by Analog-TV Digital-TV and wireless microphone. In such cases, an extended NP (ENP) test can provide important advantages \cite{zhang1999design}. A detector based on ENP testing can ensure the largest probability of detection under a separate constraint of false alarm for each primary user type \cite{LehmannTest}.
 
-With an ENP detector, the achievable false alarm probabilities are limited. In this work we analyze the properties of the ENP test and propose the Modified Extended Neyman Pearson (MENP) test, that circumvents the limitations of the false alarm probabilities. The structure of the remaining of this paper is [TO BE ADDED].
+With an ENP detector however, the achievable false alarm probabilities are limited. In this work we analyze the properties of the ENP test and propose the Modified Extended Neyman Pearson (MENP) test, that circumvents the limitations of the false alarm probabilities. The structure of the remaining of this paper is [TO BE ADDED].
 
 \section{Extended Neyman Pearson Test}
 
@@ -194,7 +194,7 @@ In practice (e.g. spectrum sensing in CR communication system), the following pr
       \end{split}
       \end{equation}
 
-According to ENP Lemma, this problem can by solved by ENP test only when their all parameters $k_i \geq 0, \;\;i=1, ..., M$ such that 
+According to ENP Lemma, this problem can by solved by ENP test only when there are parameters $k_i \geq 0, \;\;i=1, ..., M$ such that 
 \begin{equation}
 \label{equ: condition for ENP}
 \begin{split}
@@ -202,7 +202,7 @@ c_i = \int_{-\infty}^{\infty}u(f_0 - \sum_{j=1}^{M}k_jf_j(x))f_i(x)\mathrm{d}x \
 \end{split}
 \end{equation}
 
-The case when the given $c_i\;\;i = 1, 2, ..., M$ do not satisfy \eqref{equ: condition for ENP} was not considered so far. Next we proposed the Modified Extended Neyman Pearson Test (MENP) is given considering \eqref{equ: problemstate}.
+The case when the given $c_i\;\;i = 1, 2, ..., M$ do not satisfy \eqref{equ: condition for ENP} was not considered so far. Next we present the Modified Extended Neyman Pearson Test (MENP) for solving \eqref{equ: problemstate}.
 
 %define \JUDGEMENT
 \def \JUDGEMENT{u(f_0(x) - \sum_{j=1}^{M}k_j f_j(x))}
@@ -239,30 +239,30 @@ and the decision rule $\delta $ solving  \eqref{equ: problemstate} is:
 \max_{\mathbf{a} \in \mathcal{C}}\;\;\;\;F(\mathbf{a}) = F(\mathbf{a}^0)\\
 \end{equation}
 \textit{
-Since $\mathbf{a}^0 \in \mathcal{A}_{\mathbf{c}} \cap \alpha^+$, from \textnormal{(\rmnum{1})} we have that there exists a different vector $\mathbf{k}^0$ such that}  \eqref{equ:decision rule} \textit{ maximizes $P_d$ under the constraints $P_{f_i} = a_i^0, \;i=1, ..., M$. Here since $a_i^0 \leq c_i^0, \;i=1, ..., M$ this decision rule  satisfies} \eqref{equ: problemstate}.
+Since $\mathbf{a}^0 \in \mathcal{A}_{\mathbf{c}} \cap \alpha^+$, from \textnormal{(\rmnum{1})} we have that there exists a vector $\mathbf{k}^0$ such that}  \eqref{equ:decision rule} \textit{ maximizes $P_d$ under the constraints $P_{f_i} = a_i^0, \;i=1, ..., M$. Here since $a_i^0 \leq c_i^0, \;i=1, ..., M$ this decision rule  solves} \eqref{equ: problemstate}.
 
-In the following, a method of finding $\mathbf{a}^0$ in (\rmnum{2}) is introduced. 
+Next we introduce a method of finding $\mathbf{a}^0$ in (\rmnum{2}). 
 Since when $\mathbf{a} \in \alpha^+$ we have 
 \begin{equation}
   \begin{split}
-    \max\;\;\;\;&P_d = F(\mathbf{a})\\
+    \underset{\mathbf{a} \in \alpha^+}{\max}\;\;\;\;&P_d = F(\mathbf{a})\\
     \text{s.t.}\;\;\;\;&P_{f_i} = a_i\;\;\;i=1, ..., M\,,
   \end{split}
 \end{equation}
-when $\mathbf{a} \in \alpha^+$, according to ENP Lemma, $F(\mathbf{a})$ also satisfies
+According to ENP Lemma, $F(\mathbf{a})$ also satisfies
 \begin{equation}
   \begin{split}
   \label{equ: F}
-        \max\;\;\;\;&P_d = F(\mathbf{a})\\
+        \underset{\mathbf{a} \in \alpha^+}{\max}\;\;\;\;&P_d = F(\mathbf{a})\\
     \text{s.t.}\;\;\;\;&P_{f_i} \leq a_i\;\;\;i=1, ..., M\,.
   \end{split}
 \end{equation}
 
-In \eqref{equ: F}, when one of $a_i, i = 1, ..., M$ increases and other $a_i$ remain the same, the constraints is more relaxed, so $P_d$ will not decrease. So it can be inferred that $F(\mathbf{a})$ is a non-decreasing function of $\mathbf{a}$ when $\mathbf{a} \in \alpha^+$. Hence we can conclude $\mathbf{a}^0$ has the largest components $a_i^0$ among all $\mathbf{a} \in \mathcal{C}$. 
-
+In \eqref{equ: F}, when one of $a_i, i = 1, ..., M$ increases and other $a_i$ remain the same, the constraints is more relaxed, so $P_d$ will not decrease. Therefore $F(\mathbf{a})$ is a non-decreasing function of $a_i\;\;(i = 1, ..., M)$ when $\mathbf{a} \in \alpha^+$. Hence we can conclude $\mathbf{a}^0$ has the largest components $a_i^0$ among all $\mathbf{a} \in \mathcal{C}$. 
+[TO BE ADDED]
 When trying to find $\mathbf{a}^0$, we only need to iterate $\mathbf{a} \in \alpha$ who have the largest components $a_i$.
 
-From (\rmnum{1}) and (\rmnum{2}), it can also be concluded that for any given $(c_1, c_2, ..., c_M)$, the decision rule has form given by \eqref{equ: decision rule} with $k_i \geq 0\;\;i=1, ..., M$.
+From (\rmnum{1}) and (\rmnum{2}), it can also be concluded that for any given $(c_1, c_2, ..., c_M)$, the decision rule has form  \eqref{equ: decision rule} with $k_i \geq 0\;\;i=1, ..., M$.
 
 The proof that MENP achieves the optimal decision rule is given in the appendix.
 
@@ -273,7 +273,7 @@ Points $(P_d, c_1, c_2, ..., c_M)$ on M-ROC  surface can be divided into two typ
 \\1. Those with $[c_1, c_2, ..., c_M] \in \alpha^+$. Define this set of points as $M_0$; 
 \\2. Those with $[c_1, c_2, ..., c_M] \notin \alpha^+$. Define this set of points as $M_1$. 
 
-Obviously points in $M_0$ can be achieved by MENP (\rmnum{1}) and points in $M_1$ can  be achieved by MENP (\rmnum{2}). Next we consider a property of M-ROC surface.
+Obviously points in $M_0$ can be achieved by MENP (\rmnum{1}) and points in $M_1$ can  be achieved by MENP (\rmnum{2}). Next we consider a property of the M-ROC surface.
 
 \noindent\textbf{Property 1}
 
@@ -294,10 +294,25 @@ H_M:\;\;\;\;\;\;&X \sim f_M(x)
 \end{split}
 \end{equation}
 \textit{
-  define $g(x) = \frac{\sum_{i=1}^{M}k_if_i(x)}{f_0(x)}$. If $g(x)$ is a monotonically increasing function with $x$ and the CDFs of hypotheses $H_i (i = 0, ..., M)$ are monotonically increasing function, then the region $M_0$ degenerates a curve and the decision rule for $M_0$ is $x \substack{\bar{H}_0 \\ \geq \\ < \\H_0} x_0$. 
-}
+  define $g(x) = \frac{\sum_{i=1}^{M}k_if_i(x)}{f_0(x)}$. If $g(x)$ is a monotonically increasing function of $x$ for any non-negative $k_i\;\;(i = 1, ..., M)$ and $F_i(x)$, which is the CDF of hypotheses $H_i (i = 0, ..., M)$, is monotonically increasing function, then we have:}
+  
+\textit{(1)The region $M_0$ degenerates to a curve and the decision rule for $M_0$ is $x \substack{\bar{H}_0 \\ \geq \\ < \\H_0} x_0$.}
+
+\textit{(2)For a specific false alarm constraints $P_{f_i} \leq c_i\;\;(i = 1, ..., M)$, the decision rule for MENP test is $x \substack{\bar{H}_0 \\ \geq \\ < \\H_0} x_0$, where $x_0 = \min(F_i^{-1}(c_i))\;\;i = 1, ..., M$.}
+
+\textit{(3)The expression of $P_d$, $P_{f_1}$, ..., $P_{f_M}$ can be written as}
+\begin{equation}
+\label{equ: chi pd}
+  \begin{split}
+    P_d &= \text{Pr}(X \leq x_0 | H_0) = F_0(x_0)\\
+        P_{f_1} &= \text{Pr}(X \leq x_0 | H_1) = F_1(x_0)\\
+        &......\\
+            P_{f_M} &= \text{Pr}(X \leq x_0 | H_2) = F_M(x_0)
+  \end{split}
+\end{equation}
 
 The proof is given in the appendix.
+
 Next we consider two examples that illustrate the properties of M-ROC surface for $M = 2$.
 
 \subsection{Gaussian Hypotheses}
@@ -312,14 +327,14 @@ Assume three hypotheses given as:
 \end{equation}
 where $\mathcal{N}(\mu,\sigma^2)$ denotes a Gaussian PDF with mean $\mu$ and variance $\sigma^2$.
 To form the M-ROC surface, we first consider points in region $M_0$.The decision rule in region $M_0$ is given by \eqref{equ: decision rule}
-with $M=2,\;\;k_1, k_2 \geq 0$, the expression for $P_d$, $P_{f_1}$ and $P_{f_2}$ are given by \eqref{equ: pf and pd} (according to \textbf{Neyman Pearson Lemma}, if $k_1, k_2 \geq 0$, $P_{f_1} = c_1$ and $P_{f_2} = c_2$).
+with $M=2,\;\;k_1, k_2 \geq 0$, and the expression for $P_d$, $P_{f_1}$ and $P_{f_2}$ are given by \eqref{equ: pf and pd}. According to \textbf{Neyman Pearson Lemma}, if $k_1, k_2 \geq 0$, then $P_{f_1} = c_1$ and $P_{f_2} = c_2$.
 
-We use Matlab to illustrate region $M_0$. The values of $k_1$ and $k_2$ range from $0$ to $100$ with step $0.01$. Substituting the value of $k_1$ and $k_2$ into \eqref{equ: pf and pd}, then we have the corresponding $P_d$ $P_{f_1}$ and $P_{f_2}$.  The set $M_0$ is illustrated in Figure \ref{pic: surface for m0 gaussian}. Figure \ref{pic: contour for m0 gaussian} presents the projection of Figure \ref{pic: surface for m0 gaussian} on $c_1, c_2$ plane.
-In Figure \ref{pic: contour for m0 gaussian}, region $N_0$ is the projection of region $M_0$ on $c_1 - c_2$ plane. Since $M_0$ is the set of points with $[c_1, c_2] \in \alpha^+$, $N_0$ is the region of points that belong to $\alpha^+$.
-Define curve $L_1$ as the set of points that satisfy following conditions: (1) $(c_1, c_2) \in N_0$; (2) $(c_1, c_2+\epsilon) \notin N_0$, for any $\epsilon \geq 0$. Define curve $L_2$ as the set of points that satisfy the following conditions: (1) $(c_1, c_2) \in N_0$; (2) $(c_1 + \epsilon, c_2) \notin N_0$, for any $\epsilon \rightarrow 0$.
+We use Matlab to illustrate the region $M_0$. The values of $k_1$ and $k_2$ range from $0$ to $100$ in steps of $0.01$. Substituting the value of $k_1$ and $k_2$ into \eqref{equ: pf and pd}, results in the corresponding $P_d$ $P_{f_1}$ and $P_{f_2}$.  The set $M_0$ is illustrated in Figure \ref{pic: surface for m0 gaussian}. Figure \ref{pic: contour for m0 gaussian} presents the projection of Figure \ref{pic: surface for m0 gaussian} on the $c_1, c_2$ plane.
+In Figure \ref{pic: contour for m0 gaussian}, region $N_0$ is the projection of region $M_0$ on the $c_1, c_2$ plane. Since $M_0$ is the set of points with $[c_1, c_2] \in \alpha^+$, $N_0$ is the region of points that belong to $\alpha^+$.
+Define curve $L_1$ as the set of points that satisfy the conditions: (1) $(c_1, c_2) \in N_0$; (2) $(c_1, c_2+\epsilon) \notin N_0$, for any $\epsilon \geq 0$. Define curve $L_2$ as the set of points that satisfy the conditions: (1) $(c_1, c_2) \in N_0$; (2) $(c_1 + \epsilon, c_2) \notin N_0$, for any $\epsilon \rightarrow 0$.
 $N_1$ denotes the region enclosed by line $c_1 = 0$, $c_2$; line $c_1$, $c_2 = 1$ and curve $L_1$.
 $N_2$ denotes the region enclosed by line $c_1 = 1$, $c_2$; line $c_1$, $c_2 = 0$ and curve $L_2$.
-The region of $N_0$ $N_1$ and $N_2$ are shown in Figure \ref{pic: contour for m0 gaussian}.
+The regions of $N_0$ $N_1$ and $N_2$ are shown in Figure \ref{pic: contour for m0 gaussian}.
 
 \textbf{Conclusion 1}
 \textit{\\(1) All points belonging to region $N_1$ or curve $L_1$, if they have the same $c_1$, they have the same decision rule and same $P_d$.
@@ -328,9 +343,9 @@ The region of $N_0$ $N_1$ and $N_2$ are shown in Figure \ref{pic: contour for m0
 
 The proof is given in the appendix.
 
-Since we already know $P_d$ for points in region $N_0$ and curves $L_1$ and $L_2$ belong to $N_0$, we can get the $P_d$ for points for $N_1$ and $N_2$. M-ROC surface for this example is given in Figure  \ref{pic: LJS} and the contour of M-ROC surface is given in Figure \ref{pic: LJS contour}.
+Since we already know $P_d$ for points in region $N_0$ and curves $L_1$ and $L_2$ belong to $N_0$, we can get $P_d$ for points in $N_1$ and $N_2$. M-ROC surface for this example is given in Figure  \ref{pic: LJS} and the contour of M-ROC surface is given in Figure \ref{pic: LJS contour}.
 
-In the following, we consider a more general case: assume $M+1$ hypotheses given as
+Next we consider a more general case of $M+1$ hypotheses given as
 \begin{equation}
 \label{equ: m+1 Gaussian Hypo}
 \begin{split}
@@ -340,33 +355,33 @@ H_1:\;\;\;\;\;\;&X\sim \mathcal{N}(\mu_1, \sigma_1^2)\\
 H_M:\;\;\;\;\;\;&X\sim \mathcal{N}(\mu_M, \sigma_M^2)
 \end{split}
 \end{equation}
-We will prove when $\sigma_0^2 = \sigma_1^2 = ... = \sigma_M^2$ and $\mu_0 < \mu_i (i = 1, ..., M)$, the region achieved by ENP test with $k_i \geq 0 (i = 1, ..., M)$ degenerates a curve.
+We will prove when $\sigma_0^2 = \sigma_1^2 = ... = \sigma_M^2$ and $\mu_0 < \mu_i (i = 1, ..., M)$, the region achieved by ENP test with $k_i \geq 0 (i = 1, ..., M)$ degenerates to a curve.
 
-Define $g(x) = \frac{\sum_{i=1}^{M}k_if_i(x)}{f_0(x)}$, $g(x)$ can be written as 
+Consider
 \begin{equation}
 \label{equ: define gx}
-g(x) = \sum_{i=1}^{M}k_1\frac{f_i(x)}{f_0(x)}.
+g(x) = \sum_{i=1}^{M}k_i\frac{f_i(x)}{f_0(x)}.
 \end{equation}
-Since $f_i(x) (i = 0, 1, ..., M)$ are the PDFs of Gaussian distribution with mean $\mu_i$ and variance $\sigma_i^2$, we have 
+Since 
 \begin{equation}
 \label{equ: gaussian PDF}
 f_i(x) = \frac{1}{\sqrt{2\pi\sigma_i^2}}\exp(-\frac{(x-\mu_i)^2}{2\sigma_i^2}).
 \end{equation}
-Substitute \eqref{equ: gaussian PDF} into \eqref{equ: define gx},
+we have
 \begin{equation}
 \label{g00}
 g(x) = \sum_{i=1}^{M}\frac{\frac{1}{\sqrt{2\pi\sigma_i^2}}\exp(-\frac{(x-\mu_i)^2}{2\sigma_i^2})}{\frac{1}{\sqrt{2\pi\sigma_0^2}}\exp(-\frac{(x-\mu_0)^2}{2\sigma_0^2})}
 \end{equation}
-Substitute the condition $\sigma_i^2 = \sigma_0^2 (i = 1, ..., M)$ into \eqref{g00}, we have 
+Using the condition $\sigma_i^2 = \sigma_0^2 (i = 1, ..., M)$ in \eqref{g00}, we have 
 \begin{equation}
 \label{equ: gx cc}
 g(x) = \sum_{i=1}^{M}k_i\exp(\frac{(\mu_i - \mu_0)(2x-\mu_i - \mu_0)}{2\sigma_0^2})
 \end{equation}
-Define $c_i = \frac{\mu_i - \mu_0}{2\sigma_0^2}$, \eqref{equ: gx cc} can be written as
+Defining $c_i = \frac{\mu_i - \mu_0}{2\sigma_0^2}$, \eqref{equ: gx cc} can be written as
 \begin{equation}
 g(x) = \sum_{i=1}^{M}k_i\exp(c_i(2x-\mu_0 - \mu_i)
 \end{equation}
-According to the condition $\mu_0 < \mu_i (i=1, ..., M)$, we know $c_i >0$. Hence it can be conclude that $g(x)$ is a monotonically increasing function with $x$. According to \textbf{Property 2} we know the region $M_0$ (region achieved by ENP test with $k_i \geq 0 (i=1, ..., M)$) degenerates a curve.
+From the condition $\mu_0 < \mu_i (i=1, ..., M)$, we know $c_i >0$. Hence it can be conclude that $g(x)$ is a monotonically increasing function with $x$. Hence from \textbf{Property 2} we have that the region $M_0$ (region achieved by ENP test with $k_i \geq 0 (i=1, ..., M)$) degenerates to a curve.
 
 %different subsection
 \subsection{Chi-Square Hypotheses}
@@ -380,7 +395,7 @@ Assume three hypotheses  given as:
     H_M:\;\;\;\;\;\;\;\;&\frac{X}{\sigma_2^M} \sim \mathcal{X}^2(2N)\,,
   \end{split}
 \end{equation}
-where $\mathcal{X}^2(2N)$ is the Chi-square distribution with  $2N$ degree freedom($N$ is an integer, $\sigma_0^2 < \sigma_1^2, ..., \sigma_M^2$ and $\sigma_i^2 \neq \sigma_j^2$ if $i \neq j$). By random variable transformation\cite{mark2011probability}, we can get the PDFs for different hypotheses:
+where $\mathcal{X}^2(2N)$ is the Chi-square distribution with  $2N$ degree freedom($N$ is an integer, $\sigma_0^2 < \sigma_1^2, ..., \sigma_M^2$ and $\sigma_i^2 \neq \sigma_j^2$ if $i \neq j$). By a random variable transformation space \cite{mark2011probability}, we can get the PDFs for the hypotheses:
 
 \def \CHISQU[#1]{\frac{1}{#1 2^N\Gamma(N)}\left(\frac{x}{#1}\right)^{N-1}\exp\left(-\frac{x}{2#1}\right)\\}
 \begin{equation}
@@ -393,40 +408,29 @@ where $\mathcal{X}^2(2N)$ is the Chi-square distribution with  $2N$ degree freed
   \end{split}
 \end{equation}
 
-In the following, we will prove that in this example the region achieved by ENP test with $k_i \geq 0 (i = 1, ..., M)$ degenerates a curve.
+In the following, we will prove that in this example the region achieved by ENP test with $k_i \geq 0 (i = 1, ..., M)$ degenerates to a curve.
 
-The decision rule for ENP test with $k_i \geq 0 (i=1, ..., M)$ can be written as:
+Consider
 \begin{equation}
 \label{equ: decision rule chi}
-  \frac{\sum_{i=1}^{M}k_if_i(x)}{f_0(x)} \substack{\bar{H_0} \\ \geq \\ < \\ H_0} 1
+  g(x) = \frac{\sum_{i=1}^{M}k_if_i(x)}{f_0(x)} \;\;\;\;k_i \geq 0
 \end{equation}
 Substituting $f_i(x) (i=1, ..., M)$ from \eqref{equ: Chisquare Distribution} into \eqref{equ: decision rule chi}, we get:
 
 \begin{equation}
   \label{equ: decision rule chi 1}
- \sum_{i=1}^{M}k_i'\exp{(\frac{1}{2\sigma_0^2} - \frac{1}{2\sigma_i^2})x} \substack{\bar{H_0} \\ \geq \\ < \\ H_0} 1
+g(x) = \sum_{i=1}^{M}k_i'\exp{(\frac{1}{2\sigma_0^2} - \frac{1}{2\sigma_i^2})x} 
 \end{equation}
-where $k_i' = k_i(\frac{\sigma_0}{\sigma_i})^{2N} (i= 1, ..., M)$. Define $p_i = \frac{1}{2\sigma_0^2} - \frac{1}{2\sigma_i^2} (i=1, ..., M)$ and $g(x) =  \sum_{i=1}^{M}k_i'\exp{p_ix}$.
+where $k_i' = k_i(\frac{\sigma_0}{\sigma_i})^{2N}, i= 1, ..., M$. Define $p_i = \frac{1}{2\sigma_0^2} - \frac{1}{2\sigma_i^2}, i=1, ..., M$. Hence $g(x) =  \sum_{i=1}^{M}k_i'\exp{p_ix}$.
 
 The parameters $k_i' (i=1, ..., M)$ are always non-negative when $k_i (i=1, ..., M)$ are such, and from 
- the condition $\sigma_0^2 \leq \sigma_i^2 (i=1, ..., M)$ we can conclude $p_i (i=1, ..., M)$ are positive. Hence $g(x)$ is a monotonically increasing function with $x$. According to \textbf{Property 2}, we know the region achieved by ENP test with $k_i (i = 1, ..., M)$ degenerates a curve and the decision rule is
+ the condition $\sigma_0^2 \leq \sigma_i^2 (i=1, ..., M)$ we can conclude $p_i (i=1, ..., M)$ are positive. Hence $g(x)$ is a monotonically increasing function with $x$. From \textbf{Property 2}, we have that the region achieved by ENP test with $k_i (i = 1, ..., M)$ degenerates to a curve and the decision rule is
 \begin{equation}
   \label{equ: decision rule chi 2}
   x \substack{\bar{H}_0 \\ \geq \\ < \\ H_0} x_0\;\;\;\;\,.
 \end{equation}
 
 Since under Chi-Square distribution, $f_i(x) =0 (i = 0, 1, ..., M)$ if $x<0$, we can conclude $x_0 \geq 0$.
-Under decision rule \eqref{equ: decision rule chi 2}, the expression of $P_d$, $P_{f_1}$, ..., $P_{f_M}$ can be written as
-\begin{equation}
-\label{equ: chi pd}
-  \begin{split}
-    P_d &= \text{Pr}(X \leq x_0 | H_0) = F_0(x_0)\\
-        P_{f_1} &= \text{Pr}(X \leq x_0 | H_1) = F_1(x_0)\\
-        &......\\
-            P_{f_M} &= \text{Pr}(X \leq x_0 | H_2) = F_M(x_0)
-  \end{split}
-\end{equation}
-where $F_0, F_1$, ..., $F_M$  are the CDFs of $X$ under $H_0$, $H_1$, ..., $H_M$ that in this case are monotonically increasing functions.
 
 In the following, an example for Chi-Square Hypotheses with $M=2$, $\sigma_0^2 = 1$, $\sigma_1^2 = 1.1$, $\sigma_2^2 = 1.15$ and $N=120$ is given.
 
@@ -457,7 +461,7 @@ Let  $H_0$  denote the hypothesis that the channel is vacant, and $H_i, i = 1, 2
 
 Our object is to plot the maximum $P_d$ vs. $c_1, c_2$ (M-ROC) and find the specific decision rule for a given $c_1, c_2$.
 
-A block diagram of system is illustrated in Figure \ref{pic: block diagram}. The system consists of a measuring device followed by a testing device. The role of the measuring device is to output a suitable test statistics. The role of the testing device is to decide whether the channel is free based on the output of the measuring device. The input of the measuring device is
+A block diagram of the system is illustrated in Figure \ref{pic: block diagram}. The system consists of a measuring device followed by a testing device. The role of the measuring device is to output a suitable test statistics. The role of the testing device is to decide whether the channel is free based on the output of the measuring device. The input of the measuring device is
 
 \begin{equation}
   \label{equ: expression of x}
@@ -466,15 +470,14 @@ A block diagram of system is illustrated in Figure \ref{pic: block diagram}. The
     \omega[n] + s_i[n]\;\;&\text{when primary user $i$ is occupying the channel}\,.
   \end{cases}
 \end{equation}
-
-For $n = 1, 2, ..., N$, and $i = 1, 2$. We also assume that $s_i[n]$ and $\omega[n]$ are i.i.d. circular symmetric complex Gaussian(CSCG) random variables with variance $2\sigma_{s_i}^2$ and $2\sigma_{\omega}^2$, in other words, $s[n] \sim \mathcal{CN}(0, 2\sigma_{s_i}^2) $ and $\omega[n] \sim \mathcal{CN}(0, 2\sigma_\omega^2)$. Since the noise and the signal are independent, $s_i[n] + \omega[n] \sim \mathcal{CN}(0, 2(\sigma_\omega^2 + \sigma_{s_i}^2))$.
+for $n = 1, 2, ..., N$, and $i = 1, 2$. We also assume that $s_i[n]$ and $\omega[n]$ are i.i.d. circular symmetric complex Gaussian(CSCG) random variables with variance $2\sigma_{s_i}^2$ and $2\sigma_{\omega}^2$, in other words, $s[n] \sim \mathcal{CN}(0, 2\sigma_{s_i}^2) $ and $\omega[n] \sim \mathcal{CN}(0, 2\sigma_\omega^2)$. Since the noise and the signal are independent, $s_i[n] + \omega[n] \sim \mathcal{CN}(0, 2(\sigma_\omega^2 + \sigma_{s_i}^2))$.
 
 When the testing device is a energy detector, its output is
 \begin{equation}
   \label{equ: output of energy detector}
   X = \sum_{n=1}^{N}|x[n]|^2 = \sum_{n=1}^{N}(x_R[n]^2+x_I[n]^2)\,,
 \end{equation}
-$x_R$ and $x_I$ are respectively the real and imaginary part of signal $x$. Substituting \eqref{equ: expression of x} into \eqref{equ: output of energy detector} and defining $\sigma_{i}^2 = \sigma_\omega^2 + \sigma_{s_i}^2$ we have
+where $x_R$ and $x_I$ are the real and imaginary part of signal $x$. Substituting \eqref{equ: expression of x} into \eqref{equ: output of energy detector} and defining $\sigma_{i}^2 = \sigma_\omega^2 + \sigma_{s_i}^2$ we have
 
   \begin{equation}
    \label{v3eq7}
@@ -485,45 +488,13 @@ $x_R$ and $x_I$ are respectively the real and imaginary part of signal $x$. Subs
      \end{split}
  \end{equation}
 
-Since $\sigma_\omega^2 < \sigma_1^2, \sigma_2^2$, this problem has the same form as that of Chi-Square example given in last section.
-Hence we can conclude that for any given $c_1, c_2$ the decision rule has following form
+Since $\sigma_\omega^2 < \sigma_1^2, \sigma_2^2$, this problem has the same form as that of the Chi-Square example given in last section.
+Hence we can conclude that for any given $c_1, c_2$ the decision rule has the form
 \begin{equation}
 \label{equ: decision rule for spectrum sensing}
 \delta:\;\;\;\;\;\;\;\; x \substack{H_0 \\ \leq \\ > \\\bar{H}_0} x_0\,,
  \end{equation}
-where $x_0 \in [0, \infty)$ and  the corresponding $P_d$ is given in \eqref{equ: chi pd}. In the following, we will illustrate how to find $x_0$ for a specific given $c_1$ and $c_2$.
-According to \eqref{equ: chi pd}, we have 
-\begin{equation}
-\begin{split}
-\label{equ: Pd c1}
-P_{d} &= F_0(x_0)\\
-P_{f_1} &= F_1(x_0) \leq c_1 \\
-P_{f_2} &= F_2(x_0) \leq c_2\,
-\end{split}
-\end{equation}
-where $F_0, F_1$ and $F_2$ are CDFs under hypotheses $H_0, H_1$ and $H_2$.
-
-Since $P_d = F_0(x_0)$ is an increasing function of $x_0$,  according to \eqref{equ: Pd c1}, \eqref{equ: energy spectrum sensing} can be written as  
-\begin{equation}
-\begin{split}
-\max\;\;\;\;&x_0\\
-\text{s.t.}\;\;\;\;&x_0 \leq F_1^{-1}(c_1)\\
-  &x_0 \leq F_2^{-1}(c_2)
-\end{split}
-\end{equation}
-If $F_1^{-1}(c_1) \geq F_2^{-1}(c_2)$, then we have $x_0 = F_2^{-1}(c_2)$; otherwise $x_0 = F_1^{-1}(c_1)$. Hence $x_0$ can be written as
-\begin{equation}
-x_0 = \min(F_1^{-1}(c_1), F_2^{-1}(c_2))
-\end{equation}
-
-\subsection{Simulation result}
-In this section, we provide the simulation result to show the performance of MENP test for energy based spectrum sensing by plotting M-ROC.  
-Assume $\sigma_\omega^2 = 1$, $\sigma_{s_1}^2 = 0.1$, $\sigma_{s_2}^2  = 0.15$ and N=120.
-
-In our Monte Carlo simulation, we get the corresponding $P_d$, $c_1$ and $c_2$ by increasing the value of $x_0$ from $0$ to $100$. All simulations are run until at least 400 detections (and miss detections) are observed. 
-The outcome is plotted in Fig \ref{pic: simulation result} by bold curve. 
-After that, we utilize \textbf{Conclusion 1} given in section ``Gaussian Hypothesis'' to achieve the whole M-ROC surface. 
-The whole M-ROC surface is given in Fig. \ref{pic: simulation result}.
+where $x_0 = \min(F_1^{-1}(c_1), F_2^{-1}(c_2))$.
 
 \section{Conclusions}
 In this paper, we explore the new field of spectrum sensing with emphasis on providing different levels of protections for various primary users. 
