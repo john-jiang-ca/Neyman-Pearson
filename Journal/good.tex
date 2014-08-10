@@ -282,6 +282,16 @@ Obviously points in $M_0$ can be achieved by MENP (\rmnum{1}) and points in $M_1
 }
 
 \noindent \textbf{Property 2}
+\noindent \textit{The boundary point of set $\alpha^+$ can be achieved by decision rule}
+\begin{equation}
+\label{equ: boundary decision rule}
+\frac{f_0(x)}{\sum_{i=1}^{M}k_if_i(x)} \substack{H_0 \\ \geq \\ < \\ \bar{H}_0} 1 
+\end{equation}
+where at lease one $k_s$ ($s$ is an integer between $1$ and $M$) is zero. 
+
+\noindent \textbf{Property 3}
+
+\noindent \textbf{Property 4}
 \noindent \textit{
   \noindent Assume hypotheses given as:
 }
@@ -381,7 +391,7 @@ Defining $c_i = \frac{\mu_i - \mu_0}{2\sigma_0^2}$, \eqref{equ: gx cc} can be wr
 \begin{equation}
 g(x) = \sum_{i=1}^{M}k_i\exp(c_i(2x-\mu_0 - \mu_i)
 \end{equation}
-From the condition $\mu_0 < \mu_i (i=1, ..., M)$, we know $c_i >0$. Hence it can be conclude that $g(x)$ is a monotonically increasing function with $x$. Hence from \textbf{Property 2} we have that the region $M_0$ (region achieved by ENP test with $k_i \geq 0 (i=1, ..., M)$) degenerates to a curve.
+From the condition $\mu_0 < \mu_i (i=1, ..., M)$, we know $c_i >0$. Hence it can be conclude that $g(x)$ is a monotonically increasing function with $x$. Hence from \textbf{Property 4} we have that the region $M_0$ (region achieved by ENP test with $k_i \geq 0 (i=1, ..., M)$) degenerates to a curve.
 
 %different subsection
 \subsection{Chi-Square Hypotheses}
@@ -424,7 +434,7 @@ g(x) = \sum_{i=1}^{M}k_i'\exp{(\frac{1}{2\sigma_0^2} - \frac{1}{2\sigma_i^2})x}
 where $k_i' = k_i(\frac{\sigma_0}{\sigma_i})^{2N}, i= 1, ..., M$. Define $p_i = \frac{1}{2\sigma_0^2} - \frac{1}{2\sigma_i^2}, i=1, ..., M$. Hence $g(x) =  \sum_{i=1}^{M}k_i'\exp{p_ix}$.
 
 The parameters $k_i' (i=1, ..., M)$ are always non-negative when $k_i (i=1, ..., M)$ are such, and from 
- the condition $\sigma_0^2 \leq \sigma_i^2 (i=1, ..., M)$ we can conclude $p_i (i=1, ..., M)$ are positive. Hence $g(x)$ is a monotonically increasing function with $x$. From \textbf{Property 2}, we have that the region achieved by ENP test with $k_i (i = 1, ..., M)$ degenerates to a curve and the decision rule is
+ the condition $\sigma_0^2 \leq \sigma_i^2 (i=1, ..., M)$ we can conclude $p_i (i=1, ..., M)$ are positive. Hence $g(x)$ is a monotonically increasing function with $x$. From \textbf{Property 4}, we have that the region achieved by ENP test with $k_i (i = 1, ..., M)$ degenerates to a curve and the decision rule is
 \begin{equation}
   \label{equ: decision rule chi 2}
   x \substack{\bar{H}_0 \\ \geq \\ < \\ H_0} x_0\;\;\;\;\,.
@@ -733,7 +743,7 @@ Since $P_{f_iA} \leq c_{iA}$ and $P_{f_iB} \leq c_{iB}$, we can have $\theta P_{
 
 According to the definition of Leib-Jiang Algorithm, points on $\alpha-$MS-ROC achieve the maximum of $P_d$ for the given $c_1, c_2, ..., c_M$. Hence points on  $\alpha-$MS-ROC are boundary points of  a convex set.
 
-\subsection{Proof for Property 2}
+\subsection{Proof for Property 4}
 According to the definition, $M_0$ is the region achieved by ENP test with $k_i \geq 0 (i=1, ..., M)$. The ENP decision rule is
 \begin{equation}
 \frac{\sum_{i=1}^{M}k_if_i(x)}{f_0(x)} \substack{\bar{H}_0 \\\geq\\< \\H_0}1
