@@ -144,7 +144,7 @@ When $M=1$, it achieves the largest $P_d$ under the constraint $P_f \leq c$ \cit
 For applications in spectrum sensing, $H_0$ denotes the hypothesis that the channel is free and $H_m \;(m=1, ..., M)$ corresponds to the hypothesis that the channel is occupied by the $m$-th primary signal. Although we have $M$ hypotheses, we intend to determine if the channel is free or not. Hence the problem is to find a binary test of deciding $H_0$ versus $\bar{H}_0$ such that $P_d$ is maximized under the constraints $P_{f_m} \leq c_m$ $m = 1, ..., M$. In context of spectrum sensing, $1-P_{f_m}$ can be interpreted as the protection level of the $m-$th primary signal. The larger is this protection level, the smaller is the probability that when the $m-$th signal is active, the test will not detect it and will declare the channel free. In context of spectrum sensing the solution of the ENP problem maximizes the probability of detecting a free channel under a constraint on the protection level for each primary signal. The protection levels of primary signals can be different and they are guaranteed.
 
 \subsection{Properties of Extended Neyman Pearson Test}
-We consider now several properties for the ENP test, embodied by three lemmas with proof placed in the appendix.
+We consider now several properties for the ENP test, embodied by three lemmas with proof placed in the appendix A, B and C.
 
 \noindent \textbf{Condition 1}
 \textit{
@@ -204,7 +204,7 @@ In practice (e.g. spectrum sensing in CR communication system), the following pr
       \end{split}
       \end{equation}
 
-According to ENP Lemma, this problem can by solved by ENP test only when there are parameters $k_i \geq 0, \;\;i=1, ..., M$ such that 
+According to ENP Lemma, this problem can be solved by an ENP test only when there are parameters $k_i \geq 0, \;\;i=1, ..., M$ such that 
 \begin{equation}
 \label{equ: condition for ENP}
 \begin{split}
@@ -213,15 +213,6 @@ c_i = \int_{-\infty}^{\infty}u(f_0 - \sum_{j=1}^{M}k_jf_j(x))f_i(x)\mathrm{d}x \
 \end{equation}
 
 The case when the given $c_i\;\;i = 1, 2, ..., M$ do not satisfy \eqref{equ: condition for ENP} was not considered so far. 
-In order to solve this issue, we consider following question: if the probability of detection decreases from $\substack{\max \\ \mathbf{P}_f \leq \mathbf{c}}\{P_d\}$ to $\substack{\max \\ \mathbf{P}_f \leq \mathbf{c}}\{P_d\} - \epsilon$ ($\epsilon \rightarrow 0$), is the performance of the system still acceptable? 
-
-It can be observe that the performance degradation is negligible when $\substack{\max \\ \mathbf{P}_f \leq \mathbf{c}}\{P_d\}$ is not close to zero. In practice, we do not consider the situation for $P_d \rightarrow 0$ because it is meaningless in spectrum sensing. Hence in the context of spectrum sensing, it is feasible to replace $\substack{\max \\ \mathbf{P}_f \leq \mathbf{c}}\{P_d\}$ by  
-
-\begin{equation}
-\label{equ: problemstate}
-\max_{\mathbf{P}_{f} \leq \mathbf{c}}\{P_d\} - \epsilon\,,
-\end{equation}
-where  $\epsilon \rightarrow 0$. 
 
 Next we present the Modified Extended Neyman Pearson Test (MENP) for solving \eqref{equ: problemstate}.
 
@@ -252,9 +243,9 @@ and the decision rule $\delta $ solving  \eqref{equ: problemstate} is:
 \textit{
 Since $\mathbf{a}^0 \in \mathcal{A}_{\mathbf{c}} \cap \alpha^+$, from \textnormal{(\rmnum{1})} we have that there exists a vector $\mathbf{k}^0$ such that}  \eqref{equ:decision rule} \textit{ maximizes $P_d$ under the constraints $P_{f_i} = a_i^0, \;i=1, ..., M$. Here since $a_i^0 \leq c_i^0, \;i=1, ..., M$ this decision rule  solves} \eqref{equ: problemstate}.
 
-The proof that MENP achieves the decision rule for solving \eqref{equ: problemstate} is given in the appendix.
+In appendix D, we will prove the MENP test will provide a solution which is arbitrarily close to, if not equal to, the optimal solution for \eqref{equ: problemstate}.
 
-From (\rmnum{1}) and (\rmnum{2}), it can also be concluded that for any given $\mathbf{c}$, the decision rule has form  \eqref{equ: decision rule} with $\mathbf{k} \geq \mathbf{0}$.
+From (\rmnum{1}) and (\rmnum{2}), it can also be concluded that under MENP test, for any given $\mathbf{c}$, the decision rule has form  \eqref{equ: decision rule} with $\mathbf{k} \geq \mathbf{0}$.
 
 Next we introduce a method of finding $\mathbf{a}^0$ in (\rmnum{2}). For a specific $\mathbf{c}$, in order to get $\mathbf{a}^0$, we need to determine the set of $\alpha^+$. We can conduct an exhaustive search over a grid of $k_1, ..., k_M$ depending on the desired accuracy, and store these results ($P_d, \mathbf{P}_f, \mathbf{k}$) into a lookup table $T_1$. After that, we iterate every item in $T_1$ and put the item into table $T_2$ if the item satisfies:  $\mathbf{P}_f \leq \mathbf{c}$.
 At last, we iterate every item in $T_2$ and get the largest $P_d$ and its decision rule $\mathbf{k}$.
@@ -298,7 +289,7 @@ H_M:\;\;\;\;\;\;&X \sim f_M(x)
   \end{split}
 \end{equation}
 
-The proof is given in the appendix.
+The proof is given in the appendix E.
 
 We consider two examples that illustrate the properties of M-ROC surface for $M = 2$.
 
@@ -328,7 +319,7 @@ The regions of $N_0$ $N_1$ and $N_2$ are shown in Figure \ref{pic: contour for m
 \\(2) All points belonging to region $N_2$ or curve $L_2$, if they have the same $c_2$, they have the same decision rule and same $P_d$.
 }
 
-The proof is given in the appendix.
+The proof is given in the appendix F.
 
 Since we already know $P_d$ for points in region $N_0$ and curves $L_1$ and $L_2$ belong to $N_0$, we can get $P_d$ for points in $N_1$ and $N_2$. M-ROC surface for this example is given in Figure  \ref{pic: LJS} and the contour of M-ROC surface is given in Figure \ref{pic: LJS contour}.
 
@@ -427,7 +418,7 @@ and the corresponding $P_d = F_0(x_0)$.
 Figure \ref{pic: LJS for chisquare} shows the M-ROC surface for $M=2$, $\sigma_0^2 = 1$, $\sigma_1^2 = 1.1$, $\sigma_2^2 = 1.15$ and $N=120$. The bold curve is the region $M_0$. 
 
 \section{Determine the decision rule Under MENP framework}
-In this section, we consider the method to derive the decision rule under MENP framework. Except for certain cases (like the Chi-Square Hypotheses Example), $P_{f_i}$ ($i = 1, 2, ..., M$) and $P_d$ are generally not explicit function of $k_i$. Hence a variational approach to this problem is not applicable. One possible method is Conducting an exhaustive search over a grid of $k_i$ ($i = 1, 2, ..., M$) depending on desired accuracy and store these results for a table to lookup operation. However as the number of $M$ increasing, the lookup table will be prohibitively large, which make it not plausible for a spectrum sensing device to store these data. To solve this issue, in \cite{zhang1999desig}, the authors proposed a method for solving this problem under ENP framework. In the following, we will prove the method proposed by \cite{zhang1999desig} can also be applied to MENP framework.
+In this section, we consider the method to derive the decision rule under MENP framework. Except for certain cases (like the Chi-Square Hypotheses Example), $P_{f_i}$ ($i = 1, 2, ..., M$) and $P_d$ are generally not explicit function of $k_i$. Hence a variational approach to this problem is not applicable. One possible method is Conducting an exhaustive search over a grid of $k_i$ ($i = 1, 2, ..., M$) depending on desired accuracy and store these results for a table to lookup operation. However as the number of $M$ increasing, the lookup table will be prohibitively large, which make it not plausible for a spectrum sensing device to store these data. To solve this issue, in \cite{zhang1999desig}, the authors proposed a method under ENP framework. In the following, we will prove the method proposed by \cite{zhang1999desig} can also be applied to MENP framework.
 
 In \cite{zhang1999desig}, the author approached an search algorithm which could get the decision rule satisfy
 \begin{equation}
@@ -519,132 +510,115 @@ where $x_R$ and $x_I$ are the real and imaginary part of signal $x$. Substitutin
 
 Our goal is to test $H_0$ against $\bar{H}_0$. 
 
-\subsection{Traditional Minimax Hypothesis Testing}
-Since there are multiple hypotheses and no prior probabilities, the conventional method is to use minimax hypothesis testing and the decision rule can be defined as
+\subsection{Using Minimax Hypothesis Decision Rule}
+Since there being multiple hypotheses and lacking prior information, a conventional method for solving this issue would be using minimax hypothesis testing. 
+
+Let $\delta$ denote a decision rule in the context of spectrum sensing.
+Let $C_{ij}$ denote the cost incurred by choosing hypothesis $H_i$ when hypothesis $H_j$ is true. 
+Let $\Omega_{M}$ be the set of all minimax decision rule in the context of spectrum sensing.
+Let $\Omega_{NP}$ be the set of all ENP decision rule with non-negative parameters in the context of spectrum sensing.
+Define $P_i(\mathcal{C}) = \int_{\mathcal{C}} f_i(x)\mathrm{d}x$. 
+
+First we will show $\Omega_{M} = \Omega_{NP}$.
+
+Assume there are $M+1$ hypotheses ($H_0$, ..., $H_M$) and a minimax decision rule will be in form of:
 \begin{equation}
 \label{equ: decR}
 \delta = \begin{cases}
 H_0 \;\;\;\;\text{is true}\;\;\;\;\text{if}\;\; x \in \mathcal{C}_0\\
 H_1 \;\;\;\;\text{is true}\;\;\;\;\text{if}\;\; x \in \mathcal{C}_1\\
-H_2 \;\;\;\;\text{is true}\;\;\;\;\text{if}\;\; x \in \mathcal{C}_2\,.
+......\\
+H_M \;\;\;\;\text{is true}\;\;\;\;\text{if}\;\; x \in \mathcal{C}_M\,,
 \end{cases}
 \end{equation}
+where $H_0$ denotes the channel is free and $H_i$ ($i = 1, ..., M$) denotes the channel is occupied by primary user $i$.
+In the context of spectrum sensing, following events will jeopardize the system performance: 
+\\(1) The system miss a spectrum hole, the lost is represented by $C_{i0}$ ($i = 1, ..., M$). In spectrum sensing, the performance lost caused by choosing $H_k$ when $H_0$ is true ($C_{k0}$) is equal to the lost caused by choosing $H_j$ when $H_0$ is true ($C_{j0}$), where $k \neq j$ and $k, j \neq 0$, hence we set $C_{10} = C_{20} = ... C_{M0} = a_0$ ($a_0 > 0$).
+\\(2) Primary user $i$ is interfered by secondary user while transferring data, the lost is represented by $C_{0i}$. We set $C_{0i} = a_i$ ($a_0 > 0$).
 
-Let $C_{ij}$ denote the cost incurred by choosing hypothesis $H_i$ when hypothesis $H_j$ is true. 
-In the context of spectrum sensing, only three events jeopardize the system performance: 
-\\(1) The system miss a spectrum hole, the lost can be represented by $C_{10}$ and $C_{20}$. In spectrum sensing, the performance lost bring by choosing $H_1$ when $H_0$ is true is equal to the one bring by choosing $H_2$ when $H_0$ is true, hence $C_{10} = C_{20}$ and we set $C_{10} = C_{20} = a_0 > 0$.
-\\(2) Primary user 1 is interfered by secondary user while transferring data, the lost can be represented by $C_{01}$. We set $C_{01} = a_1 > 0$.
-\\(3) Primary user 2 is interfered by secondary user while transferring data, the lost can be represented by $C_{02}$. We set $C_{02} = a_2 > 0$.
+For $C_{ij}$ other than mentioned above, we set them to zero. 
 
-For other $C_{ij}$, we set them to zero. Hence we have:
-
+The conditional risk for each hypothesis can be written as
 \begin{equation}
 \begin{split}
-C_{00} &= C_{11} = C_{22} = C_{21} = C_{12} = 0\\
-C_{10} &= C_{20} = a_0\\
-C_{01} &= a_1\\
-C_{02} &= a_2
-\end{split}
-\end{equation}
-
-Define $P_i(\mathcal{C}) = \int_{\mathcal{C}} f_i(x)\mathrm{d}x$. The conditional risk for each hypothesis can be written as
-\begin{equation}
-\begin{split}
-R_0(\delta) &= C_{00}P_0(\mathcal{C}_0) + C_{10}P_0(\mathcal{C}_1) + C_{20}P_0(\mathcal{C}_2) = a_0P_0(\mathcal{C}_1) + a_0P_0(\mathcal{C}_2)\\
+R_0(\delta) &= C_{00}P_0(\mathcal{C}_0) + C_{10}P_0(\mathcal{C}_1) + ... +  C_{M0}P_0(\mathcal{C}_M) = a_0P_0(\mathcal{C}_1) + a_0P_0(\mathcal{C}_2) + ... + a_0P_0(\mathcal{C}_M)\\
+&= a_0P_0)(\mathcal{C}_1\cup \mathcal{C}_2 \cup ... \cup \mathcal{C}_M)\\
+&= a_0P_0(\bar{\mathcal{C}_0})\\
 &= a_0(1 - P_0(\mathcal{C}_0))\\
-R_1(\delta) &= C_{01}P_1(\mathcal{C}_0) + C_{11}P_1(\mathcal{C}_1) + C_{21}P_1(\mathcal{C}_2) = a_1P_1(\mathcal{C}_0)\\
-R_2(\delta) &= C_{02}P_2(\mathcal{C}_0) + C_{12}P_2(\mathcal{C}_1) + C_{22}P_2(\mathcal{C}_2) = a_2P_2(\mathcal{C}_0)\,.
+R_1(\delta) &= C_{01}P_1(\mathcal{C}_0) + C_{11}P_1(\mathcal{C}_1) + ... +  C_{M1}P_1(\mathcal{C}_M)  = a_1P_1(\mathcal{C}_0)\\
+......\\
+R_M(\delta) &= C_{0M}P_M(\mathcal{C}_0) + C_{1M}P_M(\mathcal{C}_1) + ... +  C_{2M}P_M(\mathcal{C}_2) = a_MP_M(\mathcal{C}_0)\,.
 \end{split}
 \end{equation}
 
-For any possible prior probability $\pi_0$, $\pi_1$ and $\pi_2$, the total cost function is 
+For any possible prior probability $\pi_0$, $\pi_1$, ..., $\pi_M$, the total cost function is 
 \begin{equation}
 \begin{split}
-r(\delta) &= \pi_0 R_0(\delta) + \pi_1R_1(\delta) + \pi_2R_2(\delta)\\
-&= \pi_0a_0 - (\pi_0a_0P_0(\mathcal{C}_0) - \pi_1a_1P_1(\mathcal{C}_0 - \pi_2a_2P_2(\mathcal{C}_0)))\\
-&= \pi_0a_0 - \int_{\mathcal{C}_0}\pi_0a_0f_0(x) - \pi_1a_1f_1(x) - \pi_2a_2f_2(x) \mathrm{d}x\,. 
+r(\delta) &= \pi_0 R_0(\delta) + \pi_1R_1(\delta) + ... +  \pi_MR_M(\delta)\\
+&= \pi_0a_0 - (\pi_0a_0P_0(\mathcal{C}_0) - \pi_1a_1P_1(\mathcal{C}_0 - ... - \pi_Ma_MP_M(\mathcal{C}_0)))\\
+&= \pi_0a_0 - \int_{\mathcal{C}_0}\pi_0a_0f_0(x) - \pi_1a_1f_1(x) - ... - \pi_Ma_Mf_M(x) \mathrm{d}x\,. 
 \end{split}
 \end{equation}
 and thus we see that $r(\delta)$ is a minimum over all $\mathcal{C}_0$ if we choose
 \begin{equation}
 \begin{split}
 \label{equ: C}
-\mathcal{C}_0 &= \{ x\in \mathcal{C}_0 | \pi_0a_0f_0(x) - \pi_1a_1f_1(x) - \pi_2a_2f_2(x) \geq 0\}\\
-&= \{ x\in \mathcal{C}_0 | \frac{f_0(x)}{(\pi_1a_1/\pi_0a_0)f_1(x) + (\pi_2a_2/\pi_0a_0)f_2(x)} \geq 0 \}\,.
+\mathcal{C}_0 &= \{ x\in \mathcal{C}_0 | \pi_0a_0f_0(x) - \pi_1a_1f_1(x) - ... - \pi_Ma_Mf_M(x) \geq 0\}\\
+&= \{ x\in \mathcal{C}_0 | \frac{f_0(x)}{(\pi_1a_1/\pi_0a_0)f_1(x) + ... +  (\pi_Ma_M/\pi_0a_0)f_M(x)} \geq 0 \}\,.
 \end{split}
 \end{equation}
 
-We can also observe that the range of $\mathcal{C}_1$ and $\mathcal{C}_2$ does not affect the value of $r(\delta)$. For our convenient, we set $\mathcal{C}_1 = \bar{\mathcal{C}_0}$ and $\mathcal{C}_2 = \emptyset$. The minimum decision rule is: 
-\begin{equation}
-\label{equ: decR2}
-\delta = \begin{cases}
-H_0 \;\;\;\;\text{is true}\;\;\;\;\text{if}\;\; \frac{f_0(x)}{(\pi_1a_1/\pi_0a_0)f_1(x) + (\pi_2a_2/\pi_0a_0)f_2(x)} \geq 0\\
-H_1 \;\;\;\;\text{is true}\;\;\;\;\text{if}\;\; \frac{f_0(x)}{(\pi_1a_1/\pi_0a_0)f_1(x) + (\pi_2a_2/\pi_0a_0)f_2(x)} < 0\\
-H_2 \;\;\;\;\text{is true}\;\;\;\;\text{if}\;\; x \in \emptyset\,.
-\end{cases}
-\end{equation}
+We can also observe that it is impossible to decide the range of $\mathcal{C}_1$, $\mathcal{C}_2$..., $\mathcal{C}_M$ through $r(\delta)$,  so $\delta$ cannot discriminate among $H_i$ ($ i = 1, ..., M$). In other words, $\delta$ can only distinguish between $H_0$ and $\bar{H}_0$.  Hence \eqref{equ: decR} can be written as: 
 
-The above decision rule can be written in form of $H_0$ and $\bar{H}_0$: 
 \begin{equation}
 \label{dec: delta}
-\frac{f_0(x)}{(\pi_1a_1\/\pi_0a_0)f_1(x) + (\pi_2a_2\/\pi_0a_0)f_2(x)} \substack{H_0 \\ \geq \\ < \\ \bar{H}_0} 1
+\delta:\;\;\frac{f_0(x)}{(\pi_1a_1/\pi_0a_0)f_1(x) + ... +  (\pi_Ma_M/\pi_0a_0)f_M(x)} \substack{H_0 \\ \geq \\ < \\ \bar{H}_0} 1
 \end{equation}
 
-Let $k_1 = \frac{\pi_1a_1}{\pi_0a_0}$ and $k_2 = \frac{\pi_2a_2}{\pi_0a_0}$, since $a_0, a_1, a_2 > 0$, we have $k_1, k_2 \geq 0$. The minimax decision rule has following form:
+Let $k_i = \frac{\pi_ia_i}{\pi_0a_0}$,  since $a_i > 0$, we have $k_i \geq 0$. $\delta$ has following form:
 \begin{equation}
-\label{equ: minimax form}
-\frac{f_0(x)}{k_1f_1(x) + k_2f_2(x)} \substack{H_0 \\ \geq \\ < \\ \bar{H}_0} 1\;\;\;\;k_1, k_2 \geq 0
+\label{dec: minimax form}
+\frac{f_0(x)}{k_1f_1(x) + ... + k_Mf_M(x)} \substack{H_0 \\ \geq \\ < \\ \bar{H}_0} 1\;\;\;\;k_i \geq 0
 \end{equation}
 
-Hence we can conclude: in the context of spectrum sensing, the minimax decision rule is also an ENP decision rule with non-negative parameters. In the following, we will show: in the context of spectrum sensing, the ENP decision rule with non-negative parameters is also a minimax decision rule.
+We can see \eqref{dec: minimax form} has the same form of ENP decision rule with non-negative parameters. In other words, $\forall \delta \in \Omega_{M}$, we have $\delta \in \Omega_{NP}$. We can conclude $\Omega_{M} \subseteq \Omega_{NP}$.
 
-
-Consider an ENP decison rule 
+Consider an ENP decision rule 
 \begin{equation}
 \label{equ: ENP dec}
-\delta:\;\;\frac{f_0(x)}{k_1f_1(x) + k_2f_2(x)} \substack{H_0 \\ \geq \\ < \\ \bar{H}_0} 1\;\;\;\;k_1, k_2 \geq 0
+\delta:\;\;\frac{f_0(x)}{k_1f_1(x) + ... + k_Mf_M(x)} \substack{H_0 \\ \geq \\ < \\ \bar{H}_0} 1\;\;\;\;k_i \geq 0
 \end{equation}
-, where $k_1, k_2 \geq 0$.
-Under \eqref{equ: ENP dec}, the expression of $P_d$ and $P_{f_1}, P_{f_2}$ is 
+
+Under \eqref{equ: ENP dec}, the expression of $P_d$ and $P_{f_i}$ are
 \begin{equation}
 \begin{split}
 \label{mini: condition}
 P_d &= P_0(\mathcal{C}_0)\\
-P_{f_1} &= P_1(\mathcal{C}_0)\\
-P_{f_2} &= P_2(\mathcal{C}_0)\,,
+P_{f_i} &= P_i(\mathcal{C}_0)\,,
 \end{split}
 \end{equation}
 where $\mathcal{C}_0$ is defined as
 \begin{equation}
-\mathcal{C}_0 = \{ x \in \mathcal{C}_0 | \frac{f_0(x)}{k_1f_1(x) + k_2f_2(x)} \geq 1\}\,.
+\mathcal{C}_0 = \{ x \in \mathcal{C}_0 | \frac{f_0(x)}{k_1f_1(x) + ... + k_Mf_M(x)} \geq 1\}\,.
 \end{equation}
 
-In the following we will show \eqref{equ: ENP dec} is a minimax decision rule with $a_0 = 1$, $a_0 = 1$, $a_1 = \frac{1-P_d}{P_{f_1}}$ and $a_2 = \frac{1-P_d}{P_{f_2}}$. 
+In the following we will show \eqref{equ: ENP dec} is a minimax decision rule with  $a_0 = 1$ and $a_i = \frac{1-P_d}{P_{f_i}}$.  
 
-According to previous discuss and the property of minimax hypothesis testing, we know the minimax decision rule is in the form of \eqref{dec: minimax form} and satisfy 
-\begin{equation}
-\label{condition}
-R_0(\delta) = R_1(\delta) = R_2(\delta)\,.
-\end{equation}
-
-Since \eqref{equ: ENP dec} is in the form of \eqref{dec: minimax form} and under this decision rule, we have 
+Since by using decision rule \eqref{equ: ENP dec} we have 
 \begin{equation}
 \label{R0}
-R_0(\delta) = R_1(\delta) = R_2(\delta) = 1- P_d
+R_0(\delta) = R_1(\delta) = ... =  R_M(\delta) = 1- P_d\,,
 \end{equation}
-we can conclude \eqref{equ: ENP dec} is a minimax decision rule. 
+we can see \eqref{equ: ENP dec} is also a minimax decision rule. In other words, $\forall \delta \in \Omega_{NP}$, we have $\delta \in \Omega_{M}$. We can conclude $\Omega_{NP} \subseteq \Omega_{M}$.
 
-From above discussion, we know the minimax decision rule and ENP decision rule with non-negative parameters are equivalent. 
-Next we will show the performance of $P_d$ vs. $P_{f_1}$, $P_{f_2}$ under minimax decision rule. From \textbf{Property 1}, the ENP decision rule with non-negative parameters can be simplified as
-\begin{equation}
-\label{dec: temp}
-x \substack{H_0 \\ \leq \\ > \\ \bar{H}_0} x_0\,.
-\end{equation}
-Hence minimax decision rule will also be in form of \eqref{dec: temp}. 
+Since $\Omega_{M} \subseteq \Omega_{NP}$ and $\Omega_{NP} \subseteq \Omega_{M}$, we proved $\Omega_M = \Omega_{NP}$.
 
+Next we consider using minimax decision rule to solve \eqref{v3eq7} in Matlab. $P_d$, $P_{f_1}$ and $P_{f_2}$ will be used to depict the performance. 
+ The value of $a_0$, $a_1$, $a_2$ change from $0.01$ to $100$ in step of $0.05$. For each $a_0$, $a_1$ and $a_2$, we iterate every decision rule in form of \eqref{dec: minimax form} and choose the one that has the minimum value of $\max\{R_0, R_1, R_2\}$ as the minimax decision rule. Fig \ref{pic: minimax} is the ROC under minimax hypotheses testing.
+We can see the curve in Fig \ref{pic: minimax} has the same shape as the bold curve in Fig \ref{pic: LJS for chisquare}, which is achieved by ENP with non-negative parameters. The simulation result supports our theoretical conclusion that $\Omega_{NP} = \Omega_{M}$.
 \subsection{Using MENP Framework}
 
-We test $H_0$ against $\overline{H}_0$ using the MENP framework. The problem can be abstracted into following optimization problem:
+Next we test $H_0$ against $\overline{H}_0$ using MENP framework. The problem can be abstracted into following optimization problem:
 \begin{equation}
   \label{equ: energy spectrum sensing}
   \begin{split}
@@ -662,7 +636,15 @@ Hence for any given $c_1, c_2$ the decision rule has the form
 \delta:\;\;\;\;\;\;\;\; x \substack{H_0 \\ \leq \\ > \\\bar{H}_0} x_0\,,
  \end{equation}
 where $x_0 = \min(F_1^{-1}(c_1), F_2^{-1}(c_2))$.
+The performance analysis is given in Fig \ref{pic: LJS for chisquare}. 
 
+\subsection{Comparison between Minimax framework and MENP framework}
+By comparing Fig \ref{pic: minimax} with Fig \ref{pic: LJS for chisquare}, we can observe:
+\\(1) The performance of minimax hypotheses testing is reflected by the relationship between $P_d$, $P_{f_1}$ and $P_{f_2}$, while the performance of MENP framework is reflected by the relationship between $P_d$, $c_1$ and $c_2$. In the context of spectrum sensing, the constraints are usually given in form of $\mathbf{P}_f \leq \mathbf{c}$, hence the latter one is more feasible in practice.  
+\\(2) The achievable region for MENP framework is larger. It can be seen from Fig \ref{pic: minimax}, the achievable region for minimax hypotheses testing is a curve, while the achievable region for MENP framework is the whole $c_1, c_2$ plane.
+\\(3) It is easier to design the detector's parameter under MENP framework. For a specific $c_1$ and $c_2$, it is easy to get the MENP decision rule by \eqref{equ: decision rule for spectrum sensing}. While for minimax decision rule, there is no direct relationship between $a_i$ and $P_{f_i}$.
+
+Hence we can conclude in the context of spectrum sensing, MENP framework is more feasible than minimax hypotheses testing. 
 \section{Conclusions}
 In this paper, we explore the new field of spectrum sensing with emphasis on providing different levels of protections for various primary users. 
 The proposed MENP test could achieve a value approaches to the largest probability of detection detection under multiple constraints of probability of false alarms. 
@@ -807,29 +789,16 @@ Hence the normal at this point is
 
 
 \subsection{Proof for Lemma 3}
-Assume $\mathbf{P} (P_d, P_{f_1}, ..., P_{f_M})$ is a point on the ROC and it cannot be achieved by ENP test with non-negative parameters. Assume it can be achieved by ENP test with parameter $\mathbf{k} = [k_1, k_2, ..., k_M]^T$ and $k_l$ is negative.
+Assume $\mathbf{P} (F(\mathbf{P}_{f}^0), \mathbf{P}_{f}^0)$ is a point on the ROC and it cannot be achieved by ENP test with non-negative parameters. Assume it can be achieved by ENP test with parameter $\mathbf{k} = [k_1, k_2, ..., k_M]^T$ and $k_l$ is negative.
 
-According to \textbf{Lemma 2}, $\frac{\partial P_d}{\partial P_{f_l}} = k_l < 0$. Consider another point $\mathbf{P}' (P_d', P_{f_1}', ..., P_{f_M}')$, here $P_{f_i} = P_{f_i}' (i \neq l)$ and $P_{f_l}' = P_{f_l} - \epsilon \;\;(\epsilon \rightarrow 0 \text{and} \epsilon >0)$. The partial derivative can be written in following form:
- \begin{equation}
-   \frac{\partial P_d}{ \partial P_{f_l}} \bigg|_{\mathbf{P}} = \frac{P_d - P_d'}{P_{f_l} - P_{f_l}'} = k_l\,.
- \end{equation}
- Hence
- \begin{equation}
-   P_d - P_d' = \epsilon k_l
- \end{equation}
- The expression of $P_d'$ can be written as
- \begin{equation}
-   P_d'= P_d - \epsilon k_l\,.
- \end{equation}
-Since $k_l < 0$, $P_d' > P_d$. By comparing $\mathbf{P}'$ with $\mathbf{P}$, we can conclude
-\begin{equation}
-\begin{split}
-  P_{d}^\prime &> P_{d}^0\\
-  P_{f_i}^\prime &\leq P_{f_i}^0 \;\;\;\;\;\;\;\;\text{for}\;\;\;\;\;\; i=1, 2, ..., M\,.
-\end{split}
-\end{equation}
+Assume for every $\mathbf{P}_{f}' \leq \mathbf{P}_{f}^0$, $F(\mathbf{P}_f') \leq F(\mathbf{P}_f^0)$. $\frac{\partial P_d}{\partial P_{f_l}}|_P$can be written as
+\[
+\frac{\partial P_d}{\partial P_{f_l}}|_P = \lim_{P_{f_l}' \rightarrow P_{f_l}}\frac{P_d - P_d'}{P_{f_l} - P_{f_l}'} \geq 0
+\]
+This is contradictory to $\frac{\partial P_d}{\partial P_{f_l}}|_P = k_l <0$, hence the assumption does not hold. There exists $\mathbf{P}_{f}' \leq \mathbf{P}_{f}^0$ satisfying $F(\mathbf{P}_f') \leq F(\mathbf{P}_f^0)$. When $\mathbf{P}_f' = \mathbf{P}_f^0$, we have $F(\mathbf{P}_f') = F(\mathbf{P}_f^0)$.
 
 \subsection{Proof for MENP test}
+
 If $\mathbf{c} \in \alpha^+$, then there exists non-negative $k_i$ satisfying
 \[
 P_{f_i} = \int_{-\infty}^{\infty} u(f_0(x) - \sum_{k_i=1}^{M}k_if_i(x))f_0(x)\mathrm{d}x \;\;\;\;i=1, ..., M
@@ -855,56 +824,136 @@ F(\lambda(\mathbf{P}_{fA})+(1-\lambda)(\mathbf{P}_{fB})) \geq \lambda F(\mathcal
 \]
 Hence $P_d = F(\mathbf{P}_f)$ is a convex function.
 
-Since $\mathcal{M}$ is also a convex set, $F$ is continuous over $\mathcal{M}$ interior points but maybe fail to continuous on the boundary points of $\mathcal{M}$ \cite{roberts1974convex}. 
+Since $\mathcal{M}$ is a convex set and $F$ is a convex function, $F$ is continuous over $\mathcal{M}$ interior points but may fail to be continuous on the boundary points of $\mathcal{M}$ \cite{roberts1974convex}. 
 
-Let $P^1$ denotes a boundary point of $\mathcal{M}$ whose coordinates is $(P_{f_1}^1, ..., P_{f_M}^1)$ and $P_d^1 = F(\mathbf{P}_{f}^1)$. Assume two interior points $P^2$ and $P^3$ of $\mathcal{M}$ whose coordinate are respectively $\mathbf{P}_{f}^2 = (P_{f_1}^1, ..., P_{f_{l-1}}^1, P_{f_l}^1 - \epsilon, P_{f_{l+1}}^1, ..., P_{f_M})$ and $\mathbf{P}_f^3 = (P_{f_1}^1, ..., P_{f_{l-1}}^1, P_{f_l}^1 - 2\epsilon, P_{f_{l+1}}^1, ..., P_{f_M})$, where $l$ is an integer between $1$ and $M$ and $\epsilon \rightarrow 0, \epsilon > 0$. Let $P_d^2 = F(\mathbf{P}_f^2)$ and $P_d^3 = F(\mathbf{P}_f^3)$. 
+Assume $\mathbf{P}$ is a point in $\mathcal{N}$ with coordinate $(F(\mathbf{P}_f^0), \mathbf{P}_f^0)$, where $\mathbf{P}_f^0$ is a boundary point of $\mathcal{M}$. Assume $\mathbf{P}^1$ is another point in $\mathcal{N}$ with coordinate $(F(\mathbf{P}_{f}^1), \mathbf{P}_{f}^1)$, where $\mathbf{P}_f^1$ is an inner point of $\mathcal{M}$ and 
+\begin{equation}
+\begin{split}
+P_{f_i}^1 = P_{f_i}^0\;\;\;\;(i \neq l)
+P_{f_i}^1 = P_{f_i}^0 - \epsilon \;\;\;\;(i =    l)\,,
+\end{split}
+\end{equation}
+here $l$ could be any integer between $1$ and $M$ and $\epsilon$ could be any positive value. 
 
-In the following, we will prove $P_d^1 < P_d^2$ if $P_d^1 \nrightarrow P_{d}^2$. 
+Let $\{\mathbf{P}_f^n\}$ denote a sequence of points with coordinates $(F(\mathbf{P}_f^n), \mathbf{P}_f^n)$, where 
+\begin{equation}
+\begin{split}
+P_{f_i}^n = P_{f_i}^0\;\;\;\;(i \neq l)
+P_{f_i}^n = P_{f_i}^0 - \frac{\epsilon}{n} \;\;\;\;(i =    l)\,.
+\end{split}
+\end{equation}
+It can be seen $\mathbf{P}_f^n$ is an inner point of $\mathcal{M}$. In the following, we will firstly prove: $\forall \delta >0$, there exists an integer $M$ satisfying $\forall n > M$, $F(\mathbf{P}_f^0) - F(\mathbf{P}_f^n) < \delta$.
 
-Assume $P_d^1 > P_d^2$ and $P_d^1 \nrightarrow P_{d}^2$. Since $\mathbf{P}_{f}^2$ and $\mathbf{P}_{f}^3$ are interior points of $\mathcal{M}$ and $\mathbf{P}_{f}^2 \rightarrow \mathbf{P}_f^3$, we have $P_d^2 \rightarrow P_d^3$. Since $(0.5P_d^1, + 0.5P_d^3, 0.5\mathbf{P}_f^1 + 0.5\mathbf{P}_{f}^3)$ is a middle point between $P^1$ and $P^3$, according to the convex property of $\mathcal{N}$, we know $0.5P_d^1 + 0.5P_d^3 \leq P_d^2$, which can be written as $P_d^1 - P_d^2 \leq P_d^2 - P_d^3$. Since $P_d^3 \rightarrow P_d^2$, $P_d^2 - P_d^3 \rightarrow 0$. However according to the assumption $P_d^1 - P_d^2 > 0 $ and $P_d^1 - P_d^2 \nrightarrow 0$. Hence it is impossible   $P_d^1 - P_d^2 \leq P_d^2 - P_d^3$ holds.
-Contradictory, the assumption does not hold. 
+Since $F$ is a continuous function, there exists $\delta' >0$ satisfying
+\begin{equation}
+\lim_{d(\mathbf{P}_f^{2n}, \mathbf{P}_f^n) < \delta' }|F(\mathbf{P}_f^{2n}) - F(\mathbf{P}_f^n)| < \frac{\delta}{2}\,,
+\end{equation}
+where $d(\mathbf{P}_f^{2n}, \mathbf{P}_f^n)$ represents the $l_2$ of $\mathbf{P}_f^{2n} -  \mathbf{P}_f^n$. Since $||\mathbf{P}_f^{2n} -  \mathbf{P}_f^n|| = \frac{\epsilon}{2n}$, there exists a integer $M$ satisfying $\forall n > M$, $d(\mathbf{P}_f^{2n}, \mathbf{P}_f^n) < \delta'$. Therefore $\forall n > M$, $|F(\mathbf{P}_f^{2n}) - F(\mathbf{P}_f^n)| < \frac{\delta}{2}$. 
+Since $\mathcal{N}$ is a convex function, the midpoint between $\mathbf{P}^n$ and $\mathbf{P}^{0}$ also belong to $\mathcal{N}$, i.e.
+\[
+(\frac{F(\mathbf{P}_f^n) + F(\mathbf{P}_f^0)}{2}, \frac{\mathbf{P}_f^n + \mathbf{P}_f^0}{2}) \in \mathcal{N}
+\]
+\[
+\because \frac{\mathbf{P}_f^n + \mathbf{P}_f^0}{2} = \mathbf{P}_f^{2n}
+\]
+\[
+\therefore  (\frac{F(\mathbf{P}_f^n) + F(\mathbf{P}_f^0)}{2}, \mathbf{P}_f^{2n}) \in \mathcal{N}
+\]
+\[
+\therefore F(\mathbf{P}_f^{2n}) \geq \frac{F(\mathbf{P}_f^n) + F(\mathbf{P}_f^0)}{2}
+\]
+\begin{equation}
+\begin{split}
+F(\mathbf{P}_f^0) - F(\mathbf{P}_f^n) &\leq 2[F(\mathbf{P}_f^{2n}) - F(\mathbf{P}_f^n)]\\
+&\leq 2|F(\mathbf{P}_f^{2n}) - F(\mathbf{P}_f^n)|\\
+&< 2 \frac{\delta}{2} = \delta
+\end{split}
+\end{equation}
+Hence for all $n > M$, we have $F(\mathbf{P}_f^0) - F(\mathbf{P}_f^n) < \delta$. 
 
-Hence we prove $P_d^1 < P_d^2 $ if $P_d^1 \nrightarrow P_{d}^2$. 
+Next we will prove: 
+\[
+\forall \delta >0
+\]
+there exists an integer $M$ satisfying $\forall n > M$, $F(\mathbf{P}_f^n) - F(\mathbf{P}_f^0) < \delta$.
+
+Let $(P_d^{\infty}, \mathbf{P}_f^{\infty})$ denote the limit point of sequence $\{(F(\mathbf{P}_f^n), \mathbf{P}_f^n)\}$. Since $\mathcal{N}$ is a closed set, it includes all of its limit points. Hence we know $(P_d^{\infty}, \mathbf{P}_f^{\infty}) \in \mathcal{N}$. There exists an integer $M$ satisfying $\forall n > M$, $|F(\mathbf{P}_f^n) - P_d^\infty| < \delta$, i.e. $P_d^\infty > F(\mathbf{P}_f^n) - \delta$. 
+\[
+\because \lim_{n \rightarrow \infty} \mathbf{P}_f^n \rightarrow \mathbf{P}_f^0
+\]
+\[
+\therefore \mathbf{P}_f^{\infty} = \mathbf{P}_f^0
+\]
+\[
+\therefore F(\mathbf{P}_f^0) \geq P_d^\infty > F(\mathbf{P}_f^n) - \delta
+\]
+Hence for all $n > M$, we have $F(\mathbf{P}_f^n) - F(\mathbf{P}_f^0) < \delta$.
+
+From previous discussion, we can conclude $\forall \epsilon > 0 $, there exists an integer $M$ satisfying $\forall n > M$, $|F(\mathbf{P}_f^n) - F(\mathbf{P}_f^0)| < \epsilon$, i.e. 
+\[
+\lim_{\mathbf{P}_f^n \rightarrow \mathbf{P}_f^0} F(\mathbf{P}_f^n) \rightarrow F(\mathbf{P}_f^0)\,.
+\]
+We can conclude $F$ is also continuous on the boundary of $\mathcal{M}$. 
+
+Now consider the decision rule for 
+\begin{equation}
+\begin{split}
+\label{equ: original}
+\max\;\;\;\;&P_d\\
+\text{s.t.}\;\;\;\;&\mathbf{P}_f \leq \mathbf{c}\,.
+\end{split}
+\end{equation}
 
 Before we proceed the situation when $\mathbf{c} \notin \alpha^+$, let us define some notions for ease of presentation. Let $\mathbf{b}$ denote vector $[b_1, b_2, ..., b_M]^T$.  
  Let $\mathcal{B}$ denote the set $\{ \mathbf{b} |  b_i \in [0, c_i] \}$. Let $\mathcal{B}_1$ denote the set of points $\mathbf{b}$ that only ENP test with negative parameters can achieve $\mathbf{P}_f = \mathbf{b}$. Let $\mathcal{B}_2$ denote that set of points $\mathbf{b}$ that no decision rule can achieve $\mathbf{P}_{b} = \mathbf{b}$. Let $\mathcal{B}_3$ denote the set of points $\mathbf{b}$ that ENP test with non-negative parameters can achieve $\mathbf{P}_f = \mathbf{b}$. Let $\mathcal{B}_4$ denote the set of points $\mathbf{b}$ that there exists a decision rule can satisfy $\mathbf{P}_f = \mathbf{b}$ but no ENP decision rule can satisfy $\mathbf{P}_f = \mathbf{b}$.
+ Define $\mathcal{B}_i' = \mathcal{B}_i \cap \mathcal{B}$. 
 
-The problem 
+Let $\mathbf{b}^0$ denote the optimal solution for 
 \begin{equation}
 \begin{split}
-\label{equ: problem origin}
-\max\;\;\;\;&P_d\\
-\text{s.t.}\;\;\;\;&\mathbf{P}_f \leq \mathbf{c}
+\label{1}
+\max\;\;\;\;F(\mathbf{b}) = F(\mathbf{b}^0)\\
+\text{s.t.}\;\;\;\;&\mathbf{b} \in \mathcal{B} \,,
 \end{split}
 \end{equation}
-can be written as
+and an ENP decision rule $\delta^0$ satisfy $\mathbf{P}_f(\delta^0) = \mathbf{b}^0$, in the following we will prove $\delta^0$ is also the optical decision rule for \eqref{equ: original}.
+
+Assume $\delta^0$ is not the optimal decision rule for \eqref{equ: original}, then there exists a decision rule $\delta'$ satisfying $P_d(\delta') > P_d(\delta^0)$ and $\mathbf{P}_f(\delta') \leq \mathbf{c}$. Then $\mathbf{P}_f(\delta') \in \mathcal{B}$ and $F(\mathbf{P}_f(\delta')) > F(\mathbf{b}^0)$, which is contradictory with the condition that $\mathbf{b}^0$ is the optimal solution for \eqref{1}. Hence we prove $\delta^0$ is the optimal decision rule for \eqref{equ: original}.
+
+Since $\mathcal{B} = \mathcal{B}_1 \cup \mathcal{B}_2 \cup \mathcal{B}_3 \cup \mathcal{B}_4$, and $\forall \mathbf{b} \in \mathcal{B}_4'$, $F(\mathbf{b})$ does not exist, \eqref{1} can be written as
 \begin{equation}
-\label{equ: problem transformation}
 \begin{split}
-\max\;\;\;\;\;\;\;\;&F(\mathbf{b})\\
-\text{s.t.}\;\;\;\;\;\;\;\;& \mathbf{b} \in \mathcal{B}\,.
-\end{split}
-\end{equation}
-
-According to \textbf{Lemma 3}, for any $\mathbf{b} \in \mathcal{B}_1$, there exists another $\mathbf{b}'$ satisfying $F(\mathbf{b}') \geq F(\mathbf{b})$. 
-Hence $\mathbf{b} \in \mathcal{B}_1$ cannot be the solution for \eqref{equ: problem transformation}. If $\mathbf{b} \in \mathcal{B}_2$, there is no decision rule satisfying $\mathbf{P}_{f} = \mathbf{b}$, hence it cannot be the solution for \eqref{equ: problem transformation}. 
-Hence we can conclude if $\mathbf{b}$ satisfy \eqref{equ: problem transformation}, $\mathbf{b} \in \mathcal{B}_3$ or $\mathbf{b} \in \mathcal{B}_4$. 
-
-According to \cite{dantzig1951fundamental}, $\mathbf{b} \in \mathcal{B}_4$ if and only if $\mathbf{b}$ is a boundary point of $\mathcal{M}$. 
-
-First assume $\forall \mathbf{b} \in \mathcal{B}_4$, it is not the solution for \eqref{equ: problem transformation}. We can conclude $\mathbf{b}$ is the solution for \eqref{equ: problem transformation} only if $\mathbf{b} \in \mathcal{B}_3$. And the 
-problem given by \eqref{equ: problem origin} can be transform into
-\begin{equation}
-\label{equ: problem transformation 2}
-\begin{split}
-\max\;\;\;\;\;\;\;\;&F(\mathbf{b})\\
-\text{s.t.}\;\;\;\;\;\;\;\;& \mathbf{b} \in \mathcal{B} \cap \alpha^+ \,.
+\label{2}
+\max\;\;\;\;&F(\mathbf{b}) = F(\mathbf{b}^0)\\
+\text{s.t.}\;\;\;\;&b \in \mathcal{B}_1 \cup \mathcal{B}_2 \cup \mathcal{B}_3\,.
 \end{split}
 \end{equation}
 
-Then assume for the given $\mathbf{c}$, the solution $\mathbf{b}^0$ for \eqref{equ: problem transformation} belongs to $\mathcal{B}_4$ and the solution for \eqref{equ: problem transformation 2} is $\mathbf{b}^2$. Assume $\mathbf{b}^1$ is an interior point of $\mathcal{M}$ that satisfying $\mathbf{b}^1 \rightarrow \mathbf{b}^0$ and $\mathbf{b}^1 \leq \mathbf{b}^0$. 
-As we have proved $\epsilon = F(\mathbf{b}^0) - F(\mathbf{b}^1) \rightarrow 0$ and  $F(\mathbf{b}^2) \geq F(\mathbf{b}^1)$, we can conclude  $F(\mathbf{b}^0) - F(\mathbf{b}^2) \rightarrow 0$.
-In other words, when replace \eqref{equ: problem transformation} by \eqref{equ: problem transformation 2}, the lost of $P_d$ is close to zero. 
+First assume $\mathbf{b}^0 \notin \mathcal{B}_2'$, hence \eqref{2} is equivalent to
+\begin{equation}
+\begin{split}
+\label{3}
+\max\;\;\;\;&F(\mathbf{b}) = F(\mathbf{b}^0)\\
+\text{s.t.}\;\;\;\;&b \in \mathcal{B}_1 \cup \mathcal{B}_3\,.
+\end{split}
+\end{equation}
+According to \textbf{Lemma 3}, for any $\mathbf{b} \in \mathcal{B}_1'$, there exists another $\mathbf{b}'$ satisfying $F(\mathbf{b}') > F(\mathbf{b})$. Hence $\forall \mathbf{b} \in \mathcal{B}_1'$, it cannot be the solution for \eqref{3}. Hence \eqref{3} is equivalent to 
+\begin{equation}
+\begin{split}
+\label{3}
+\max\;\;\;\;&F(\mathbf{b}) = F(\mathbf{b}^0)\\
+\text{s.t.}\;\;\;\;&b \in  \mathcal{B}_3\,.
+\end{split}
+\end{equation}
+Assume $\mathbf{b}^0$ is the optimal solution for \eqref{3} and an ENP decision rule $\delta^0$ satisfy $\mathbf{P}_f(\delta^0) = \mathbf{b}^0$, in this situation, $\delta^0$ is also the optimal solution for \eqref{equ: original}.
+
+Next we consider the situation when $\mathbf{b}^0 \in \mathcal{B}_2'$.  According to previous discussion, $\forall \epsilon > 0$, there exists an inner point of $\mathcal{M}$ $\mathbf{b}'$ satisfying $|F(\mathbf{b}^0) - F(\mathbf{b}')| < \epsilon$. According to \cite{dantzig1951fundamental}, we know $\mathbf{b}' \in \mathcal{B}_1' \cup \mathcal{B}_3'$. Assume the optimal solution for \eqref{3} is $\mathbf{b}''$, then we know $F(\mathbf{b}'') \geq F(\mathbf{b}')$. Hence we can conclude that $|F(\mathbf{b}'') - F(\mathbf{b}^0)| < \epsilon$. We can see, in this situation, \eqref{3} can achieve a feasible solution for \eqref{equ: original}, and the solution for \eqref{3} is arbitrarily close to the optimal solution for \eqref{equ: original}.
+
+From previous discussion, we can conclude in the situation when $\mathcal{c} \notin \alpha^+$, let $\mathcal{a}^0$ be such that 
+\begin{equation}
+\max_{\mathbf{a} \in \mathcal{B}_3'} F(\mathbf{a}) = F(\mathbf{a}^0)
+\end{equation}
+and en ENP decision rule $\delta$ satisfy $\mathbf{P}_f(\delta) = \mathbf{a}^0$, then $\delta$ is a feasible solution for \eqref{equ: original}, and $P_d(\delta)$ is arbitrarily close to, if not equal to, the optimal solution for \eqref{equ: original}.
 
 MENP test (\rmnum{2}) is proved.
 
@@ -1047,6 +1096,13 @@ In the same way, we can prove: For points belong to region $N_2$ or curve $L_2$,
 \includegraphics[width=12cm]{PDchange.eps}
 \caption{Change of $P_d$ after each iteration.}
 \label{pic: PDchange}
+\end{figure}
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=12cm]{mini.eps}
+\caption{ROC for minimax decision rule.}
+\label{pic: minimax}
 \end{figure}
 
 \end{spacing}
