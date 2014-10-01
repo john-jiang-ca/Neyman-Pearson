@@ -167,26 +167,29 @@ Under}
 }
 
 \noindent \textbf{Lemma 3}
-\textit{
-\noindent
-Under}
-\textbf{Condition 1}
-\textit{, let $\mathbf{P}$ be a point on the ROC surface. If  $\mathbf{P}$ cannot be achieved by ENP test with all positive parameters, then there  exist another point $\mathbf{P}^\prime\;\; (P_d^\prime, P_{f_1}^\prime, ..., P_{f_M}^\prime)$ on the ROC surface satisfying
+\noindent \textit{
+    Let $f_0$, $f_1$, ..., $f_M$ be PDFs defined on set $\mathcal{D}$ and suppose that for given constants $c_1, ..., c_M \in (0, 1]$ there exists a critical function $\phi$ such that ${P}_{f_i} \leq c_i$ ($i=1, ..., M$). Let $\mathcal{C}_\mathcal{S}$ be the set of critical functions satisfying ${P}_{f_i} \leq c_i$ ($i=1, ..., M$).
+Then:
+%No. 1
+\\\textnormal{(\rmnum{1})} Among all members of $\mathcal{C}_\mathcal{S}$ there exists one that maximizes $P_d$.
+%No.2
+\\\textnormal{(\rmnum{2})} If $f_i(x) \neq 0$ holds a.e. $\mathcal{D}$ ($i=0, 1,..., M$), and $\phi^{\ast}$ is a member of $\mathcal{C}_\mathcal{S}$ that maximum $P_d$, then there exists non-negative constants $k_1, ..., k_M$ such that 
+\[
+\phi^\ast(x)= 1\;\;\;\;\textit{if}\;\;\;\;f_0(x) > \sum_{i=1}^{M}k_if_i(x)
+\]
+\[
+\phi^\ast(x)= 0\;\;\;\;\textit{if}\;\;\;\;f_0(x) < \sum_{i=1}^{M}k_if_i(x)
+\]
+holds a.e. on $\mathcal{D}$.
 }
-\begin{equation}
-  \label{equ: lemma 3 equation}
-  \begin{split}
-    P_d^\prime &\geq P_d\\
-    P_{f_i}^\prime &\leq P_{f_i}\;\;\;\;i = 1, 2, ..., M\,.
-  \end{split}
-\end{equation}
 
 \subsection{Modified Extended Neyman Pearson Algorithm}
 %define \JUDGEMENT
 \def \JUDGEMENT{u(f_0(x) - \sum_{j=1}^{M}k_j f_j(x))}
-Before we proceed, let us define some notations for ease of presentation.
+Before we proceed, we will define some notations for presentation.
 Define $\mathbf{c}^T = [c_1, c_2, ..., c_M]$, $\mathbf{a}^T=[a_1, a_2, ..., a_M]$, $\mathbf{k}^T = [k_1, k_2, ..., k_M]$ and  $\mathbf{P}_f^T = [P_{f_1}, P_{f_2}, ..., P_{f_M}]$. Let
 $F(\mathbf{a})$ denote the largest $P_d$ under the constraints $P_{f_i} = a_i\;\;i = 1, ..., M$.
+$G(\mathbf{c})$ denote the largest $P_d$ under the constraints $P_{f_i} \leq c_i\;\;i = 1, ..., M$.
 Also define the set $\mathcal{A}_\mathbf{c} = \{
   \mathbf{P}_f | 0 \leq P_{f_i} \leq c_i
   \;\;i=1, 2, ..., M\}\,.
@@ -216,10 +219,8 @@ The case when the given $c_i\;\;i = 1, 2, ..., M$ do not satisfy \eqref{equ: con
 
 Next we present the Modified Extended Neyman Pearson Test (MENP) for solving \eqref{equ: problemstate}.
 
-\noindent \textbf{Modified Extended Neyman Pearson test}
-
+\noindent \textbf{Modified Extended Neyman Pearson Test}
 \noindent \textit{
-If \textnormal{\textbf{Condition 1}} is satisfied, then:
 \\\textnormal{(\rmnum{1})} Assume $\mathbf{c} \in \alpha^+$. Then there must be a $\mathbf{k}^0 = [k_1^0, k_2^0, ..., k_M^0]^T$ with $k_i \geq 0\;\;i=1, ..., M$ satisfying
 }
 \begin{equation}
@@ -227,7 +228,7 @@ If \textnormal{\textbf{Condition 1}} is satisfied, then:
   P_{f_i}^0 = \int_{-\infty}^{\infty} u(f_0(x) - \sum_{j=1}^{M}k_j^0f_j(x))f_i(x)\mathrm{d}x = c_i \;\; (i= 1, 2, ..., M)\,.
 \end{equation}
 \textit{
-and the decision rule $\delta $ solving  \eqref{equ: problemstate} is:
+    and the decision rule $\delta $ solving  \eqref{equ: problemstate} is:
 }
 \begin{equation}
 \label{equ:decision rule}
@@ -241,13 +242,12 @@ and the decision rule $\delta $ solving  \eqref{equ: problemstate} is:
 \max_{\mathbf{a} \in \mathcal{C}}\;\;\;\;F(\mathbf{a}) = F(\mathbf{a}^0)\\
 \end{equation}
 \textit{
-Since $\mathbf{a}^0 \in \mathcal{A}_{\mathbf{c}} \cap \alpha^+$, from \textnormal{(\rmnum{1})} we have that there exists a vector $\mathbf{k}^0$ such that}  \eqref{equ:decision rule} \textit{ maximizes $P_d$ under the constraints $P_{f_i} = a_i^0, \;i=1, ..., M$. Here since $a_i^0 \leq c_i^0, \;i=1, ..., M$ this decision rule  solves} \eqref{equ: problemstate}.
+Since $\mathbf{a}^0 \in \mathcal{A}_{\mathbf{c}} \cap \alpha^+$, from \textnormal{(\rmnum{1})} we have that there exists a vector $\mathbf{k}^0$ such that \eqref{equ:decision rule}  maximizes $P_d$ under the constraints $P_{f_i} = a_i^0, \;i=1, ..., M$. Here since $a_i^0 \leq c_i^0, \;i=1, ..., M$ this decision rule  solves \eqref{equ: problemstate}.
+}
 
-In appendix D, we will prove the MENP test will provide a solution which is arbitrarily close to, if not equal to, the optimal solution for \eqref{equ: problemstate}.
+In Appendix D, we show MENP Test can provide an optimal solution for \eqref{equ: problemstate}.
 
-From (\rmnum{1}) and (\rmnum{2}), it can also be concluded that under MENP test, for any given $\mathbf{c}$, the decision rule has form  \eqref{equ: decision rule} with $\mathbf{k} \geq \mathbf{0}$.
-
-Next we introduce a method of finding $\mathbf{a}^0$ in (\rmnum{2}). For a specific $\mathbf{c}$, in order to get $\mathbf{a}^0$, we need to determine the set of $\alpha^+$. We can conduct an exhaustive search over a grid of $k_1, ..., k_M$ depending on the desired accuracy, and store these results ($P_d, \mathbf{P}_f, \mathbf{k}$) into a lookup table $T_1$. After that, we iterate every item in $T_1$ and put the item into table $T_2$ if the item satisfies:  $\mathbf{P}_f \leq \mathbf{c}$.
+Next we introduce a method of finding $\mathbf{a}^0$. For a specific $\mathbf{c}$, in order to get $\mathbf{a}^0$, we need to determine the set of $\alpha^+$. We can conduct an exhaustive search over a grid of $k_1, ..., k_M$ depending on the desired accuracy, and store these results ($P_d, \mathbf{P}_f, \mathbf{k}$) into a lookup table $T_1$. After that, we iterate every item in $T_1$ and put the item into table $T_2$ if the item satisfies:  $\mathbf{P}_f \leq \mathbf{c}$.
 At last, we iterate every item in $T_2$ and get the largest $P_d$ and its decision rule $\mathbf{k}$.
 
 \section{The ROC surface of MENP}
@@ -789,173 +789,143 @@ Hence the normal at this point is
 
 
 \subsection{Proof for Lemma 3}
-Assume $\mathbf{P} (F(\mathbf{P}_{f}^0), \mathbf{P}_{f}^0)$ is a point on the ROC and it cannot be achieved by ENP test with non-negative parameters. Assume it can be achieved by ENP test with parameter $\mathbf{k} = [k_1, k_2, ..., k_M]^T$ and $k_l$ is negative.
+PROOF FOR (\rmnum{1}):
 
-Assume for every $\mathbf{P}_{f}' \leq \mathbf{P}_{f}^0$, $F(\mathbf{P}_f') \leq F(\mathbf{P}_f^0)$. $\frac{\partial P_d}{\partial P_{f_l}}|_P$can be written as
+Let $\mathcal{N}$ represents the set of points in $M+1$ dimensional Euclidean space such that  
 \[
-\frac{\partial P_d}{\partial P_{f_l}}|_P = \lim_{P_{f_l}' \rightarrow P_{f_l}}\frac{P_d - P_d'}{P_{f_l} - P_{f_l}'} \geq 0
+\{(\mu_1, \mu_2, ..., \mu_{M+1}\in \mathcal{N} | \mu_i = P_{f_i}\;\;i=1, ..., M,\;\;\mu_{M+1}=P_d\}
 \]
-This is contradictory to $\frac{\partial P_d}{\partial P_{f_l}}|_P = k_l <0$, hence the assumption does not hold. There exists $\mathbf{P}_{f}' \leq \mathbf{P}_{f}^0$ satisfying $F(\mathbf{P}_f') \leq F(\mathbf{P}_f^0)$. When $\mathbf{P}_f' = \mathbf{P}_f^0$, we have $F(\mathbf{P}_f') = F(\mathbf{P}_f^0)$.
-
-\subsection{Proof for MENP test}
-
-If $\mathbf{c} \in \alpha^+$, then there exists non-negative $k_i$ satisfying
+ under any decision rule. According to \cite{LehmannTest}, $\mathcal{N}$ is a convex, compact set.
+Let $\mathcal{K}$ be the set of points 
 \[
-P_{f_i} = \int_{-\infty}^{\infty} u(f_0(x) - \sum_{k_i=1}^{M}k_if_i(x))f_0(x)\mathrm{d}x \;\;\;\;i=1, ..., M
+\{(\mu_1, ..., \mu_{M+1})\in \mathcal{K} | \mu_i \in [0, c_i]\;\;\;\;i=1, 2, ..., M,\;\; \mu_{M+1} \in [0,1]\}\,.
 \]
-According to ENP, the decision rule in MENP (\rmnum{1}) always satisfies 
+Clearly $\mathcal{K}$ is a compact set. Let $\mathcal{S} = \mathcal{K} \cap \mathcal{N}$, then $\mathcal{S}$ represents the set of points that $\mathbf{P}_f \leq \mathbf{c}$. Since both $\mathcal{K}$ and $\mathcal{N}$ is compact, we can see $\mathcal{S}$ is also a compact set. 
+We consider a sequence $\{(\mu_{1_i}, ..., \mu_{{M+1}_i})\}$ in $\mathcal{S}$ such that 
 \[
-\max_{\mathbf{P}_f \leq \mathbf{c}} P_d.
+\mu_{{M+1}_i} \rightarrow \sup_{\mathcal{S}} \mu_{M+1}^0\,.
 \]
 
-In the following, we consider the situation when $c \notin \alpha^+$. Let $\mathcal{M}$ denote the set of points in M-dimensional space whose coordinates are 
-\[
-(P_{f_1}, ..., P_{f_M})
-\]
-under any decision rule. Let $\mathcal{N}$ denote the set of points in M+1-dimensinal space whose coordinates are 
-\[
-(P_d, P_{f_1}, ..., P_{f_M})
-\]
-under any decision rule.
+From the compactness of $\mathcal{S}$, $(\mu_1^0, ..., \mu_{M+1}^0)$ is in $\mathcal{S}$, so it is in $\mathcal{N}$. Assume $\phi$ is the critical function for this point, it follows that $\phi$ is in $\mathcal{C}_\mathcal{S}$ and maximize $P_d$.
 
-First we will prove $P_d = F(\mathbf{P}_f)$ is a convex function. Let $P_{dA} = F(\mathbf{P}_{fA})$, $P_{dB} = F(\mathbf{P}_{fB})$ and $\lambda  \in [0, 1]$. Since $(P_{dA}, \mathbf{P}_{fA})$ and $(P_{dB}, \mathbf{P}_{fB})$ belongs to $\mathcal{N}$ and $\mathcal{N}$ is convex, we have $(\lambda(P_{dA}) + (1 - \lambda)(P_{dB}), \lambda(\mathbf{P}_{fA})+(1-\lambda)(\mathbf{P}_{fB})) \in \mathcal{N}$. According to the definition of $F$, $F(\lambda(\mathbf{P}_{fA})+(1-\lambda)(\mathbf{P}_{fB})) \geq \lambda(P_{dA}) + (1 - \lambda)(P_{dB})$. We have 
-\[
-F(\lambda(\mathbf{P}_{fA})+(1-\lambda)(\mathbf{P}_{fB})) \geq \lambda F(\mathcal{P}_{fA}) + (1 - \lambda)F(\mathcal{P}_{fB})
-\]
-Hence $P_d = F(\mathbf{P}_f)$ is a convex function.
+PROOF FOR (\rmnum{2}):
 
-Since $\mathcal{M}$ is a convex set and $F$ is a convex function, $F$ is continuous over $\mathcal{M}$ interior points but may fail to be continuous on the boundary points of $\mathcal{M}$ \cite{roberts1974convex}. 
-
-Assume $\mathbf{P}$ is a point in $\mathcal{N}$ with coordinate $(F(\mathbf{P}_f^0), \mathbf{P}_f^0)$, where $\mathbf{P}_f^0$ is a boundary point of $\mathcal{M}$. Assume $\mathbf{P}^1$ is another point in $\mathcal{N}$ with coordinate $(F(\mathbf{P}_{f}^1), \mathbf{P}_{f}^1)$, where $\mathbf{P}_f^1$ is an inner point of $\mathcal{M}$ and 
+Firstly we will prove $G(\mathbf{c})$ is a convex function for $\mathbf{c} \in [0, 1]$.
+Let $G'$ denote the hyper surface of function $G(\mathbf{c})$ for $\mathbf{c} \in [0,1]$. Let $\mathbf{\mu^1} = (\mathbf{\mu^1_0}, \mu_{M+1}^1)$ and  $\mathbf{\mu^2} = (\mathbf{\mu^2_0}, \mu_{M+1}^2)$, where $\mathbf{\mu_0^1} = [\mu_1^1, \mu_2^1, ..., \mu_M^1]$ and $\mathbf{\mu_0^2} = [\mu_1^2, \mu_2^2, ..., \mu_M^2]$. Assume $\mathbf{\mu^1}$ and $\mathbf{\mu^2}$ are two points on $G'$, so we have $\mu_{M+1}^1 = G(\mathbf{\mu_0^1})$ and $\mu_{M+1}^2 = G(\mathbf{\mu_0^2})$. Let $\phi^1$  be the critical function achieving point $\mathbf{\mu^1}$ and $\phi^2$ be the critical function achieving point $\mathbf{\mu^2}$. Let $\phi^3 = \lambda \phi^1 + (1 - \lambda)\phi^2$, where $\lambda \in [0, 1]$, we can see
 \begin{equation}
 \begin{split}
-P_{f_i}^1 = P_{f_i}^0\;\;\;\;(i \neq l)
-P_{f_i}^1 = P_{f_i}^0 - \epsilon \;\;\;\;(i =    l)\,,
+\label{proof: pf}
+P_{f_i}(\phi^3) &= \int \phi^3 f_i \mathrm{d}x = \lambda P_{f_i}^1 + (1 - \lambda)P_{f_i}^2\\
+&\leq \lambda c_i^1 + (1-\lambda) c_i^2
 \end{split}
 \end{equation}
-here $l$ could be any integer between $1$ and $M$ and $\epsilon$ could be any positive value. 
-
-Let $\{\mathbf{P}_f^n\}$ denote a sequence of points with coordinates $(F(\mathbf{P}_f^n), \mathbf{P}_f^n)$, where 
+and 
 \begin{equation}
 \begin{split}
-P_{f_i}^n = P_{f_i}^0\;\;\;\;(i \neq l)
-P_{f_i}^n = P_{f_i}^0 - \frac{\epsilon}{n} \;\;\;\;(i =    l)\,.
+\label{proof: pd}
+P_d(\phi^3) &= \int \phi^3 f_0 \mathrm{d}x = \lambda P_{d}^1 + (1 - \lambda)P_{d}^2\\
+&= \lambda G(\mathbf{\mu^1_0}) + (1-\lambda)G(\mathbf{\mu_0^2})
 \end{split}
 \end{equation}
-It can be seen $\mathbf{P}_f^n$ is an inner point of $\mathcal{M}$. In the following, we will firstly prove: $\forall \delta >0$, there exists an integer $M$ satisfying $\forall n > M$, $F(\mathbf{P}_f^0) - F(\mathbf{P}_f^n) < \delta$.
 
-Since $F$ is a continuous function, there exists $\delta' >0$ satisfying
-\begin{equation}
-\lim_{d(\mathbf{P}_f^{2n}, \mathbf{P}_f^n) < \delta' }|F(\mathbf{P}_f^{2n}) - F(\mathbf{P}_f^n)| < \frac{\delta}{2}\,,
-\end{equation}
-where $d(\mathbf{P}_f^{2n}, \mathbf{P}_f^n)$ represents the $l_2$ of $\mathbf{P}_f^{2n} -  \mathbf{P}_f^n$. Since $||\mathbf{P}_f^{2n} -  \mathbf{P}_f^n|| = \frac{\epsilon}{2n}$, there exists a integer $M$ satisfying $\forall n > M$, $d(\mathbf{P}_f^{2n}, \mathbf{P}_f^n) < \delta'$. Therefore $\forall n > M$, $|F(\mathbf{P}_f^{2n}) - F(\mathbf{P}_f^n)| < \frac{\delta}{2}$. 
-Since $\mathcal{N}$ is a convex function, the midpoint between $\mathbf{P}^n$ and $\mathbf{P}^{0}$ also belong to $\mathcal{N}$, i.e.
-\[
-(\frac{F(\mathbf{P}_f^n) + F(\mathbf{P}_f^0)}{2}, \frac{\mathbf{P}_f^n + \mathbf{P}_f^0}{2}) \in \mathcal{N}
-\]
-\[
-\because \frac{\mathbf{P}_f^n + \mathbf{P}_f^0}{2} = \mathbf{P}_f^{2n}
-\]
-\[
-\therefore  (\frac{F(\mathbf{P}_f^n) + F(\mathbf{P}_f^0)}{2}, \mathbf{P}_f^{2n}) \in \mathcal{N}
-\]
-\[
-\therefore F(\mathbf{P}_f^{2n}) \geq \frac{F(\mathbf{P}_f^n) + F(\mathbf{P}_f^0)}{2}
-\]
+From \eqref{proof: pf}, we know $\phi^3$ is a feasible critical function for $\mathbf{P}_f \leq \lambda\mathbf{\mu^1_0} + (1-\lambda)\mathbf{\mu^2_0}$. Assume $\phi^\ast$ is the optimal critical function for 
 \begin{equation}
 \begin{split}
-F(\mathbf{P}_f^0) - F(\mathbf{P}_f^n) &\leq 2[F(\mathbf{P}_f^{2n}) - F(\mathbf{P}_f^n)]\\
-&\leq 2|F(\mathbf{P}_f^{2n}) - F(\mathbf{P}_f^n)|\\
-&< 2 \frac{\delta}{2} = \delta
-\end{split}
-\end{equation}
-Hence for all $n > M$, we have $F(\mathbf{P}_f^0) - F(\mathbf{P}_f^n) < \delta$. 
-
-Next we will prove: 
-\[
-\forall \delta >0
-\]
-there exists an integer $M$ satisfying $\forall n > M$, $F(\mathbf{P}_f^n) - F(\mathbf{P}_f^0) < \delta$.
-
-Let $(P_d^{\infty}, \mathbf{P}_f^{\infty})$ denote the limit point of sequence $\{(F(\mathbf{P}_f^n), \mathbf{P}_f^n)\}$. Since $\mathcal{N}$ is a closed set, it includes all of its limit points. Hence we know $(P_d^{\infty}, \mathbf{P}_f^{\infty}) \in \mathcal{N}$. There exists an integer $M$ satisfying $\forall n > M$, $|F(\mathbf{P}_f^n) - P_d^\infty| < \delta$, i.e. $P_d^\infty > F(\mathbf{P}_f^n) - \delta$. 
-\[
-\because \lim_{n \rightarrow \infty} \mathbf{P}_f^n \rightarrow \mathbf{P}_f^0
-\]
-\[
-\therefore \mathbf{P}_f^{\infty} = \mathbf{P}_f^0
-\]
-\[
-\therefore F(\mathbf{P}_f^0) \geq P_d^\infty > F(\mathbf{P}_f^n) - \delta
-\]
-Hence for all $n > M$, we have $F(\mathbf{P}_f^n) - F(\mathbf{P}_f^0) < \delta$.
-
-From previous discussion, we can conclude $\forall \epsilon > 0 $, there exists an integer $M$ satisfying $\forall n > M$, $|F(\mathbf{P}_f^n) - F(\mathbf{P}_f^0)| < \epsilon$, i.e. 
-\[
-\lim_{\mathbf{P}_f^n \rightarrow \mathbf{P}_f^0} F(\mathbf{P}_f^n) \rightarrow F(\mathbf{P}_f^0)\,.
-\]
-We can conclude $F$ is also continuous on the boundary of $\mathcal{M}$. 
-
-Now consider the decision rule for 
-\begin{equation}
-\begin{split}
-\label{equ: original}
+\label{object}
 \max\;\;\;\;&P_d\\
-\text{s.t.}\;\;\;\;&\mathbf{P}_f \leq \mathbf{c}\,.
+\text{s.t.}\;\;\;\;&\mathbf{P}_f \leq \lambda\mathbf{\mu^1_0} + (1-\lambda)\mathbf{\mu^2_0}
 \end{split}
 \end{equation}
+Obviously $P_d(\phi^\ast) \geq P_d(\phi^3) = \lambda G(\mathbf{\mu_1^0}) + (1-\lambda)G(\mathbf{\mu_2^0})$. Hence we can see
+\[
+\therefore G(\lambda\mathbf{\mu^1_0}+(1-\lambda)\mathbf{\mu^2_0}) \geq \lambda G(\mathbf{\mu^1_0}) + (1-\lambda)G(\mathbf{\mu^2_0})
+\]
+Hence $G(\mathbf{c})$ is a convex function for $\mathbf{c} \in [0, 1]$.
+According to the definition of $G(\mathbf{c})$, when $c_i$ increases, the value of $G(\mathbf{c})$ will not decrease, we can conclude $G(\mathbf{c})$ is also a non-decreasing function of $\mathcal{C}$. 
 
-Before we proceed the situation when $\mathbf{c} \notin \alpha^+$, let us define some notions for ease of presentation. Let $\mathbf{b}$ denote vector $[b_1, b_2, ..., b_M]^T$.  
- Let $\mathcal{B}$ denote the set $\{ \mathbf{b} |  b_i \in [0, c_i] \}$. Let $\mathcal{B}_1$ denote the set of points $\mathbf{b}$ that only ENP test with negative parameters can achieve $\mathbf{P}_f = \mathbf{b}$. Let $\mathcal{B}_2$ denote that set of points $\mathbf{b}$ that no decision rule can achieve $\mathbf{P}_{b} = \mathbf{b}$. Let $\mathcal{B}_3$ denote the set of points $\mathbf{b}$ that ENP test with non-negative parameters can achieve $\mathbf{P}_f = \mathbf{b}$. Let $\mathcal{B}_4$ denote the set of points $\mathbf{b}$ that there exists a decision rule can satisfy $\mathbf{P}_f = \mathbf{b}$ but no ENP decision rule can satisfy $\mathbf{P}_f = \mathbf{b}$.
- Define $\mathcal{B}_i' = \mathcal{B}_i \cap \mathcal{B}$. 
+Let $G_s$ denote the set of points in $M+1$ dimensional Euclidean Space such that 
+\[
+ \{(\mathbf{\mu_0}, \mu_{M+1})\in G_s | \mathbf{\mu_0}\in [0, 1], i=1, ..., M,\;\;\mu_{M+1} \in [0, G(\mathbf{\mu_0})]
+    \}
+\]
+Since function $G(\mathbf{\mu})$ is a convex function, $G_s$ is a convex set. To see this, let $\mathbf{\mu^1} (\mathbf{\mu^1_0}, \mu^1_{M+1})$ and $\mathbf{\mu^2} (\mathbf{\mu^2_0}, \mu^2_{M+1})$ be two points in $G_s$. Let $\mathbf{\mu^3}$ be a point between them, the coordinate of $\boldsymbol{\mu}^\mathbf{3}$ can be written as
+\[
+(\lambda \mathbf{\mu^1_0}+(1-\lambda)\mathbf{\mu^2_0}, \lambda\mu_{M+1}^1 + (1-\lambda)\mu_{M+1}^2)
+\]
+Since $\mathbf{\mu^1_0}, \mathbf{\mu^2_0} \in [0, 1]$, we know $\lambda \mathbf{\mu^1_0}+(1-\lambda)\mathbf{\mu^2_0} \in [0, 1]$. Since $G(\mathbf{\mu})$ is convex function, we can see
+\[
+0 \leq \lambda\mu_{M+1}^1 + (1-\lambda)\mu_{M+1}^2 = \lambda G(\mu_0^1) + (1-\lambda)G(\mu_0^2) \leq G(\lambda \mathbf{\mu_0^1}+(1-\lambda)\mathbf{\mu_0^2})\,.
+\]
+We can conclude $G_s$ is a convex set. 
 
-Let $\mathbf{b}^0$ denote the optimal solution for 
+Next we will show $\mathcal{N} \subseteq G_s$. According to the definition of $F(\mathbf{\mu})$ and $G(\mathbf{\mu})$, it is easy to know $F(\mathbf{\mu}) \leq G(\mathbf{\mu})$. Assume $\mathbf{\mu} (\mathbf{\mu_0}, \mu_{M+1})$ is a point in $\mathcal{N}$, we can see $\mathbf{\mu_0} \in [0, 1]$ and $0 \leq \mu_{M+1} \leq F(\mathbf{\mu_0}) \leq G(\mathbf{\mu_0})$. Hence we can conclude $\mathbf{\mu} \in G_s$, i.e., $\mathcal{N} \subseteq G_s$.
+
+For any $\mathbf{c} \in  (0, 1)$, let $\phi^\ast$ be the optimal critical function for \eqref{object}. Let $\mathbf{\mu_0^0} = \mathbf{P}_f(\phi^\ast)$ and $\mu_{M+1}^0 = P_d(\phi^\ast)$. Obvious $(\mathbf{\mu_0^0}, \mu_{M+1}^0)$ is in $\mathcal{N}$ and $\phi$ is also the optimal critical function for 
 \begin{equation}
 \begin{split}
-\label{1}
-\max\;\;\;\;F(\mathbf{b}) = F(\mathbf{b}^0)\\
-\text{s.t.}\;\;\;\;&\mathbf{b} \in \mathcal{B} \,,
+\max\;\;\;\;&P_d\\
+\text{s.t.}\;\;\;\;&\mathbf{P}_f \leq \mathbf{\mu^0_0}
 \end{split}
 \end{equation}
-and an ENP decision rule $\delta^0$ satisfy $\mathbf{P}_f(\delta^0) = \mathbf{b}^0$, in the following we will prove $\delta^0$ is also the optical decision rule for \eqref{equ: original}.
 
-Assume $\delta^0$ is not the optimal decision rule for \eqref{equ: original}, then there exists a decision rule $\delta'$ satisfying $P_d(\delta') > P_d(\delta^0)$ and $\mathbf{P}_f(\delta') \leq \mathbf{c}$. Then $\mathbf{P}_f(\delta') \in \mathcal{B}$ and $F(\mathbf{P}_f(\delta')) > F(\mathbf{b}^0)$, which is contradictory with the condition that $\mathbf{b}^0$ is the optimal solution for \eqref{1}. Hence we prove $\delta^0$ is the optimal decision rule for \eqref{equ: original}.
-
-Since $\mathcal{B} = \mathcal{B}_1 \cup \mathcal{B}_2 \cup \mathcal{B}_3 \cup \mathcal{B}_4$, and $\forall \mathbf{b} \in \mathcal{B}_4'$, $F(\mathbf{b})$ does not exist, \eqref{1} can be written as
+Hence $(\mathbf{\mu^0_0}, \mu_{M+1}^0)$ is on hyper surface $G'$. From the condition that $f_i \neq 0$ a.e. on $\mathcal{D}$, when $\mathbf{c} \in (0, 1)$, we have $G(\mathbf{c}) = \mu_{M+1}^0 = \in (0, 1)$, so $\mathbf{\mu_0^0} \in (0, 1)$. Let $\mu' \in (0, \mu_{M+1})$, we can see $(\mathbf{\mu_0}, \mu')$ is an inner point of $G_s$. From the proof in \cite{LehmannTest}, we can conclude there exists constants $k_1$, ..., $k_M$  such that for every points $(\mu_1, ..., \mu_M)$ in $G_s$, it satisfies
+\begin{equation}
+\label{IM}
+\mu_{M+1} - \sum_{i=1}^{M}k_i\mu_i \leq \mu_{M+1}^0 - \sum_{i=1}^{M}k_i\mu_i^0
+\end{equation}
+Since $\mathcal{N} \subseteq G_s$,  points in $\mathcal{N}$ also satisfy \eqref{IM}. For points in $\mathcal{N}$, it satisfies $\mu_i = \int\phi(x) f_i(x)\mathrm{d}x$ ($i=1, ..., M$) and $\mu_{M+1} = \int \phi(x) f_0(x)\mathrm{d}x$. That is, all critical function $\phi$ must satisfy
+\begin{equation}
+\label{IMP}
+\int_{\mathcal{D}}\phi(f_{0}(x) - \sum_{i=1}^{M}k_if_i(x))\mathrm{d}x \leq \int_{\mathcal{D}}\phi^\ast(f_{0}(x) - \sum_{i=1}^{M}k_if_i(x))\mathrm{d}x 
+\end{equation}
+Since $\phi^\ast$ is the critical function that maximizes the left-hand equation, it must hold 
 \begin{equation}
 \begin{split}
-\label{2}
-\max\;\;\;\;&F(\mathbf{b}) = F(\mathbf{b}^0)\\
-\text{s.t.}\;\;\;\;&b \in \mathcal{B}_1 \cup \mathcal{B}_2 \cup \mathcal{B}_3\,.
+\label{R}
+\phi^\ast(x)= 1\;\;\;\;\text{if}\;\;\;\;f_0(x) > \sum_{i=1}^{M}k_if_i(x)\\
+\phi^\ast(x)= 0\;\;\;\;\text{if}\;\;\;\;f_0(x) < \sum_{i=1}^{M}k_if_i(x)
 \end{split}
 \end{equation}
+a.e. on $\mathcal{D}$.
 
-First assume $\mathbf{b}^0 \notin \mathcal{B}_2'$, hence \eqref{2} is equivalent to
-\begin{equation}
-\begin{split}
-\label{3}
-\max\;\;\;\;&F(\mathbf{b}) = F(\mathbf{b}^0)\\
-\text{s.t.}\;\;\;\;&b \in \mathcal{B}_1 \cup \mathcal{B}_3\,.
-\end{split}
-\end{equation}
-According to \textbf{Lemma 3}, for any $\mathbf{b} \in \mathcal{B}_1'$, there exists another $\mathbf{b}'$ satisfying $F(\mathbf{b}') > F(\mathbf{b})$. Hence $\forall \mathbf{b} \in \mathcal{B}_1'$, it cannot be the solution for \eqref{3}. Hence \eqref{3} is equivalent to 
-\begin{equation}
-\begin{split}
-\label{3}
-\max\;\;\;\;&F(\mathbf{b}) = F(\mathbf{b}^0)\\
-\text{s.t.}\;\;\;\;&b \in  \mathcal{B}_3\,.
-\end{split}
-\end{equation}
-Assume $\mathbf{b}^0$ is the optimal solution for \eqref{3} and an ENP decision rule $\delta^0$ satisfy $\mathbf{P}_f(\delta^0) = \mathbf{b}^0$, in this situation, $\delta^0$ is also the optimal solution for \eqref{equ: original}.
+From the fact that $G(\mathbf{\mu})$ is a non-decreasing function, we know $k_i \geq 0$. To see this, let $k_l < 0$ and consider the value of $G((\mu_1,..., \mu_l', ..., \mu_M))$, where $\mu_l' > \mu_l$.  From \eqref{IM} we have 
+\[
+\mu_{M+1}' - k_l\mu_l' \leq \mu_{M+1}^0 - k_l\mu_l^0
+\]
+which can be written as
+\[
+\mu_{M+1}' \leq \mu_{M+1}^0 + k_l(\mu_l' - \mu_l^0) < \mu_{M+1}^0
+\]
+\[
+\therefore G(\mu') < G(\mu^0)
+\]
+This is contradictory with the fact that $G(\mathbf{c})$ is a non-decreasing function. Hence all $\mathbf{k}$ are non-negative.
 
-Next we consider the situation when $\mathbf{b}^0 \in \mathcal{B}_2'$.  According to previous discussion, $\forall \epsilon > 0$, there exists an inner point of $\mathcal{M}$ $\mathbf{b}'$ satisfying $|F(\mathbf{b}^0) - F(\mathbf{b}')| < \epsilon$. According to \cite{dantzig1951fundamental}, we know $\mathbf{b}' \in \mathcal{B}_1' \cup \mathcal{B}_3'$. Assume the optimal solution for \eqref{3} is $\mathbf{b}''$, then we know $F(\mathbf{b}'') \geq F(\mathbf{b}')$. Hence we can conclude that $|F(\mathbf{b}'') - F(\mathbf{b}^0)| < \epsilon$. We can see, in this situation, \eqref{3} can achieve a feasible solution for \eqref{equ: original}, and the solution for \eqref{3} is arbitrarily close to the optimal solution for \eqref{equ: original}.
+In the situation when $\mathbf{c} = 1$, we know the maximum $P_d = 1$, which can be achieved by letting $\mathbf{k}=0$. 
+Hence for any $\mathbf{c} \in (0, 1]$, the optimal critical function must statisfy \eqref{R} a.e. on $\mathcal{D}$.
 
-From previous discussion, we can conclude in the situation when $\mathcal{c} \notin \alpha^+$, let $\mathcal{a}^0$ be such that 
-\begin{equation}
-\max_{\mathbf{a} \in \mathcal{B}_3'} F(\mathbf{a}) = F(\mathbf{a}^0)
-\end{equation}
-and en ENP decision rule $\delta$ satisfy $\mathbf{P}_f(\delta) = \mathbf{a}^0$, then $\delta$ is a feasible solution for \eqref{equ: original}, and $P_d(\delta)$ is arbitrarily close to, if not equal to, the optimal solution for \eqref{equ: original}.
-
-MENP test (\rmnum{2}) is proved.
+\subsection{Proof for MENP Test}
+MENP (\rmnum{1}) is a direct conclusion from ENP Lemma, we will consider MENP (\rmnum{2}). Assume $\mathbf{a}^0$ satisfy
+\[
+\max_{\mathbf{a}\in\mathcal{C}} F(\mathbf{a}) = F(\mathbf{a^0})
+\]
+and $\mathbf{a^0}$ can be achieved by decision rule
+\[
+\delta^0:\;\;\;\;\frac{f_0(x)}{\sum_{i=1}^{M}k_i^0f_i(x)} \substack{H_0 \\ \geq \\ < \\ \bar{H_0}} 1
+\]
+Assume $\delta^0$ is not the optimal decision rule for \eqref{equ: problemstate}. Let $\delta^\ast$ be the optimal decision rule for \eqref{equ: problemstate}. Obviously we have $P_d(\delta^\ast) > P_d (\delta^0)$ and $\mathbf{P}_f(\delta^\ast) \leq \mathbf{c}$.  
+According to Lemma 3, $\delta^\ast$ must satisfy 
+\[
+x \in H_0\;\;\;\;\text{when}\;\;f_0(x) > \sum_{i=1}^{M}k_i'f_i(x)
+\]
+\[
+x \in \bar{H}_0\;\;\;\;\text{when}\;\;f_0(x) < \sum_{i=1}^{M}k_i'f_i(x)
+\]
+a.e. on $\mathcal{D}$. Let $\delta'$ be a decision rule such that
+\[
+\frac{f_0(x)}{\sum_{i=1}^{M}k_i'f_i(x)}\substack{H_0 \\ \geq \\ < \\ \bar{H_0}} 1
+\]
+Since we do not consider random decision rule, we can see $P_d(\delta') = P_d(\delta^\ast)$ and $\mathbf{P}_f(\delta') = P_f(\delta^\ast)$. We have $\mathbf{P}_f(\delta') \in \mathcal{C}$ and $F(\mathbf{P}_f(\delta')) \leq F(\mathbf{a^0})$, i.e., $P_d(\delta') < P_d(\delta^0)$. Hence we have $P_d(\delta^\ast) < P_d(\delta^0)$. This is contradictory with our assumption.
 
 \subsection{Proof for Property 1}
 According to the definition, $M_0$ is the region achieved by ENP test with $k_i \geq 0 (i=1, ..., M)$. The ENP decision rule is
