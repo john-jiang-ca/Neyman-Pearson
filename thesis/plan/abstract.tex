@@ -1,0 +1,69 @@
+\documentclass{report}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{ amsmath, bm }
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{yhmath}
+\DeclareGraphicsExtensions{.pdf,.eps,.png,.jpg,.mps}
+\usepackage{dsfont}
+\usepackage{bbm}
+\usepackage{setspace}
+\usepackage[top=1.5in, bottom=1.5in, left=1in, right=1in]{geometry}
+
+%For lemma, theorem, proposition, corllary, proof, definition,example and remark.
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+\newcommand\bigfrown[2][\textstyle]{\ensuremath{%
+  \array[b]{c}\text{\scalebox{2}{$#1\frown$}}\\[-1.3ex]#1#2\endarray}}
+% End
+\author{An~Jiang,~
+          McGill University\\
+          Email: an.jiang@mail.com}
+\title{The Extended Neyman-Pearson Hypotheses Testing Framework and its Application to Spectrum Sensing in Cognitive Wireless Communication}
+\date{\today}
+\begin{document}
+\begin{spacing}{2.0}
+\maketitle
+\begin{abstract}
+We proposed a Modified Extended Neyman Pearson (MENP) framework which is suitable for spectrum sensing when there might be different type of primary signals. Our work generalizes existing Neyman Pearson (NP) test to multiple probability of false alarm constraints. This allows the cognitive radio wireless communication system to provide different levels of protection to various of primary users.  
+M-ROC surface, figure concerning the relationship between the probability of detection and the constraint conditions, is approached to depict the performance of MENP testing.   
+
+Using MENP framework, energy based spectrum detector and cyclostationary based spectrum detector, are developed to detect OFDM signals. These detectors are designed to have the largest probability of detection under any probability of false alarm constraints.  
+
+Performance analysis were performed to study the M-ROC surface behavior for both detector. We then evaluate the probability of detection performance improvement with respect to the increment of probability of false alarm constraints.  
+The performance analysis also confirms the optimal decision rule of energy based spectrum detector for OFDM signals under AWGN channel can be derived in term of inverse CDF of Chi-Square distribution.  
+\end{abstract}
+
+\chapter{Introduction}
+Give an introduction to Cognitive Radio communication system. A literature review will be provided for different methods of spectrum sensing.  
+\chapter{Extended Neyman Pearson Test and Modified Extended Neyman Pearson Test}
+\section{Introduction to Extended Neyman Pearson Test}
+A brief introduction to extended Neyman Pearson framework will be given.
+\section{Properties of Extended Neyman Pearson Test}
+Three Lemmas concerning the extended Neyman Pearson Test will be given.
+\section{Modified Extended Neyman Pearson Test}
+\subsection{Limitation of Extended Neyman Pearson Test}
+The motivation for MENP framework.
+\subsection{Modified Extended Neyman Pearson Test}
+MENP framework will be given.
+\section{The ROC surface of Modified Extended Neyman Pearson Test}
+\subsection{The ROC surface of Modified Extended Neyman Pearson Test under Gaussian Hypotheses}
+\subsection{The ROC surface of Modified Extended Neyman Pearson Test under Chi-Square Hypotheses}
+\section{Determine the decision rule under Modified Extended Neyman Pearson Framework}
+
+\chapter{The application of Modified Extended Neyman Pearson Test in Spectrum Sensing}
+\section{The application of MENP test in Energy Based Spectrum Sensing}
+\subsection{System Model}
+\subsection{Simulation Results}
+\section{The application of MENP test in cyclostationary Based Spectrum Sensing}
+\subsection{System Model}
+\subsection{Simulation Results}
+
+\newpage
+\bibliographystyle{ieeetr}	% (uses file "plain.bst")
+\bibliography{mybib}		% expects file "myrefs.bib"
+\end{spacing}
+\end{document}
