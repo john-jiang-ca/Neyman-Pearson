@@ -1,4 +1,4 @@
-\documentclass{report}
+\documentclass{article}
 \usepackage{amssymb}
 \usepackage{mathtools}
 \usepackage{ amsmath, bm }
@@ -20,48 +20,54 @@
   \array[b]{c}\text{\scalebox{2}{$#1\frown$}}\\[-1.3ex]#1#2\endarray}}
 % End
 \author{An~Jiang,~
-          McGill University\\
-          Email: an.jiang@mail.com}
+    }
 \title{The Extended Neyman-Pearson Hypotheses Testing Framework and its Application to Spectrum Sensing in Cognitive Wireless Communication}
 \date{\today}
 \begin{document}
 \begin{spacing}{2.0}
 \maketitle
 \begin{abstract}
-We proposed a Modified Extended Neyman Pearson (MENP) framework which is suitable for spectrum sensing when there might be different type of primary signals. Our work generalizes existing Neyman Pearson (NP) test to multiple probability of false alarm constraints. This allows the cognitive radio wireless communication system to provide different levels of protection to various of primary users.  
-M-ROC surface, figure concerning the relationship between the probability of detection and the constraint conditions, is approached to depict the performance of MENP testing.   
+We proposed a Modified Extended Neyman Pearson (MENP) framework which is suitable for spectrum sensing when there might be different types of primary signals. Our work generalizes existing Neyman Pearson (NP) test to multiple probability of false alarm constraints. This allows the cognitive radio wireless communication system to provide different levels of protection for various of primary users.  
+M-ROC surface, the figure concerning the relationship between the probability of detection and the constraints, is approached to depict the performance of MENP testing.   
 
 Using MENP framework, energy based spectrum detector and cyclostationary based spectrum detector, are developed to detect OFDM signals. These detectors are designed to have the largest probability of detection under any probability of false alarm constraints.  
 
-Performance analysis were performed to study the M-ROC surface behavior for both detector. We then evaluate the probability of detection performance improvement with respect to the increment of probability of false alarm constraints.  
-The performance analysis also confirms the optimal decision rule of energy based spectrum detector for OFDM signals under AWGN channel can be derived in term of inverse CDF of Chi-Square distribution.  
+Performance analyses were performed to study the M-ROC surface behavior for both detector. We then evaluate the improvement of the probability of detection with respect to the increase of probability of false alarms.  
+The performance analysis also confirms that the optimal decision rule of energy based spectrum detector can be derived in terms of the inverse CDF of Chi-Square distribution.  
 \end{abstract}
 
-\chapter{Introduction}
-Give an introduction to Cognitive Radio communication system. A literature review will be provided for different methods of spectrum sensing.  
-\chapter{Extended Neyman Pearson Test and Modified Extended Neyman Pearson Test}
-\section{Introduction to Extended Neyman Pearson Test}
-A brief introduction to extended Neyman Pearson framework will be given.
-\section{Properties of Extended Neyman Pearson Test}
-Three Lemmas concerning the extended Neyman Pearson Test will be given.
-\section{Modified Extended Neyman Pearson Test}
-\subsection{Limitation of Extended Neyman Pearson Test}
-The motivation for MENP framework.
+\section{Introduction}
+In this chapter, we will give an introduction to current cognitive radio technologies. After that, different types of spectrum sensing methods will be introduced. Thesis Objectives, Thesis Organization and Contributions will come after that.
+\subsection{Thesis Objectives}
+\subsection{Thesis Organization and Contribution}
+\newpage
+\section{System Models and Hypotheses Testing Scheme}
+This chapter will start by an introduction of the system model, which will include the structure of energy based detector and cyclostationary based detector. Neyman Pearson and Extended Neyman Pearson hypotheses testing framework will then be presented in the following sections. Of major concern of all of these techniques is the properties of Extended Neyman Pearson Hypotheses testing. 
+\subsection{System Model}
+\subsubsection{Energy Based Spectrum Detector}
+\subsubsection{Cyclostationary Based Spectrum Detector}
+\subsection{Hypotheses Testing Scheme}
+\subsubsection{Bayesian Hypotheses Testing}
+\subsubsection{Minimax Hypotheses Testing}
+\subsubsection{Neyman Pearson Hypotheses Testing}
+\newpage
+\section{Extended Neyman Pearson Testing }
+This chapter will introduce a new hypotheses testing scheme. The new scheme aims to achieve the largest probability of detection under any probability of false alarm constraints. This will be followed by a section which detailedly present MENP framework. A section containing an algorithm to achieve the MENP parameters will come after that. Computer simulation result, which illustrate the performance of the algorithm, will be presented.  
+\subsection{Extended Neyman Pearson Hypotheses Testing}
+\subsection{Properties of MENP Test}
 \subsection{Modified Extended Neyman Pearson Test}
-MENP framework will be given.
+\subsection{Determine the decision rule under Modified Extended Neyman Pearson Framework}
+\newpage
 \section{The ROC surface of Modified Extended Neyman Pearson Test}
+This chapter will provides the MROC performance for Gaussian and Chi-Square examples. 
 \subsection{The ROC surface of Modified Extended Neyman Pearson Test under Gaussian Hypotheses}
 \subsection{The ROC surface of Modified Extended Neyman Pearson Test under Chi-Square Hypotheses}
-\section{Determine the decision rule under Modified Extended Neyman Pearson Framework}
-
-\chapter{The application of Modified Extended Neyman Pearson Test in Spectrum Sensing}
-\section{The application of MENP test in Energy Based Spectrum Sensing}
-\subsection{System Model}
-\subsection{Simulation Results}
-\section{The application of MENP test in cyclostationary Based Spectrum Sensing}
-\subsection{System Model}
-\subsection{Simulation Results}
-
+\newpage
+\section{Simulation Results and Discussions}
+\subsection{MENP behavior for Energy based spectrum sensing}
+\subsection{MENP behavior for cyclostationary based spectrum sensing}
+\newpage
+\section{ Conclusion}
 \newpage
 \bibliographystyle{ieeetr}	% (uses file "plain.bst")
 \bibliography{mybib}		% expects file "myrefs.bib"
