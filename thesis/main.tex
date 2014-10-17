@@ -75,39 +75,7 @@ We proposed a Modified Extended Neyman Pearson test that is suitable for spectru
 \end{romanPagenumber}
 
 %\mainmatter %
- 
-\chapter{Introduction}
-\section{Introduction}
-This is a test from An Jiang
-The idea of the McGill ETD class (mcgilletdclass) is to input the standard \LaTeXe report
-class and make changes as necessary to meet the requirements of the McGill EThesis Project. 
-The following packages, in addition to those included
-with the base distribution of \LaTeXe, must exist on your system;
-the dates in parentheses give the dates of the oldest version this class
-was tested with. Since they are all standard packages, they are readily
-available at any CTAN (Comprehensive TEX Archive Network)\index[keylist]{\textbf{CTAN} (Comprehensive TEX Archive Network)}
-site. 
-\begin{BulletList}
-	\item{setspace (2000/12/01)}
-	\item{ulem (2000/05/26)}
-		\subitem{You can use \verb=\uline{text}= to underline \uline{text}. The documentation
-of the ulem package provides more information.}
-	\item{sectsty (1999/04/12)}
-		\subitem{Since underlining in section headings is rather nontrivial, the
-sectsty package was used to manipulate the formatting of sectional
-headings.}
-	\item{ragged2e (1999/06/08)}
-		\subitem{This package adds support to handle ragged right justification appropriately.}
-	\item{everysel (1999/06/08)}
-		\subitem{Required by the ragged2e package.}
-\end{BulletList}
-\section{General Guidelines}
-\begin{BulletList}
-	\item{Please use commands provided by mcgilletdclass, otherwise your thesis may not be able to pass the validation check.}
-	\item{If you run into problems using this stylesheet, please contact us as soon as possible.}
-	\item{Files you must submit: *.tex, *.dvi and *.bib files.}
-\end{BulletList}
-
+\subimport*{Intro/}{Introduction}
 
 \chapter{Usage}
 An example of how to use the mcgilletdclass document class is provided in 
@@ -531,7 +499,7 @@ And you will get the following result:\\%
 %\end{\ETDAppendix}%
 \bibHeading{References}
 \bibliography{mcgilletd}
-\bibliographystyle{plain}
+\bibliographystyle{ieeetr}
 
 \index[abbr]{IEEE@IEEE: Institute of Electrical and Electronics Engineers, Inc.}
 \index[abbr]{CDMA@CDMA: code-division multiple access}
