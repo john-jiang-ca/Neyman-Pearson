@@ -1,0 +1,36 @@
+\resetdatestamp
+
+\newcommand\Dfrac[2]{\frac{\displaystyle #1}{\displaystyle #2}}
+\newcommand{\mathBF}[1]{\mbox{\boldmath $#1$}}
+\newcommand{\C}[1]{\mathBF{#1}}
+
+\chapter{Mathematical Layout Styles}
+
+\TeX{} does a marvelous job of setting mathematical formulas, most often
+ choosing pleasing spacing.
+However, on occasion one should intercede to improve the layout.
+This chapter defines a few such occasions.
+In addition, this chapter documents some features of the {\tt amsmath}
+ package which overcome difficulties in typesetting some mathematical
+ forms.
+The {\tt amsmath} package is documented 
+ in {\it The \LaTeX{} Companion} \cite{Goossens:1997}.
+
+The modified setup is typeset as
+\begin{equation}
+  G(z) = \begin{cases}
+           \Dfrac {P(z)}{1+z^{-1}} & \text{for $p$ even}, \\[1ex]
+           P(z)                    & \text{for $p$ odd}.
+         \end{cases}
+\end{equation}
+
+With the modified definitions, we get the following.
+\def\hC#1{\C{\hat{#1}}\vphantom{\C{#1}}}           % hat vector
+\def\htC#1{\C{\hat{\tilde{#1}}}\vphantom{\C{#1}}}  % hat, tilde vector
+\def\tC#1{\C{\tilde{#1}}\vphantom{\C{#1}}}         % tilde vector
+\begin{equation}
+\begin{split}
+  \C{d}^{(i)} &= \hC{v}^{(i)} - \htC{v}^{(i)} \\
+  \C{n}^{(i)} &= \C{u}^{(i)} - \tC{v}^{(i)}
+\end{split}
+\end{equation}

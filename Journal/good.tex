@@ -1,5 +1,6 @@
 \documentclass[12pt,journal,a4paper,twoside,onecolumn]{IEEEtran}
 \usepackage{amssymb}
+\usepackage{verbatim}
 \usepackage{mathtools}
 \usepackage{ amsmath, bm }
 \usepackage{graphicx}
@@ -168,19 +169,17 @@ Under}
 
 \noindent \textbf{Lemma 3}
 \noindent \textit{
-    Let $f_0$, $f_1$, ..., $f_M$ be PDFs defined on set $\mathcal{D}$ and suppose that for given constants $c_1, ..., c_M \in (0, 1]$ there exists a critical function $\phi$ such that ${P}_{f_i} \leq c_i$ ($i=1, ..., M$). Let $\mathcal{C}_\mathcal{S}$ be the set of critical functions satisfying ${P}_{f_i} \leq c_i$ ($i=1, ..., M$).
-Then:
+    Let $f_0$, $f_1$, ..., $f_M$ be PDFs defined on set $\mathcal{D}$ and $f_i(x) \neq 0$ holds a.e. $\mathcal{D}$ ($i=0, 1,..., M$). Suppose that for given constants $c_1, ..., c_M \in (0, 1]$ there exists a class of decision rules $\delta$, denote $\mathcal{C}_\delta$, such that for every $\delta \in \mathcal{C}_\delta$, we have $P_{f_i} \leq c_i$.  Then:
 %No. 1
-\\\textnormal{(\rmnum{1})} Among all members of $\mathcal{C}_\mathcal{S}$ there exists one that maximizes $P_d$.
+%\\\textnormal{(\rmnum{1})} Among all members of $\mathcal{C}_\mathcal{S}$ there exists one that maximizes $P_d$.
 %No.2
-\\\textnormal{(\rmnum{2})} If $f_i(x) \neq 0$ holds a.e. $\mathcal{D}$ ($i=0, 1,..., M$), and $\phi^{\ast}$ is a member of $\mathcal{C}_\mathcal{S}$ that maximum $P_d$, then there exists non-negative constants $k_1, ..., k_M$ such that 
+\\ If  $\delta^{\ast}$ is a member of $\mathcal{C}_\delta$ that maximum $P_d$, then there exists non-negative constants $k_1, ..., k_M$ such that 
 \[
-\phi^\ast(x)= 1\;\;\;\;\textit{if}\;\;\;\;f_0(x) > \sum_{i=1}^{M}k_if_i(x)
+x \in H_0 \;\;\;\;\textit{when}\;\;\;\;f_0(x) > \sum_{i=1}^{M}k_if_i(x)
 \]
 \[
-\phi^\ast(x)= 0\;\;\;\;\textit{if}\;\;\;\;f_0(x) < \sum_{i=1}^{M}k_if_i(x)
+x \notin H_0 \;\;\;\;\textit{when}\;\;\;\;f_0(x) < \sum_{i=1}^{M}k_if_i(x)
 \]
-holds a.e. on $\mathcal{D}$.
 }
 
 \subsection{Modified Extended Neyman Pearson Algorithm}
@@ -789,6 +788,38 @@ Hence the normal at this point is
 
 
 \subsection{Proof for Lemma 3}
+\newcommand{\bmu}{\boldsymbol{\mu}}
+Before we proceed, we will define some notations for presentation.
+Define $\mathbf{c}^T = [c_1, c_2, ..., c_M]$, $\boldsymbol{\mu}_0^T = [\mu_1, ..., \mu_M]$, $\mathbf{k}^T = [k_1, k_2, ..., k_M]$ and  $\mathbf{P}_f^T = [P_{f_1}, P_{f_2}, ..., P_{f_M}]$. Let $F(\boldsymbol{\mu}_0)$ denote the largest $P_d$ under the constraints $P_{f_i} = \mu_i\;\;i = 1, ..., M$.
+Let $G(\boldsymbol{\mu}_0)$ denote the largest $P_d$ under the constraints $P_{f_i} \leq \mu_i\;\;i = 1, ..., M$.
+Let $P_d(\delta)$, $P_{f_i}(\delta)$ denote the $P_d$ and $P_{f_i}$ achieved by using decision rule $\delta$.
+By $\mathbf{A} \leq \mathbf{B}$, $\mathbf{A} = \mathbf{B}$ and  $\mathbf{A} \geq \mathbf{B}$ we mean that every element of $\mathbf{A}$ is no larger than, equal to and no smaller than its corresponding element of $\mathbf{B}$, respectively. 
+By $\mathbf{A} \in [0, 1]$, we mean that every element of $\mathbf{A}$ belongs to $[0, 1]$.  
+Let $G_s$ denote the set of points in $M+1$ Euclidean space such that 
+\[
+ \{(\boldsymbol{\mu}_0, \mu_{M+1})\in G_s | \boldsymbol{\mu}_0\in [0, 1], \text{and }\;\;\mu_{M+1} \in [0, G(\mathbf{\mu_0})]
+    \}
+\]
+we can see $G_s$ is a set enclosed by $G'$, $\mu_i = 1$ and $\mu_{M+1}=0$ ($i=1, ..., M$).
+Let $\mathcal{N}$ represents the set of points in $M+1$ dimensional Euclidean space such that  
+\begin{equation}
+\begin{split}
+\{(\mu_1, \mu_2, ..., \mu_{M+1}\in \mathcal{N} &| \mu_i = \int_{\mathcal{S}}f_i(x)\mathrm{d}x \;\;i=1, ..., M,\\
+                                            &  \mu_{M+1}=\int_{\mathcal{S}f_{M+1(x)\mathrm{d}x}} \text{for any subset $\mathcal{S}$ of $\mathbf{T}$}\}
+\end{split}
+\end{equation}
+we can see, $\mathcal{N}$ is the set of $(P_{f_1}, ..., P_{f_M}, P_d)$ under any decision rule. 
+
+The whole proof will be divided into following parts: we will first prove $G(\boldsymbol{\mu}0)$ is a convex, non-decreasing function; after that we will prove when $\boldsymbol{\mu}_0 \in (0, 1)$, $G(\boldsymbol{\mu}_0) \in (0, 1)$; then we will prove $G_s$ is a convex set and $\mathcal{N} \subset G_s$; then we will prove for any points $(\mu_1^0, \mu_2^0, ..., \mu_{M+1}^0)$ belong to $G'$, there exists a non-negative $\mathbf{k}$ such that for any $(\mu_1, \mu_2, ..., \mu_{M+1}) \in G_s$, $\mu_{M+1} - \sum_{i=1}^{M}k_i\mu_i \leq \mu_{M+1}^0 - \sum_{i=1}^{M}k_i\mu_i^0$ holds;  in the end, we will prove for any $\boldsymbol{\mu}_0$, the optimal decision rule to achieve $G(\boldsymbol{\mu}_0)$ can be written in form of 
+\[
+x \in H_0 \;\;\;\;\textit{when}\;\;\;\;f_0(x) > \sum_{i=1}^{M}k_if_i(x)
+\]
+\[
+x \notin H_0 \;\;\;\;\textit{when}\;\;\;\;f_0(x) < \sum_{i=1}^{M}k_if_i(x)
+\]
+where $k_i \geq 0$.
+
+\begin{comment}
 PROOF FOR (\rmnum{1}):
 
 Let $\mathcal{N}$ represents the set of points in $M+1$ dimensional Euclidean space such that  
@@ -809,85 +840,122 @@ We consider a sequence $\{(\mu_{1_i}, ..., \mu_{{M+1}_i})\}$ in $\mathcal{S}$ su
 From the compactness of $\mathcal{S}$, $(\mu_1^0, ..., \mu_{M+1}^0)$ is in $\mathcal{S}$, so it is in $\mathcal{N}$. Assume $\phi$ is the critical function for this point, it follows that $\phi$ is in $\mathcal{C}_\mathcal{S}$ and maximize $P_d$.
 
 PROOF FOR (\rmnum{2}):
+\end{comment}
 
-Firstly we will prove $G(\mathbf{c})$ is a convex function for $\mathbf{c} \in [0, 1]$.
-Let $G'$ denote the hyper surface of function $G(\mathbf{c})$ for $\mathbf{c} \in [0,1]$. Let $\mathbf{\mu^1} = (\mathbf{\mu^1_0}, \mu_{M+1}^1)$ and  $\mathbf{\mu^2} = (\mathbf{\mu^2_0}, \mu_{M+1}^2)$, where $\mathbf{\mu_0^1} = [\mu_1^1, \mu_2^1, ..., \mu_M^1]$ and $\mathbf{\mu_0^2} = [\mu_1^2, \mu_2^2, ..., \mu_M^2]$. Assume $\mathbf{\mu^1}$ and $\mathbf{\mu^2}$ are two points on $G'$, so we have $\mu_{M+1}^1 = G(\mathbf{\mu_0^1})$ and $\mu_{M+1}^2 = G(\mathbf{\mu_0^2})$. Let $\phi^1$  be the critical function achieving point $\mathbf{\mu^1}$ and $\phi^2$ be the critical function achieving point $\mathbf{\mu^2}$. Let $\phi^3 = \lambda \phi^1 + (1 - \lambda)\phi^2$, where $\lambda \in [0, 1]$, we can see
-\begin{equation}
-\begin{split}
-\label{proof: pf}
-P_{f_i}(\phi^3) &= \int \phi^3 f_i \mathrm{d}x = \lambda P_{f_i}^1 + (1 - \lambda)P_{f_i}^2\\
-&\leq \lambda c_i^1 + (1-\lambda) c_i^2
-\end{split}
-\end{equation}
-and 
-\begin{equation}
-\begin{split}
-\label{proof: pd}
-P_d(\phi^3) &= \int \phi^3 f_0 \mathrm{d}x = \lambda P_{d}^1 + (1 - \lambda)P_{d}^2\\
-&= \lambda G(\mathbf{\mu^1_0}) + (1-\lambda)G(\mathbf{\mu_0^2})
-\end{split}
-\end{equation}
+Firstly we will prove $G(\mathbf{c})$ is a convex non-decreasing function for $\mathbf{c} \in [0, 1]$.
+Let $G'$ denote the hyper surface of function $G(\mathbf{c})$ for $\mathbf{c} \in [0,1]$. Let $\boldsymbol{\mu}^1$ and  $\boldsymbol{\mu}^2$ be two points on $G'$ with coordinates $(\boldsymbol{\mu}^1_0, \mu_{M+1}^1)$ and $(\boldsymbol{\mu}^2_0, \mu_{M+1}^2)$, i.e. $\mu_{M+1}^1 = G(\boldsymbol{\mu}_0^1)$ and $\mu_{M+1}^2 = G(\boldsymbol{\mu}_0^2)$. Let $\delta_1$ be the decision rule which can achieved the largest $P_d$ under the constraint $\mathbf{P}_f \leq \boldsymbol{\mu}_0^1$ and $\delta_2$ be the decision rule which can achieved the largest $P_d$ under the constraint $\mathbf{P}_{f} \leq \boldsymbol{\mu}_0^2$. So we can see $\mu_{M+1}^1 = P_d(\delta^1) = G(\boldsymbol{\mu}_0^1)$, $\mu_{M+1}^2 = P_d(\delta^2)=G(\boldsymbol{\mu}_0^1)$, $P_f(\delta^1) \leq \boldsymbol{\mu}^1_0$ and $P_f(\delta^2) \leq \boldsymbol{\mu}^2_0$.
 
-From \eqref{proof: pf}, we know $\phi^3$ is a feasible critical function for $\mathbf{P}_f \leq \lambda\mathbf{\mu^1_0} + (1-\lambda)\mathbf{\mu^2_0}$. Assume $\phi^\ast$ is the optimal critical function for 
+Construct a new randomized new test $\delta^3$, where $\delta^1$ and $\delta^2$ are used with equal probability. With decision rule $\delta^3$, we have $P_d(\delta^3) = 0.5P_d(\delta^1)+0.5P_d(\delta^2)$ and $P_{f}(\delta^3) = 0.5P_f(\delta^1)+0.5P_f(\delta^2) \leq 0.5\boldsymbol{\mu}^1_0 + 0.5\boldsymbol{\mu}^2_0 = 0.5G(\boldsymbol{\mu}_0^1) + 0.5G(\boldsymbol{\mu}_0^2)$.Let $\delta'$ denote the optimal decsion rule for 
+ \begin{equation}
+ \begin{split}
+ \max\;\;\;\;P_d\\
+ \text{s.t.}\;\;\;\;\mathbf{P}_f \leq 0.5\boldsymbol{\mu}^1_0 + 0.5\boldsymbol{\mu}^2_0
+ \end{split}
+ \end{equation}
+
+It can be seen $P_d(\delta') \geq P_d(\delta^3)$, i.e. $G(0.5\boldsymbol{\mu}^1_0 + 0.5\boldsymbol{\mu}^2_0) > P_d(\delta^3)$. Since $P_d(\delta^3) = 0.5P_d(\delta^1)+0.5P_d(\delta^2) = 0.5 G(\boldsymbol{\mu}^1_0)+ 0.5 G(\boldsymbol{\mu}^2_0)$, the equation can be written as 
 \begin{equation}
-\begin{split}
-\label{object}
-\max\;\;\;\;&P_d\\
-\text{s.t.}\;\;\;\;&\mathbf{P}_f \leq \lambda\mathbf{\mu^1_0} + (1-\lambda)\mathbf{\mu^2_0}
-\end{split}
+G(0.5\boldsymbol{\mu}^1_0 + 0.5\boldsymbol{\mu}^2_0) \geq 0.5 G(\boldsymbol{\mu}^1_0)+ 0.5 G(\boldsymbol{\mu}^2_0)
 \end{equation}
-Obviously $P_d(\phi^\ast) \geq P_d(\phi^3) = \lambda G(\mathbf{\mu_1^0}) + (1-\lambda)G(\mathbf{\mu_2^0})$. Hence we can see
-\[
-\therefore G(\lambda\mathbf{\mu^1_0}+(1-\lambda)\mathbf{\mu^2_0}) \geq \lambda G(\mathbf{\mu^1_0}) + (1-\lambda)G(\mathbf{\mu^2_0})
-\]
 Hence $G(\mathbf{c})$ is a convex function for $\mathbf{c} \in [0, 1]$.
-According to the definition of $G(\mathbf{c})$, when $c_i$ increases, the value of $G(\mathbf{c})$ will not decrease, we can conclude $G(\mathbf{c})$ is also a non-decreasing function of $\mathcal{C}$. 
 
-Let $G_s$ denote the set of points in $M+1$ dimensional Euclidean Space such that 
-\[
- \{(\mathbf{\mu_0}, \mu_{M+1})\in G_s | \mathbf{\mu_0}\in [0, 1], i=1, ..., M,\;\;\mu_{M+1} \in [0, G(\mathbf{\mu_0})]
-    \}
-\]
-Since function $G(\mathbf{\mu})$ is a convex function, $G_s$ is a convex set. To see this, let $\mathbf{\mu^1} (\mathbf{\mu^1_0}, \mu^1_{M+1})$ and $\mathbf{\mu^2} (\mathbf{\mu^2_0}, \mu^2_{M+1})$ be two points in $G_s$. Let $\mathbf{\mu^3}$ be a point between them, the coordinate of $\boldsymbol{\mu}^\mathbf{3}$ can be written as
-\[
-(\lambda \mathbf{\mu^1_0}+(1-\lambda)\mathbf{\mu^2_0}, \lambda\mu_{M+1}^1 + (1-\lambda)\mu_{M+1}^2)
-\]
-Since $\mathbf{\mu^1_0}, \mathbf{\mu^2_0} \in [0, 1]$, we know $\lambda \mathbf{\mu^1_0}+(1-\lambda)\mathbf{\mu^2_0} \in [0, 1]$. Since $G(\mathbf{\mu})$ is convex function, we can see
-\[
-0 \leq \lambda\mu_{M+1}^1 + (1-\lambda)\mu_{M+1}^2 = \lambda G(\mu_0^1) + (1-\lambda)G(\mu_0^2) \leq G(\lambda \mathbf{\mu_0^1}+(1-\lambda)\mathbf{\mu_0^2})\,.
-\]
-We can conclude $G_s$ is a convex set. 
+According to the definition of $G(\mathbf{c})$, when $c_i$ increases, the value of $G(\mathbf{c})$ will not decrease, we can conclude $G(\mathbf{c})$ is also a non-decreasing function of $\mathbf{c}$. 
 
-Next we will show $\mathcal{N} \subseteq G_s$. According to the definition of $F(\mathbf{\mu})$ and $G(\mathbf{\mu})$, it is easy to know $F(\mathbf{\mu}) \leq G(\mathbf{\mu})$. Assume $\mathbf{\mu} (\mathbf{\mu_0}, \mu_{M+1})$ is a point in $\mathcal{N}$, we can see $\mathbf{\mu_0} \in [0, 1]$ and $0 \leq \mu_{M+1} \leq F(\mathbf{\mu_0}) \leq G(\mathbf{\mu_0})$. Hence we can conclude $\mathbf{\mu} \in G_s$, i.e., $\mathcal{N} \subseteq G_s$.
+Next we will prove when $\boldsymbol{\mu}_0 \in (0, 1)$, $G(\boldsymbol{\mu}_0) \in (0, 1)$. 
 
-For any $\mathbf{c} \in  (0, 1)$, let $\phi^\ast$ be the optimal critical function for \eqref{object}. Let $\mathbf{\mu_0^0} = \mathbf{P}_f(\phi^\ast)$ and $\mu_{M+1}^0 = P_d(\phi^\ast)$. Obvious $(\mathbf{\mu_0^0}, \mu_{M+1}^0)$ is in $\mathcal{N}$ and $\phi$ is also the optimal critical function for 
+From the definition of $G(\boldsymbol{\mu}_0)$, obviously $G(\boldsymbol{\mu}_0) \in  [0, 1]$ when $\boldsymbol{\mu}_0 \in [0, 1]$. Hence we only need to prove when $\boldsymbol{\mu}_0 \neq 0$, $G(\boldsymbol{\mu}_0) \neq 0$ and when  $\boldsymbol{\mu}_0 \neq 1$, $G(\boldsymbol{\mu}_0) \neq 1$.
+
+First we will show when $\boldsymbol{\mu}_0 \neq 0$, $G(\boldsymbol{\mu}_0) \neq 0$.
+Let $\mathcal{S}$ be an arbitrary subset of $\mathbf{R}$ such that $\int_{\mathcal{S}}f_i(x)\mathrm{d}x \in (0,\bmu_0' ]$. Since $f_i(x) < \infty$, such $\mathcal{S}$ always exists. Hence there is a decision rule which satisfies $P_{f_i} \leq \bmu_0'$ and $P_d > 0$. From the definition of $G(\bmu_0)$, we can conclude $G(\bmu_0') > 0 $.
+
+Next we will show when  $\boldsymbol{\mu}_0 \neq 1$, $G(\boldsymbol{\mu}_0) \neq 1$. Assume there exists a $\bmu_0 \neq 1$ and $G(\bmu_0) = 1$, and $\delta'$ is the decision rule which achieve the largest $P_d$ satisfying $\mathbf{P}_f \leq \bmu_0$, i.e. $P_d(\delta') = G(\bmu_0)$. The expression of $P_d$ under decision rule $\delta'$ can be written as $\int_{\mathcal{S}}f_0(x)\mathrm{d}x$. When $G(\bmu_0) = 1$, it is easy to know $\mathcal{S} = \mathcal{D}$, which is the domain of $f_0(x)$. Hence we can see $P_{f_i} = \int_{\mathcal{S}}f_i(x)\mathrm{d}x = 1$ (i=1, ..., M). This is contradictory with the condition that $P_{f_i}(\delta') \leq \mu_i$, so we can conclude when  $\boldsymbol{\mu}_0 \neq 1$, $G(\boldsymbol{\mu}_0) \neq 1$.
+
+Hence we proved when $\boldsymbol{\mu}_0 \in (0, 1)$, $G(\boldsymbol{\mu}_0) \in (0, 1)$
+ 
+In the following, we will consider the property of $G_s$. 
+
+Let $\boldsymbol{\mu}^1$ and  $\boldsymbol{\mu}^2$ be two points in $G_s$ with coordinates $(\boldsymbol{\mu}^1_0, \mu_{M+1}^1)$ and $(\boldsymbol{\mu}^2_0, \mu_{M+1}^2)$. According to the definition of $G_s$, we have $0 \leq \bmu_0^1 \leq 1$, $0 \leq \boldsymbol{\mu}^2_0 \leq 1$, $0 \leq \mu_{M+1}^1 \leq G(\boldsymbol{\mu}_0^1)$ and  $0 \leq \mu_{M+1}^2 \leq G(\boldsymbol{\mu}_0^2)$.
+
+Let $\boldsymbol{\mu}^3$ be the middle point between $\boldsymbol{\mu}^1$ and $\boldsymbol{\mu}^2$ with coordinate $(\bmu_0^3, \mu_{M+1}^3)$, where  $ \bmu_0^3 = 0.5\boldsymbol{\mu}_0^1 + 0.5 \boldsymbol{\mu}_0^2$ and $\mu_{M+1}^3 = 0.5 \mu_{M+1}^1 + 0.5 \mu_{M+1}^2$. 
+
+Since $\bmu^1_0, \bmu^2_0 \in [0, 1]$, we can conclude $\bmu_0^3 = 0.5 \mathbf{\mu^1_0}+ 0.5\mathbf{\mu^2_0} \in [0, 1]$. Since $0 \leq \mu_{M+1}^1 \leq G(\boldsymbol{\mu}_0^1)$,  $0 \leq \mu_{M+1}^2 \leq G(\boldsymbol{\mu}_0^2)$, we can conclude 
+\[
+0 \leq \mu_{M+1}^3 = 0.5\mu_{M+1}^1 + 0.5\mu_{M+1}^2 \leq 0.5 G(\bmu_0^1) + 0.5G(\bmu_0^2) \leq G(0.5 \bmu_0^1+0.5\bmu_0^2) = G(\bmu^3_0)\,.
+\]
+the last inequality comes form the fact that $G(\bmu_0)$  is a convex function. We can see $\mu^3_0 \in [0, 1]$ and $\mu_{M+1}^3 \in [0, G(\bmu^3_0)]$. Hence $\bmu^3 \in G_s$, i.e. $G_s$  is a convex set.  
+
+Next we will prove $\mathcal{N} \in G_s$. 
+According to the definition of $\mathcal{N}$, $\forall (\mu_1, ..., \mu_{M+1}) \in \mathcal{N}$, then we have $\mu_i \in [0, 1]$ ($i = 1, ..., M$) and $\mu_{M+1} \in [0, F(\bmu_0)]$, where $\bmu_0 = [\mu_1, ..., \mu_M]$. From the definition of $F(\bmu_0)$ and $G(\bmu_0)$, we can see $G(\bmu_0) \geq F(\bmu_0)$, which means $\mu_{M+1} \in [0, G(\bmu_0)]$. It can be seen $(\mu_1, \mu_2, ...., \mu_{M+1}) \in G_s$, hence $\mathcal{N} \in G_s$.
+
+Let $\mathcal{N}$ represents the set of points in $M+1$ dimensional Euclidean space such that  
+\[
+\{(\mu_1, \mu_2, ..., \mu_{M+1}\in \mathcal{N} | \mu_i = P_{f_i}(\delta)\;\;i=1, ..., M,\;\;\mu_{M+1}=P_d(\delta) \text{where $\delta$ is any decision rule}\}
+\]
+According to \cite{LehmannTest}, $\mathcal{N}$ is a convex, compact set.
+
+Next we will show $\mathcal{N} \subseteq G_s$. According to the definition of $F(\boldsymbol{\mu})$ and $G(\boldsymbol{\mu})$, it is easy to know $F(\boldsymbol{\mu}) \leq G(\boldsymbol{\mu})$. Assume $\mathbf{\mu} (\mathbf{\mu_0}, \mu_{M+1})$ is a point in $\mathcal{N}$ with coordinate $(\mathbf{\mu_0}, \mu_{M+1})$, we can see $\boldsymbol{\mu_0} \in [0, 1]$ and $0 \leq \mu_{M+1} \leq F(\boldsymbol{\mu_0}) \leq G(\boldsymbol{\mu_0})$. Hence we can conclude $\boldsymbol{\mu} \in G_s$, i.e., $\mathcal{N} \subseteq G_s$.
+
+For any $\mathbf{c} \in  (0, 1)$, let $\delta^\ast$ be the optimal decision rule for 
 \begin{equation}
 \begin{split}
+\label{equ: dd}
+\max\;\;\;\;P_d\\
+\text{s.t.}\;\;\;\;\mathbf{P}_f \leq \mathbf{c}.
+\end{split}
+\end{equation}
+Hence we have $P_f(\delta^\ast) \leq \mathbf{c}$.
+
+Let $\boldsymbol{\mu}_0^0 = \mathbf{P}_f(\delta^\ast)$ and $\mu_{M+1}^0 = P_d(\delta^\ast)$. Obvious $(\boldsymbol{\mu}_0^0, \mu_{M+1}^0)$ is in $\mathcal{N}$, In the following, we will prove  $\delta^\ast$ is also the optimal decision rule for 
+\begin{equation}
+\begin{split}
+\label{equ: ll}
 \max\;\;\;\;&P_d\\
-\text{s.t.}\;\;\;\;&\mathbf{P}_f \leq \mathbf{\mu^0_0}
+\text{s.t.}\;\;\;\;&\mathbf{P}_f \leq \boldsymbol{\mu^0_0}
 \end{split}
 \end{equation}
 
-Hence $(\mathbf{\mu^0_0}, \mu_{M+1}^0)$ is on hyper surface $G'$. From the condition that $f_i \neq 0$ a.e. on $\mathcal{D}$, when $\mathbf{c} \in (0, 1)$, we have $G(\mathbf{c}) = \mu_{M+1}^0 = \in (0, 1)$, so $\mathbf{\mu_0^0} \in (0, 1)$. Let $\mu' \in (0, \mu_{M+1})$, we can see $(\mathbf{\mu_0}, \mu')$ is an inner point of $G_s$. From the proof in \cite{LehmannTest}, we can conclude there exists constants $k_1$, ..., $k_M$  such that for every points $(\mu_1, ..., \mu_M)$ in $G_s$, it satisfies
-\begin{equation}
-\label{IM}
-\mu_{M+1} - \sum_{i=1}^{M}k_i\mu_i \leq \mu_{M+1}^0 - \sum_{i=1}^{M}k_i\mu_i^0
-\end{equation}
-Since $\mathcal{N} \subseteq G_s$,  points in $\mathcal{N}$ also satisfy \eqref{IM}. For points in $\mathcal{N}$, it satisfies $\mu_i = \int\phi(x) f_i(x)\mathrm{d}x$ ($i=1, ..., M$) and $\mu_{M+1} = \int \phi(x) f_0(x)\mathrm{d}x$. That is, all critical function $\phi$ must satisfy
-\begin{equation}
-\label{IMP}
-\int_{\mathcal{D}}\phi(f_{0}(x) - \sum_{i=1}^{M}k_if_i(x))\mathrm{d}x \leq \int_{\mathcal{D}}\phi^\ast(f_{0}(x) - \sum_{i=1}^{M}k_if_i(x))\mathrm{d}x 
-\end{equation}
-Since $\phi^\ast$ is the critical function that maximizes the left-hand equation, it must hold 
-\begin{equation}
-\begin{split}
-\label{R}
-\phi^\ast(x)= 1\;\;\;\;\text{if}\;\;\;\;f_0(x) > \sum_{i=1}^{M}k_if_i(x)\\
-\phi^\ast(x)= 0\;\;\;\;\text{if}\;\;\;\;f_0(x) < \sum_{i=1}^{M}k_if_i(x)
-\end{split}
-\end{equation}
-a.e. on $\mathcal{D}$.
+Assume $\delta^\ast$ is not the optimal decision rule for \eqref{equ: ll} and $\delta'$ can achieve a larger $P_d$ under the constraints, i.e. $P_d(\delta') \geq P_d(\delta^\ast)$ and $P_f(\delta') \leq \boldsymbol(\mu)^0_0$. Since $\boldsymbol(\mu)^0_0 \leq \mathbf{c}$, we have $P_f(\delta') \leq \mathbf{c}$. If $P_d(\delta') > P_d(\delta^\ast)$, it is impossible $\delta^\ast$  is the optimal solution for \eqref{equ: dd}. Hence the assumption does not stand and $\delta^\ast$ is the optimal solution for \eqref{equ: ll}.
 
+So we can conclude $P_d(\delta^\ast)$ is the largest probability of detection under constraint $\mathbf{P}_f \leq \boldsymbol{\mu}^0_0$, i.e.
+$(\mathbf{\mu^0_0}, \mu_{M+1}^0)$ is on hyper surface $G'$. We can also conclude this point  is a boundary point of $G_s$. 
+
+In the following, we will prove when $\mathbf{c} \in (0, 1)$, $G(\mathbf{c}) \in (0, 1)$.
+From the condition that $f_i(x) \neq 0$ a.e. on $\mathcal{D}$, when $\mathbf{c} \neq 0$,  $G(\mathbf{c}) \neq 0$. To see it, let $\mathcal{S}$ be a subset on real number such that $\int_{\mathcal{S}} f_i(x)\mathrm{d}x \leq c_i$ is satisfied. Since $c_i > 0$, there always exists non-empty subset $\mathcal{S}$. And the corresponding $P_d = \int_{\mathcal{S}}f_0(x)\mathrm{d}x >0$. Hence we know when $\mathbf{c} > 0$, $G(\mathbf{c}) > 0$. In the same way, we can prove when $\mathbf{c} \neq 1$, $G(\mathbf{c}) \neq 1$.   
+Hence we can conclude $\mu_{M+1}^0 \geq 0$.
+
+Let $0 < \mu' < \mu_{M+1}$. Since $\boldsymbol{\mu}^0_0 \in (0, 1)$,  $(\boldsymbol{\mu}_0^0, \mu')$ is an inner point of $G_s$. 
+
+Since we have proved $(\boldsymbol{\mu}^0_0, \mu_{M+1}^0)$ is a boundary point of $G_s$, there exists an M-dimensional hyperplane $\Pi$ through this point such that $\Pi$ contains only boundary points of $G_s$ and $G_s$ lies entirely on one sides of $\Pi$  \cite{dantzig1951fundamental,  LehmannTest} and the equation of $\Pi$ can be given by 
+\[
+k_{M+1}\mu_{M+1} - \sum_{i=1}^{M}k_i\mu_i = k_{M+1}\mu_{M+1}^0 - \sum_{i=0}^{M}k_i\mu_i^0
+\]
+
+It is also been proved in \cite{dantzig1951fundamental, LehmannTest} since $(\boldsymbol{\mu}_0^0, \mu')$ is an inner point of $G_s$, $k_{M+1} \neq 0$. This is because is not a boundary point of $G_s$, it is not contained in $\Pi$.  We can let $k_{M+1} = 1$. Since $G_s$ lies entirely on one side of $\Pi$, in \cite{dantzig1951fundamental, LehmannTest}, the authors proved that for every points belongs to $G_s$, it satsifies
+\begin{equation}
+\label{LB}
+\mu_{M+1} - \sum_{i=1}^{M}k_i\mu_i \leq \mu_{M+1}^0 - \sum_{i=0}^{M}k_i\mu_i^0
+\end{equation}
+
+Since we have proved that $\mathcal{N} \subseteq G_s$, we can conclude for every $(\mu_1, \mu_2, ..., \mu_{M+1}) \in \mathcal{N}$, \eqref{LB} holds. 
+For points in $\mathcal{N}$, it can be written as $\mu_i = \int_{\mathcal{S}} f_i(x)\mathrm{d}x$ ($i=1, ..., M$) and $\mu_{M+1} = \int_{\mathcal{S}} f_0(x)\mathrm{d}x$. Hence \eqref{LB} can be written as
+As we have proved, $(\boldsymbol{\mu}^0_0, \mu^0_{M+1})$ belongs to $\mathcal{N}$, it can be written as $\mu_i^0 = \int_{\mathcal{S}^\ast}f_i(x)\mathrm{d}x$ and  $\mu_{M+1}^0 = \int_{\mathcal{S}^\ast}f_{M+1}(x)\mathrm{d}x$. 
+Hence \eqref{LB} can be written as
+\[
+\int_{\mathcal{S}}f_{M+1}(x)\mathrm{d}x - \sum_{i=1}^{M}k_i\int_{\mathcal{S}}f_{i}(x)\mathrm{d}x \leq \int_{\mathcal{S}^\ast}f_{M+1}(x)\mathrm{d}x - \sum_{i=1}^{M}k_i\int_{\mathcal{S}^\ast}f_{i}(x)\mathrm{d}x 
+\]
+\[
+\int_{\mathcal{S}}f_{M+1}(x)- \sum_{i=1}^{M}k_if_{i}(x)\mathrm{d}x \leq \int_{\mathcal{S}^\ast}f_{M+1}(x)- \sum_{i=1}^{M}k_if_{i}(x)\mathrm{d}x 
+\]
+
+It can easily be seen the above equation can be fulfilled only if $\mathcal{S}^\ast$ satisfies
+\[
+x \in \mathcal{S}^\ast\;\;\;\;\text{if}\;\;\;\;f_{M+1}(x)- \sum_{i=1}^{M}k_if_{i}(x) > 0
+\]
+\[
+x \notin \mathcal{S}^\ast\;\;\;\;\text{if}\;\;\;\;f_{M+1}(x)- \sum_{i=1}^{M}k_if_{i}(x) < 0
+\]
+
+In the following, we will show $k_i \geq 0$. 
 From the fact that $G(\mathbf{\mu})$ is a non-decreasing function, we know $k_i \geq 0$. To see this, let $k_l < 0$ and consider the value of $G((\mu_1,..., \mu_l', ..., \mu_M))$, where $\mu_l' > \mu_l$.  From \eqref{IM} we have 
 \[
 \mu_{M+1}' - k_l\mu_l' \leq \mu_{M+1}^0 - k_l\mu_l^0
@@ -900,9 +968,6 @@ which can be written as
 \therefore G(\mu') < G(\mu^0)
 \]
 This is contradictory with the fact that $G(\mathbf{c})$ is a non-decreasing function. Hence all $\mathbf{k}$ are non-negative.
-
-In the situation when $\mathbf{c} = 1$, we know the maximum $P_d = 1$, which can be achieved by letting $\mathbf{k}=0$. 
-Hence for any $\mathbf{c} \in (0, 1]$, the optimal critical function must statisfy \eqref{R} a.e. on $\mathcal{D}$.
 
 \subsection{Proof for MENP Test}
 MENP (\rmnum{1}) is a direct conclusion from ENP Lemma, we will consider MENP (\rmnum{2}). Assume $\mathbf{a}^0$ satisfy

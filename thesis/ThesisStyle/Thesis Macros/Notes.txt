@@ -1,0 +1,7 @@
+These LaTeX packages are from CTAN. TeX systems such as MiKTeX can
+automatically download LaTeX packages as needed and later update the
+packages as updates become available.
+
+The subfigure package is deemed "obsolete" on the CTAN web site.
+
+http://www.ctan.org

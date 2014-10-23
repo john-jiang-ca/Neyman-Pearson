@@ -1,0 +1,65 @@
+\resetdatestamp
+
+\chapter{Tables}
+
+\section{Tables in \LaTeX{}}
+
+Tables of many different sorts can be made with \LaTeX{}.
+This chapter gives suggestions on producing tables, along with a number of
+ examples.
+
+To illustrate these rules, here is a table and the \LaTeX{} input which was
+ used to generate it.
+\begin{table}
+  \centering
+  \Tcaption {Filter specifications}
+  \label {T:FSpec}
+  \small
+  \vskip 1ex
+  \renewcommand\arraystretch{1.1}
+  \def~{\phantom{0}}
+  \def\ExSp#1{\noalign{\vskip #1}}
+  \begin{tabular}{cccccc}
+    \hline\hline \ExSp{0.4ex}
+    Taps  & Transition & Stopband   & Passband & Stop-band & Ultimate \\
+    ($N$) & Band       & Weighting  & Ripple   & Rejection & Stop Band \\
+          &            & ($\alpha$) & dB       & dB        & dB \\
+    \ExSp{0.4ex} \hline \ExSp{0.4ex}
+    ~8 &   &   &  0.06~ & 31 & 31 \\
+    12 & A & 1 &  0.025 & 48 & 50 \\
+    16 &   &   &  0.008 & 60 & 75 \\[1.2ex]
+    12 &   &   &  0.04~ & 33 & 36 \\
+    16 & B & 1 &  0.02~ & 44 & 48 \\
+    24 &   &   &  0.008 & 60 & 78 \\[1.2ex]
+    16 &   & 1 &  0.07~ & 30 & 36 \\
+    24 &   & 1 &  0.02~ & 44 & 49 \\
+    32 & \raisebox{1.5ex}[0pt]{C}
+           & 2 &  0.009 & 51 & 60 \\
+    48 &   & 2 &  0.006 & 50 & 66 \\[1.2ex]
+    24 &   & 1 &  0.1~~ & 30 & 38 \\
+    48 & D & 2 &  0.006 & 50 & 66 \\
+    64 &   & 5 &  0.002 & 65 & 80 \\[1.2ex]
+    48 &   & 2 &  0.07~ & 32 & 46 \\
+    64 & \raisebox{1.5ex}[0pt]{E}
+           & 5 &  0.025 & 40 & 51 \\
+    \ExSp{0.4ex} \hline
+  \end{tabular}
+  \vskip 1ex
+  \begin{tabular}{cc}
+    Transition  & Normalized \\
+    Code Letter & Transition Band \\
+    \ExSp{0.4ex} \hline \ExSp{0.4ex}
+    A  & 0.14~~ \\
+    B  & 0.10~~ \\
+    C  & 0.0625 \\
+    D  & 0.043~ \\
+    E  & 0.023~ \\
+    \ExSp{0.4ex} \hline
+  \end{tabular}
+  \qquad
+  \begin{minipage}[c]{2.1 in}
+    \sloppy
+    The normalized transition band is the width of the transition band
+     normalized to $2\pi$; that is, $(\omega_s - \pi/2) / (2\pi)$.
+  \end{minipage}
+\end{table}

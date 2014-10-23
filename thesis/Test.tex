@@ -1,0 +1,41 @@
+\documentclass{report}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{ amsmath, bm }
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{yhmath}
+\DeclareGraphicsExtensions{.pdf,.eps,.png,.jpg,.mps}
+\usepackage{dsfont}
+\usepackage{bbm}
+\usepackage{setspace}
+\usepackage[top=1.5in, bottom=1.5in, left=1in, right=1in]{geometry}
+\usepackage{import}
+\usepackage{lipsum}
+
+%For lemma, theorem, proposition, corllary, proof, definition,example and remark.
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+\newcommand\bigfrown[2][\textstyle]{\ensuremath{%
+  \array[b]{c}\text{\scalebox{2}{$#1\frown$}}\\[-1.3ex]#1#2\endarray}}
+% End
+\author{An~Jiang,~
+        Harry~Leib,~\\
+          Department of Electrical Engineering\\
+          McGill University\\
+          Montreal,~Quebec,~Canada,~\\
+          Email: an.jiang@mail.com}
+\title{The Extended Neyman-Pearson Hypotheses Testing Framework and its Application to Spectrum Sensing in Cognitive Wireless Communication}
+\date{\today}
+\begin{document}
+\begin{spacing}{2.0}
+\maketitle
+\subimport*{Intro/}{Introduction}
+
+\newpage
+\bibliographystyle{ieeetr}	% (uses file "plain.bst")
+\bibliography{mybib}		% expects file "myrefs.bib"
+\end{spacing}
+\end{document}

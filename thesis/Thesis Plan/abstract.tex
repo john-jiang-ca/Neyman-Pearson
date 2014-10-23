@@ -1,0 +1,71 @@
+\documentclass{article}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{ amsmath, bm }
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{yhmath}
+\DeclareGraphicsExtensions{.pdf,.eps,.png,.jpg,.mps}
+\usepackage{dsfont}
+\usepackage{bbm}
+\usepackage{setspace}
+\usepackage[top=1.5in, bottom=1.5in, left=1in, right=1in]{geometry}
+
+%For lemma, theorem, proposition, corllary, proof, definition,example and remark.
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+\newcommand\bigfrown[2][\textstyle]{\ensuremath{%
+  \array[b]{c}\text{\scalebox{2}{$#1\frown$}}\\[-1.3ex]#1#2\endarray}}
+% End
+\author{An~Jiang,~
+    }
+\title{The Extended Neyman-Pearson Hypotheses Testing Framework and its Application to Spectrum Sensing in Cognitive Wireless Communication}
+\date{\today}
+\begin{document}
+\begin{spacing}{2.0}
+\maketitle
+\begin{abstract}
+We propose a Modified Extended Neyman Pearson (MENP) framework which is suitable for spectrum sensing when there might be different types of primary signals. Our work generalizes existing Neyman Pearson (NP) test to multiple probability of false alarm constraints. This allows the cognitive radio wireless communication system to provide different levels of protection for various primary users.  
+M-ROC surface, representing the relationship between the probability of detection and the constraints, is used to depict the performance of MENP testing.   
+
+Using MENP framework, an energy based spectrum detector and a cyclostationary based spectrum detector, are developed to detect OFDM signals. These detectors are designed to have the largest probability of detection under any probability of false alarm constraints.  
+
+Performance analyses were performed to study the M-ROC surface behavior for both detectors. We then evaluate the improvement of the probability of detection with respect to the increase of probability of false alarms.  
+The performance analysis also confirms that the optimal decision rule of energy based spectrum detector can be derived in terms of the inverse CDF of Chi-Square distribution.  
+\end{abstract}
+
+\section{Introduction}
+This chapter will commence by an introduction to cognitive radio wireless communication system. Various of spectrum sensing techniques will be examined after that. 
+Then the chapter will present Thesis Objectives, Thesis Organization and Contributions.
+\subsection{Literature Review}
+\subsection{Thesis Objectives}
+\subsection{Thesis Organization and Contribution}
+\newpage
+\section{Extended Neyman Pearson Testing }
+This chapter will start by introduction the Extended Neyman Pearson Testing Framework. A few properties concerning ENP test will then be shown. The limitation of ENP framework will come after that. This will be followed by a section which detailedly present MENP framework. The new scheme aims to achieve the largest probability of detection under any probability of false alarm constraints. A section containing an algorithm to achieve the MENP parameters will then be introduced. Computer simulation result, which illustrate the performance of the algorithm, will be presented.  
+\subsection{Extended Neyman Pearson Hypotheses Testing}
+\subsection{Properties of ENP Test}
+\subsection{Modified Extended Neyman Pearson Test}
+\subsection{Determine the decision rule under Modified Extended Neyman Pearson Framework}
+\subsection{Relationship to Bayesian hypotheses testing}
+\newpage
+\section{The ROC surface of Modified Extended Neyman Pearson Test}
+Previous chapter showed the MENP framework could achieve the largest probability of detection under any possible probability of false alarm constraints.  This chapter proposes the M-ROC surface to depict the relationship between probability of detection and probability of false alarm under MENP framework. The examples, respectively concerning the Gaussian situation and Chi-Square situation, will be presented after that. An analysis of the relationship between probability of detection and probability of false alarm will be performed.  
+\subsection{The ROC surface of Modified Extended Neyman Pearson Test under Gaussian Hypotheses}
+\subsection{The ROC surface of Modified Extended Neyman Pearson Test under Chi-Square Hypotheses}
+\newpage
+\section{Application of MENP Framework in Spectrum Sensing and Simulation Results}
+Upon examination the theoretical part of MENP framework and M-ROC surface, this thesis will now apply the new hypotheses testing framework to application, which in our case is spectrum sensing for multiple primary users. We proposed energy based detector and cyclostationary based detector to detect multiple OFDM signals under AWGN channel. Performance analysis results, which illustrate the performance of both detector, will be presented.   
+\subsection{Energy Based Spectrum Detector for Multiple Primary Users}
+\subsection{Cyclostationary Based Spectrum Detector for Multiple Primary Users}
+\newpage
+\section{ Conclusion}
+\section{List of Appendixes}
+\section{References}
+\newpage
+\bibliographystyle{ieeetr}	% (uses file "plain.bst")
+\bibliography{mybib}		% expects file "myrefs.bib"
+\end{spacing}
+\end{document}
