@@ -5,6 +5,16 @@
 \usepackage{graphics}		% PostScript figures
 \usepackage{setspace}		% 1.5 spacing
 \usepackage{longtable}          % Tables spanning pages
+\DeclareGraphicsExtensions{.pdf,.png,.jpg,.mps}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{ amsmath, bm }
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{yhmath}
+\usepackage{dsfont}
+\usepackage{bbm}
+
 
 % Custom packages
 \usepackage[first]{datestamp}	% Datestamp on first page of each chapter
@@ -25,6 +35,13 @@
 % Below margin is space below footer
 \abovemargin = 1.1in
 \belowmargin = 0.75in
+
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+\newcommand\bigfrown[2][\textstyle]{\ensuremath{%
+  \array[b]{c}\text{\scalebox{2}{$#1\frown$}}\\[-1.3ex]#1#2\endarray}}
 
 %========= Document start
 
@@ -55,7 +72,8 @@
 
 %===== Justification, spacing for the main text
 \raggedbottom
-\onehalfspacing
+%\onehalfspacing
+\doublespacing
 \pagenumbering{roman}
 
 %===== Abstract, Sommaire & Acknowledgments
@@ -101,6 +119,10 @@ Thesis regulations require that contributions by others in the collection of
 %========== Chapters
 \typeout{}
 \include{Intro/Introduction}
+
+%========== Chapter 2
+\typeout{}
+\include{2/2}
 
 %==========
 %\typeout{}

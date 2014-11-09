@@ -1,4 +1,12 @@
 \contentsline {chapter}{\numberline {1}Introduction}{1}
-\contentsline {section}{\numberline {1.1}Thesis Objectives}{4}
-\contentsline {section}{\numberline {1.2}Thesis Organization and Contribution}{4}
-\contentsline {chapter}{References}{6}
+\contentsline {section}{\numberline {1.1}Thesis Objectives}{5}
+\contentsline {section}{\numberline {1.2}Thesis Organization and Contribution}{5}
+\contentsline {chapter}{\numberline {2}Extended Neyman Pearson Test}{7}
+\contentsline {section}{\numberline {2.1}Extended Neyman Pearson Hypotheses Test}{7}
+\contentsline {section}{\numberline {2.2}Properties of ENP Test}{11}
+\contentsline {subsection}{\numberline {2.2.1}An Example}{12}
+\contentsline {subsection}{\numberline {2.2.2}Three Lemmas of ENP Test}{13}
+\contentsline {section}{\numberline {2.3}Modified Extended Neyman Pearson Testing}{27}
+\contentsline {section}{\numberline {2.4}Determine the decision rule under MENP Framework}{30}
+\contentsline {section}{\numberline {2.5}Relationship to Bayesian Hypotheses Testing}{33}
+\contentsline {chapter}{References}{34}
