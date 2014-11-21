@@ -1,3 +1,7 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces The ROC surface for $k_1$, $k_2$ range from $-30$ to $30$ with step $0.1$}}{13}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Change of $P_{f_1}$, $P_{f_2}$ after each iteration.}}{41}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Change of $P_d$ after each iteration.}}{42}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Change of $P_{f_1}$, $P_{f_2}$ after each iteration.}}{45}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Change of $P_d$ after each iteration.}}{46}

@@ -125,48 +125,43 @@ H_2:\;\;\;\;&Y \sim \mathcal{N}(1, 1)
 \end{equation}
 where $\mathcal{N}(\mu, \epsilon^2)$ denotes a Gaussian PDF with mean $\mu$ and variance $\epsilon^2$. By conducting an exhausted search on the grid of $k_1, k_2$ (range from $-30$ to $30$ with step $0.1$), an ROC surface is achieved  and presented in Fig. \ref{fig: 2.1}. 
 
-\begin{figure}[!t]
+\begin{figure}[!hbp]
 \centering
-\includegraphics[width = 12cm]{2/c21.eps}
+\includegraphics[width = \textwidth]{2/c21.eps}
 \caption{The ROC surface for $k_1$, $k_2$ range from $-30$ to $30$ with step $0.1$}
 \label{fig: 2.1}
 \end{figure}
 
-It is interesting to observe that under the framework of ENP Test, for a given $(P_{f_1}, P_{f_2})$  ($P_{f_1}, P_{f_2}\in [0, 1]$) the associated $P_d$ may not exists. 
+It is interesting to observe that under ENP test framework, for a given $(P_{f_1}, P_{f_2})$  ($P_{f_1}, P_{f_2}\in [0, 1]$) the associated $P_d$ may not exists. 
 Recall in the case of binary hypotheses testing (Traditional Neyman Pearson Test), for a given $P_f \in [0, 1]$, there always exists a corresponding $P_d$. 
 
-Now let us consider points $A$ and $B$ on the ROC surface, which are marked with $\blacksquare$ and $\diamondsuit$, respectively.  The coordinate of point $A$ is $(P_{f_1}, P_{f_2}, P_d) = (0.0841, 0.1761, 0.2868)$; and the coordinate of point $B$ is  $(P_{f_1}, P_{f_2}, P_d) = (0.0807, 0.0570, 0.3344)$. We can see even through $P_{f_1}$ and $P_{f_2}$ of point $A$ is larger than that of point $B$, the probability of detection of point $A$ is  smaller than that of point $B$.  
-Unlike NP test, where $P_d$ is always non-decrease when $P_f$ increases, in the case of multiple hypotheses testing (Extended Neyman Pearson Test), $P_d$ is not always an non-decreasing function of  $P_{f_i}$ ($i=1, ..., M$).
+Now let us consider points $A$ and $B$ on the ROC surface, which are marked with '$\blacksquare$' and '$\diamondsuit$', respectively.  The coordinate of point $A$ is $(P_{f_1}, P_{f_2}, P_d) = (0.0841, 0.1761, 0.2868)$; and the coordinate of point $B$ is  $(P_{f_1}, P_{f_2}, P_d) = (0.0807, 0.0570, 0.3344)$. We can see even through $P_{f_1}$ and $P_{f_2}$ of point $A$ is larger than that of point $B$, the probability of detection of point $A$ is  smaller than that of point $B$.  
+Unlike NP test, where $P_d$ is always non-decrease with $P_f$, in the case of multiple hypotheses testing (Extended Neyman Pearson Test), $P_d$ is not always an non-decreasing function of  $P_{f_i}$ ($i=1, ..., M$).
 
-Finally we consider point $C$ on the ROC surface, which is marked by $\ast$. The coordinate of point $C$ is $(P_{f_1}, P_{f_2}, P_d) = (0.7291, 0.9454, 0.3819)$. We can observe, in this case the value of $P_d$ is smaller than the value of $P_{f_1}$ and $P_{f_2}$, i.e. under the framework of ENP Test, $P_d \geq P_{f_i}$  ($i = 1, ..., M$) does not always hold (Qian Zhang arrives at the same conclusion in  \cite{zhang1999design, zhang2000efficient} using different method). 
+Finally we consider point $C$ on the ROC surface, which is marked by '$\ast$'. The coordinate of point $C$ is $(P_{f_1}, P_{f_2}, P_d) = (0.7291, 0.9454, 0.3819)$. We can observe, in this case the value of $P_d$ is smaller than the value of $P_{f_1}$ and $P_{f_2}$, i.e. under ENP test framework, $P_d \geq P_{f_i}$  ($i = 1, ..., M$) does not always hold (Qian Zhang arrives at the same conclusion in  \cite{zhang1999design, zhang2000efficient} using different method). 
 
 \subsection{Three Lemmas of ENP Test}
 
 Next we presents three lemmas concerning the properties of ENP test.
 
-\noindent \textbf{Condition 1}
-\textit{
-\noindent Let $f_i(x) \;\;i=0, 1, ..., M$ be the PDF induced by hypothesis $H_i$, and define $g(x) = f_0(x) - \sum_{j=1}^{M} k_jf_j(x)$ where $k_i$  ($i = 1, 2, ..., M$) are real numbers. Let $\mathcal{D} \in \mathbb{R}$ be an open set such that $\int_{\bar{\mathcal{D}}}f_i(x)=0\;\;i = 1, 2, ..., M$. Furthermore,  if $x_0$ is a solution  for $g(x) = 0 \;\;(x \in \mathcal{D})$, there exists an integer $n$ such that  the $n$ order derivative of $g(x_0)$ is not equal to zero $(g^{(n)}(x_0) \neq 0)$.
-}
-
 \noindent \textbf{Lemma 1}
 \noindent \textit{
-Let $f_0$, $f_1$, ..., $f_M$ be PDFs defined on set $\mathcal{D}$ and $f_i(x) \neq 0$ holds a.e. on $\mathcal{D}$ ($i=0, 1,..., M$). For given constants $c_1, ..., c_M \in (0, 1)$, let $\mathcal{C}_\delta$ denote a set of decision rule,  such that for every $\delta \in \mathcal{C}_\delta$, we have $P_{f_i} \leq c_i$.
+Let $f_0$, $f_1$, ..., $f_M$ be PDFs defined on set $\mathcal{D}$ and $f_0(x) \neq 0$ holds a.e. on $\mathcal{D}$ ($i=0, 1,..., M$). For given constants $c_1, ..., c_M \in (0, 1)$, let $\mathcal{C}_\delta$ denote a set of decision rule,  such that for $\delta \in \mathcal{C}_\delta$, we have $P_{f_i} \leq c_i$.
 %No. 1
 %\\\textnormal{(\rmnum{1})} Among all members of $\mathcal{C}_\mathcal{S}$ there exists one that maximizes $P_d$.
 %No.2
-\\ If  $\delta^{\ast}$ is a member of $\mathcal{C}_\delta$ and it maximize $P_d$ among all members of $\mathcal{C}_\delta$, then there exists non-negative constants $k_1, ..., k_M$ such that $\delta^\ast$ can be written in form of  
+If  $\delta^{\ast}$ is a member of $\mathcal{C}_\delta$ and it maximize $P_d$ among all members of $\mathcal{C}_\delta$, then there exists non-negative constants $k_1, ..., k_M$ such that $\delta^\ast$ can be written in form of  
 \begin{equation}
 f_0(x) \substack{H_0 \\ \geq \\ < \\ \bar{H}_0} \sum_{j=1}^{M}k_jf_j(x)
 \end{equation}
 Moreover, under decision rule $\delta^\ast$ if $P_{f_i} $ is strictly  below the constraint $c_i$, i.e. $P_{f_i} < c_i$, the associated $k_i = 0$. 
 }
 
-Qian Zhang arrives at the same conclusion in \cite{zhang1999design, zhang2000efficient} through analysing the performance of $P_d$ with respect to $k_i$. In the following we will prove \textbf{Lemma 1} using a mathematical method, in \cite{LehmannTest, dantzig1951fundamental} a similar approach is used to proved ENP Lemma (\rmnum{4}).
+Qian Zhang also arrives at the conclusion that if $P_{f_i} < c_i$, the associated $k_i$ is equal to zero in \cite{zhang1999design, zhang2000efficient} through analysing the performance of $P_d$ with respect to $k_i$. In the following we will prove \textbf{Lemma 1} using a mathematical method, in \cite{LehmannTest, dantzig1951fundamental} a similar approach is used to proved ENP Lemma (\rmnum{4}).
 
 \noindent\textbf{PROOF}
 \newcommand{\bmu}{\boldsymbol{\mu}}
-Before we proceed, we will define some notations for presentation.
+Before we proceed, we will define some notations for easy presentation.
 Define $\mathbf{c}^T = [c_1, c_2, ..., c_M]$, $\boldsymbol{\mu}_0^T = [\mu_1, ..., \mu_M]$, $\mathbf{k}^T = [k_1, k_2, ..., k_M]$ and  $\mathbf{P}_f^T = [P_{f_1}, P_{f_2}, ..., P_{f_M}]$, obviously $\mathbf{c}$, $\bmu_0$, $\mathbf{k}$ and $\mathbf{P}_f$ are vectors in $M$ dimensional Euclidean  space. Let $\bmu^T = [\bmu_0, \mu_{M+1}]$ denote a vector in $M+1$ dimensional Euclidean space. 
 Let $F(\boldsymbol{\mu}_0)$ denote the largest $P_d$ under the constraints $P_{f_i} = \mu_i\;\;i = 1, ..., M$, i.e.
 \begin{equation}
@@ -178,17 +173,16 @@ Let $F(\boldsymbol{\mu}_0)$ denote the largest $P_d$ under the constraints $P_{f
 \end{equation}
 Let $G(\boldsymbol{\mu}_0)$ denote the largest $P_d$ under the constraints $P_{f_i} \leq \mu_i\;\;i = 1, ..., M$, i.e.
 \begin{equation}
-\label{def: G}
 \begin{split}
+\label{def: function G}
 \max&\;\;\;\;P_d = G(\bmu_0)\\
 \text{s.t.}&\;\;\;\;\mathbf{P}_f \leq \bmu_0
 \end{split}
 \end{equation}
-By comparing \eqref{def: F} and \eqref{def: G}, we can see $G(\bmu_0 \geq F(\bmu_0))$, this is because the limitation of \eqref{def: G} is looser than that in \eqref{def: F}. 
 Let $P_d(\delta)$, $P_{f_i}(\delta)$ denote the $P_d$ and $P_{f_i}$ achieved by using decision rule $\delta$.
 By $\mathbf{A} \leq \mathbf{B}$, $\mathbf{A} = \mathbf{B}$ and  $\mathbf{A} \geq \mathbf{B}$ we mean that every element of $\mathbf{A}$ is no larger than, equal to and no smaller than its corresponding element of $\mathbf{B}$, respectively. 
 By $\mathbf{A} \neq 0$, we mean that every element of $\mathbf{A}$ is not equal to $0$. 
-Let $G'$ denote the hyper surface achieved by $G(\bmu_0) = \mu_{M+1}$, where $\bmu_0 \in [0, 1]$, i.e.
+Let $G'$ denote the hyper surface in $M+1$ dimensional Euclidean Space achieved by $G(\bmu_0) = \mu_{M+1}$, where $\bmu_0 \in [0, 1]$, i.e.
 \begin{equation}
 \label{def: G'}
 \{(\bmu_0, \mu_{M+1}) \in G' | \bmu_0 \in [0, 1] \;\;\text{and}\;\;\mu_{M+1} = G(\bmu_0) \}
@@ -198,65 +192,148 @@ Let $G_s$ denote the set of points in $M+1$ Euclidean space such that
  \{(\boldsymbol{\mu}_0, \mu_{M+1})\in G_s | \boldsymbol{\mu}_0\in [0, 1]\;\; \text{and }\;\;\mu_{M+1} \in [0, G(\mathbf{\bmu_0})]
     \}
 \]
-we can see $G_s$ is a space enclosed by $G'$, $\mu_i = 1$ and $\mu_{M+1}=0$ ($i=1, ..., M$).
+thus we can see $G_s$ is a space enclosed by $G'$, $\mu_i = 1$ and $\mu_{M+1}=0$ ($i=1, ..., M$).
 Let $\mathcal{N}$ represents the set of points in $M+1$ dimensional Euclidean space such that  
 \begin{equation}
 \begin{split}
 \{(\mu_1, \mu_2, ..., \mu_{M+1})\in \mathcal{N} &| \mu_i = \int_{\mathcal{S}}f_i(x)\mathrm{d}x \;\;i=1, ..., M,\\
-                                            &  \mu_{M+1}=\int_{\mathcal{S}}f_{M+1}(x)\mathrm{d}x \;\;\text{ for any subset $\mathcal{S}$ of $\mathcal{D}$}\}
+                                            &  \mu_{M+1}=\int_{\mathcal{S}}f_{0}(x)\mathrm{d}x \;\;\text{ for any $\mathcal{S}$}\}
 \end{split}
 \end{equation}
-we can see, $\mathcal{N}$ is the set of $(\bmu_0, \mu_{M+1})=(\mathbf{P}_f(\delta), P_d(\delta))$, where $\delta$ could be any possible decision rule. Moreover, from the definition of $\mathcal{N}$ and $F(\bmu_0)$ we can conclude if $(\bmu_0, \mu_{M+1}) \in \mathcal{N}$, we have $\mu_{M+1} \leq F(\bmu_0)$. 
-To see it, assume $\mu_{M+1} > F(\bmu_0)$. Then there is a decision rule $\delta$ such that $P_{f_i}(\delta) = \mu_i$ ($i=1, ..., M$) and $P_d(\delta) > F(\bmu_0)$. This is contradictory with the definition of $F(\bmu_0)$. Hence we can conclude $\mu_{M+1} \leq F(\bmu_0)$.
+thus we can see $\mathcal{N}$ is the set of $(\bmu_0, \mu_{M+1})=(\mathbf{P}_f(\delta), P_d(\delta))$, where $\delta$ can be any decision rule. Moreover, from the definition of $\mathcal{N}$ and $F(\bmu_0)$ we can conclude if $(\bmu_0, \mu_{M+1}) \in \mathcal{N}$, we have $\mu_{M+1} \leq F(\bmu_0)$. 
+To see it, assume $\mu_{M+1} > F(\bmu_0)$. Then there is a decision rule $\delta$ such that $P_{f_i}(\delta) = \mu_i$ ($i=1, ..., M$) and $P_d(\delta) > F(\bmu_0)$. This is contradictory with the definition of $F(\bmu_0)$ in \eqref{def: F}. Hence we can conclude $\mu_{M+1} \leq F(\bmu_0)$.
 
-The whole proof will be divided into following parts: first we will first prove $G(\boldsymbol{\mu}_0)$ is a convex, non-decreasing function and when $\boldsymbol{\mu}_0 \neq 0$, $G(\boldsymbol{\mu}_0) > 0$;
+The whole proof consists of following parts: first we will first prove $G(\boldsymbol{\mu}_0)$ is a convex, non-decreasing function and when $\boldsymbol{\mu}_0 \neq 0$, $G(\boldsymbol{\mu}_0) > 0$;
 secondly it will be shown that $G_s$ is a convex set and $\mathcal{N} \subseteq G_s$; 
-after that we will illustrate for any points $(\mu_1^0, \mu_2^0, ..., \mu_{M+1}^0) \in G'$, there exists a non-negative $\mathbf{k}$ such that for any $(\mu_1, \mu_2, ..., \mu_{M+1}) \in G_s$, $\mu_{M+1} - \sum_{i=1}^{M}k_i\mu_i \leq \mu_{M+1}^0 - \sum_{i=1}^{M}k_i\mu_i^0$ holds;  
-in the end, we will prove for any $\mathbf{c}$, there exists non-negative $\mathbf{k}$ such that the optimal decision rule to achieve the largest $P_d$ under constraint $\mathbf{P}_f \leq \bmu_0$ can be written in form of 
+after that we will illustrate for point $(\mu_1^0, \mu_2^0, ..., \mu_{M+1}^0) \in G'$, there exists a non-negative $\mathbf{k}$ such that 
 \[
-\delta^\ast:\;\;\;\;f_0(x) \substack{H_0 \\ > \\ < \\ \bar{H}_0} \sum_{i=1}^{M}k_if_i(x)\,.
+\mu_{M+1} - \sum_{i=1}^{M}k_i\mu_i \leq \mu_{M+1}^0 - \sum_{i=1}^{M}k_i\mu_i^0
+\]
+holds for point $(\mu_1, \mu_2, ..., \mu_{M+1}) \in G_s$;
+in the end, we will show for any $\mathbf{c}$, there exists non-negative $\mathbf{k}$ such that the optimal decision rule to achieve the largest $P_d$ under constraint $\mathbf{P}_f \leq \mathbf{c}$ can be written in form of 
+\[
+f_0(x) \substack{H_0 \\ > \\ < \\ \bar{H}_0} \sum_{i=1}^{M}k_if_i(x)\,.
 \]
 
 Firstly we will prove $G(\bmu_0)$ is a convex non-decreasing function for $\bmu_0 \in [0, 1]$.
- Let $\boldsymbol{\mu}^1$ and  $\boldsymbol{\mu}^2$ be two points on $G'$ with coordinates $(\boldsymbol{\mu}^1_0, \mu_{M+1}^1)$ and $(\boldsymbol{\mu}^2_0, \mu_{M+1}^2)$, i.e. $\mu_{M+1}^1 = G(\boldsymbol{\mu}_0^1)$ and $\mu_{M+1}^2 = G(\boldsymbol{\mu}_0^2)$. Let $\delta_1$ be the decision rule which can achieved the largest $P_d$ under the constraint $\mathbf{P}_f \leq \boldsymbol{\mu}_0^1$ and $\delta_2$ be the decision rule which can achieved the largest $P_d$ under the constraint $\mathbf{P}_{f} \leq \boldsymbol{\mu}_0^2$. So we can see $\mu_{M+1}^1 = P_d(\delta^1) = G(\boldsymbol{\mu}_0^1)$, $\mu_{M+1}^2 = P_d(\delta^2)=G(\boldsymbol{\mu}_0^1)$, $P_f(\delta^1) \leq \boldsymbol{\mu}^1_0$ and $P_f(\delta^2) \leq \boldsymbol{\mu}^2_0$.
-
-Construct a new randomized new test $\delta^3$, where $\delta^1$ and $\delta^2$ are used with equal probability. With decision rule $\delta^3$, we have $P_d(\delta^3) = 0.5P_d(\delta^1)+0.5P_d(\delta^2) = 0.5G(\bmu_0^1) + 0.5G(\bmu_0^2)$ and $\mathbf{P}_{f}(\delta^3) = 0.5\mathbf{P}_f(\delta^1)+0.5\mathbf{P}_f(\delta^2) \leq 0.5\boldsymbol{\mu}^1_0 + 0.5\boldsymbol{\mu}^2_0 $. Let $\delta'$ denote the optimal decision rule for 
+ Let $\boldsymbol{\mu}^1$ and  $\boldsymbol{\mu}^2$ be two points on $G'$ with coordinates $(\boldsymbol{\mu}^1_0, \mu_{M+1}^1)$ and $(\boldsymbol{\mu}^2_0, \mu_{M+1}^2)$, i.e. $\mu_{M+1}^1 = G(\boldsymbol{\mu}_0^1)$ and $\mu_{M+1}^2 = G(\boldsymbol{\mu}_0^2)$. Let $\delta_1$ be the decision rule which can achieved the largest $P_d$ under the constraint $\mathbf{P}_f \leq \boldsymbol{\mu}_0^1$ and $\delta_2$ be the decision rule which can achieved the largest $P_d$ under the constraint $\mathbf{P}_{f} \leq \boldsymbol{\mu}_0^2$. Thus we can see 
+ \begin{subequations}
+\begin{align}
+\mu_{M+1}^1 &= P_d(\delta^1) = G(\boldsymbol{\mu}_0^1)\\
+\mu_{M+1}^2 &= P_d(\delta^2)=G(\boldsymbol{\mu}_0^1)\\
+\mathbf{P}_f(\delta^1) &\leq \boldsymbol{\mu}^1_0\\
+\mathbf{P}_f(\delta^2) &\leq \boldsymbol{\mu}^2_0
+\end{align}
+ \end{subequations}
+ 
+Construct a new randomized test $\delta^3$, where $\delta^1$ and $\delta^2$ are used with equal probability. With decision rule $\delta^3$, we have 
+\begin{subequations}
+\begin{align}
+\label{1120night1}
+P_d(\delta^3) &= 0.5P_d(\delta^1)+0.5P_d(\delta^2) = 0.5G(\bmu_0^1) + 0.5G(\bmu_0^2)\\
+\mathbf{P}_{f}(\delta^3) = 0.5\mathbf{P}_f(\delta^1)+0.5\mathbf{P}_f(\delta^2) \leq 0.5\boldsymbol{\mu}^1_0 + 0.5\boldsymbol{\mu}^2_0
+\end{align}
+\end{subequations}
+Let $\delta'$ denote the optimal decision rule for 
  \begin{equation}
  \begin{split}
+ \label{1120t}
  \max&\;\;\;\;P_d\\
  \text{s.t.}&\;\;\;\;\mathbf{P}_f \leq 0.5\boldsymbol{\mu}^1_0 + 0.5\boldsymbol{\mu}^2_0
  \end{split}
  \end{equation}
-then obviously $P_d(\delta') \geq P_d(\delta^3)$ (otherwise $\delta'$ cannot be the optimal decision rule), i.e. $G(0.5\boldsymbol{\mu}^1_0 + 0.5\boldsymbol{\mu}^2_0) > P_d(\delta^3)$. Since $P_d(\delta^3) = 0.5 G(\boldsymbol{\mu}^1_0)+ 0.5 G(\boldsymbol{\mu}^2_0)$, the equation can be written as 
+then obviously $P_d(\delta') \geq P_d(\delta^3)$ (otherwise $\delta'$ cannot be the optimal decision rule for \eqref{1120t}).The solution of \eqref{1120t} can be written as $G(0.5\boldsymbol{\mu}^1_0 + 0.5\boldsymbol{\mu}^2_0)$, hence we have  
 \begin{equation}
-G(0.5\boldsymbol{\mu}^1_0 + 0.5\boldsymbol{\mu}^2_0) \geq 0.5 G(\boldsymbol{\mu}^1_0)+ 0.5 G(\boldsymbol{\mu}^2_0)
+\label{1120t2}
+G(0.5\boldsymbol{\mu}^1_0 + 0.5\boldsymbol{\mu}^2_0) > P_d(\delta^3).
 \end{equation}
-Hence $G(\bmu_0)$ is a convex function for $\bmu_0 \in [0, 1]$.
+Substitute \eqref{1120night1} into above equation,
+\begin{equation}
+\label{1120t3}
+G(0.5\boldsymbol{\mu}^1_0 + 0.5\boldsymbol{\mu}^2_0) \geq 0.5 G(\boldsymbol{\mu}^1_0)+ 0.5 G(\boldsymbol{\mu}^2_0)\,.
+\end{equation}
+Equation \eqref{1120t3} implies $G(\bmu_0)$ is a convex function for $\bmu_0 \in [0, 1]$.
 
-According to the definition of $G(\bmu_0)$, when $\mu_i$ increases, the value of $G(\bmu_0)$ will not decrease, we can conclude $G(\bmu_0)$ is also a non-decreasing function of $\bmu_0$. 
+According to the definition of $G(\bmu_0)$, when $\mu_i$ increases, the limitation of \eqref{def: function G} becomes loose, 
+so the value of $G(\bmu_0)$ will either remain the same or increase. 
+This suggests $G(\bmu_0)$ is a non-decreasing function of $\bmu_0$. 
 
-Next we will show when $\boldsymbol{\mu}_0 \neq 0$, $G(\boldsymbol{\mu}_0) > 0$.
+Next we will show when $\boldsymbol{\mu}_0 \neq 0$, the value of $G(\boldsymbol{\mu}_0)$ is strictly larger than zero.
 
-Let $\delta^\ast$ be the optimal decision rule for $\bmu_0$, by optimal decision rule we mean this decision rule can get the largest $P_d$ under the constraint $\mathbf{P}_f \leq \bmu_0$. According to \cite{zhang2000efficient}, there exists at least one $P_{f_i}(\delta^\ast) = \mu_i$ ($i=1, ..., M$). Without losing generality, let $P_{f_l}(\delta^\ast) = \mu_l$, i.e. $\int_{\mathcal{S}^\ast}f_l(x)\mathrm{d}x = \mu_l \neq 0$. Hence we can conclude the measurement of $\mathcal{S}^\ast$  is not zero. Since we know $f_0(x) \neq 0$ a.e. on $\mathcal{D}$, we can conclude $\int_{\mathcal{S}^\ast}f_0(x)\mathrm{d}x > 0$, i.e. $G(\bmu_0) > 0$. 
-
-In the following, we will consider the property of $G_s$. First we will prove $G_s$ is a convex set. 
-
-Let $\boldsymbol{\mu}^1$ and  $\boldsymbol{\mu}^2$ be two points in $G_s$ with coordinates $(\boldsymbol{\mu}^1_0, \mu_{M+1}^1)$ and $(\boldsymbol{\mu}^2_0, \mu_{M+1}^2)$. According to the definition of $G_s$, we have $0 \leq \bmu_0^1 \leq 1$, $0 \leq \boldsymbol{\mu}^2_0 \leq 1$, $0 \leq \mu_{M+1}^1 \leq G(\boldsymbol{\mu}_0^1)$ and  $0 \leq \mu_{M+1}^2 \leq G(\boldsymbol{\mu}_0^2)$.
-
-Let $\boldsymbol{\mu}^3$ be the middle point between $\boldsymbol{\mu}^1$ and $\boldsymbol{\mu}^2$ with coordinate $(\bmu_0^3, \mu_{M+1}^3)$, where  $ \bmu_0^3 = 0.5\boldsymbol{\mu}_0^1 + 0.5 \boldsymbol{\mu}_0^2$ and $\mu_{M+1}^3 = 0.5 \mu_{M+1}^1 + 0.5 \mu_{M+1}^2$. Next we will show $\bmu^3 \in G_s$.  
-
-Since $\bmu^1_0, \bmu^2_0 \in [0, 1]$, we can conclude $\bmu_0^3 = 0.5 \bmu^1_0+ 0.5\bmu^2_0 \in [0, 1]$. Since $0 \leq \mu_{M+1}^1 \leq G(\boldsymbol{\mu}_0^1)$,  $0 \leq \mu_{M+1}^2 \leq G(\boldsymbol{\mu}_0^2)$, we can conclude 
+Let $\delta^\ast$ be the optimal decision rule for $\bmu_0$, by optimal decision rule we mean this decision rule acquires the largest $P_d$ while keeping $\mathbf{P}_f \leq \bmu_0$. 
+According to \cite{zhang2000efficient}, there exists at least one probability of false alarm is equal to its associated constraint. Without losing generality, let $P_{f_l}(\delta^\ast) = \mu_l$, i.e. 
 \[
-0 \leq \mu_{M+1}^3 = 0.5\mu_{M+1}^1 + 0.5\mu_{M+1}^2 \leq 0.5 G(\bmu_0^1) + 0.5G(\bmu_0^2) \leq G(0.5 \bmu_0^1+0.5\bmu_0^2) = G(\bmu^3_0)\,.
+\int_{\mathcal{S}^\ast}f_l(x)\mathrm{d}x = \mu_l \neq 0\,.
 \]
-$0.5 G(\bmu_0^1) + 0.5G(\bmu_0^2) \leq G(0.5 \bmu_0^1+0.5\bmu_0^2)$ comes form the fact that $G(\bmu_0)$  is a convex function. Since we have proved $\bmu^3_0 \in [0, 1]$ and $\mu_{M+1}^3 \in [0, G(\bmu^3_0)]$, we can see $\bmu^3 \in G_s$, i.e. $G_s$  is a convex set.  
+This equation implies the measurement of $\mathcal{S}^\ast$  is not zero. Since we know $f_0(x) \neq 0$ a.e. on $\mathcal{D}$, we can conclude $\int_{\mathcal{S}^\ast}f_0(x)\mathrm{d}x > 0$, i.e. $G(\bmu_0) > 0$. 
 
-Next we will prove $\mathcal{N} \subseteq G_s$, i.e. $\forall (\mu_0, ..., \mu_{M+1}) \in \mathcal{N}$, this point also belongs to set $G_s$.
-In previous we have proved, $\forall (\mu_1^0, ..., \mu_{M+1}^0) \in \mathcal{N}$, we have $\mu_i^0 \in [0, 1]$ ($i = 1, ..., M$) and $\mu_{M+1}^0 \in [0, F(\bmu_0^0)]$, where $\bmu_0^0 = [\mu_1^0, ..., \mu_M^0]$. Since   $G(\bmu_0^0) \geq F(\bmu_0^0)$, we can see $\mu_{M+1}^0 \in [0, G(\bmu_0^0)]$, i.e.  $(\mu_1^0, \mu_2^0, ...., \mu_{M+1}^0) \in G_s$ and  $\mathcal{N} \subseteq G_s$.
+In the following, we consider the property of $G_s$. First we will prove $G_s$ is a convex set. 
+Let $\boldsymbol{\mu}^1$ and  $\boldsymbol{\mu}^2$ be two points in $G_s$ with coordinates $(\boldsymbol{\mu}^1_0, \mu_{M+1}^1)$ and $(\boldsymbol{\mu}^2_0, \mu_{M+1}^2)$. According to the definition of $G_s$, we have 
+\begin{subequations}
+\label{1120t4}
+\begin{align}
+\label{1120night6}
+0 &\leq &&\bmu_0^1 &\leq 1\\
+\label{1120night7}
+0 &\leq &&\boldsymbol{\mu}^2_0 &\leq 1\\
+\label{1120night3}
+0 &\leq &&\mu_{M+1}^1 &\leq G(\boldsymbol{\mu}_0^1)\\
+\label{1120night4}
+0 &\leq &&\mu_{M+1}^2 &\leq G(\boldsymbol{\mu}_0^2)
+\end{align}
+\end{subequations}
 
-In the following we will prove for any points $(\mu_1^0, \mu_2^0, ..., \mu_{M+1}^0)$ belong to $G'$, there exists non-negative $\mathbf{k}$ such that for any $(\mu_1, \mu_2, ..., \mu_{M+1}) \in G_s$, $\mu_{M+1} - \sum_{i=1}^{M}k_i\mu_i \leq \mu_{M+1}^0 - \sum_{i=1}^{M}k_i\mu_i^0$ holds. A similar proof is given in \cite{LehmannTest, dantzig1951fundamental}.
+Let $\boldsymbol{\mu}^3$ be the middle point between $\boldsymbol{\mu}^1$ and $\boldsymbol{\mu}^2$ with coordinate $(\bmu_0^3, \mu_{M+1}^3)$, where  
+\begin{subequations}
+\label{1120t5}
+\begin{align}
+\label{1120night5}
+\bmu_0^3 &= 0.5\boldsymbol{\mu}_0^1 + 0.5 \boldsymbol{\mu}_0^2\\
+\label{1120night2}
+\mu_{M+1}^3 &= 0.5 \mu_{M+1}^1 + 0.5 \mu_{M+1}^2
+\end{align}
+\end{subequations}
+In the following, we will show $\bmu^3 \in G_s$.  
+Substitute \eqref{1120night3} \eqref{1120night4} into \eqref{1120night2}, we can see
+\begin{equation}
+0 \leq \mu_{M+1}^3 \leq  G(0.5 \bmu_0^1+0.5\bmu_0^2)\,.
+\end{equation}
+Substitute \eqref{1120night5} into above equation, we have 
+\begin{equation}
+\label{equ: 1120n}
+0 \leq \mu_{M+1}^3 \leq  G(\bmu_0^3)\,.
+\end{equation}
+From \eqref{1120night5}, \eqref{1120night6} and \eqref{1120night7} we can see
+\begin{equation}
+\label{equ: 1120n1}
+\bmu_0^3 \in [0, 1]
+\end{equation}
+From \eqref{equ: 1120n} and \eqref{equ: 1120n1}, it can be conclude 
+ $\bmu^3 \in G_s$, hence $G_s$  is a convex set.  
 
-Assume $(\mu_0^0, \mu_1^0, ..., \mu_{M+1}^0)$ is a point on the $G'$ surface, i.e. $\mu_{M+1}^0 = G(\bmu_0^0)$, where $\bmu_0^0 = [\mu_0^0, \mu_1^0, ..., \mu_{M}^0]$. According to the definition of $G_s$, for any positive $\epsilon$, point $(\mu_0^0, \mu_1^0, ..., \mu_{M+1}^0+\epsilon) \notin G_s$. Hence we can conclude $(\mu_1^0, ..., \mu_{M+1}^0)$ is a boundary point of $G_s$.  
+Next we will prove $\mathcal{N} \subseteq G_s$, i.e. $\forall (\mu_1, ..., \mu_{M+1}) \in \mathcal{N}$, this point also belongs to set $G_s$.
+Assume $(\mu_1^0, ..., \mu_{M+1}^0)$ is a point in set $\mathcal{N}$. 
+In previous discussion, it has been shown $\mu_i^0 \in [0, 1]$ ($i = 1, ..., M$) and $\mu_{M+1}^0 \in [0, F(\bmu_0^0)]$, where $\bmu_0^0 = [\mu_1^0, ..., \mu_M^0]$. 
+Furthermore, according to the definition of $G(\bmu_0)$ and $F(\bmu_0)$, we can conclude $G(\bmu_0^0) \geq F(\bmu_0^0)$ (this is because the constraint in \eqref{def: function G} is loose than the constraint in \eqref{def: F}). 
+This implies $\mu_{M+1}^0 \in [0, G(\bmu_0^0)]$ and we have  
+\begin{equation}
+\begin{split}
+\mu_i^0 &\in [0, 1]\;\;\;\;(i=1, 2, ..., M)\\
+\mu_{M+1} &\in [0, G(\bmu_0^0)]
+\end{split}
+\end{equation}
+The above equation suggests point $(\mu_1^0, ..., \mu_{M+1}^0)$ also belongs to set $G_s$.
+Hence we proved $\mathcal{N} \subseteq G_s$. 
+
+In the following we will prove for any points $(\mu_1^0, \mu_2^0, ..., \mu_{M+1}^0)$ belong to $G'$, there exists non-negative $\mathbf{k}$ such that for any $(\mu_1, \mu_2, ..., \mu_{M+1}) \in G_s$, 
+\[
+\mu_{M+1} - \sum_{i=1}^{M}k_i\mu_i \leq \mu_{M+1}^0 - \sum_{i=1}^{M}k_i\mu_i^0
+\]
+holds. 
+
+Assume $(\mu_0^0, \mu_1^0, ..., \mu_{M+1}^0)$ is a point on the $G'$ surface, i.e. $\mu_{M+1}^0 = G(\bmu_0^0)$, where $\bmu_0^0 = [\mu_1^0, ..., \mu_{M}^0]$. 
+Also we assume $\mu_1^0, \mu_2^0, ..., \mu_M^0 \in (0, 1)$. 
+According to the definition of $G_s$, for any positive $\epsilon$, point $(\mu_0^0, \mu_1^0, ..., \mu_{M+1}^0+\epsilon) \notin G_s$. Thus point $(\mu_1^0, ..., \mu_{M+1}^0)$ is a boundary point of set $G_s$.  
 Since $G_s$ is a convex set and $(\mu_0^0, \mu_1^0, ..., \mu_{M+1}^0)$ is a boundary point of $G_s$,  
 there exists an $M+1$-dimensional hyperplane $\Pi$ through this point such that $\Pi$ contains only boundary points of $G_s$ and $G_s$ lies entirely on one sides of $\Pi$  \cite{dantzig1951fundamental}. 
  There exists $k_i^0$ ($i=1, ..., M+1$) such that the expression of $\Pi$ can be written as
@@ -265,7 +342,8 @@ there exists an $M+1$-dimensional hyperplane $\Pi$ through this point such that 
 k_{M+1}^0\mu_{M+1} - \sum_{i=1}^{M}k_i^0\mu_i = k_{M+1}^0\mu_{M+1}^0 - \sum_{i=0}^{M}k_i^0\mu_i^0
 \end{equation}
 
-In previous part we have proved when $\mu^0_i\neq 0$ ($i=1, ..., M$), $\mu_{M+1}^0 > 0$, i.e. there exists a $\mu_{M+1}' = \frac{\mu_{M+1}^0}{2}$ such that $\mu_{M+1}' \in (0, \mu_{M+1}^0)$. From the definition of $G_s$, it is easy to know $(\mu^0_1, ..., \mu^0_M, \mu_{M+1}')$ also belongs to set $G_s$. Besides that, since $\mu^0_i \in (0, 1)$ ($i=1, ..., M$) and $\mu_{M+1}' \in (0, \mu_{M+1}^0)$, we can see $(\mu_1^0, \mu_2^0, ..., \mu_{M+1}')$ is an inner point of $G_s$, i.e. point $(\mu^0_1, ..., \mu^0_M, \mu_{M+1}')$ is not contained by hyperplane $\Pi$. We can conclude 
+In previous part we have proved when $\mu^0_i\neq 0$ ($i=1, ..., M$), $\mu_{M+1}^0 $ is strictly larger than zero. Hence there exists a $\mu_{M+1}' = \frac{\mu_{M+1}^0}{2}$ such that $\mu_{M+1}' \in (0, \mu_{M+1}^0)$. From the definition of $G_s$, it is easy to know point $(\mu^0_1, ..., \mu^0_M, \mu_{M+1}')$ also belongs to set $G_s$. Besides that, since $\mu^0_i \in (0, 1)$ ($i=1, ..., M$) and $\mu_{M+1}' \in (0, \mu_{M+1}^0)$, it can be concluded that point $(\mu_1^0, \mu_2^0, ..., \mu_{M+1}')$ is an inner point of $G_s$.
+From previous discussion, we can see point $(\mu^0_1, ..., \mu^0_M, \mu_{M+1}')$ is not contained by hyperplane $\Pi$, i.e.
 \[
 k_{M+1}^0\mu_{M+1}' - \sum_{i=1}^{M}k_i^0\mu_i^0 \neq k_{M+1}^0\mu_{M+1}^0 - \sum_{i=0}^{M}k_i^0\mu_i^0
 \]
@@ -275,14 +353,14 @@ k_{M+1}^0\mu_{M+1}' - \sum_{i=1}^{M}k_i^0\mu_i^0 \neq k_{M+1}^0\mu_{M+1}^0 - \su
 \[
 \therefore k_{M+1}^0 \neq 0
 \]
- $\Pi$ can be written as
+ $\Pi$ can be written in form of 
 \begin{equation}
 \label{PI2}
-\mu_{M+1} - \sum_{i=1}^{M}k_i\mu_i = \mu_{M+1}^0 - \sum_{i=0}^{M}k_i\mu_i^0
+\mu_{M+1} - \sum_{i=1}^{M}k_i\mu_i = \mu_{M+1}^0 - \sum_{i=0}^{M}k_i\mu_i^0\,,
 \end{equation}
 where $k_i = \frac{k_i^0}{k_{M+1}}$. 
 
-Since  $G_s$ lies entirely on one side of \eqref{PI2}, and since when $(\mu_1, ... ,\mu_M, \mu_{M+1})=(\mu_1^0, ..., \mu_M^0, 0)$, the left hand member of \eqref{PI2} is smaller than the right hand member, hence we can conclude 
+Since $G_s$ lies entirely on one side of \eqref{PI2}, and since when $(\mu_1, ... ,\mu_M, \mu_{M+1})=(\mu_1^0, ..., \mu_M^0, 0)$, the left-hand equation of \eqref{PI2} is smaller than the right-hand equation, we must have 
 \begin{equation}
 \mu_{M+1} - \sum_{i=1}^{M}k_i\mu_i \leq \mu_{M+1}^0 - \sum_{i=0}^{M}k_i\mu_i^0
 \label{PI3}
@@ -294,11 +372,11 @@ Up to now, we have proved $ \forall (\bmu_0^0, \mu_{M+1}^0) \in G'$, there exist
 \mu_{M+1} - \sum_{i=1}^{M}k_i\mu_i \leq \mu_{M+1}^0 - \sum_{i=0}^{M}k_i\mu_i^0
 \label{PPI3}
 \end{equation}
-holds for all points belong to $G_s$. In the following, we will illustrate in order to satisfy condition \eqref{PPI3}, the constants $k_i$ must be non-negative.   
+holds for  $(\mu_1, \mu_2, ...\mu_{M+1}) \in G_s$. In the following, we will illustrate the constants $k_i$ must be non-negative.   
 
-Now consider another point on the $G'$ with coordinate $(\mu_1^0, ..., \mu_l^0+\epsilon, ..., \mu_M^0, \mu_{M+1}')$, where $\epsilon > 0$. Since $\mu_l^0 \in (0, 1)$, there always exists a positive $\epsilon$ satisfying $\mu_l^0 + \epsilon \in (0, 1]$. Since both points $(\mu_1^0, ..., \mu_l^0, ..., \mu_M^0, \mu_{M+1}^0)$ and $(\mu_1^0, ..., \mu_l^0+\epsilon, ..., \mu_M^0, \mu_{M+1}')$ lies on $G'$, we can conclude $G([\mu_1^0, ..., \mu_l^0, ...., \mu_M^0]) = \mu_{M+1}^0$ and $G([\mu_1^0, ..., \mu_l^0 + \epsilon, ...., \mu_M^0]) = \mu_{M+1}'$. As we have proved $G(\bmu_0)$ is a non-decreasing function, it is easy to see $\mu_{M+1}' \geq \mu_{M+1}^0$.
+Now consider another point on the $G'$ with coordinate $(\mu_1^0, ..., \mu_l^0+\epsilon, ..., \mu_M^0, \mu_{M+1}')$, where $\epsilon > 0$ and $l$ is an integer between $1$ and $M$.  Since both points $(\mu_1^0, ..., \mu_l^0, ..., \mu_M^0, \mu_{M+1}^0)$ and $(\mu_1^0, ..., \mu_l^0+\epsilon, ..., \mu_M^0, \mu_{M+1}')$ lies on $G'$, we can conclude $G([\mu_1^0, ..., \mu_l^0, ...., \mu_M^0]) = \mu_{M+1}^0$ and $G([\mu_1^0, ..., \mu_l^0 + \epsilon, ...., \mu_M^0]) = \mu_{M+1}'$. As we have proved $G(\bmu_0)$ is a non-decreasing function, it is easy to see $\mu_{M+1}' \geq \mu_{M+1}^0$.
 
-Substitute point $(\mu_1^0, ..., \mu_i^0+\epsilon, ..., \mu_M^0, \mu_{M+1}')$  into equation \eqref{PI3}, we have
+Substitute point $(\mu_1^0, ..., \mu_i^0+\epsilon, ..., \mu_M^0, \mu_{M+1}')$  into equation \eqref{PPI3}, we have
 \begin{equation}
 \mu_{M+1} - k_1\mu_1^0 - ... - k_l(\mu_l^0+\epsilon)- ... - k_M\mu_M^0 \leq \mu_{M+1} - k_1\mu_1^0 - ... - k_l\mu_l^0- ... - k_M\mu_M^0
 \end{equation}
@@ -311,24 +389,24 @@ Substitute point $(\mu_1^0, ..., \mu_i^0+\epsilon, ..., \mu_M^0, \mu_{M+1}')$  i
 \[
 \therefore k_l \geq \frac{\mu_{M+1}' - \mu_{M+1}^0}{\epsilon} \geq 0
 \]
-Hence we can conclude for any point $(\mu_1^0, \mu_2^0, ..., \mu_{M+1}^0)$ belongs to $G_s$, there exists a non-negative $\mathbf{k}$ such that 
+Hence we can conclude for any point $(\mu_1^0, \mu_2^0, ..., \mu_{M+1}^0)$ belongs to $G_s$, there exists non-negative $\mathbf{k}$ such that 
 \begin{equation}
 \mu_{M+1} - \sum_{i=1}^{M}k_i\mu_i \leq \mu_{M+1}^0 - \sum_{i=1}^{M}k_i\mu_i^0
 \end{equation}
 holds for any $(\mu_1, \mu_2, ..., \mu_{M+1}) \in G_s$.
 
 For the given constants $\mathbf{c}$ ($\mathbf{c} \in (0, 1)$), 
- assume decision rule $\delta^\ast$  achieves the largest $P_d$  under the constraint $\mathbf{P}_f \leq \mathbf{c}$. In the following we will prove there exists non-negative $\mathbf{k}$  such that $\delta^\ast$ can be written in form of 
+ assume decision rule $\delta^\ast$  achieves the largest $P_d$  while keeping $\mathbf{P}_f \leq \mathbf{c}$. In the following we will prove there exists non-negative $\mathbf{k}$  such that $\delta^\ast$ can be written in form of 
 \[
 f_0(x) \substack{H_0 \\ > \\ < \\ \bar{H}_0 } \sum_{i=1}^{M}k_if_i(x)\,.
 \]
 
-According to the definition of $G(\bmu_0)$, we can see $P_d(\delta^\ast) = G(\mathbf{c})$. Since $(\mathbf{c}, G(\mathbf{c}))$is a point on the hyper surface $G'$, we can see there exists non-negative $\mathbf{k}$ such that for any  $(\mu_1, ..., \mu_{M+1}) \in G_s$, following equation holds 
-
+According to the definition of $G(\bmu_0)$, we can see $P_d(\delta^\ast) = G(\mathbf{c})$. Since $(\mathbf{c}, G(\mathbf{c}))$is a point on the hyper surface $G'$,  there exists non-negative $\mathbf{k}$ such that 
 \begin{equation}
 \label{TEMP}
 \mu_{M+1} - \sum_{i=1}^{M}k_i\mu_i \leq G(\mathbf{c}) - \sum_{i=0}^{M}k_ic_i
 \end{equation}
+holds for $(\mu_1, \mu_2, ..., \mu_{M+1}) \in G_s$.
 Since $P_{f_i}(\delta^\ast) \leq c_i$ (for $i=1, ..., M$) and $k_i \geq 0$, we know
 \[
 k_ic_i \geq k_iP_{f_i}(\delta^\ast)
@@ -389,7 +467,7 @@ Substitute \eqref{def: mu} and \eqref{def: pfd} into \eqref{TEMP2}, we have:
 \therefore \int_{\mathcal{S}}(f_{0}(x)- \sum_{i=1}^{M}k_if_{i}(x))\mathrm{d}x \leq \int_{\mathcal{S}^\ast}(f_{0}(x)- \sum_{i=1}^{M}k_if_{i}(x))\mathrm{d}x 
 \end{equation}
 
-\eqref{TEMP4} can be fulfilled only if $\mathcal{S}^\ast$ satisfies
+\eqref{TEMP4} can be fulfilled if and only if $\mathcal{S}^\ast$ satisfies
 \[
 x \in \mathcal{S}^\ast\;\;\;\;\text{if}\;\;\;\;f_{0}(x)- \sum_{i=1}^{M}k_if_{i}(x) > 0
 \]
@@ -412,12 +490,18 @@ From \eqref{con: 1} and \eqref{TEMP5}  we can conclude
 \[
 P_d(\delta^\ast) - \sum_{i=0}^{M}k_iP_{f_i}(\delta^\ast) =  G(\mathbf{c}) - \sum_{i=0}^{M}k_ic_i
 \]
+Substitute $P_d(\delta^\ast) = G(\mathbf{c})$,
 \[
-\therefore  \sum_{i=0}^{M}k_iP_{f_i}(\delta^\ast) =  \sum_{i=1}^{M}k_ic_i
+  \sum_{i=0}^{M}k_iP_{f_i}(\delta^\ast) =  \sum_{i=1}^{M}k_ic_i
 \]
 Since $k_iP_{f_i}(\delta^\ast) \leq k_ic_i$ (for $i=1, ..., M$), the above equation can be fulfilled only when $k_iP_{f_i} = k_ic_i$ (for $i=1, ..., M$). When $P_{f_i}(\delta^\ast)$ is strictly below $c_i$ ($P_{f_i}(\delta^\ast) < c_i$), $k_i$ must be zero.
 
 Q.E.D.
+
+\noindent \textbf{Condition 1}
+\textit{
+\noindent Let $f_i(x) \;\;i=0, 1, ..., M$ be the PDF induced by hypothesis $H_i$, and define $g(x) = f_0(x) - \sum_{j=1}^{M} k_jf_j(x)$ where $k_i$  ($i = 1, 2, ..., M$) are real numbers. Let $\mathcal{D} \in \mathbb{R}$ be an open set such that $\int_{\bar{\mathcal{D}}}f_i(x)=0\;\;i = 1, 2, ..., M$. Furthermore,  if $x_0$ is a solution  for $g(x) = 0 \;\;(x \in \mathcal{D})$, there exists an integer $n$ such that  the $n$ order derivative of $g(x_0)$ is not equal to zero $(g^{(n)}(x_0) \neq 0)$.
+}
 
 \noindent \textbf{Lemma 2}
 \textit{
@@ -567,18 +651,21 @@ Hence the normal at this point is
 \end{equation}
 
 Q.E.D.
+%========================Relationship between Neyman Pearson and Bayesian 
+\typeout{}
+\input{2/relationship}
 
 \section{Modified Extended Neyman Pearson Testing}
 
 %define \JUDGEMENT
 \def \JUDGEMENT{u(f_0(x) - \sum_{j=1}^{M}k_j f_j(x))}
 
-In context of spectrum sensing, following problem needs to be solved,
+In the context of spectrum sensing, following problem needs to be solve
       \begin{equation}
       \label{equ: problemstate}
       \begin{split}
       \max\;\;\;\;\;\;&P_d\\
-      \text{s.t.}\;\;\;\;\;\;&\mathbf{P}_f \leq \mathbf{c}
+      \text{s.t.}\;\;\;\;\;\;&\mathbf{P}_f \leq \mathbf{c}\,.
       \end{split}
       \end{equation}
 
@@ -590,7 +677,7 @@ c_i = \int_{-\infty}^{\infty}u(f_0 - \sum_{j=1}^{M}k_jf_j(x))f_i(x)\mathrm{d}x \
 \end{split}
 \end{equation}
 
-The case when the given $c_i\;\;i = 1, 2, ..., M$ do not satisfy \eqref{equ: condition for ENP} was not considered so far. 
+The case when the given $c_i\;\; (i= 1, 2, ..., M)$ do not satisfy \eqref{equ: condition for ENP} was not considered so far. 
 
 Next we present the Modified Extended Neyman Pearson Test (MENP) for solving \eqref{equ: problemstate}.
 
@@ -636,9 +723,9 @@ MENP (\rmnum{1}) is a direct conclusion from ENP Lemma, we will consider MENP (\
 \end{equation}
 and decision rule $\delta^0$ maximizes $P_d$ under the constraints $P_{f_i} = a^0_i$ ($i = 1, ..., M$). Since $\mathbf{a}^0 \in \alpha^+$, from (\rmnum{1}) we know there exists $k_1^0, ..., k_M^0$ such that $\delta^0$ can be written in form of 
 \[
-\delta^0:\;\;\;\;\frac{f_0(x)}{\sum_{i=1}^{M}k_i^0f_i(x)} \substack{H_0 \\ \geq \\ < \\ \bar{H_0}} 1\,.
+\delta^0:\;\;\;\;f_0(x) \substack{H_0 \\ \geq \\ < \\ \bar{H_0}} \sum_{i=1}^{M}k_i^0f_i(x)\,.
 \] 
-From the definition of $F(\mathbf{a})$, we know $F(\mathbf{a_0}) = P_d(\delta^0)$.
+From the definition of $F(\mathbf{a})$, we know $F(\mathbf{a^0}) = P_d(\delta^0)$.
 
 In the following, we  will prove $\delta^0$ is the optimal solution for \eqref{equ: problemstate}. 
 Assume  $\delta^0$ does not achieve the largest $P_d$ under constraints $P_{f_i} \leq c_i$ ($i=1, ..., M$) and let $\delta'$ be the optimal decision rule for \eqref{equ: problemstate}, hence  we can conclude
@@ -646,17 +733,16 @@ Assume  $\delta^0$ does not achieve the largest $P_d$ under constraints $P_{f_i}
 \label{condition 1}
 P_{f_i}(\delta') \leq c_i\;\;\;\;i=1, 2, ..., M\\
 \end{equation}
-
+and
 \begin{equation}
 \label{condition 2}
-P_{d}(\delta') > P_d(\delta^0)
+P_{d}(\delta') > P_d(\delta^0)\,.
 \end{equation}
 From \textbf{Lemma 1}, there exists non-negative constants $k_1', ..., k_M'$ such that $\delta'$ can be written in form of 
 \begin{equation}
 f_0(x) \substack{H_0 \\ \geq \\ < \\ \bar{H_0}} \sum_{i=1}^{M}k_i'f_i(x)\,.
 \end{equation}
-
-The expression of $P_d(\delta')$ and $P_{f_i}(\delta')$ can be written as
+and thus $P_d(\delta')$ and $P_{f_i}(\delta')$ can be written as
 \begin{equation}
 \begin{cases}
 \label{TEMP10}
@@ -666,68 +752,181 @@ P_{f_i}(\delta') &= \int_{-\infty}^{\infty} u(f_0(x) - \sum_{i=1}^{M}k_i'f_i(x))
 \end{equation}
 where $k_i' \geq 0$.
 
-From \eqref{condition 1} and \eqref{TEMP10}, we can conclude 
- $\mathbf{P}_f(\delta') \in \mathcal{A}_\mathbf{c} \cap \alpha^+$. Let $\mathbf{a}' = \mathbf{P}_f(\delta')$, since $\delta'$ is an ENP decision rule and it satisfies 
-\begin{equation}
-\mathbf{P}_f(\delta') = \mathbf{a'}\,,
-\end{equation}
-according to ENP Lemma (\rmnum{2}), we can see $\delta'$ achieve the largest $P_d$ under the constraint $\mathbf{P}_f = \mathbf{a'}$, i.e. 
-$F(\mathbf{a}') = P_d{\delta'}$.
+From \eqref{condition 1} and \eqref{TEMP10}, we can conclude $\mathbf{P}_f(\delta') \in \mathcal{A}_\mathbf{c} \cap \alpha^+$. Let $\mathbf{a}' = \mathbf{P}_f(\delta')$, and we have $F(\mathbf{a}') = P_d(\delta')$. This is because $\delta'$ is an ENP test with probability of false alarm is equal to $\mathbf{a}'$.  
 
 Since $P_d(\delta') > P_d(\delta^0)$, we have $F(\mathbf{a'}) > F(\mathbf{a^0})$. This is contradictory with the condition that $\mathbf{a^0}$ satisfy \eqref{a0}.
 
 Hence we conclude $\delta^0$ is the optimal solution for \eqref{equ: problemstate}. $\blacksquare$
 
-Next we present a method of finding $\mathbf{a}^0$. For a specific $\mathbf{c}$, in order to get $\mathbf{a}^0$, we need to determine the set of $\alpha^+$. We can conduct an exhaustive search over a grid of $k_1, ..., k_M$ ($k_i \geq 0$) depending on preferable accuracy and store these results ($P_d, \mathbf{P}_f, \mathbf{k}$) into a lookup table $T_1$. After that, we iterate every item in $T_1$ and put the item into table $T_2$ if the item satisfies:  $\mathbf{P}_f \leq \mathbf{c}$.
-At last, we iterate every item in $T_2$ and get the largest $P_d$ and its decision rule $\mathbf{k}$.
+Next we present a look-up table method method of finding $\mathbf{k}$ under MENP framework. For a specific $\mathbf{c}$, in order to get $\mathbf{a}^0$, we need to determine the set of $\alpha^+$. We can conduct an exhaustive search over a grid of $k_1, ..., k_M$ ($k_i \geq 0$) depending on preferable accuracy and store these results ($P_d, \mathbf{P}_f, \mathbf{k}$) into a lookup table $T_1$. After that, we iterate every item in $T_1$ and put the item into table $T_2$ if the item satisfies:  $\mathbf{P}_f \leq \mathbf{c}$.
+At last, we iterate every item in $T_2$ and get the largest $P_d$ and its decision rule $\mathbf{k}$. 
 
+From above discussion, we can see if an ENP decision rule with positive parameters acquires the largest $P_d$ while keeping $\mathbf{P}_f \leq \mathbf{c}$ among all ENP test with positive parameters, it is the theoretical solution for \eqref{equ: problemstate}. 
 
 \section{Determine the decision rule under MENP Framework}
-In context of spectrum sensing, the lookup table $T_1$ can be pre-computed and stored in the detector before the detector is deployed. Once $c_i$ is changed, the detector utilizes $T_1$ to get the MENP decision  rule parameters accordingly. The size of $T_1$ depends on the value of $M$, the range and the step of $k_i$.  Assume the value of $k_i$ ranges from $0$ to $\Gamma$ with step $\tau_0$, since $T_1$ is an exhaustive lookup table on the grid of $k_1, ..., k_M$, it has $(\frac{\Gamma}{\tau_0})^M$ items. Since a linear increase of $M$ leads to an exponential increase in the size of $T_1$, the exhaustive search methods is no plausible for for the situation where $M$ is large. 
+In the context of spectrum sensing, the lookup table $T_1$ can be pre-computed and stored in the detector before the detector is deployed. Once the probability of false alarm constraint(s) is(are) changed, the detector utilizes $T_1$ to get the MENP decision  rule parameters accordingly. The size of $T_1$ depends on the value of $M$, the range and the step of $k_i$.  Assume the value of $k_i$ ranges from $0$ to $\Gamma$ with step $\tau_0$, as $T_1$ is an exhaustive lookup table on the grid of $k_1, ..., k_M$, it has $(\frac{\Gamma}{\tau_0})^M$ items. Since a linear increase of $M$ leads to an exponential increase in the size of $T_1$, this method is no plausible for for the situation where $M$ is large. 
 
-In \cite{zhang1999design, zhang2000efficient} Qian proposed an algorithm to solve this issue.  The algorithm can iteratively refine $k_i$ ($i=1, ..., M$) and generates an ENP test  such that among all ENP test with non-negative parameters it achieves the largest $P_d$ while keeping $P_{f_i}$ below the prescribed constraints. In \textbf{Lemma 1}, it has been proved that optimal decision rule for \eqref{equ: problemstate} is an ENP decision rule with non-negative $k_i$. 
-We can see if a decision rule $\delta$ is an ENP test such that among all ENP test with non-negative parameters it maximize $P_d$ while keeping $\mathbf{P}_f \leq \mathbf{c}$, then $\delta$ is the optimal decision rule for \eqref{equ: problemstate}.
-From the above discussion, it is clear that the decision rule generated by \cite{zhang1999design, zhang2000efficient} is the optimal decision rule for \eqref{equ: problemstate}.
+In \cite{zhang1999design, zhang2000efficient} Qian proposed an algorithm to solve this issue.  The algorithm can iteratively refine $k_i$ ($i=1, ..., M$) and generates an ENP test  such that among all ENP test with non-negative parameters it achieves the largest $P_d$ while keeping $P_{f_i}$ below the prescribed constraints. 
+Obviously if the theoretical solution for \eqref{equ: problemstate} is an ENP test with positive parameters, this algorithm can acquire the optimal solution. 
+In previous section, we showed the theatrical solution for \eqref{equ: problemstate} can be acquired by an ENP decision rule with positive parameters if $f_0(x) \neq 0$ a.e. on its domain. 
+Hence the decision rule generated by \cite{zhang1999design, zhang2000efficient} is the optimal decision rule for \eqref{equ: problemstate} when $f_0(x) \neq 0$ holds a.e. on its domain.
 
-The algorithm is summarized as follows. Let $t = \sum_{i=1}^{M}k_i$ and $\omega_i = \frac{k_i}{t}$. In the algorithm, $\bom$ is termed the weight of the decision rule and $t$ is termed the threshold of the decision rule. In the algorithm, only non-negative $k_i$ are considered, hence both $\omega_i, t$ are not negative. The ENP test can be written in form of 
+The algorithm is summarized as follows. Let $t = \sum_{i=1}^{M}k_i$ and $\omega_i = \frac{k_i}{t}$ ($i=1, 2, ..., M$). In the algorithm, $\bom$ is termed the weight of the decision rule and $t$ is termed the threshold of the decision rule. Since only non-negative $k_i$ are considered, both $\omega_i, t$ are greater or equal to zero. The ENP test can be written in form of 
 \begin{equation}
 \label{qian dec}
 f_0(x) \substack{H_0 \\ \geq \\ < \\ \bar{H}_0} t\sum_{i=1}^{M}\omega_if_i(x)\,.
 \end{equation}
 
-Let $P_d$ and $\mathbf{P}_f$ denote the probability of detection and probability of false alarm of decision rule \eqref{qian dec} respectively. 
-\cite{zhang2000efficient} illustrates that with $\omega_i$ ($i=1, 2, ..., M$) fixed, the probability of detection ($P_d$) and probability of false alarm ($\mathbf{P}_f$) under decision rule \eqref{qian dec} are non-increasing function with respect to $t$. 
-Moreover, when the $t$ decreases from infinity to $0$, $P_d$ and $P_{f_i}$ increase from $0$ to $1$.
+%Let $P_d$ and $\mathbf{P}_f$ denote the probability of detection and probability of false alarm of decision rule \eqref{qian dec} respectively. 
+\cite{zhang2000efficient} illustrates that with $\omega_i$ ($i=1, 2, ..., M$) fixed, the probability of detection ($P_d$) and probability of false alarm ($\mathbf{P}_f$) under decision rule \eqref{qian dec} are continuous decreasing function with respect to $t$. 
+Moreover, when $t$ increases from $0$ to positive infinity, $P_d$ and $P_{f_i}$ decrease from $1$ to $0$.
 
 The algorithm contains four steps: (\rmnum{1}) initialization; (\rmnum{2}) weight adjustment; (\rmnum{3}) threshold adjustment; (\rmnum{4}) tolerance checking.
 
-In initialization, $\omega_i$ ($i=1, 2, ..., M$)  is assigned arbitrary values on condition that $\sum_{i=1}^{M}\omega_i = 1$.  After that, the algorithm iteratively decreases the value of  $t$ from infinity to increase $P_d$ until one of probability of false alarm is equal to its constraint. In this way, the initial value of threshold is acquired. 
+In initialization, $\omega_i$ ($i=1, 2, ..., M$)  is assigned arbitrary values on condition that $\sum_{i=1}^{M}\omega_i = 1$. Using this $\bom$, the algorithm find the initial value of threshold $t$ such that among all possible $t$, it maximize $P_d$ while keeping $P_{f_i} \leq c_i$. 
+To do this, the algorithm iteratively decreases $t$ from positive infinity until a probability of false alarm is equal to its associated constraint and other probability of false alarms are either below or equal to their associated constraints.   
 
 After that, the algorithm will begin the weights adjustment process. 
-Assume before the adjustment the weight is $\bom_0$, the threshold is $t_0$ and the associated probability of detection is $P_d^0$.
+Assume before this process, the weight is $\bom_0$, the threshold is $t_0$ and the associated probability of detection is $P_d^0$.
 In this step, with the probability of detection fixed, the algorithm modifies the value of $\bom$ and $t$ until $\mathbf{P}_f$ is strictly below $ \mathbf{c}$, i.e. using the modified decision rule, we have $\mathbf{P}_f < \mathbf{c}$ and $P_d = P_d^0$. 
-Let $\delta\bom$ denote the perturbations of $\bom$ and let $\bom'$ denote the modified weight, i.e. $\bom' = \bom + \delta\bom$.  It is shown in \cite{zhang2000efficient} that in order to make $\mathbf{P}_f < \mathbf{c}$ while keeping $P_d$ unchanged, $\bom'$ should ensure $\theta(\mathbf{P}_f, \mathbf{c})$ decrease ($\theta(\mathbf{A}, \mathbf{B})$ denotes the angle between vectors $\mathbf{A}$ and $\mathbf{B}$). To do this, \cite{zhang2000efficient} proved that the direction of $\delta\bom$ must be the same as
+Let $\delta\bom$ denote the perturbations of $\bom$ and let $\bom'$ denote the modified weight, i.e. $\bom' = \bom + \delta\bom$.  It is shown in \cite{zhang2000efficient} that in order to make $\mathbf{P}_f < \mathbf{c}$ while keeping $P_d$ unchanged, $\bom'$ should ensure $\theta(\mathbf{P}_f, \mathbf{c})$ decrease ($\theta(\mathbf{A}, \mathbf{B})$ denotes the angle between vectors $\mathbf{A}$ and $\mathbf{B}$). To make $\theta(\mathbf{P}_f, \mathbf{c})$ decrease, \cite{zhang2000efficient} proved that the direction of $\delta\bom$ must be the same as
 \begin{equation}
 \label{direction}
 \mathbf{D} - m_\mathbf{D}\bom
 \end{equation}
 where 
 \[
-\mathbf{D} = \mathbf{P}_f - \mathbf{c}\frac{|\mathbf{P}_f|^2}{\mathbf{c}\mathbf{P}_f}
+\mathbf{D} = \mathbf{P}_f - \mathbf{c}\frac{|\mathbf{P}_f|^2}{\mathbf{c}^T\mathbf{P}_f}\,,
 \]
-and $m_{\mathbf{D}}$ represents the arithmetic sum of the elements of $\mathbf{D}$. And $\delta\bom$ can be written as
-\[
+and $m_{\mathbf{D}}$ represents the arithmetic sum of the elements of $\mathbf{D}$. Hence $\delta\bom$ can be written in form of 
+\begin{equation}
+\label{om expression}
 \delta\bom = \lambda( \mathbf{D} - m_\mathbf{D}\bom) 
+\end{equation}
+where $\lambda$ is a value associated with the magnitude of $\delta\bom$.
+According to \cite{zhang2000efficient}, a too large $\lambda$ may results $\theta(\mathbf{P}_f, \mathbf{c})$ increase, which is an undesirable situation, while a too small value can not decrease $\theta(\mathbf{P}_f, \mathbf{c})$ very much. The algorithm chooses the value of $\lambda$ by trial and error. To do this, the algorithm choose the arithmetic average of $\mathbf{P}_f$ as the initial value of $\lambda$ and compute the new weights $\bom'$ through \eqref{om expression}. 
+If any element of $\bom'$ is negative, the negative element will be changed to zero, e.g. if $\omega_i < 0$, the algorithm will let $\omega_i = 0$. This is because a negative  $\omega_i$ is not considered in this method.  
+Then the algorithm use $\bom'$ to find the $t'$ such that under the new decision rule the probability of detection is equal to  $P_d^0$. To do this, with $\bom'$ fixed, the algorithm iteratively decreases the value of $t'$ from positive infinity until $P_d = P_d^0$ is satisfied. Under the new decision rule, if $\mathbf{P}_f$ is strictly below $\mathbf{c}$, the weight adjustment is finished and the algorithm will process threshold adjustment; otherwise, the algorithm reduces the value of $\lambda$ and recompute $\bom'$ and $t'$ through \eqref{om expression} until $\mathbf{P}_f < \mathbf{c}$  is satisfied. 
+
+ The algorithm performs the threshold adjustment process after weight adjustment. Since all probability of false alarm is strictly below its associated constraint, by appropriately revising the threshold, the probability of detection can be further improved while maintaining $\mathbf{P}_f \leq \mathbf{c}$. In this process, with $\omega_i$ ($i=1, 2, ..., M$) fixed, the algorithm iteratively decreases the value of $t$ to increase the value of $P_d$ until a probability of false alarm is equal to its associated constraint.  
+
+The last step is tolerance checking. \cite{zhang2000efficient} shows that the theoretical solution satisfies a false alarm probability constraint with equality if the associated weight is non-zero; a false alarm is strictly below the constraint if the associated weight is zero. 
+Let $I$ be the set of subscripts such that $i \in I$ if and only if $\omega_i > 0$. 
+Hence in the tolerance check, the algorithm checks whether $c_i - P_{f_i}$ ($i \in I$) is within a prescribed tolerance value . If so, it means the decision rule is closed enough to the theoretical solution and the algorithm will output the threshold and weight, if not the algorithm will start a new cycle of weight adjustment - threshold adjustment - tolerance checking process. 
+
+For each cycle, let $P_d^0$ represents the probability of detection before the cycle starts, and let $P_d^1$ represents the probability of detection after the cycle ends. In the weight adjustment process, the weight and threshold are refined such that the probability of detection is fixed. In the threshold adjustment process, the algorithm revise the threshold such that the probability of detection increases. Hence we can see $P_d^0$ is strictly below $P_d^1$, i.e. after each cycle, the probability of detection is increased. Let $P_d^\ast$ denotes the theoretical solution, as long as $P_d^0 < P_d^\ast$  the algorithm can bring the probability of detection closer to the theoretical solution  through changing the threshold $t$ and weight $\bom$.
+
+\subsection{An Example}
+In the following we use an example to illustrate the operation of the algorithm. Assume three hypotheses given as
+
+\begin{equation}
+\label{equ: Gaussian Hypothesis}
+\begin{split}
+	H_0:\;\;\;\;\;\;\;\;&X \sim \mathcal{N}(-1,1)\\
+    H_1:\;\;\;\;\;\;\;\;&X \sim \mathcal{N}(0,1)\\
+    H_2:\;\;\;\;\;\;\;\;&X \sim \mathcal{N}(1,10)\,,
+\end{split}
+\end{equation}
+where $\mathcal{N}(\mu, \epsilon^2)$ denotes a Gaussian PDF with mean $\mu$ and variance $\epsilon^2$.
+The tolerance of the algorithm is set $0.0001$, i.e. in the tolerance checking process, when $c_i - P_{f_i} < 0.0001$ ($i = 1, 2, ..., M$), the algorithm stops. The initial weight of the algorithm is set to be $\omega_1 = \omega_2 = 0.5$. 
+Two cases will be considered in this part. In the first case we consider the situation when $\mathbf{c} \in \alpha^+$. In the second case we consider the case when $\mathbf{c} \notin \alpha^+$.
+
+First we consider the case when $c_1 = 0.15$ and $c_2 = 0.2$.
+After the initiation, the weight and threshold are set $\omega_1 = \omega_2 = 0.5$, $t =2.3544$, and the corresponding performance measures are $P_{f_1}  = 0.1500$, $P_{f_2} = 0.1445$ and $P_d = 0.4520$. The algorithm carries $163$ iterations of weight threshold adjustment. The $(P_{f_1}, P_{f_2})$  points after each iteration are plotted as '$\bullet$' in Fig. \ref{fig: 2.3}. 
+The $(P_{f_1}, P_{f_2})$ point of the initialization is plotted as  a 'o' and the $(P_{f_1}, P_{f_2})$ point of the final solution are plotted as a '$\square$'. 
+In Figure \ref{fig: 2.2}, the change of $P_d$ with respect to the iteration times is depicted through a curve marked with stars.   
+The dotted line in Figure \ref{fig: 2.2} represents the theoretical value of $P_d$ under constraint $\mathbf{P}_f \leq \mathbf{c}$. This value is achieved through the exhaustive search method approached in last section. We can see, after each cycle of weight-threshold adjustment, the corresponding $P_d$ converges to the theoretical solution. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width = 14cm]{2/152pf.eps}
+\caption{Change of $P_{f_1}$, $P_{f_2}$ after each iteration.}
+\label{fig: 2.3}
+\end{figure}
+\newpage
+\begin{figure}[H]
+\centering
+\includegraphics[width = 14cm]{2/152pd.eps}
+\caption{Change of $P_d$ after each iteration.}
+\label{fig: 2.2}
+\end{figure}
+\newpage
+
+The weight and threshold of the final solution are
+
+\[
+\begin{split}
+\omega_1 = 0.9208\\
+\omega_2 = 0.0792\\
+t = 1.7889
+\end{split}
 \]
-here $\lambda$ is a value associated with the magnitude of $\delta\bom$.
-According to \cite{zhang2000efficient}, a too large $\lambda$ may results $\theta(\mathbf{P}_f, \mathbf{c})$ increase, which is a undesirable case, while a too small value can not decrease $\theta(\mathbf{P}_f, \mathbf{c})$ very much. The algorithm chooses the value of $\lambda$ by trial and error. To do this, the algorithm choose the arithmetic average of $\mathbf{P}_f$ as the initial value of $\lambda$ and compute the new weights $\bom'$ through \eqref{direction}. 
-If any element of $\bom'$ is negative, e.g. $\omega_i < 0$, the negative element will be changed to zero. This is because a negative  $\omega_i$ is not considered in this method.  
-Then the algorithm use $\bom'$ to find the $t'$ such that under the new decision rule the probability of detection is equal to  $P_d^0$. To do this, with $\bom'$ fixed, the algorithm will iteratively decrease the value of $t'$ from a very large value until $P_d = P_d^0$ is satisfied. Under the new decision rule, if $\mathbf{P}_f$ is strictly below $\mathbf{c}$, the weight adjustment is finished and the algorithm will process threshold adjustment; otherwise, the algorithm reduces the value of $\lambda$ and recompute $\bom'$ and $t'$ until $\mathbf{P}_f < \mathbf{c}$  is satisfied. 
+Since $k_1 = \omega_1 t$ and $k_2 = \omega_2 t$, we can see
+\[
+\begin{split}
+k_1 &= 1.6474\\
+k_2 &= 0.1416
+\end{split}
+\]
+The performance measure of the decision rule are
+\[
+\begin{split}
+P_{f_1} &= 0.1500\\
+P_{f_2} &= 0.1999\\
+P_d &= 0.4838
+\end{split}
+\]
 
-After that, the algorithm performs the threshold adjustment process. Since all probability of false alarm is strictly below its associated constraint, by revising the threshold, the probability of detection can be further improved. In this process, with $\omega_i$ ($i=1, 2, ..., M$) fixed, the algorithm iteratively decreases the value of $t$ to increase the value of $P_d$ until one of $P_{f_i}$ is equal to $c_i$.
 
-The last step is tolerance checking. \cite{zhang2000efficient} shows that the theoretical solution satisfies a false alarm probability constraint with equality if the associated weight is non-zero; a false alarm is strictly below the constraint if the associated weight is zero. Hence in the tolerance check, the algorithm checks whether every $c_i - P_{f_i}$  is within a prescribed tolerance value if the associated $\omega_i$ is not zero. If so, it means the decision rule is closed enough to the theoretical solution and the algorithm will output the threshold and weight, if not the algorithm will start a new cycle of weight adjustment - weight adjustment - threshold adjustment - tolerance checking process process. 
+We can see, $P_{f_1}$ is equal to its associated constraint $c_1$  while $P_{f_2}$ is $0.0001$ smaller than its associated  constraint $c_2$. 
 
 
-\section{Relationship to Bayesian Hypotheses Testing}
+Then we consider an ENP test for $c_1 = 0.2$ and $c_2 = 0.4$.
+After the initiation, the weight and threshold are $\omega_1 = \omega_2 = 0.5$, $t =2.0278$, and the corresponding performance measures are $P_{f_1}  = 0.2000$, $P_{f_2} = 0.1720$ and $P_d = 0.5367$. The algorithm carries $14$ iterations of weight  threshold adjustment. The corresponding $(P_{f_1}, P_{f_2})$ are   
+marked as '*' and connected by a dotted line in Fig. \ref{fig: 2.4}. 
+The $(P_{f_1}, P_{f_2})$ point of the initialization is plotted as  a 'o' and the $(P_{f_1}, P_{f_2})$ point of the final solution are plotted as a '$\square$'. The change of $P_d$ after each iteration is plotted in Figure \ref{fig: 2.5}. 
+The dotted line in Figure \ref{fig: 2.5} represents the theoretical probability of detection under constraint $\mathbf{P}_f \leq \mathbf{c}$. This value is derived through the exhaustive search method approached last section.  
 
+
+The weight and threshold of the final solution are
+\[
+\begin{split}
+\omega_1 = 1.000\\
+\omega_2 = 0.000\\
+t = 1.4075
+\end{split}
+\]
+Since $k_1 = \omega_1t$ and $k_2 = \omega_2t$, we can see
+\[
+\begin{split}
+k_1 &= 1.4072\\
+k_2 &= 0.000
+\end{split}
+\]
+The performance measure of the decision rule are
+\[
+\begin{split}
+P_{f_1} &= 0.2\\
+P_{f_2} &= 0.2799\\
+P_d &= 0.5629
+\end{split}
+\]
+
+\begin{figure}[H]
+\centering
+\includegraphics[width = 14cm]{2/24pf.eps}
+\caption{Change of $P_{f_1}$, $P_{f_2}$ after each iteration.}
+\label{fig: 2.4}
+\end{figure}
+\newpage
+\begin{figure}[H]
+\centering
+\includegraphics[width = 14cm]{2/24pd.eps}
+\caption{Change of $P_d$ after each iteration.}
+\label{fig: 2.5}
+\end{figure}
+\newpage
+
+
+Thus we can observe, $P_{f_1}$ is equal to its constraint ($c_1 = 0.2$) while $P_{f_2}$ is much smaller than its constraint ($c_2 =0.4$). However since $\omega_2$ is equal to zero, $P_{f_2}$ does not have to be close to $c_2$ to stop the algorithm. By using the exhaustive search method approached last section, we can verify the largest probability of detection under the constraint $\mathbf{P}_f \leq \mathbf{c}$ is $0.5629$, which is equal to the solution generated by the algorithm.
+                      
