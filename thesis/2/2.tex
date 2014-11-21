@@ -210,7 +210,7 @@ after that we will illustrate for point $(\mu_1^0, \mu_2^0, ..., \mu_{M+1}^0) \i
 \mu_{M+1} - \sum_{i=1}^{M}k_i\mu_i \leq \mu_{M+1}^0 - \sum_{i=1}^{M}k_i\mu_i^0
 \]
 holds for point $(\mu_1, \mu_2, ..., \mu_{M+1}) \in G_s$;
-in the end, we will show for any $\mathbf{c}$, there exists non-negative $\mathbf{k}$ such that the optimal decision rule to achieve the largest $P_d$ under constraint $\mathbf{P}_f \leq \mathbf{c}$ can be written in form of 
+in the end, we will show for any $\mathbf{c} \in (0, 1)$, there exists non-negative $\mathbf{k}$ such that the optimal decision rule to achieve the largest $P_d$ under constraint $\mathbf{P}_f \leq \mathbf{c}$ can be written in form of 
 \[
 f_0(x) \substack{H_0 \\ > \\ < \\ \bar{H}_0} \sum_{i=1}^{M}k_if_i(x)\,.
 \]
@@ -230,8 +230,8 @@ Construct a new randomized test $\delta^3$, where $\delta^1$ and $\delta^2$ are 
 \begin{subequations}
 \begin{align}
 \label{1120night1}
-P_d(\delta^3) &= 0.5P_d(\delta^1)+0.5P_d(\delta^2) = 0.5G(\bmu_0^1) + 0.5G(\bmu_0^2)\\
-\mathbf{P}_{f}(\delta^3) = 0.5\mathbf{P}_f(\delta^1)+0.5\mathbf{P}_f(\delta^2) \leq 0.5\boldsymbol{\mu}^1_0 + 0.5\boldsymbol{\mu}^2_0
+&P_d(\delta^3) = 0.5P_d(\delta^1)+0.5P_d(\delta^2) = 0.5G(\bmu_0^1) + 0.5G(\bmu_0^2)\\
+&\mathbf{P}_{f}(\delta^3) = 0.5\mathbf{P}_f(\delta^1)+0.5\mathbf{P}_f(\delta^2) \leq 0.5\boldsymbol{\mu}^1_0 + 0.5\boldsymbol{\mu}^2_0
 \end{align}
 \end{subequations}
 Let $\delta'$ denote the optimal decision rule for 
@@ -242,7 +242,7 @@ Let $\delta'$ denote the optimal decision rule for
  \text{s.t.}&\;\;\;\;\mathbf{P}_f \leq 0.5\boldsymbol{\mu}^1_0 + 0.5\boldsymbol{\mu}^2_0
  \end{split}
  \end{equation}
-then obviously $P_d(\delta') \geq P_d(\delta^3)$ (otherwise $\delta'$ cannot be the optimal decision rule for \eqref{1120t}).The solution of \eqref{1120t} can be written as $G(0.5\boldsymbol{\mu}^1_0 + 0.5\boldsymbol{\mu}^2_0)$, hence we have  
+then obviously $P_d(\delta') \geq P_d(\delta^3)$ (otherwise $\delta'$ cannot be the optimal decision rule for \eqref{1120t}).The optimal $P_d$ of \eqref{1120t} can be written as $G(0.5\boldsymbol{\mu}^1_0 + 0.5\boldsymbol{\mu}^2_0)$, hence we have  
 \begin{equation}
 \label{1120t2}
 G(0.5\boldsymbol{\mu}^1_0 + 0.5\boldsymbol{\mu}^2_0) > P_d(\delta^3).
@@ -265,7 +265,7 @@ According to \cite{zhang2000efficient}, there exists at least one probability of
 \[
 \int_{\mathcal{S}^\ast}f_l(x)\mathrm{d}x = \mu_l \neq 0\,.
 \]
-This equation implies the measurement of $\mathcal{S}^\ast$  is not zero. Since we know $f_0(x) \neq 0$ a.e. on $\mathcal{D}$, we can conclude $\int_{\mathcal{S}^\ast}f_0(x)\mathrm{d}x > 0$, i.e. $G(\bmu_0) > 0$. 
+This equation implies the measurement of $\mathcal{S}^\ast$  is not zero. Since we know $f_0(x) \neq 0$ a.e. on $\mathcal{D}$, we can conclude $G(\bmu_0) = \int_{\mathcal{S}^\ast}f_0(x)\mathrm{d}x > 0$. 
 
 In the following, we consider the property of $G_s$. First we will prove $G_s$ is a convex set. 
 Let $\boldsymbol{\mu}^1$ and  $\boldsymbol{\mu}^2$ be two points in $G_s$ with coordinates $(\boldsymbol{\mu}^1_0, \mu_{M+1}^1)$ and $(\boldsymbol{\mu}^2_0, \mu_{M+1}^2)$. According to the definition of $G_s$, we have 
@@ -273,13 +273,13 @@ Let $\boldsymbol{\mu}^1$ and  $\boldsymbol{\mu}^2$ be two points in $G_s$ with c
 \label{1120t4}
 \begin{align}
 \label{1120night6}
-0 &\leq &&\bmu_0^1 &\leq 1\\
+0 &\leq \bmu_0^1 \leq 1\\
 \label{1120night7}
-0 &\leq &&\boldsymbol{\mu}^2_0 &\leq 1\\
+0 &\leq \boldsymbol{\mu}^2_0 \leq 1\\
 \label{1120night3}
-0 &\leq &&\mu_{M+1}^1 &\leq G(\boldsymbol{\mu}_0^1)\\
+0 &\leq \mu_{M+1}^1 \leq G(\boldsymbol{\mu}_0^1)\\
 \label{1120night4}
-0 &\leq &&\mu_{M+1}^2 &\leq G(\boldsymbol{\mu}_0^2)
+0 &\leq \mu_{M+1}^2 \leq G(\boldsymbol{\mu}_0^2)
 \end{align}
 \end{subequations}
 
@@ -296,14 +296,14 @@ Let $\boldsymbol{\mu}^3$ be the middle point between $\boldsymbol{\mu}^1$ and $\
 In the following, we will show $\bmu^3 \in G_s$.  
 Substitute \eqref{1120night3} \eqref{1120night4} into \eqref{1120night2}, we can see
 \begin{equation}
-0 \leq \mu_{M+1}^3 \leq  G(0.5 \bmu_0^1+0.5\bmu_0^2)\,.
+0 \leq \mu_{M+1}^3 \leq 0.5 G( \bmu_0^1) + 0.5G(\bmu_0^2)\,.
 \end{equation}
-Substitute \eqref{1120night5} into above equation, we have 
+Substitute \eqref{1120t3} and \eqref{1120night5} into above equation,
 \begin{equation}
 \label{equ: 1120n}
-0 \leq \mu_{M+1}^3 \leq  G(\bmu_0^3)\,.
+0 \leq \mu_{M+1}^3 \leq G(0.5 \bmu_0^1 + 0.5\bmu_0^2) = G(\bmu_0^3)\,.
 \end{equation}
-From \eqref{1120night5}, \eqref{1120night6} and \eqref{1120night7} we can see
+Combine  \eqref{1120night5}, \eqref{1120night6} and \eqref{1120night7} we can see
 \begin{equation}
 \label{equ: 1120n1}
 \bmu_0^3 \in [0, 1]
@@ -325,7 +325,7 @@ This implies $\mu_{M+1}^0 \in [0, G(\bmu_0^0)]$ and we have
 The above equation suggests point $(\mu_1^0, ..., \mu_{M+1}^0)$ also belongs to set $G_s$.
 Hence we proved $\mathcal{N} \subseteq G_s$. 
 
-In the following we will prove for any points $(\mu_1^0, \mu_2^0, ..., \mu_{M+1}^0)$ belong to $G'$, there exists non-negative $\mathbf{k}$ such that for any $(\mu_1, \mu_2, ..., \mu_{M+1}) \in G_s$, 
+In the following we will prove for points $(\mu_1^0, \mu_2^0, ..., \mu_{M+1}^0)$ belong to $G'$ ($\mu_i \in (0, 1), i = 1, 2, ..., M$), there exists non-negative $\mathbf{k}$ such that for any $(\mu_1, \mu_2, ..., \mu_{M+1}) \in G_s$, 
 \[
 \mu_{M+1} - \sum_{i=1}^{M}k_i\mu_i \leq \mu_{M+1}^0 - \sum_{i=1}^{M}k_i\mu_i^0
 \]
@@ -367,7 +367,7 @@ Since $G_s$ lies entirely on one side of \eqref{PI2}, and since when $(\mu_1, ..
 \end{equation}
 holds for all points belong to $G_s$ \cite{dantzig1951fundamental}. 
 
-Up to now, we have proved $ \forall (\bmu_0^0, \mu_{M+1}^0) \in G'$, there exists constants $k_1$, ..., $k_M$ such that
+Up to now, we have proved if  $(\bmu_0^0, \mu_{M+1}^0) \in G'$ and $\bmu_0^0 \in (0, 1)$, there exists constants $k_1$, ..., $k_M$ such that
 \begin{equation}
 \mu_{M+1} - \sum_{i=1}^{M}k_i\mu_i \leq \mu_{M+1}^0 - \sum_{i=0}^{M}k_i\mu_i^0
 \label{PPI3}
@@ -665,9 +665,10 @@ In the context of spectrum sensing, following problem needs to be solve
       \label{equ: problemstate}
       \begin{split}
       \max\;\;\;\;\;\;&P_d\\
-      \text{s.t.}\;\;\;\;\;\;&\mathbf{P}_f \leq \mathbf{c}\,.
+      \text{s.t.}\;\;\;\;\;\;&\mathbf{P}_f \leq \mathbf{c}\,,
       \end{split}
       \end{equation}
+where $\mathbf{c} \in (0, 1)$.
 
 According to ENP Lemma, this problem can be solved by an ENP test only when there are parameters $k_i \geq 0, \;\;i=1, ..., M$ such that 
 \begin{equation}
@@ -713,7 +714,7 @@ $ and set $\alpha^+ \triangleq \{\mathbf{P}_f | P_{f_i} = \int_{-\infty}^{\infty
 Since $\mathbf{a}^0 \in \mathcal{A}_{\mathbf{c}} \cap \alpha^+$, from \textnormal{(\rmnum{1})} we have that there exists a vector $\mathbf{k}^0$ such that \eqref{equ:decision rule}  maximizes $P_d$ under the constraints $P_{f_i} = a_i^0, \;i=1, ..., M$. Here since $a_i^0 \leq c_i^0, \;i=1, ..., M$ this decision rule  solves \eqref{equ: problemstate}.
 }
 
-Next we will show \textbf{Modified Extended Neyman Pearson Test} can provide an optimal solution for \eqref{equ: problemstate}.
+Next we will show \textbf{Modified Extended Neyman Pearson Test} can provide an optimal solution for \eqref{equ: problemstate} when $f_0(x) \neq 0$ a.e. on its domain.
 
 \textbf{PROOF}
 MENP (\rmnum{1}) is a direct conclusion from ENP Lemma, we will consider MENP (\rmnum{2}). Assume $\mathbf{a}^0$ satisfy
