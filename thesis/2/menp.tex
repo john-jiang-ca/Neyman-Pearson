@@ -28,11 +28,15 @@ The case when the given $c_i\;\; (i= 1, 2, ..., M)$ do not satisfy \eqref{equ: c
 Next we present the Modified Extended Neyman Pearson Test (MENP) for solving \eqref{equ: problemstate}.
 
 Before we proceed, we will define some notations for easy presentation.
-Define the set $\mathcal{A}_\mathbf{c} = \{
+Define the set 
+\[\mathcal{A}_\mathbf{c} = \{
   \mathbf{P}_f | 0 \leq P_{f_i} \leq c_i
   \;\;i=1, 2, ..., M\}\,.
-$ and set $\alpha^+ \triangleq \{\mathbf{P}_f | P_{f_i} = \int_{-\infty}^{\infty} \JUDGEMENT f_i(x) \mathrm{d}x, \text{where\;\;} k_i \geq 0 \;\;i=1, ..., M\}$.
-
+\]
+and set 
+\[
+\alpha^+ \triangleq \{\mathbf{P}_f | P_{f_i} = \int_{-\infty}^{\infty} \JUDGEMENT f_i(x) \mathrm{d}x, \text{where\;\;} k_i \geq 0 \;\;i=1, ..., M\}\,.
+\]
 \noindent \textbf{Modified Extended Neyman Pearson Test}
 \noindent \textit{
 \\\textnormal{(\rmnum{1})} Assume $\mathbf{c} \in \alpha^+$. Then there must be a $\mathbf{k}^0 = [k_1^0, k_2^0, ..., k_M^0]^T$ with $k_i \geq 0\;\;i=1, ..., M$ satisfying
@@ -46,7 +50,7 @@ $ and set $\alpha^+ \triangleq \{\mathbf{P}_f | P_{f_i} = \int_{-\infty}^{\infty
 }
 \begin{equation}
 \label{equ:decision rule}
-\delta:\;\;\;\;\frac{f_0(x)}{\sum_{i=1}^{M}k_i^0f_i(x)} \substack{H_0 \\ \geq \\ < \\ \bar{H}_0} 1
+\delta:\;\;\;\;f_0(x) \substack{H_0 \\ \geq \\ < \\ \bar{H}_0} \sum_{i=1}^{M}k_i^0f_i(x)
 \end{equation}
 \textit{
 \noindent \textnormal{(\rmnum{2})} Assuming $\mathbf{c} \notin \alpha^+$, Let $\mathcal{C} = \mathcal{A}_{\mathbf{c}} \cap \alpha^+$, and $\mathbf{a}^0 = [a_1^0, a_2^0, ..., a_M^0]^T \in \mathcal{C}$ be such that
@@ -98,13 +102,14 @@ P_{f_i}(\delta') &= \int_{-\infty}^{\infty} u(f_0(x) - \sum_{i=1}^{M}k_i'f_i(x))
 \end{equation}
 where $k_i' \geq 0$.
 
-From \eqref{condition 1} and \eqref{TEMP10}, we can conclude $\mathbf{P}_f(\delta') \in \mathcal{A}_\mathbf{c} \cap \alpha^+$. Let $\mathbf{a}' = \mathbf{P}_f(\delta')$, and we have $F(\mathbf{a}') = P_d(\delta')$. This is because $\delta'$ is an ENP test with probability of false alarm is equal to $\mathbf{a}'$.  
+From \eqref{condition 1} and \eqref{TEMP10}, we can conclude $\mathbf{P}_f(\delta') \in \mathcal{A}_\mathbf{c} \cap \alpha^+$. Let $\mathbf{a}' = \mathbf{P}_f(\delta')$, and we have $F(\mathbf{a}') = P_d(\delta')$. This is because $\delta'$ is an ENP test with $\mathbf{P}_f$ is equal to $\mathbf{a}'$.  
 
 Since $P_d(\delta') > P_d(\delta^0)$, we have $F(\mathbf{a'}) > F(\mathbf{a^0})$. This is contradictory with the condition that $\mathbf{a^0}$ satisfy \eqref{a0}.
 
 Hence we conclude $\delta^0$ is the optimal solution for \eqref{equ: problemstate}. $\blacksquare$
 
-Next we present a look-up table method method of finding $\mathbf{k}$ under MENP framework. For a specific $\mathbf{c}$, in order to get $\mathbf{a}^0$, we need to determine the set of $\alpha^+$. We can conduct an exhaustive search over a grid of $k_1, ..., k_M$ ($k_i \geq 0$) depending on preferable accuracy and store these results ($P_d, \mathbf{P}_f, \mathbf{k}$) into a lookup table $T_1$. After that, we iterate every item in $T_1$ and put the item into table $T_2$ if the item satisfies:  $\mathbf{P}_f \leq \mathbf{c}$.
-At last, we iterate every item in $T_2$ and get the largest $P_d$ and its decision rule $\mathbf{k}$. 
+Next we present a look-up table method of finding $\mathbf{k}$ when $\mathbf{c} \notin \alpha^+$. For a specific $\mathbf{c}$, in order to get $\mathbf{a}^0$, we need to determine the set of $\alpha^+$. We can conduct an exhaustive search over a grid of $k_1, ..., k_M$ ($k_i \geq 0$) depending on preferable accuracy and store these results ($P_d, \mathbf{P}_f, \mathbf{k}$) into a lookup table $T_1$. After that, we iterate every item in $T_1$ and put the item into table $T_2$ if the item satisfies:  $\mathbf{P}_f \leq \mathbf{c}$.
+At last, we iterate every item in $T_2$ and get the largest $P_d$ and its decision rule $\mathbf{k}$.
+Obviously, the look-up table method also applies to the situation when $\mathbf{c} \in \alpha^+$. Thus we can see by searching $T_1$ we can get the decision rule for any $\mathbf{c}$.  
 
 From above discussion, we can see if an ENP decision rule with positive parameters acquires the largest $P_d$ while keeping $\mathbf{P}_f \leq \mathbf{c}$ among all ENP test with positive parameters, it is the theoretical solution for \eqref{equ: problemstate}. 

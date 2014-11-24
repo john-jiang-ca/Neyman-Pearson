@@ -27,30 +27,33 @@ Before we process, we make following assumption:
 In the following, we consider the form of $\delta_B$ under such assumption.
 Let $a_0 = C_{10} = C_{20} = ... = C_{M0}$ and $a_i = C_{0i}$ ($i= 1, 2, ..., M$).
 The conditional risk for Bayesian Test can be written as 
-\begin{subequations}
-\label{r0}
-\begin{align}
+\begin{equation}
 \begin{split}
 R_0(\delta_B) &= C_{00}P_0(\mathcal{C}_0) + C_{10}P_0(\mathcal{C}_1) + ... +  C_{M0}P_0(\mathcal{C}_M)\\
 &= a_0P_0(\mathcal{C}_1) + a_0P_0(\mathcal{C}_2) + ... + a_0P_0(\mathcal{C}_M)\\
 &= a_0P_0(\mathcal{C}_1\cup \mathcal{C}_2 \cup ... \cup \mathcal{C}_M)\\
 &= a_0P_0(\bar{\mathcal{C}_0})\\
 &= a_0(1 - P_0(\mathcal{C}_0))\\
-&= a_0(1 - \int_{\mathcal{C}_0}f_0(x)\mathrm{d}x)\\
+&= a_0(1 - \int_{\mathcal{C}_0}f_0(x)\mathrm{d}x)
 \end{split}
+\end{equation}
+\begin{equation}
 \begin{split}
 R_1(\delta_B) &= C_{01}P_1(\mathcal{C}_0) + C_{11}P_1(\mathcal{C}_1) + ... +  C_{M1}P_1(\mathcal{C}_M)\\  
 &= a_1P_1(\mathcal{C}_0)\\
-&= a_1\int_{\mathcal{C}_0}f_1(x)\mathrm{d}x\\
+&= a_1\int_{\mathcal{C}_0}f_1(x)\mathrm{d}x
 \end{split}
-......\\
+\end{equation}
+\[
+......
+\]
+\begin{equation}
 \begin{split}
 R_M(\delta_B) &= C_{0M}P_M(\mathcal{C}_0) + C_{1M}P_M(\mathcal{C}_1) + ... +  C_{2M}P_M(\mathcal{C}_2)\\
 &= a_MP_M(\mathcal{C}_0)\\
 &= a_M\int_{\mathcal{C}_0}f_{M}(x)\mathrm{d}x\,.
 \end{split}
-\end{align}
-\end{subequations}
+\end{equation}
 
 The total cost function $r(\delta_B)$ can be written as 
 \begin{equation}
@@ -65,8 +68,8 @@ and thus we see that $r(\delta)$ is a minimum over all $\mathcal{C}_0$ if and on
 \begin{equation}
 \begin{split}
 \label{equ: C}
-\mathcal{C}_0 &= \{ x\in \mathcal{C}_0 | \pi_0a_0f_0(x) - \pi_1a_1f_1(x) - ... - \pi_Ma_Mf_M(x) \geq 0\}\\
-&= \{ x\in \mathcal{C}_0 | f_0(x) \geq \sum_{i=1}^{M}\frac{\pi_ia_i}{\pi_0a_0}f_i(x) \}\,.
+ \{ x\in \mathcal{C}_0 | \pi_0a_0f_0(x) - \pi_1a_1f_1(x) - ... - \pi_Ma_Mf_M(x) \geq 0\}\\
+ \therefore \{ x\in \mathcal{C}_0 | f_0(x) \geq \sum_{i=1}^{M}\frac{\pi_ia_i}{\pi_0a_0}f_i(x) \}\,.
 \end{split}
 \end{equation}
 
