@@ -11,7 +11,7 @@
 \contentsline {section}{\numberline {2.5}Determine the decision rule under MENP Framework}{36}
 \contentsline {subsection}{\numberline {2.5.1}An Example}{40}
 \contentsline {chapter}{\numberline {3}The ROC Surface of Modified Extended Neyman Pearson Test}{48}
-\contentsline {section}{\numberline {3.1}Modified Receiver of Characters}{48}
-\contentsline {section}{\numberline {3.2}MROC Surface under Gaussian Hypotheses}{51}
-\contentsline {section}{\numberline {3.3}MROC Surface under Chi-Square Hypotheses}{58}
-\contentsline {chapter}{References}{62}
+\contentsline {section}{\numberline {3.1}Modified Receiver of Characters of MENP test}{48}
+\contentsline {section}{\numberline {3.2}MROC Surface under Gaussian Hypotheses}{52}
+\contentsline {section}{\numberline {3.3}MROC Surface under Chi-Square Hypotheses}{61}
+\contentsline {chapter}{References}{65}

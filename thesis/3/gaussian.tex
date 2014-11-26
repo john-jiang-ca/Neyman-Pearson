@@ -1,6 +1,9 @@
 % The Gaussian Case
 \section{MROC Surface  under Gaussian Hypotheses}
-In the next example we compute the MROC surface under Gaussian Hypotheses. 
+In the next two examples we compute the MROC surface under Gaussian Hypotheses. 
+
+\noindent \textbf{Example 1:}
+
 Assume three hypotheses given as:
 \begin{equation}
 \label{equ: Gaussian Hypothesis}
@@ -11,14 +14,24 @@ Assume three hypotheses given as:
 \end{split}
 \end{equation}
 where $\mathcal{N}(\mu,\sigma^2)$ denotes a Gaussian PDF with mean $\mu$ and variance $\sigma^2$.
-To form the M-ROC surface, we first consider points in region $M_0$.The decision rule in region $M_0$ is given by \eqref{equ: decision rule}
-with $M=2,\;\;k_1, k_2 \geq 0$, and the expression for $P_d$, $P_{f_1}$ and $P_{f_2}$ are given by \eqref{equ: pf and pd}. According to \textbf{Neyman Pearson Lemma}, if $k_1, k_2 \geq 0$, then $P_{f_1} = c_1$ and $P_{f_2} = c_2$.
-We use Matlab to illustrate the region $M_0$. The values of $k_1$ and $k_2$ range from $0$ to $100$ in steps of $0.01$. Substituting the value of $k_1$ and $k_2$ into \eqref{equ: pf and pd}, results in the corresponding $P_d$ $P_{f_1}$ and $P_{f_2}$.  The set $M_0$ is illustrated in Figure \ref{pic: surface for m0 gaussian}. Figure \ref{pic: contour for m0 gaussian} presents the projection of Figure \ref{pic: surface for m0 gaussian} on the $c_1, c_2$ plane.
-
+To form the M-ROC surface, we first consider points belong to $M_0$.
+From previous discussion, we can see when $(c_1, c_2) \in M_0$, there exists non-negative $\mathbf{k}$ such that by using decision rule 
+\begin{equation}
+f_0(x) \substack{H_0 \\ \geq \\ < \\ \bar{H}_0} k_1f_1(x) + k_2f_2(x)
+\end{equation}
+we have 
+\begin{equation}
+\begin{split}
+\label{1125c0}
+&P_d = \int_{-\infty}^{\infty} u(f_0(x) - \sum_{j=1}^{2}k_jf_j(x)) f_0(x)\mathrm{d}x    \,, \\
+&P_{f_i} = \int_{-\infty}^{\infty} u(f_0(x) - \sum_{j=1}^{2}k_jf_j(x)) f_i(x) \mathrm{d}x = c_i\;\;    i=1, 2\,.
+\end{split}
+\end{equation}
+We use Matlab to compute the M-ROC for region $M_0$. The values of $k_1$ and $k_2$ range from $0$ to $100$ in steps of $0.01$. Substituting the value of $k_1$ and $k_2$ into \eqref{1125c0}, results in the corresponding $P_d$ $P_{f_1}$ and $P_{f_2}$.  The set $M_0$ is illustrated in Figure \ref{pic: surface for m0 gaussian}. Figure \ref{pic: contour for m0 gaussian} presents the projection of Figure \ref{pic: surface for m0 gaussian} on the $c_1, c_2$ plane.
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=12cm]{3/singleROC.eps}
+\includegraphics[width=12cm, height=16cm]{3/singleROC.eps}
 \caption{Region that can be achieved by Neyman Pearson testing with $k_i \geq 0 (i=1, ..., M)$.}
 \label{pic: surface for m0 gaussian}
 \end{figure}
@@ -26,49 +39,72 @@ We use Matlab to illustrate the region $M_0$. The values of $k_1$ and $k_2$ rang
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=12cm]{3/singlecontour.eps}
+\includegraphics[width=12cm, height = 16cm]{3/singlecontour.eps}
 \caption{Region that can be achieved by Neyman Pearson testing with $k_i \geq 0 (i=1, ..., M)$.}
 \label{pic: contour for m0 gaussian}
 \end{figure}
 
-In Figure \ref{pic: contour for m0 gaussian}, region $N_0$ is the projection of region $M_0$ on the $c_1, c_2$ plane. Since $M_0$ is the set of points with $[c_1, c_2] \in \alpha^+$, $N_0$ is the region of points that belong to $\alpha^+$.
-Define curve $L_1$ as the set of points that satisfy the conditions: (1) $(c_1, c_2) \in N_0$; (2) $(c_1, c_2+\epsilon) \notin N_0$, for any $\epsilon \geq 0$. Define curve $L_2$ as the set of points that satisfy the conditions: (1) $(c_1, c_2) \in N_0$; (2) $(c_1 + \epsilon, c_2) \notin N_0$, for any $\epsilon \rightarrow 0$.
-$N_1$ denotes the region enclosed by line $c_1 = 0$, $c_2$; line $c_1$, $c_2 = 1$ and curve $L_1$.
-$N_2$ denotes the region enclosed by line $c_1 = 1$, $c_2$; line $c_1$, $c_2 = 0$ and curve $L_2$.
+In Figure \ref{pic: contour for m0 gaussian} $N_0$ is the projection of $M_0$ on the $c_1, c_2$ plane. Since $M_0$ is the set of points with $[c_1, c_2] \in \alpha^+$, $N_0$ is the set of points belonging to $\alpha^+$.
+Define curve $L_1$ as the set of points such that 
+\[
+\{ (c_1, c_2) \in L_1 | (c_1, c_2) \in {N}_0 \;\;\text{and} \;\;(c_1, c_2+\epsilon)\notin {N}_0 \text{for any positive $\epsilon$} \}\,.
+\]
+Define curve $L_2$ as the set of points such that 
+
+\[
+\{ (c_1, c_2) \in L_2 | (c_1, c_2) \in {N}_0 \;\;\text{and} \;\;(c_1 + \epsilon, c_2)\notin {N}_0 \text{for any positive $\epsilon$} \}\,.
+\]
+Let $N_1$ denote the region enclosed by line $c_1 = 0$, $c_2$; line $c_1$, $c_2 = 1$ and curve $L_1$.
+Let $N_2$ denote the region enclosed by line $c_1 = 1$, $c_2$; line $c_1$, $c_2 = 0$ and curve $L_2$.
 The regions of $N_0$ $N_1$ and $N_2$ are shown in Figure \ref{pic: contour for m0 gaussian}.
 
-\textbf{Conclusion 1}
+In the following, we will show the decision rule for points does not belong to region $N_0$.
+
+\noindent \textbf{Property 2:}
 \textit{\\(1) All points belonging to region $N_1$ or curve $L_1$, if they have the same $c_1$, they have the same decision rule and same $P_d$.
 \\(2) All points belonging to region $N_2$ or curve $L_2$, if they have the same $c_2$, they have the same decision rule and same $P_d$.
 }
 
 \noindent \textbf{PROOF}
+Recall $F(\mathbf{c})$ is defined as the largest $P_d$ can be achieved under constraint $\mathbf{P}_f = \mathbf{c}$ and 
+       $G(\mathbf{c})$ is defined as the largest $P_d$ can be achieved under constraint $\mathbf{P}_f \leq \mathbf{c}$.
+Firstly we will show $F(\mathbf{c}) = G(\mathbf{c}) $ when $\mathbf{c} \in \alpha^+$.
 
-First we prove $F\mathbf{a}$ is a non-decreasing function of $\mathbf{a}$ when $\mathbf{a} \in \alpha^+$.
+According to the definition of $\alpha^+$, for a point $(c_1^0, c_2^0) \in \alpha^+$, there exists a decision rule 
+\[
+\delta:\;\;\;\;f_0(x) \substack{H_0 \\ \geq \\ < \\ \bar{H}_0} k_1f_1(x) + k_2f_2(x) \;\;\;\;(k_1, k_2 \geq 0)
+\]
+such that under decision rule $\delta$, we have 
+\begin{equation}
+\label{1125a3}
+\mathbf{P}_{f}(\delta) = \mathbf{c}\,.
+\end{equation}
+From \textbf{ENP Lemma (\rmnum{2})}, we know 
+\begin{equation}
+\label{1125c1}
+P_d(\delta) = F(\mathbf{c})\,.
+\end{equation}
+Since $k_1, k_2 \geq 0$, according to \textbf{ENP Lemma (\rmnum{3})}, $\delta$ also achieve the largest $P_d$ while keeping $\mathbf{P_f} \leq \mathbf{c}$, i.e. 
+\begin{equation}
+ P_d(\delta) =G(\mathbf{c}) 
+\label{1125a2}
+\end{equation}
+From \eqref{1125c1} and \eqref{1125a2} we can see $F(\mathbf{c}) = G(\mathbf{c})$ for $\mathbf{c} \in \alpha^+$.
+As in last chapter we have shown $G(\mathbf{c})$ is a non-decreasing function with  $\mathbf{c}$, it can be concluded that $F(\mathbf{c})$ is a non-decreasing function for $\mathbf{c} \in \alpha^+$.
 
-Since when $\mathbf{a} \in \alpha^+$ we have 
-\begin{equation}
-\begin{split}
-\max_{\mathbf{a}\in \alpha^+}\;\;\;\;&P_d = F(\mathbf{a})\\
-\text{s.t.}\;\;\;\;&\mathbf{P}_f = \mathbf{a}
-\end{split}
-\end{equation}
-According to ENP Lemma, $F(\mathbf{a})$ also satisfies
-\begin{equation}
-\begin{split}
-\label{equ: MENP2}
-\max_{\mathbf{a}\in \alpha^+}\;\;\;\;&P_d = F(\mathbf{a})\\
-\text{s.t.}\;\;\;\;&\mathbf{P}_f \leq \mathbf{a}
-\end{split}
-\end{equation}
-In \eqref{equ: MENP2} when one of $a_i,\;\; i = 1, 2, ..., M$ increases and other $a_i$ remain the same, the constraints become more relax, hence $P_d$ will not decrease. Therefore $F(\mathbf{a})$ is a non-decreasing function of $\mathbf{a}$ when $\mathbf{a} \in \alpha^+$. 
-Consider points in region $N_1$. Since $(c_1, c_2) \notin N_0$, we use MENP (\rmnum{2}) to achieve $P_d$. As it is shown in Figure \ref{pic: contour for m0 gaussian}, $A$ is a point in $N_1$ with coordinate $(x, y)$. According to MENP (\rmnum{2}), $\mathcal{C}$ is the set of points lie in region enclosed by curve $L_1$ $L_2$ and line $c_1 = x$. For all points belongs to $\mathcal{C}$, point $B$ has the largest $c_1$ and $c_2$ value. As we proved function $F(c_1, c_2)$ is non-decreasing, point $B$ has the largest $P_d$ among all points belong to region $\mathcal{C}$. Hence we proved point $A$ and point $B$ have the same decision rule and same $P_d$. Since point in region $N_1$ with $c_1 = x$ has the same decision rule and $P_d$ with point $B$, we can conclude: for points belong to region $N_1$ or curve $L_1$, if they have the same $c_1$ value, they have the same decision rule and same $P_d$.
+Now consider point A in region ${N}_1$ with coordinate $(c_1, c_2) = (c_{1_A}, c_{2_A})$. The decision rule for point A can be computed through MENP (\rmnum{2}). To do it,  we need to determine set $\mathcal{C}$, which is the intersection of $\mathcal{A}_c$ and $\alpha^+$. From the definition of $\mathcal{A}_c$ and $\alpha^+$, we can see $\mathcal{C}$ is the set of points enclosed by curve $L_1$, $L_2$ and line $c_1 = c_{1_A}$, $c_2$. Then we need to find $\mathbf{c}^0 \in \mathcal{C}$ such that it maximum $F(\mathbf{c})$ among all $\mathbf{c} \in \mathcal{C}$. As it has been proved $F(\mathbf{c})$ is a   non-decreasing function for $\mathbf{c} \in \alpha^+$, $\mathbf{c}^0$ must have the largest components $c_1$ and $c_2$ among all $\mathbf{c} \in \mathcal{C}$. 
+
+It can be observed from Figure \ref{pic: contour for m0 gaussian} point B ( with coordinate $(c_{1_B}, c_{2_B})$)has the largest $c_1$, $c_2$ components among all points belong to set $\mathcal{C}$. 
+Let $\delta_B$ be the optical decision rule for point B, by optical solution we mean $\delta_B$ acquires the maximum $P_d$ while keeping $P_{f_1} \leq c_{1_B}$ $P_{f_2} \leq c_{2_B}$.
+From MENP (\rmnum{2}) we know  $\delta_B$ is also the optimal decision rule for point A, i.e. it maximum $P_d$ while keeping $P_{f_1} \leq c_{1_A}$ $P_{f_2} \leq c_{2_A}$. Since both points use the same decision rule, the probability of detection for both points are the same. Besides since point B belongs to $N_0$ and for any positive $\epsilon$ point $(c_{1_B}, c_{2_B} + \epsilon)$ does not belong to $N_0$, we can conclude point B is on curve $L_1$. 
+
+Furthermore, we can see as long as A is in region $N_1$ its decision rule only depends on the value of $c_{1_A}$.  In other words, with $c_{1_A}$ fixed,  when $c_{2_A}$ changes, the decision rule and $P_d$ remain the same. Hence we can conclude all points belonging to region $N_1$ or curve $L_1$, if they have the same $c_1$, they have the same decision rule and same $P_d$
 
 In the same way, we can prove: For points belong to region $N_2$ or curve $L_2$, if they have the same $c_2$ value, they have the same decision rule and same $P_d$.
 
 Q.E.D
 
-Since we already know $P_d$ for points in region $N_0$ and curves $L_1$ and $L_2$ belong to $N_0$, we can get $P_d$ for points in $N_1$ and $N_2$. M-ROC surface for this example is given in Figure  \ref{pic: LJS} and the contour of M-ROC surface is given in Figure \ref{pic: LJS contour}.
+Since we have computed $P_d$ for $(c_1, c_2) \in N_0$ and curves $L_1$ and $L_2$ belong to $N_0$, we can get $P_d$ for $(c_1, c_2)$ belongs to $N_1$ and $N_2$ through \textbf{Property 2}. M-ROC surface for this example is given in Figure  \ref{pic: LJS} and the contour of M-ROC surface is given in Figure \ref{pic: LJS contour}.
 
 \begin{figure}[!t]
 \centering
@@ -84,6 +120,8 @@ Since we already know $P_d$ for points in region $N_0$ and curves $L_1$ and $L_2
 \label{pic: LJS contour}
 \end{figure}
 
+\noindent \textbf{Example 2:}
+
 Next we consider a more general case of $M+1$ hypotheses given as
 \begin{equation}
 \label{equ: m+1 Gaussian Hypo}
@@ -94,7 +132,7 @@ H_1:\;\;\;\;\;\;&X\sim \mathcal{N}(\mu_1, \sigma_1^2)\\
 H_M:\;\;\;\;\;\;&X\sim \mathcal{N}(\mu_M, \sigma_M^2)
 \end{split}
 \end{equation}
-We will prove when $\sigma_0^2 = \sigma_1^2 = ... = \sigma_M^2$ and $\mu_0 < \mu_i (i = 1, ..., M)$, the region achieved by ENP test with $k_i \geq 0 (i = 1, ..., M)$ degenerates to a curve.
+We will show when $\sigma_0^2 = \sigma_1^2 = ... = \sigma_M^2$ and $\mu_0 < \mu_i (i = 1, ..., M)$, the region achieved by ENP test with $k_i \geq 0 (i = 1, ..., M)$ degenerates to a curve.
 
 Consider
 \begin{equation}
@@ -111,18 +149,22 @@ we have
 \label{g00}
 g(x) = \sum_{i=1}^{M}\frac{\frac{1}{\sqrt{2\pi\sigma_i^2}}\exp(-\frac{(x-\mu_i)^2}{2\sigma_i^2})}{\frac{1}{\sqrt{2\pi\sigma_0^2}}\exp(-\frac{(x-\mu_0)^2}{2\sigma_0^2})}
 \end{equation}
-Using the condition $\sigma_i^2 = \sigma_0^2 (i = 1, ..., M)$ in \eqref{g00}, we have 
+Substitute  $\sigma_i^2 = \sigma_0^2 (i = 1, ..., M)$ into \eqref{g00}, we have 
 \begin{equation}
 \label{equ: gx cc}
 g(x) = \sum_{i=1}^{M}k_i\exp(\frac{(\mu_i - \mu_0)(2x-\mu_i - \mu_0)}{2\sigma_0^2})
 \end{equation}
-Defining $c_i = \frac{\mu_i - \mu_0}{2\sigma_0^2}$, \eqref{equ: gx cc} can be written as
+Defining $p_i = \frac{\mu_i - \mu_0}{2\sigma_0^2}$, \eqref{equ: gx cc} can be written as
 \begin{equation}
-g(x) = \sum_{i=1}^{M}k_i\exp(c_i(2x-\mu_0 - \mu_i)
+g(x) = \sum_{i=1}^{M}k_i\exp(p_i(2x-\mu_0 - \mu_i)
 \end{equation}
-From the condition $\mu_0 < \mu_i (i=1, ..., M)$, we know $c_i >0$. Hence it can be conclude that $g(x)$ is a monotonically increasing function with $x$. Hence from \textbf{Property 1} we have that the region $M_0$ (region achieved by ENP test with $k_i \geq 0 (i=1, ..., M)$) degenerates to a curve.
-For a specific $\mathbf{c}$, the decision rule is 
+As $\mu_0 < \mu_i (i=1, ..., M)$, we can conclude $p_i >0$ and  $g(x)$ is a monotonically increasing function with $x$. Using \textbf{Property 1} it can be seen  $M_0$ (region achieved by ENP test with $k_i \geq 0 (i=1, ..., M)$) degenerates to a curve. Moreover, for a specific $\mathbf{c}$, the decision rule is 
 \[
 x \substack{H_0 \\ \leq \\ > \\ \bar{H}_0} x_0
 \]
-where $x_0 = \min\{F_1^{-1}(c_1), ..., F_M^{-1}(c_M)\}$.
+where $x_0 = \min\{F_1^{-1}(c_1), ..., F_M^{-1}(c_M)\}$. The associated probability of detection is
+\[
+P_d = F_0(x_0)
+\]
+
+Figure XX shows the M-ROC surface for $M=2$ ....
