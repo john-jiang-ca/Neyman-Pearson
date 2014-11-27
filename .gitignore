@@ -5,7 +5,4 @@
 *.log
 *.aux
 *.fdb_latexmk
-*.eps
 *.blg
-good.pdf
-Journal/good.pdf
