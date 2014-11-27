@@ -47,18 +47,18 @@ We use Matlab to compute the M-ROC for region $M_0$. The values of $k_1$ and $k_
 In Figure \ref{pic: contour for m0 gaussian} $N_0$ is the projection of $M_0$ on the $c_1, c_2$ plane. Since $M_0$ is the set of points with $[c_1, c_2] \in \alpha^+$, $N_0$ is the set of points belonging to $\alpha^+$.
 Define curve $L_1$ as the set of points such that 
 \[
-\{ (c_1, c_2) \in L_1 | (c_1, c_2) \in {N}_0 \;\;\text{and} \;\;(c_1, c_2+\epsilon)\notin {N}_0 \text{for any positive $\epsilon$} \}\,.
+\{ (c_1, c_2) \in L_1 | (c_1, c_2) \in {N}_0 \;\;\text{and} \;\;(c_1, c_2+\epsilon)\notin {N}_0 \;\;\;\;\text{for any positive $\epsilon$} \}\,.
 \]
 Define curve $L_2$ as the set of points such that 
 
 \[
-\{ (c_1, c_2) \in L_2 | (c_1, c_2) \in {N}_0 \;\;\text{and} \;\;(c_1 + \epsilon, c_2)\notin {N}_0 \text{for any positive $\epsilon$} \}\,.
+\{ (c_1, c_2) \in L_2 | (c_1, c_2) \in {N}_0 \;\;\text{and} \;\;(c_1 + \epsilon, c_2)\notin {N}_0 \;\;\;\;\text{for any positive $\epsilon$} \}\,.
 \]
 Let $N_1$ denote the region enclosed by line $c_1 = 0$, $c_2$; line $c_1$, $c_2 = 1$ and curve $L_1$.
 Let $N_2$ denote the region enclosed by line $c_1 = 1$, $c_2$; line $c_1$, $c_2 = 0$ and curve $L_2$.
 The regions of $N_0$ $N_1$ and $N_2$ are shown in Figure \ref{pic: contour for m0 gaussian}.
 
-In the following, we will show the decision rule for points does not belong to region $N_0$.
+In the following, we will present the decision rule for points does not belong to region $N_0$.
 
 \noindent \textbf{Property 2:}
 \textit{\\(1) All points belonging to region $N_1$ or curve $L_1$, if they have the same $c_1$, they have the same decision rule and same $P_d$.
@@ -96,9 +96,9 @@ Now consider point A in region ${N}_1$ with coordinate $(c_1, c_2) = (c_{1_A}, c
 
 It can be observed from Figure \ref{pic: contour for m0 gaussian} point B ( with coordinate $(c_{1_B}, c_{2_B})$)has the largest $c_1$, $c_2$ components among all points belong to set $\mathcal{C}$. 
 Let $\delta_B$ be the optical decision rule for point B, by optical solution we mean $\delta_B$ acquires the maximum $P_d$ while keeping $P_{f_1} \leq c_{1_B}$ $P_{f_2} \leq c_{2_B}$.
-From MENP (\rmnum{2}) we know  $\delta_B$ is also the optimal decision rule for point A, i.e. it maximum $P_d$ while keeping $P_{f_1} \leq c_{1_A}$ $P_{f_2} \leq c_{2_A}$. Since both points use the same decision rule, the probability of detection for both points are the same. Besides since point B belongs to $N_0$ and for any positive $\epsilon$ point $(c_{1_B}, c_{2_B} + \epsilon)$ does not belong to $N_0$, we can conclude point B is on curve $L_1$. 
+From \textbf{MENP (\rmnum{2})} we know  $\delta_B$ is also the optimal decision rule for point A, i.e. it maximum $P_d$ while keeping $P_{f_1} \leq c_{1_A}$ $P_{f_2} \leq c_{2_A}$. Since both points use the same decision rule, the probability of detection for both points are the same. Besides that, since point B belongs to $N_0$ and for any positive $\epsilon$ $(c_{1_B}, c_{2_B} + \epsilon)$ does not belong to $N_0$, we can conclude point B is on curve $L_1$. 
 
-Furthermore, we can see as long as A is in region $N_1$ its decision rule only depends on the value of $c_{1_A}$.  In other words, with $c_{1_A}$ fixed,  when $c_{2_A}$ changes, the decision rule and $P_d$ remain the same. Hence we can conclude all points belonging to region $N_1$ or curve $L_1$, if they have the same $c_1$, they have the same decision rule and same $P_d$
+Furthermore, we can see as long as A is in region $N_1$ its decision rule only depends on the value of $c_{1}$.  In other words, with $c_1 = c_{1_A}$ fixed,  when $c_{2}$ changes, the decision rule and $P_d$ remain the same. Hence we can conclude all points belonging to region $N_1$ or curve $L_1$, if they have the same $c_1$, they have the same decision rule and same $P_d$.
 
 In the same way, we can prove: For points belong to region $N_2$ or curve $L_2$, if they have the same $c_2$ value, they have the same decision rule and same $P_d$.
 
@@ -158,7 +158,7 @@ Defining $p_i = \frac{\mu_i - \mu_0}{2\sigma_0^2}$, \eqref{equ: gx cc} can be wr
 \begin{equation}
 g(x) = \sum_{i=1}^{M}k_i\exp(p_i(2x-\mu_0 - \mu_i)
 \end{equation}
-As $\mu_0 < \mu_i (i=1, ..., M)$, we can conclude $p_i >0$ and  $g(x)$ is a monotonically increasing function with $x$. Using \textbf{Property 1} it can be seen  $M_0$ (region achieved by ENP test with $k_i \geq 0 (i=1, ..., M)$) degenerates to a curve. Moreover, for a specific $\mathbf{c}$, the decision rule is 
+From the condition $\mu_0 < \mu_i (i=1, ..., M)$, we can see $p_i >0$ and  $g(x)$ is a monotonically increasing function with $x$. From \textbf{Property 1} we know $M_0$ (region achieved by ENP test with $k_i \geq 0 (i=1, ..., M)$) degenerates to a curve. Moreover, for a specific $\mathbf{c}$, the decision rule is 
 \[
 x \substack{H_0 \\ \leq \\ > \\ \bar{H}_0} x_0
 \]
@@ -167,4 +167,4 @@ where $x_0 = \min\{F_1^{-1}(c_1), ..., F_M^{-1}(c_M)\}$. The associated probabil
 P_d = F_0(x_0)
 \]
 
-Figure XX shows the M-ROC surface for $M=2$ ....
+Figure XX shows the M-ROC surface for $M=2$, $\mu_0 = 0$, $\mu_1 = 1$, $\mu_2 = 2$ and $\sigma_0^2 = \sigma_1^2 = \sigma_2^2 = 1$. The bold line marked with 'o' is region $M_0$.
