@@ -1,6 +1,6 @@
 % The Gaussian Case
 \section{MROC Surface  under Gaussian Hypotheses}
-In the following two examples, we will compute the M-ROC under Gaussian Hypotheses. 
+In the following two examples, we compute the M-ROC under Gaussian Hypotheses. 
 
 \noindent \textbf{Example 1:}
 
@@ -15,7 +15,7 @@ Assume three hypotheses given as:
 \end{equation}
 where $\mathcal{N}(\mu,\sigma^2)$ denotes a Gaussian PDF with mean $\mu$ and variance $\sigma^2$.
 To form the M-ROC surface, we first consider points belong to $M_0$.
-From previous discussion, we can see when $(c_1, c_2) \in M_0$, there exists non-negative $\mathbf{k}$ such that by using decision rule 
+From previous discussion, we can see when $(P_d, c_1, c_2) \in M_0$, there exists non-negative $\mathbf{k}$ such that by using decision rule 
 \begin{equation}
 f_0(x) \substack{H_0 \\ \geq \\ < \\ \bar{H}_0} k_1f_1(x) + k_2f_2(x)
 \end{equation}
@@ -92,11 +92,11 @@ Since $k_1, k_2 \geq 0$, according to \textbf{ENP Lemma (\rmnum{3})}, $\delta$ a
 From \eqref{1125c1} and \eqref{1125a2} we can see $F(\mathbf{c}) = G(\mathbf{c})$ for $\mathbf{c} \in \alpha^+$.
 As in last chapter we have shown $G(\mathbf{c})$ is a non-decreasing function with  $\mathbf{c}$, it can be concluded that $F(\mathbf{c})$ is a non-decreasing function for $\mathbf{c} \in \alpha^+$.
 
-Now consider point A in region ${N}_1$ with coordinate $(c_1, c_2) = (c_{1_A}, c_{2_A})$. The decision rule for point A can be computed through MENP (\rmnum{2}). To do it,  we need to determine set $\mathcal{C}$, which is the intersection of $\mathcal{A}_c$ and $\alpha^+$. From the definition of $\mathcal{A}_c$ and $\alpha^+$, we can see $\mathcal{C}$ is the set of points enclosed by curves $L_1$, $L_2$ and line $c_1 = c_{1_A}$, $c_2$. Then we need to find $\mathbf{c}^0 \in \mathcal{C}$ such that it maximum $F(\mathbf{c})$ among all $\mathbf{c} \in \mathcal{C}$. As it has been proved $F(\mathbf{c})$ is a   non-decreasing function for $\mathbf{c} \in \alpha^+$, $\mathbf{c}^0$ must have the largest components $c_1$ and $c_2$ among all $\mathbf{c} \in \mathcal{C}$. 
+Now consider point A in region ${N}_1$ with coordinate $(c_1, c_2) = (c_{1_A}, c_{2_A})$. The decision rule for point A can be computed through MENP (\rmnum{2}). To do it,  we need to determine set $\mathcal{C}$, which is the intersection of $\mathcal{A}_c$ and $\alpha^+$. According to the definition of $\mathcal{A}_c$ and $\alpha^+$, we can see $\mathcal{C}$ is the set of points enclosed by curves $L_1$, $L_2$ and line $c_1 = c_{1_A}$, $c_2$. Then we need to find $\mathbf{c}^0 \in \mathcal{C}$ such that it maximum $F(\mathbf{c})$ among all $\mathbf{c} \in \mathcal{C}$. As it has been proved $F(\mathbf{c})$ is a   non-decreasing function for $\mathbf{c} \in \alpha^+$, $\mathbf{c}^0$ must have the largest components $c_1$ and $c_2$ among all $\mathbf{c} \in \mathcal{C}$. 
 
 It can be observed from Figure \ref{pic: contour for m0 gaussian} point B ( with coordinate $(c_{1_B}, c_{2_B})$)has the largest $c_1$, $c_2$ components among all points belong to set $\mathcal{C}$. 
 Let $\delta_B$ be the optical decision rule for point B, by optical solution we mean $\delta_B$ acquires the maximum $P_d$ while keeping $P_{f_1} \leq c_{1_B}$ $P_{f_2} \leq c_{2_B}$.
-From \textbf{MENP (\rmnum{2})} we know  $\delta_B$ is also the optimal decision rule for point A, i.e. it maximum $P_d$ while keeping $P_{f_1} \leq c_{1_A}$ $P_{f_2} \leq c_{2_A}$. Since both points use the same decision rule, the probability of detection for both points are the same. Besides that, since point B belongs to $N_0$ and for any positive $\epsilon$ $(c_{1_B}, c_{2_B} + \epsilon)$ does not belong to $N_0$, we can conclude point B is on curve $L_1$. 
+From \textbf{MENP (\rmnum{2})} we know  $\delta_B$ is also the optimal decision rule for point A, i.e. it maximum $P_d$ while keeping $P_{f_1} \leq c_{1_A}$ $P_{f_2} \leq c_{2_A}$. Since both points use the same decision rule, the probability of detection for both points are the same. Besides that, since point B belongs to $N_0$ and for any positive $\epsilon$ $(c_{1_B}, c_{2_B} + \epsilon)$ does not belong to $N_0$, we can conclude point B is on curve $L_1$. As point B has the largest $c_1$ component among all points belong to $\mathcal{C}$, we can see $c_{1B} = c_{1A}$. Hence we can conclude for two points respectively belong to $N_1$ and $L_1$, if they have the same $c_1$ component, they have the same decision rule and same $P_d$. 
 
 Furthermore, we can see as long as A is in region $N_1$ its decision rule only depends on the value of $c_{1}$.  In other words, with $c_1 = c_{1_A}$ fixed,  when $c_{2}$ changes, the decision rule and $P_d$ remain the same. Hence we can conclude all points belonging to region $N_1$ or curve $L_1$, if they have the same $c_1$, they have the same decision rule and same $P_d$.
 
