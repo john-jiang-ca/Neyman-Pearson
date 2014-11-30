@@ -14,4 +14,7 @@
 \contentsline {section}{\numberline {3.1}Modified Receiver of Characters of MENP test}{48}
 \contentsline {section}{\numberline {3.2}MROC Surface under Gaussian Hypotheses}{52}
 \contentsline {section}{\numberline {3.3}MROC Surface under Chi-Square Hypotheses}{62}
-\contentsline {chapter}{References}{66}
+\contentsline {chapter}{\numberline {4}Application of MENP Framework in Spectrum Sensing and Simulation Results}{66}
+\contentsline {section}{\numberline {4.1}Energy based Spectrum Detector for Multiple Primary Users}{67}
+\contentsline {subsection}{\numberline {4.1.1}System Model}{67}
+\contentsline {chapter}{References}{71}
