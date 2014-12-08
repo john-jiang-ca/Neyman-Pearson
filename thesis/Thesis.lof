@@ -14,3 +14,4 @@
 \contentsline {figure}{\numberline {3.6}{\ignorespaces The M-ROC for the Chi-square example.}}{65}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Block Diagram for Spectrum Sensing}}{67}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces M-ROC surface for $\sigma _\omega ^2 = 0.1$, $\sigma _{s_1}^2=0.1$, $\sigma _{s_3}^2=0.2$ and $N = 20$.}}{71}

@@ -17,4 +17,8 @@
 \contentsline {chapter}{\numberline {4}Application of MENP Framework in Spectrum Sensing and Simulation Results}{66}
 \contentsline {section}{\numberline {4.1}Energy based Spectrum Detector for Multiple Primary Users}{67}
 \contentsline {subsection}{\numberline {4.1.1}System Model}{67}
-\contentsline {chapter}{References}{71}
+\contentsline {subsection}{\numberline {4.1.2}Numerical Results}{70}
+\contentsline {section}{\numberline {4.2}Cyclostationary Detection for multiple Primary Users}{71}
+\contentsline {subsection}{\numberline {4.2.1}System Model}{71}
+\contentsline {subsection}{\numberline {4.2.2}Numerical Results}{72}
+\contentsline {chapter}{References}{73}
