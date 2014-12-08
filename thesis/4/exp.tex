@@ -1,4 +1,16 @@
 % this is for edit the expression of cyclo OFDM 
+First of all, we check moment order of $\tilde{n}_i$, $\bar{n}_i$, $\tilde{x}_i$ and $\bar{x}_i$.
+
+\begin{equation}
+  \begin{cases}
+    &E[\tilde{n}_i] = 0, E[\tilde{n}_i^2] = \sigma_{n}^2, E[\tilde{n}_i^3] = 0, E[\tilde{n}_i^4]= 3\sigma_n^4\\
+    &E[\bar{n}_i] = 0,   E[\bar{n}_i^2] = \sigma_n^2, E[\bar{n}_i^3] = 0, E[\bar{n}_i^4]=3\sigma_n^4\\
+    &E[\tilde{x}_i] = 0, E[\tilde{x}_i^2] = \sigma_{s}^2, E[\tilde{x}_i^3] = 0, E[\tilde{x}_i^4] = 3\sigma_s^4\\
+    &E[\bar{x}_i] = 0, E[\bar{x}_i^2] = \sigma_s^2, E[\bar{x}_i^3] = 0, E[\bar{x}_i^4] = 3\sigma_s^4
+  \end{cases}
+  \label{equ:momentfun}
+\end{equation}
+
 \begin{equation}
   \begin{split}
     r_i = &(x_i+n_i)(x_i + n_j)^\ast\\
