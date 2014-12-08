@@ -1,0 +1,142 @@
+% this is for edit the expression of cyclo OFDM 
+\begin{equation}
+  \begin{split}
+    r_i = &(x_i+n_i)(x_i + n_j)^\ast\\
+    = &(\bar{x}_i+j\tilde{x}_i + \bar{n}_i+j\tilde{n}_i)(\bar{x}_i-j\tilde{x}_i + \bar{n}_j-j\tilde{n}_j)\\
+    = &\bar{x}_i^2 + \bar{x}_i\bar{n}_j+\bar{n}_i\bar{x}_i+\bar{n}_i\bar{n}_j + \tilde{x}_i^2 + \tilde{x}_i\tilde{n}_j + \tilde{n}_i\tilde{x}_i + \tilde{n}_i\tilde{n}_j\\
+    &+ j( -\bar{x}_i\tilde{x}_i - \bar{x}_i\tilde{n}_j - \bar{n}_i\tilde{x}_i - \bar{n}_i\tilde{n}_j + \tilde{x}_i\bar{x}_i + \tilde{x}_i\bar{n}_j + \tilde{n}_i\bar{x}_i + \tilde{n}_i\bar{n}_j)
+    %real part:   +\bar{x}_i^2 + \bar{x}_i\bar{n}_j+\bar{n}_i\bar{x}_i+\bar{n}_i\bar{n}_j + \tilde{x}_i^2 + \tilde{x}_i\tilde{n}_j + \tilde{n}_i\tilde{x}_i + \tilde{n}_i\tilde{n}_j
+    %imaginary part:   -\bar{x}_i\tilde{x}_i - \bar{x}_i\tilde{n}_j - \bar{n}_i\tilde{x}_i - \bar{n}_i\tilde{n}_j + \tilde{x}_i\bar{x}_i + \tilde{x}_i\bar{n}_j + \tilde{n}_i\bar{x}_i + \tilde{n}_i\bar{n}_j
+  \end{split}
+\end{equation}
+
+\begin{equation}
+  \begin{split}
+    E[\bar{r}_i] = &E[\bar{x}_i^2 + \bar{x}_i\bar{n}_j+\bar{n}_i\bar{x}_i+\bar{n}_i\bar{n}_j
+    +\tilde{x}_i^2 + \tilde{x}_i\tilde{n}_j + \tilde{n}_i\tilde{x}_i + \tilde{n}_i\tilde{n}_j]\\
+    = &E[\bar{x}_i^2] + E[\bar{x}_i\bar{n}_j] + E[\bar{n}_i\bar{x}_i] + E[\bar{n}_i\bar{n}_j]
+    + E[\tilde{x}_i^2] + E[\tilde{x}_i\tilde{n}_j] + E[\tilde{n}_i\tilde{x}_i] + E[\tilde{n}_i\tilde{n}_j]\\
+  \end{split}
+  \label{ri1}
+\end{equation}
+From the fact that $\bar{x}_i$ $\tilde{x}_i$ $\bar{n}_i$ $\tilde{n}_i$ $\bar{n}_j$ $\tilde{n}_j$ are independent, the above equation can be written as
+\begin{equation}
+\label{ri11}
+E[\bar{r}_i] = E[\bar{x}_i^2] + E[\bar{x}_i]E[\bar{n}_j]+E[\bar{n}_i]E[\bar{x}_i]+E[\bar{n}_i]E[\bar{n}_j]+E[\tilde{x}_i^2] + E[\tilde{x}_i]E[\tilde{n}_j] + E[\tilde{n}_i]E[\tilde{x}_i] + E[\tilde{n}_i]E[\tilde{n}_j]
+\end{equation}
+Since the mean value of  $\bar{x}_i$ $\tilde{x}_i$ $\bar{n}_i$ $\tilde{n}_i$ $\bar{n}_j$ $\tilde{n}_j$ are zero, we have
+
+\begin{equation}
+  \begin{split}
+    E[\bar{r}_i] &= E[\bar{x}_i^2] + E[\tilde{x}_i^2]\\
+                 &= 2\sigma_s^2
+  \end{split}
+  \label{ri2}
+\end{equation}
+
+\begin{equation}
+  \begin{split}
+    E[\tilde{r}_i] = -E[\bar{x}_i]E[\tilde{x}_i] - E[\bar{x}_i]E[\tilde{n}_j] - E[\bar{n}_i]E[\tilde{x}_i] - E[\bar{n}_i]E[\tilde{n}_j] + E[\tilde{x}_i]E[\bar{x}_i] 
+    + E[\tilde{x}_i]E[\bar{n}_j] + E[\tilde{n}_i]E[\bar{x}_i] + E[\tilde{n}_i]E[\bar{n}_j]
+  \end{split}
+  \label{equ:1206a1}
+\end{equation}
+
+Substitute the  mean value of  $\bar{x}_i$ $\tilde{x}_i$ $\bar{n}_i$ $\tilde{n}_i$ $\bar{n}_j$ $\tilde{n}_j$ into above equation, we can see
+\begin{equation}
+    E[\tilde{r}_i] = 0
+\end{equation}
+Next we focus on the value of $E[\bar{r}_i^2]$, $E[\tilde{r}_i^2]$ and $E[\bar{r}_i\tilde{r}_i]$.
+\begin{equation}
+  \begin{split}
+    E[\bar{r}_i^2] = &E[(\bar{x}_i^2 + \bar{x}_i\bar{n}_j+\bar{n}_i\bar{x}_i+\bar{n}_i\bar{n}_j+\tilde{x}_i^2 + \tilde{x}_i\tilde{n}_j + \tilde{n}_i\tilde{x}_i + \tilde{n}_i\tilde{n}_j)(\bar{x}_i^2 + \bar{x}_i\bar{n}_j+\bar{n}_i\bar{x}_i+\bar{n}_i\bar{n}_j+\tilde{x}_i^2 + \tilde{x}_i\tilde{n}_j + \tilde{n}_i\tilde{x}_i + \tilde{n}_i\tilde{n}_j)]\\
+    = &E[\bar{x}_i^4+\bar{n}_j\bar{x}_i^3+\bar{n}_i\bar{x}_i^3+\bar{n}_i\bar{n}_j\bar{x}_i^2+\tilde{x}_i^2\bar{x}_i^2+\tilde{n}_j\tilde{x}_i\bar{x}_i^2+\tilde{n}_i\tilde{x}_i\bar{x}_i^2+\tilde{n}_i\tilde{n}_j\bar{x}_i^2+\bar{n}_j\bar{x}_i^3\\
+&+\bar{n}_j^2\bar{x}_i^2+\bar{n}_i\bar{n}_j\bar{x}_i^2+\bar{n}_i\bar{n}_j^2\bar{x}_i+\bar{n}_j\tilde{x}_i^2\bar{x}_i+\tilde{n}_j\bar{n}_j\tilde{x}_i\bar{x}_i+\tilde{n}_i\bar{n}_j\tilde{x}_i\bar{x}_i+\tilde{n}_i\tilde{n}_j\bar{n}_j\bar{x}_i+\bar{n}_i\bar{x}_i^3+\bar{n}_i\bar{n}_j\bar{x}_i^2\\
+&+\bar{n}_i^2\bar{x}_i^2+\bar{n}_i^2\bar{n}_j\bar{x}_i+\bar{n}_i\tilde{x}_i^2\bar{x}_i+\bar{n}_i\tilde{n}_j\tilde{x}_i\bar{x}_i+\bar{n}_i\tilde{n}_i\tilde{x}_i\bar{x}_i+\bar{n}_i\tilde{n}_i\tilde{n}_j\bar{x}_i+\bar{n}_i\bar{n}_j\bar{x}_i^2+\bar{n}_i\bar{n}_j^2\bar{x}_i+\bar{n}_i^2\bar{n}_j\bar{x}_i\\
+&+\bar{n}_i^2\bar{n}_j^2+\bar{n}_i\bar{n}_j\tilde{x}_i^2+\bar{n}_i\tilde{n}_j\bar{n}_j\tilde{x}_i+\bar{n}_i\tilde{n}_i\bar{n}_j\tilde{x}_i+\bar{n}_i\tilde{n}_i\tilde{n}_j\bar{n}_j+\tilde{x}_i^2\bar{x}_i^2+\bar{n}_j\tilde{x}_i^2\bar{x}_i+\bar{n}_i\tilde{x}_i^2\bar{x}_i+\bar{n}_i\bar{n}_j\tilde{x}_i^2\\
+&+\tilde{x}_i^4+\tilde{n}_j\tilde{x}_i^3+\tilde{n}_i\tilde{x}_i^3+\tilde{n}_i\tilde{n}_j\tilde{x}_i^2+\tilde{n}_j\tilde{x}_i\bar{x}_i^2+\bar{n}_j\tilde{n}_j\tilde{x}_i\bar{x}_i+\bar{n}_i\tilde{n}_j\tilde{x}_i\bar{x}_i+\bar{n}_i\bar{n}_j\tilde{n}_j\tilde{x}_i+\tilde{n}_j\tilde{x}_i^3\\
+&+\tilde{n}_j^2\tilde{x}_i^2+\tilde{n}_i\tilde{n}_j\tilde{x}_i^2+\tilde{n}_i\tilde{n}_j^2\tilde{x}_i+\tilde{n}_i\tilde{x}_i\bar{x}_i^2+\tilde{n}_i\tilde{x}_i\bar{x}_i\bar{n}_j+\bar{n}_i\tilde{n}_i\tilde{x}_i\bar{x}_i+\bar{n}_i\tilde{n}_i\tilde{x}_i\bar{n}_j+\tilde{n}_i\tilde{x}_i^3+\tilde{n}_i\tilde{n}_j\tilde{x}_i^2\\
+&+\tilde{n}_i^2\tilde{x}_i^2+\tilde{n}_i^2\tilde{n}_j\tilde{x}_i+\tilde{n}_i\tilde{n}_j\bar{x}_i^2+\tilde{n}_i\tilde{n}_j\bar{n}_j\bar{x}_i+\bar{n}_i\tilde{n}_i\tilde{n}_j\bar{x}_i+\bar{n}_i\tilde{n}_i\tilde{n}_j\bar{n}_j+\tilde{n}_i\tilde{n}_j\tilde{x}_i^2+\tilde{n}_i\tilde{n}_j^2\tilde{x}_i+\tilde{n}_i^2\tilde{n}_j\tilde{x}_i]
+    %+\bar{x}_i^4+\bar{n}_j\bar{x}_i^3+\bar{n}_i\bar{x}_i^3+\bar{n}_i\bar{n}_j\bar{x}_i^2+\tilde{x}_i^2\bar{x}_i^2+\tilde{n}_j\tilde{x}_i\bar{x}_i^2+\tilde{n}_i\tilde{x}_i\bar{x}_i^2+\tilde{n}_i\tilde{n}_j\bar{x}_i^2+\bar{n}_j\bar{x}_i^3+\bar{n}_j^2\bar{x}_i^2+\bar{n}_i\bar{n}_j\bar{x}_i^2+\bar{n}_i\bar{n}_j^2\bar{x}_i+\bar{n}_j\tilde{x}_i^2\bar{x}_i+\tilde{n}_j\bar{n}_j\tilde{x}_i\bar{x}_i+\tilde{n}_i\bar{n}_j\tilde{x}_i\bar{x}_i+\tilde{n}_i\tilde{n}_j\bar{n}_j\bar{x}_i+\bar{n}_i\bar{x}_i^3+\bar{n}_i\bar{n}_j\bar{x}_i^2+\bar{n}_i^2\bar{x}_i^2+\bar{n}_i^2\bar{n}_j\bar{x}_i+\bar{n}_i\tilde{x}_i^2\bar{x}_i+\bar{n}_i\tilde{n}_j\tilde{x}_i\bar{x}_i+\bar{n}_i\tilde{n}_i\tilde{x}_i\bar{x}_i+\bar{n}_i\tilde{n}_i\tilde{n}_j\bar{x}_i+\bar{n}_i\bar{n}_j\bar{x}_i^2+\bar{n}_i\bar{n}_j^2\bar{x}_i+\bar{n}_i^2\bar{n}_j\bar{x}_i+\bar{n}_i^2\bar{n}_j^2+\bar{n}_i\bar{n}_j\tilde{x}_i^2+\bar{n}_i\tilde{n}_j\bar{n}_j\tilde{x}_i+\bar{n}_i\tilde{n}_i\bar{n}_j\tilde{x}_i+\bar{n}_i\tilde{n}_i\tilde{n}_j\bar{n}_j+\tilde{x}_i^2\bar{x}_i^2+\bar{n}_j\tilde{x}_i^2\bar{x}_i+\bar{n}_i\tilde{x}_i^2\bar{x}_i+\bar{n}_i\bar{n}_j\tilde{x}_i^2+\tilde{x}_i^4+\tilde{n}_j\tilde{x}_i^3+\tilde{n}_i\tilde{x}_i^3+\tilde{n}_i\tilde{n}_j\tilde{x}_i^2+\tilde{n}_j\tilde{x}_i\bar{x}_i^2+\bar{n}_j\tilde{n}_j\tilde{x}_i\bar{x}_i+\bar{n}_i\tilde{n}_j\tilde{x}_i\bar{x}_i+\bar{n}_i\bar{n}_j\tilde{n}_j\tilde{x}_i+\tilde{n}_j\tilde{x}_i^3+\tilde{n}_j^2\tilde{x}_i^2+\tilde{n}_i\tilde{n}_j\tilde{x}_i^2+\tilde{n}_i\tilde{n}_j^2\tilde{x}_i+\tilde{n}_i\tilde{x}_i\bar{x}_i^2+\tilde{n}_i\tilde{x}_i\bar{x}_i\bar{n}_j+\bar{n}_i\tilde{n}_i\tilde{x}_i\bar{x}_i+\bar{n}_i\tilde{n}_i\tilde{x}_i\bar{n}_j+\tilde{n}_i\tilde{x}_i^3+\tilde{n}_i\tilde{n}_j\tilde{x}_i^2+\tilde{n}_i^2\tilde{x}_i^2+\tilde{n}_i^2\tilde{n}_j\tilde{x}_i+\tilde{n}_i\tilde{n}_j\bar{x}_i^2+\tilde{n}_i\tilde{n}_j\bar{n}_j\bar{x}_i+\bar{n}_i\tilde{n}_i\tilde{n}_j\bar{x}_i+\bar{n}_i\tilde{n}_i\tilde{n}_j\bar{n}_j+\tilde{n}_i\tilde{n}_j\tilde{x}_i^2+\tilde{n}_i\tilde{n}_j^2\tilde{x}_i+\tilde{n}_i^2\tilde{n}_j\tilde{x}_i+\tilde{n}_i^2\tilde{n}_j^2
+    %+E[\bar{x}_i^4]+E[\bar{n}_j]E[\bar{x}_i^3]+E[\bar{n}_i]E[\bar{x}_i^3]+E[\bar{n}_i]E[\bar{n}_j]E[\bar{x}_i^2]+E[\tilde{x}_i^2]E[\bar{x}_i^2]+E[\tilde{n}_j]E[\tilde{x}_i]E[\bar{x}_i^2]+E[\tilde{n}_i]E[\tilde{x}_i]E[\bar{x}_i^2]+E[\tilde{n}_i]E[\tilde{n}_j]E[\bar{x}_i^2]+E[\bar{n}_j]E[\bar{x}_i^3]+E[\bar{n}_j^2]E[\bar{x}_i^2]+E[\bar{n}_i]E[\bar{n}_j]E[\bar{x}_i^2]+E[\bar{n}_i]E[\bar{n}_j^2]E[\bar{x}_i]+E[\bar{n}_j]E[\tilde{x}_i^2]E[\bar{x}_i]+E[\tilde{n}_j]E[\bar{n}_j]E[\tilde{x}_i]E[\bar{x}_i]+E[\tilde{n}_i]E[\bar{n}_j]E[\tilde{x}_i]E[\bar{x}_i]+E[\tilde{n}_i]E[\tilde{n}_j]E[\bar{n}_j]E[\bar{x}_i]+E[\bar{n}_i]E[\bar{x}_i^3]+E[\bar{n}_i]E[\bar{n}_j]E[\bar{x}_i^2]+E[\bar{n}_i^2]E[\bar{x}_i^2]+E[\bar{n}_i^2]E[\bar{n}_j]E[\bar{x}_i]+E[\bar{n}_i]E[\tilde{x}_i^2]E[\bar{x}_i]+E[\bar{n}_i]E[\tilde{n}_j]E[\tilde{x}_i]E[\bar{x}_i]+E[\bar{n}_i]E[\tilde{n}_i]E[\tilde{x}_i]E[\bar{x}_i]+E[\bar{n}_i]E[\tilde{n}_i]E[\tilde{n}_j]E[\bar{x}_i]+E[\bar{n}_i]E[\bar{n}_j]E[\bar{x}_i^2]+E[\bar{n}_i]E[\bar{n}_j^2]E[\bar{x}_i]+E[\bar{n}_i^2]E[\bar{n}_j]E[\bar{x}_i]+E[\bar{n}_i^2]E[\bar{n}_j^2]+E[\bar{n}_i]E[\bar{n}_j]E[\tilde{x}_i^2]+E[\bar{n}_i]E[\tilde{n}_j]E[\bar{n}_j]E[\tilde{x}_i]+E[\bar{n}_i]E[\tilde{n}_i]E[\bar{n}_j]E[\tilde{x}_i]+E[\bar{n}_i]E[\tilde{n}_i]E[\tilde{n}_j]E[\bar{n}_j]+E[\tilde{x}_i^2]E[\bar{x}_i^2]+E[\bar{n}_j]E[\tilde{x}_i^2]E[\bar{x}_i]+E[\bar{n}_i]E[\tilde{x}_i^2]E[\bar{x}_i]+E[\bar{n}_i]E[\bar{n}_j]E[\tilde{x}_i^2]+E[\tilde{x}_i^4]+E[\tilde{n}_j]E[\tilde{x}_i^3]+E[\tilde{n}_i]E[\tilde{x}_i^3]+E[\tilde{n}_i]E[\tilde{n}_j]E[\tilde{x}_i^2]+E[\tilde{n}_j]E[\tilde{x}_i]E[\bar{x}_i^2]+E[\bar{n}_j]E[\tilde{n}_j]E[\tilde{x}_i]E[\bar{x}_i]+E[\bar{n}_i]E[\tilde{n}_j]E[\tilde{x}_i]E[\bar{x}_i]+E[\bar{n}_i]E[\bar{n}_j]E[\tilde{n}_j]E[\tilde{x}_i]+E[\tilde{n}_j]E[\tilde{x}_i^3]+E[\tilde{n}_j^2]E[\tilde{x}_i^2]+E[\tilde{n}_i]E[\tilde{n}_j]E[\tilde{x}_i^2]+E[\tilde{n}_i]E[\tilde{n}_j^2]E[\tilde{x}_i]+E[\tilde{n}_i]E[\tilde{x}_i]E[\bar{x}_i^2]+E[\tilde{n}_i]E[\tilde{x}_i]E[\bar{x}_i]E[\bar{n}_j]+E[\bar{n}_i]E[\tilde{n}_i]E[\tilde{x}_i]E[\bar{x}_i]+E[\bar{n}_i]E[\tilde{n}_i]E[\tilde{x}_i]E[\bar{n}_j]+E[\tilde{n}_i]E[\tilde{x}_i^3]+E[\tilde{n}_i]E[\tilde{n}_j]E[\tilde{x}_i^2]+E[\tilde{n}_i^2]E[\tilde{x}_i^2]+E[\tilde{n}_i^2]E[\tilde{n}_j]E[\tilde{x}_i]+E[\tilde{n}_i]E[\tilde{n}_j]E[\bar{x}_i^2]+E[\tilde{n}_i]E[\tilde{n}_j]E[\bar{n}_j]E[\bar{x}_i]+E[\bar{n}_i]E[\tilde{n}_i]E[\tilde{n}_j]E[\bar{x}_i]+E[\bar{n}_i]E[\tilde{n}_i]E[\tilde{n}_j]E[\bar{n}_j]+E[\tilde{n}_i]E[\tilde{n}_j]E[\tilde{x}_i^2]+E[\tilde{n}_i]E[\tilde{n}_j^2]E[\tilde{x}_i]+E[\tilde{n}_i^2]E[\tilde{n}_j]E[\tilde{x}_i]+E[\tilde{n}_i^2]E[\tilde{n}_j^2]
+\end{split}
+  \label{er2}
+\end{equation}
+From the fact that $\bar{x}_i$ $\tilde{x}_i$ $\bar{n}_i$ $\tilde{n}_i$ $\bar{n}_j$ $\tilde{n}_j$ are independent, the above equation can be written as
+\begin{equation}
+\begin{split}
+E[\bar{r}_i^2] = &E[\bar{x}_i^4]+E[\bar{n}_j]E[\bar{x}_i^3]+E[\bar{n}_i]E[\bar{x}_i^3]+E[\bar{n}_i]E[\bar{n}_j]E[\bar{x}_i^2]+E[\tilde{x}_i^2]E[\bar{x}_i^2]\\
+&+E[\tilde{n}_j]E[\tilde{x}_i]E[\bar{x}_i^2]+E[\tilde{n}_i]E[\tilde{x}_i]E[\bar{x}_i^2]+E[\tilde{n}_i]E[\tilde{n}_j]E[\bar{x}_i^2]+E[\bar{n}_j]E[\bar{x}_i^3]+E[\bar{n}_j^2]E[\bar{x}_i^2]\\
+&+E[\bar{n}_i]E[\bar{n}_j]E[\bar{x}_i^2]+E[\bar{n}_i]E[\bar{n}_j^2]E[\bar{x}_i]+E[\bar{n}_j]E[\tilde{x}_i^2]E[\bar{x}_i]+E[\tilde{n}_j]E[\bar{n}_j]E[\tilde{x}_i]E[\bar{x}_i]+E[\tilde{n}_i]E[\bar{n}_j]E[\tilde{x}_i]E[\bar{x}_i]\\
+&+E[\tilde{n}_i]E[\tilde{n}_j]E[\bar{n}_j]E[\bar{x}_i]+E[\bar{n}_i]E[\bar{x}_i^3]+E[\bar{n}_i]E[\bar{n}_j]E[\bar{x}_i^2]+E[\bar{n}_i^2]E[\bar{x}_i^2]+E[\bar{n}_i^2]E[\bar{n}_j]E[\bar{x}_i]\\
+&+E[\bar{n}_i]E[\tilde{x}_i^2]E[\bar{x}_i]+E[\bar{n}_i]E[\tilde{n}_j]E[\tilde{x}_i]E[\bar{x}_i]+E[\bar{n}_i]E[\tilde{n}_i]E[\tilde{x}_i]E[\bar{x}_i]+E[\bar{n}_i]E[\tilde{n}_i]E[\tilde{n}_j]E[\bar{x}_i]+E[\bar{n}_i]E[\bar{n}_j]E[\bar{x}_i^2]\\
+&+E[\bar{n}_i]E[\bar{n}_j^2]E[\bar{x}_i]+E[\bar{n}_i^2]E[\bar{n}_j]E[\bar{x}_i]+E[\bar{n}_i^2]E[\bar{n}_j^2]+E[\bar{n}_i]E[\bar{n}_j]E[\tilde{x}_i^2]+E[\bar{n}_i]E[\tilde{n}_j]E[\bar{n}_j]E[\tilde{x}_i]\\
+&+E[\bar{n}_i]E[\tilde{n}_i]E[\bar{n}_j]E[\tilde{x}_i]+E[\bar{n}_i]E[\tilde{n}_i]E[\tilde{n}_j]E[\bar{n}_j]+E[\tilde{x}_i^2]E[\bar{x}_i^2]+E[\bar{n}_j]E[\tilde{x}_i^2]E[\bar{x}_i]+E[\bar{n}_i]E[\tilde{x}_i^2]E[\bar{x}_i]\\
+&+E[\bar{n}_i]E[\bar{n}_j]E[\tilde{x}_i^2]+E[\tilde{x}_i^4]+E[\tilde{n}_j]E[\tilde{x}_i^3]+E[\tilde{n}_i]E[\tilde{x}_i^3]+E[\tilde{n}_i]E[\tilde{n}_j]E[\tilde{x}_i^2]\\
+&+E[\tilde{n}_j]E[\tilde{x}_i]E[\bar{x}_i^2]+E[\bar{n}_j]E[\tilde{n}_j]E[\tilde{x}_i]E[\bar{x}_i]+E[\bar{n}_i]E[\tilde{n}_j]E[\tilde{x}_i]E[\bar{x}_i]+E[\bar{n}_i]E[\bar{n}_j]E[\tilde{n}_j]E[\tilde{x}_i]+E[\tilde{n}_j]E[\tilde{x}_i^3]\\
+&+E[\tilde{n}_j^2]E[\tilde{x}_i^2]+E[\tilde{n}_i]E[\tilde{n}_j]E[\tilde{x}_i^2]+E[\tilde{n}_i]E[\tilde{n}_j^2]E[\tilde{x}_i]+E[\tilde{n}_i]E[\tilde{x}_i]E[\bar{x}_i^2]+E[\tilde{n}_i]E[\tilde{x}_i]E[\bar{x}_i]E[\bar{n}_j]\\
+&+E[\bar{n}_i]E[\tilde{n}_i]E[\tilde{x}_i]E[\bar{x}_i]+E[\bar{n}_i]E[\tilde{n}_i]E[\tilde{x}_i]E[\bar{n}_j]+E[\tilde{n}_i]E[\tilde{x}_i^3]+E[\tilde{n}_i]E[\tilde{n}_j]E[\tilde{x}_i^2]+E[\tilde{n}_i^2]E[\tilde{x}_i^2]\\
+&+E[\tilde{n}_i^2]E[\tilde{n}_j]E[\tilde{x}_i]+E[\tilde{n}_i]E[\tilde{n}_j]E[\bar{x}_i^2]+E[\tilde{n}_i]E[\tilde{n}_j]E[\bar{n}_j]E[\bar{x}_i]+E[\bar{n}_i]E[\tilde{n}_i]E[\tilde{n}_j]E[\bar{x}_i]+E[\bar{n}_i]E[\tilde{n}_i]E[\tilde{n}_j]E[\bar{n}_j]\\
+&+E[\tilde{n}_i]E[\tilde{n}_j]E[\tilde{x}_i^2]+E[\tilde{n}_i]E[\tilde{n}_j^2]E[\tilde{x}_i]+E[\tilde{n}_i^2]E[\tilde{n}_j]E[\tilde{x}_i]+E[\tilde{n}_i^2]E[\tilde{n}_j^2]
+\end{split}
+\end{equation}
+\newpage
+
+
+Using the same method, we can compute the expectation of $\tilde{r}_i^2$, which can be written in form of 
+\begin{equation}
+  \begin{split}
+    E[\tilde{r}_i^2]= &E[\tilde{x}_i^2]E[\bar{x}_i^2]+E[\tilde{n}_j]E[\tilde{x}_i]E[\bar{x}_i^2]+E[\bar{n}_i]E[\tilde{x}_i^2]E[\bar{x}_i]+E[\bar{n}_i]E[\tilde{n}_j]E[\tilde{x}_i]E[\bar{x}_i]-E[\tilde{x}_i^2]E[\bar{x}_i^2]\\
+&-E[\bar{n}_j]E[\tilde{x}_i^2]E[\bar{x}_i]-E[\tilde{n}_i]E[\tilde{x}_i]E[\bar{x}_i^2]-E[\tilde{n}_i]E[\tilde{x}_i]E[\bar{x}_i]E[\bar{n}_j]+E[\tilde{n}_j]E[\tilde{x}_i]E[\bar{x}_i^2]+E[\tilde{n}_j^2]E[\bar{x}_i^2]\\
+&+E[\bar{n}_i]E[\tilde{n}_j]E[\tilde{x}_i]E[\bar{x}_i]+E[\bar{n}_i]E[\tilde{n}_j^2]E[\bar{x}_i]-E[\tilde{n}_j]E[\tilde{x}_i]E[\bar{x}_i^2]-E[\bar{n}_j]E[\tilde{n}_j]E[\tilde{x}_i]E[\bar{x}_i]-E[\tilde{n}_i]E[\tilde{n}_j]E[\bar{x}_i^2]\\
+&-E[\tilde{n}_i]E[\tilde{n}_j]E[\bar{n}_j]E[\bar{x}_i]+E[\bar{n}_i]E[\tilde{x}_i^2]E[\bar{x}_i]+E[\bar{n}_i]E[\tilde{n}_j]E[\tilde{x}_i]E[\bar{x}_i]+E[\bar{n}_i^2]E[\tilde{x}_i^2]+E[\bar{n}_i^2]E[\tilde{n}_j]E[\tilde{x}_i]\\
+&-E[\bar{n}_i]E[\tilde{x}_i^2]E[\bar{x}_i]-E[\bar{n}_i]E[\bar{n}_j]E[\tilde{x}_i^2]-E[\bar{n}_i]E[\tilde{n}_i]E[\tilde{x}_i]E[\bar{x}_i]-E[\bar{n}_i]E[\tilde{n}_i]E[\tilde{x}_i]E[\bar{n}_j]+E[\bar{n}_i]E[\tilde{n}_j]E[\tilde{x}_i]E[\bar{x}_i]\\
+&+E[\bar{n}_i]E[\tilde{n}_j^2]E[\bar{x}_i]+E[\bar{n}_i^2]E[\tilde{n}_j]E[\tilde{x}_i]+E[\bar{n}_i^2]E[\tilde{n}_j^2]-E[\bar{n}_i]E[\tilde{n}_j]E[\tilde{x}_i]E[\bar{x}_i]-E[\bar{n}_i]E[\bar{n}_j]E[\tilde{n}_j]E[\tilde{x}_i]\\
+&-E[\bar{n}_i]E[\tilde{n}_i]E[\tilde{n}_j]E[\bar{x}_i]-E[\bar{n}_i]E[\tilde{n}_i]E[\tilde{n}_j]E[\bar{n}_j]-E[\tilde{x}_i^2]E[\bar{x}_i^2]-E[\tilde{n}_j]E[\tilde{x}_i]E[\bar{x}_i^2]-E[\bar{n}_i]E[\tilde{x}_i^2]E[\bar{x}_i]\\
+&-E[\bar{n}_i]E[\tilde{n}_j]E[\tilde{x}_i]E[\bar{x}_i]+E[\tilde{x}_i^2]E[\bar{x}_i^2]+E[\bar{n}_j]E[\tilde{x}_i^2]E[\bar{x}_i]+E[\tilde{n}_i]E[\tilde{x}_i]E[\bar{x}_i^2]+E[\tilde{n}_i]E[\tilde{x}_i]E[\bar{x}_i]E[\bar{n}_j]\\
+&-E[\bar{n}_j]E[\tilde{x}_i^2]E[\bar{x}_i]-E[\bar{n}_j]E[\tilde{n}_j]E[\tilde{x}_i]E[\bar{x}_i]-E[\bar{n}_i]E[\bar{n}_j]E[\tilde{x}_i^2]-E[\bar{n}_i]E[\bar{n}_j]E[\tilde{n}_j]E[\tilde{x}_i]+E[\bar{n}_j]E[\tilde{x}_i^2]E[\bar{x}_i]\\
+&+E[\bar{n}_j^2]E[\tilde{x}_i^2]+E[\bar{n}_j]E[\tilde{x}_i]E[\bar{x}_i]E[\tilde{n}_i]+E[\bar{n}_j^2]E[\tilde{x}_i]E[\tilde{n}_i]-E[\tilde{n}_i]E[\tilde{x}_i]E[\bar{x}_i^2]-E[\tilde{n}_i]E[\tilde{n}_j]E[\bar{x}_i^2]\\
+&-E[\bar{n}_i]E[\tilde{n}_i]E[\tilde{x}_i]E[\bar{x}_i]-E[\bar{n}_i]E[\tilde{n}_i]E[\tilde{n}_j]E[\bar{x}_i]+E[\tilde{n}_i]E[\tilde{x}_i]E[\bar{x}_i^2]+E[\tilde{n}_i]E[\tilde{x}_i]E[\bar{x}_i]E[\bar{n}_j]+E[\tilde{n}_i^2]E[\bar{x}_i^2]\\
+&+E[\tilde{n}_i^2]E[\bar{n}_j]E[\bar{x}_i]-E[\tilde{n}_i]E[\bar{n}_j]E[\tilde{x}_i]E[\bar{x}_i]-E[\tilde{n}_i]E[\tilde{n}_j]E[\bar{n}_j]E[\bar{x}_i]-E[\bar{n}_i]E[\tilde{n}_i]E[\bar{n}_j]E[\tilde{x}_i]-E[\bar{n}_i]E[\tilde{n}_i]E[\tilde{n}_j]E[\bar{n}_j]\\
+&+E[\tilde{n}_i]E[\bar{n}_j]E[\tilde{x}_i]E[\bar{x}_i]+E[\tilde{n}_i]E[\bar{n}_j^2]E[\tilde{x}_i]+E[\tilde{n}_i^2]E[\bar{n}_j]E[\bar{x}_i]+E[\tilde{n}_i^2]E[\bar{n}_j^2]
+  \end{split}
+  \label{er2i}
+\end{equation}
+
+The corelation between $\tilde{r}_i$ and $\bar{r}_i$ is 
+\begin{equation}
+  \begin{split}
+    E[\bar{r}_i\tilde{r}_i] = &-E[\tilde{x}_i]E[\bar{x}_i^3]-E[\tilde{n}_j]E[\bar{x}_i^3]-E[\bar{n}_i]E[\tilde{x}_i]E[\bar{x}_i^2]-E[\bar{n}_i]E[\tilde{n}_j]E[\bar{x}_i^2]+E[\tilde{x}_i]E[\bar{x}_i^3]\\
+&+E[\bar{n}_j]E[\tilde{x}_i]E[\bar{x}_i^2]+E[\tilde{n}_i]E[\bar{x}_i^3]+E[\tilde{n}_i]E[\bar{n}_j]E[\bar{x}_i^2]-E[\bar{n}_j]E[\tilde{x}_i]E[\bar{x}_i^2]-E[\tilde{n}_j]E[\bar{n}_j]E[\bar{x}_i^2]\\
+&-E[\bar{n}_i]E[\bar{n}_j]E[\tilde{x}_i]E[\bar{x}_i]-E[\bar{n}_i]E[\tilde{n}_j]E[\bar{n}_j]E[\bar{x}_i]+E[\bar{n}_j]E[\tilde{x}_i]E[\bar{x}_i^2]+E[\bar{n}_j^2]E[\tilde{x}_i]E[\bar{x}_i]+E[\tilde{n}_i]E[\bar{n}_j]E[\bar{x}_i^2]\\
+&+E[\tilde{n}_i]E[\bar{n}_j^2]E[\bar{x}_i]-E[\bar{n}_i]E[\tilde{x}_i]E[\bar{x}_i^2]-E[\bar{n}_i]E[\tilde{n}_j]E[\bar{x}_i^2]-E[\bar{n}_i^2]E[\tilde{x}_i]E[\bar{x}_i]-E[\bar{n}_i^2]E[\tilde{n}_j]E[\bar{x}_i]\\
+&+E[\bar{n}_i]E[\tilde{x}_i]E[\bar{x}_i^2]+E[\bar{n}_i]E[\bar{n}_j]E[\tilde{x}_i]E[\bar{x}_i]+E[\bar{n}_i]E[\tilde{n}_i]E[\bar{x}_i^2]+E[\bar{n}_i]E[\tilde{n}_i]E[\bar{n}_j]E[\bar{x}_i]-E[\bar{n}_i]E[\bar{n}_j]E[\tilde{x}_i]E[\bar{x}_i]\\
+&-E[\bar{n}_i]E[\tilde{n}_j]E[\bar{n}_j]E[\bar{x}_i]-E[\bar{n}_i^2]E[\bar{n}_j]E[\tilde{x}_i]-E[\bar{n}_i^2]E[\tilde{n}_j]E[\bar{n}_j]+E[\bar{n}_i]E[\bar{n}_j]E[\tilde{x}_i]E[\bar{x}_i]+E[\bar{n}_i]E[\bar{n}_j^2]E[\tilde{x}_i]\\
+&+E[\bar{n}_i]E[\tilde{n}_i]E[\bar{n}_j]E[\bar{x}_i]+E[\bar{n}_i]E[\tilde{n}_i]E[\bar{n}_j^2]-E[\tilde{x}_i^3]E[\bar{x}_i]-E[\tilde{n}_j]E[\tilde{x}_i^2]E[\bar{x}_i]-E[\bar{n}_i]E[\tilde{x}_i^3]\\
+&-E[\bar{n}_i]E[\tilde{n}_j]E[\tilde{x}_i^2]+E[\tilde{x}_i^3]E[\bar{x}_i]+E[\bar{n}_j]E[\tilde{x}_i^3]+E[\tilde{n}_i]E[\tilde{x}_i^2]E[\bar{x}_i]+E[\tilde{n}_i]E[\tilde{x}_i^2]E[\bar{n}_j]\\
+&-E[\tilde{n}_j]E[\tilde{x}_i^2]E[\bar{x}_i]-E[\tilde{n}_j^2]E[\tilde{x}_i]E[\bar{x}_i]-E[\bar{n}_i]E[\tilde{n}_j]E[\tilde{x}_i^2]-E[\bar{n}_i]E[\tilde{n}_j^2]E[\tilde{x}_i]+E[\tilde{n}_j]E[\tilde{x}_i^2]E[\bar{x}_i]\\
+&+E[\bar{n}_j]E[\tilde{n}_j]E[\tilde{x}_i^2]+E[\tilde{n}_i]E[\tilde{n}_j]E[\tilde{x}_i]E[\bar{x}_i]+E[\tilde{n}_i]E[\tilde{n}_j]E[\tilde{x}_i]E[\bar{n}_j]-E[\tilde{n}_i]E[\tilde{x}_i^2]E[\bar{x}_i]-E[\tilde{n}_i]E[\tilde{n}_j]E[\tilde{x}_i]E[\bar{x}_i]\\
+&-E[\bar{n}_i]E[\tilde{n}_i]E[\tilde{x}_i^2]-E[\bar{n}_i]E[\tilde{n}_i]E[\tilde{n}_j]E[\tilde{x}_i]+E[\tilde{n}_i]E[\tilde{x}_i^2]E[\bar{x}_i]+E[\tilde{n}_i]E[\tilde{x}_i^2]E[\bar{n}_j]+E[\tilde{n}_i^2]E[\tilde{x}_i]E[\bar{x}_i]\\
+&+E[\tilde{n}_i^2]E[\tilde{x}_i]E[\bar{n}_j]-E[\tilde{n}_i]E[\tilde{n}_j]E[\tilde{x}_i]E[\bar{x}_i]-E[\tilde{n}_i]E[\tilde{n}_j^2]E[\bar{x}_i]-E[\bar{n}_i]E[\tilde{n}_i]E[\tilde{n}_j]E[\tilde{x}_i]-E[\bar{n}_i]E[\tilde{n}_i]E[\tilde{n}_j^2]\\
+&+E[\tilde{n}_i]E[\tilde{n}_j]E[\tilde{x}_i]E[\bar{x}_i]+E[\tilde{n}_i]E[\tilde{n}_j]E[\tilde{x}_i]E[\bar{n}_j]+E[\tilde{n}_i^2]E[\tilde{n}_j]E[\bar{x}_i]+E[\tilde{n}_i^2]E[\tilde{n}_j]E[\bar{n}_j]
+  \end{split}
+  \label{rirrii}
+\end{equation}
+
+
+\begin{equation}
+  \begin{split}
+  R = &\Re{(\sum_{i=1}^N a_ir_i)}\\
+  = &\Re(\sum_{i=1}^N(\bar{a}_i+j\tilde{a}_i)(\bar{r}_i+j\tilde{r}_i))\\
+  = &\sum_{i=1}^N\bar{a}_i\bar{r}_i - \sum_{i=1}^N\tilde{a}_i\tilde{r}_i
+\end{split}
+  \label{R}
+\end{equation}
+
+\begin{equation}
+  \begin{split}
+    I = &\Im(\sum_{i=1}^N a_ir_i)\\
+      = &\sum_{i=1}^N\tilde{a}_i\bar{r}_i - \sum_{i=1}^N\bar{a}_i\tilde{r}_i
+  \end{split}
+  \label{I}
+\end{equation}
