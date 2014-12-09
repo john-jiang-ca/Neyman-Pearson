@@ -2,5 +2,14 @@
 \section{Cyclostationary Detection for multiple Primary Users}
 \subsection{System Model}
 Upon examination of energy detection, this section proposes a detector that exploits the empirical second-order-statistics of the received signal to distinguish spectrum hole under MENP framework. A typical detector based on second-order-statistics is cyclostationary detection, which  utilizes the auto-correlation property of the received signal to determine the channel status.  
+
+We consider a cognitive radio system where the spectrum can be occupied by exactly one of two distinct primary signals $\{s_1, s_2\}$ or it could be vacant. Let $H_0$ denote the situation under which the channel is free, $H_1$ denote the hypothesis under which the channel is occupied by signal $s_1$ and $H_2$ denote the hypothesis under which the channel is occupied by signals $s_2$. Both $s_1, s_2$ are OFDM signals with exactly the same data structure, i.e. same length of CP and symbol length. The block diagram of the system is illustrated in Figure.
+
+Let $\mathbf{x}$ denote the received vector of length $N$. Under hypothesis $H_i$ ($i \neq 0 $), $\mathbf{x}$ can be written as
+\[
+  \mathbf{x} = \mathbf{s}_i + \mathbf{n}\,,
+\]
+where $\mathbf{s}$ is a sequence samples of K consecutively OFDM symbols. The noise $\mathbf{n}$ is modeled as i.i.d. CSCG with variance $\sigma_n^2$.  Like in most related literature (c.f. XX),  we assume each OFDM symbol consists of a CP of length $l_C$ and a data part of length $l_D$. In spectrum sensing, the detector usually is not synchronized to the transmitted signals that is to be detect. Let $\tau$ represents the synchronization mismatch.  
+
 \subsection{Numerical Results}
 
