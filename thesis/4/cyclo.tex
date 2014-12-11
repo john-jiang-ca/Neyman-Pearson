@@ -30,21 +30,23 @@ Let $r_i=x_ix_j^\ast$ ($j=i+l_D$), (c.f. ) shows $r_i$ exhibit cyclic property a
   Y = \frac{1}{N}\sum_{i=0}^{N-1} r_i\exp(-j2\pi\alpha i)\,.
   \label{cyclic_cov}
 \end{equation}
-
-By observing $y$, a realization  of $Y$, the testing device determines the status of the channel.
 Let $a_i = \exp(-j2\pi\alpha i)$, then \eqref{cyclic_cov} can be written as
 \begin{equation}
   Y = \frac{1}{N}\sum_{i=0}^{N-1} r_ia_i\,.
   \label{cyclic_cov_2}
 \end{equation}
-Let $\bar{c}$ and $\tilde{c}$ denote the real and imaginary parts of complex number $c$ respectively. Then, $a_i = \bar{a}_i + j\tilde{a}_i$, $y = \bar{y}+j\tilde{y}$  and $r_i = \bar{r}_i + j\tilde{r}_i$. In (c.f. ), the author shows $Y$ approaches normal distribution when $K$ goes to infinity. Thus we can employ a normal distribution for a large $K$. In such case, the vector $[\bar{y}, \tilde{y}]$ is governed by multivariate normal distribution. 
+The testing device determines the status of the channel by observing the real and imaginary part of Y
+By observing $y$, a realization  of $Y$, the testing device determines the status of the channel.
+
+Let $\bar{c}$ and $\tilde{c}$ denote the real and imaginary parts of complex number $c$ respectively. Then, $a_i = \bar{a}_i + j\tilde{a}_i$, $y = \bar{y}+j\tilde{y}$  and $r_i = \bar{r}_i + j\tilde{r}_i$. 
+In (c.f. ), the author shows $Y$ approaches normal distribution when $K$ goes to infinity. Thus we can employ a normal distribution for a large $K$. In such case, the vector $[\bar{y}, \tilde{y}]$ is governed by multivariate normal distribution. 
 
 The moment function of $\bar{r}_i, \tilde{r}_i$ are derived in (c.f. ) and summarized in Table \ref{table1}.
 \begin{table}[h]
   \label{table1}
   \begin{tabular}{|c|c|c|c|c|c|}
 	\hline
-	\multirow{2}{*}{           & \multirow{2}{*}{$H_0$} & \multicolumn{2}{c|}{$H_1$}                                                               & \multicolumn{2}{c|}{$H_2$}                                                               \\ \cline{3-6} 
+    \multirow{2}{*}{}           & \multirow{2}{*}{$H_0$} & \multicolumn{2}{c|}{$H_1$}                                                               & \multicolumn{2}{c|}{$H_2$}                                                               \\ \cline{3-6} 
 	&                        & situ1                                                   & situ2                          & situ1                                                   & situ2                          \\ \hline
 	$E[\bar{r}_i]$              & $0$                    & $2\simga_{s_A}^2$                                       & $0$                            &                                                         & $0$                            \\ \hline
 	$E[\tilde{r}_i]$            & $0$                    & $0$                                                     & $0$                            & $0$                                                     & $0$                            \\ \hline
@@ -54,14 +56,79 @@ The moment function of $\bar{r}_i, \tilde{r}_i$ are derived in (c.f. ) and summa
 	$E[\bar{r}_i\tilde{r}_j]$   & $0$                    & $0$                                                     & $0$                            & $0$                                                     & $0$                            \\ \hline
 	$E[\tilde{r}_i\tilde{r}_j]$ & $0$                    & $0$                                                     & $0$                            & $0$                                                     & $0$                            \\ \hline
   \end{tabular}
-\end{table}}
+\end{table}
 
 
 In the following, we consider the distribution of $[\bar{y}, \tilde{y}]$ under hypothesis $H_1$ with synchronization mismatch $\tau = \tau_0$.
 From \eqref{cyclic_cov_2}, we have
 \begin{equation}
-  \label{<++>}
-\end{equation}<++>
+  \begin{split}
+  \bar{y} = &\Re{(\sum_{i=0}^{N-1} a_ir_i)}\\
+  = &\Re(\sum_{i=0}^{N-1}(\bar{a}_i+j\tilde{a}_i)(\bar{r}_i+j\tilde{r}_i))\\
+  = &\sum_{i=0}^{N-1}\bar{a}_i\bar{r}_i - \sum_{i=0}^{N-1}\tilde{a}_i\tilde{r}_i
+\end{split}
+  \label{R}
+\end{equation}
+and
+\begin{equation}
+  \begin{split}
+    \tilde{y} = &\Im(\sum_{i=0}^{N-1} a_ir_i)\\
+      = &\sum_{i=0}^{N-1}\tilde{a}_i\bar{r}_i - \sum_{i=0}^{N-1}\bar{a}_i\tilde{r}_i
+  \end{split}
+  \label{I}
+\end{equation}
+
+Let $\Theta_\tau$ denote the set of subscripts such that if $i \in \Theta_\tau$,  $s[i]$ belongs to a part of CP sequence.
+From Figure XX, we can see $i \in \Theta_\tau$ if and only if $i + \tau \in [Ml_0, Ml_0+l_c -1]$ ($M = 0, 1, \cdots, K$). Inserting the statistics of $r_i$ from Table \ref{table1} into \eqref{R} and \eqref{I}, we have
+\begin{equation}
+\begin{split}
+  E[\bar{y}] = &\sum_{i=0}^{N-1}\bar{a}_iE[\bar{r}_i] - \sum_{i=0}^{N-1}\tilde{a}_iE[\tilde{r}_i]\\
+  = &\sum_{i\in\Theta_\tau}\bar{a}_i2\sigma_s^2
+  \end{split}
+  \label{ER}
+\end{equation}
+and
+\begin{equation}
+\begin{split}
+  E[\tilde{y}] = &\sum_{i\in\Theta}\tilde{a}_i2\sigma_s^2\\
+  = &\sum_{i\in\Theta}\tilde{a}_i2\sigma_s^2\,.
+  \end{split}
+  \label{EI}
+\end{equation}
+
+Hence we have 
+\begin{equation}
+\label{muy}
+\mu_y = \sum_{i\in\Theta_\tau}\bar{a}_i2\sigma_s^2 + j\sum_{i\in\Theta}\tilde{a}_i2\sigma_s^2
+\end{equation}
+
+The seconde statistic of $\bar{y}$ and $\tilde{y}$ can be written as
+\begin{equation}
+\begin{split}
+  E[\bar{y}^2] = &E[(\sum_{i=0}^{N-1} a_ir_i)(\sum_{i=0}^{N-1} a_ir_i)]\\
+  = &E[\sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\bar{a}_i\bar{a}_k\bar{r}_i\bar{r}_k - \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\bar{a}_i\tilde{a}_k\bar{r}_i\tilde{r}_k - \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\bar{a}_i\tilde{a}_k\bar{r}_i\tilde{r}_k + \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\tilde{a}_i\tilde{a}_k\tilde{r}_i\tilde{r}_k]
+  \end{split}
+  \label{ER}
+\end{equation}
+
+Submite the statistic of $\bar{r}$ and $\tilde{r}$, \eqref{ER} can be written as
+\begin{equation}
+  E[R^2] = \sum_{i=1}^N(\bar{a}_i^2E[\bar{r}^2] + \tilde{a}_i^2E[\tilde{r}_i^2])\,.
+  \label{ER2}
+\end{equation}
+
+Using a similiar method, we have 
+\begin{equation}
+  E[I^2] = \sum_{i=1}^N(\bar{a}_i^2E[\tilde{r}^2] + \tilde{a}_i^2E[\bar{r}_i^2])
+  \label{EI2}
+\end{equation}
+and
+\begin{equation}
+  E[RI]=\sum_{i=1}^N\tilde{a}_i\bar{a}_jE[\bar{r}_i^2] + \sum_{i=1}^N\tilde{a}_i\bar{a}_jE[\tilde{r}_i^2] \,.
+  \label{ERI}
+\end{equation}
+
+
 
 
 
