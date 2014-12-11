@@ -6,7 +6,7 @@ We consider a cognitive radio system where the spectrum can be occupied by exact
 
 The measuring device observes $N$ samples of the noise version signals that could be present in the channel and output a suitable testing statistics. With this statistics, the testing device employs MENP to determine the status of the channel. The input of measuring device is
 \begin{equation}
- \mathbf{x} = \begin{cases}
+  \mathbf{x} = \begin{cases}
 	\mathbf{n}\;\;\;\;\;\;&\text{when $H_0$ is true}\\
 	\mathbf{n}+\mathbf{s}_A\;\;\;\;\;\;&\text{when $H_1$ is true}\\
 	\mathbf{n}+\mathbf{s}_B\;\;\;\;\;\;&\text{when $H_2$ is true}\\
@@ -31,11 +31,39 @@ Let $r_i=x_ix_j^\ast$ ($j=i+l_D$), (c.f. ) shows $r_i$ exhibit cyclic property a
   \label{cyclic_cov}
 \end{equation}
 
-By observing $y$, a realization  of $Y$, the testing device determines the status of the channel. Let $R$ and $I$  be the real  and imaginary part of $y$, i.e. $y=R+jI$. In the following, we consider the distribution of $R$ and $I$ under hypothesis $H_1$ with synchronization mismatch $\tau = \tau_0$.
+By observing $y$, a realization  of $Y$, the testing device determines the status of the channel.
+Let $a_i = \exp(-j2\pi\alpha i)$, then \eqref{cyclic_cov} can be written as
+\begin{equation}
+  Y = \frac{1}{N}\sum_{i=0}^{N-1} r_ia_i\,.
+  \label{cyclic_cov_2}
+\end{equation}
+Let $\bar{c}$ and $\tilde{c}$ denote the real and imaginary parts of complex number $c$ respectively. Then, $a_i = \bar{a}_i + j\tilde{a}_i$, $y = \bar{y}+j\tilde{y}$  and $r_i = \bar{r}_i + j\tilde{r}_i$. In (c.f. ), the author shows $Y$ approaches normal distribution when $K$ goes to infinity. Thus we can employ a normal distribution for a large $K$. In such case, the vector $[\bar{y}, \tilde{y}]$ is governed by multivariate normal distribution. 
+
+The moment function of $\bar{r}_i, \tilde{r}_i$ are derived in (c.f. ) and summarized in Table \ref{table1}.
+\begin{table}[h]
+  \label{table1}
+  \begin{tabular}{|c|c|c|c|c|c|}
+	\hline
+	\multirow{2}{*}{           & \multirow{2}{*}{$H_0$} & \multicolumn{2}{c|}{$H_1$}                                                               & \multicolumn{2}{c|}{$H_2$}                                                               \\ \cline{3-6} 
+	&                        & situ1                                                   & situ2                          & situ1                                                   & situ2                          \\ \hline
+	$E[\bar{r}_i]$              & $0$                    & $2\simga_{s_A}^2$                                       & $0$                            &                                                         & $0$                            \\ \hline
+	$E[\tilde{r}_i]$            & $0$                    & $0$                                                     & $0$                            & $0$                                                     & $0$                            \\ \hline
+	$E[\bar{r}_i^2]$            & $2\sigma_n^4$          & $8\simga_{s_A}^4+4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4$ & $2(\sigma_n^2+\sigma_{s_A}^2)$ & $8\simga_{s_B}^4+4\sigma_{s_B}^2\sigma_n^2+2\sigma_n^4$ & $2(\sigma_n^2+\sigma_{s_B}^2)$ \\ \hline
+	$E[\tilde{r}_i^2]$          & $2\sigma_n^4$          & $4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4$                 & $2(\sigma_n^2+\sigma_{s_A}^2)$ & $4\sigma_{s_B}^2\sigma_n^2+2\sigma_n^4$                 & $2(\sigma_n^2+\sigma_{s_B}^2)$ \\ \hline
+	$E[\bar{r}_i\bar{r}_j]$     & $0$                    & $0$                                                     & $0$                            & $0$                                                     & $0$                            \\ \hline
+	$E[\bar{r}_i\tilde{r}_j]$   & $0$                    & $0$                                                     & $0$                            & $0$                                                     & $0$                            \\ \hline
+	$E[\tilde{r}_i\tilde{r}_j]$ & $0$                    & $0$                                                     & $0$                            & $0$                                                     & $0$                            \\ \hline
+  \end{tabular}
+\end{table}}
 
 
+In the following, we consider the distribution of $[\bar{y}, \tilde{y}]$ under hypothesis $H_1$ with synchronization mismatch $\tau = \tau_0$.
+From \eqref{cyclic_cov_2}, we have
+\begin{equation}
+  \label{<++>}
+\end{equation}<++>
 
- 
+
 
 \subsection{Numerical Results}
 
