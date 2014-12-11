@@ -74,11 +74,8 @@ $E[\tilde{r}_i\tilde{r}_j]$ & $0$                    & $0$                      
 \end{table}
 
 
-In the following, we consider the distribution of $\begin{bmatrix}
-	R \\
-	I
-   \end{bmatrix}$ under hypothesis $H_1$ with synchronization mismatch $\tau = \tau_0$.
-From the definition of $R$ and $I$, we have 
+In the following, we consider the distribution of $[R I]$ under hypothesis $H_1$ with synchronization mismatch $\tau = \tau_0$.
+From the definition of $R$ and $I$, 
 \begin{equation}
   \begin{split}
   R = &\Re{(\sum_{i=0}^{N-1} a_ir_i)}\\
@@ -96,12 +93,12 @@ and
   \label{I}
 \end{equation}
 
-Let $\Theta_{\tau_0}$ denote the set of subscripts such that if $i \in \Theta_{\tau_0}$,  $s[i]$ belongs to  CP sequence of an OFDM frame.
-From Figure XX, we can see $i \in \Theta_{\tau_0}$ if and only if $i + \tau_0 \in [Ml_0, Ml_0+l_c -1]$ ($M = 0, 1, \cdots, K$). Inserting the statistics of $r_i$ from Table \ref{table1} into \eqref{R} and \eqref{I}, we have
+Let $\Theta_\tau_0$ denote the set of subscripts such that if $i \in \Theta_\tau$,  $s[i]$ belongs to a part of CP sequence.
+From Figure XX, we can see $i \in \Theta_\tau$ if and only if $i + \tau \in [Ml_0, Ml_0+l_c -1]$ ($M = 0, 1, \cdots, K$). Inserting the statistics of $r_i$ from Table \ref{table1} into \eqref{R} and \eqref{I}, we have
 \begin{equation}
 \begin{split}
  \mu_R =  E[R] = &\sum_{i=0}^{N-1}\bar{a}_iE[\bar{r}_i] - \sum_{i=0}^{N-1}\tilde{a}_iE[\tilde{r}_i]\\
- = &\sum_{i\in\Theta_{\tau_0}}\bar{a}_i2\sigma_s^2
+  = &\sum_{i\in\Theta_\tau_0}\bar{a}_i2\sigma_s^2
   \end{split}
   \label{ER}
 \end{equation}
@@ -114,7 +111,7 @@ and
   \label{EI}
 \end{equation}
 
-The  second order statistic of $R$ and $I$ can be computed as
+We consider the  second order statistic of $R$ and $I$,
 \begin{equation}
 \begin{split}
   E[R^2] = &E[(\sum_{i=0}^{N-1}\bar{a}_i\bar{r}_i - \sum_{i=0}^{N-1}\tilde{a}_i\tilde{r}_i)(\sum_{i=0}^{N-1}\bar{a}_i\bar{r}_i - \sum_{i=0}^{N-1}\tilde{a}_i\tilde{r}_i)]\\
@@ -125,7 +122,7 @@ The  second order statistic of $R$ and $I$ can be computed as
   \label{ER}
 \end{equation}
 
-Similarly method, we have 
+Using a similar method, we have 
 \begin{equation}
   E[I^2] = \sum_{i=1}^N(\bar{a}_i^2E[\tilde{r}^2] + \tilde{a}_i^2E[\bar{r}_i^2])
   \label{EI2}

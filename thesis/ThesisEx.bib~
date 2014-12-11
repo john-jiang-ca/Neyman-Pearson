@@ -757,14 +757,3 @@ number={4}
   publisher={JSTOR}
 }
 
-@article{axell2011optimal,
-  title={Optimal and sub-optimal spectrum sensing of OFDM signals in known and unknown noise variance},
-  author={Axell, Erik and Larsson, Erik G},
-  journal={Selected Areas in Communications, IEEE Journal on},
-  volume={29},
-  number={2},
-  pages={290--304},
-  year={2011},
-  publisher={IEEE}
-}
-
