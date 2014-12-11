@@ -42,22 +42,20 @@ Let $\bar{c}$ and $\tilde{c}$ denote the real and imaginary parts of complex num
 In (c.f. ), the author shows $Y$ approaches normal distribution when $K$ goes to infinity. Thus we can employ a normal distribution for a large $K$. In such case, the vector $[\bar{y}, \tilde{y}]$ is governed by multivariate normal distribution. 
 
 The moment function of $\bar{r}_i, \tilde{r}_i$ are derived in (c.f. ) and summarized in Table \ref{table1}.
-
-% Please add the following required packages to your document preamble:
-% \usepackage{multirow}
 \begin{table}[h]
-\begin{tabular}{|c|c|c|c|c|c|}
-\hline
-\multirow{2}{*}{}           & \multirow{2}{*}{$H_0$} & \multicolumn{2}{c|}{$H_1$}                                                               & \multicolumn{2}{c|}{$H_2$}                                                               \\ \cline{3-6} 
-                            &                        & situ1                                                   & situ2                          & situ1                                                   & situ2                          \\ \hline
-$E[\bar{r}_i]$              & $0$                    & $2\sigma_{s_A}^2$                                       & $0$                            &                                                         & $0$                            \\ \hline
-$E[\tilde{r}_i]$            & $0$                    & $0$                                                     & $0$                            & $0$                                                     & $0$                            \\ \hline
-$E[\bar{r}_i^2]$            & $2\sigma_n^4$          & $8\sigma_{s_A}^4+4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4$ & $2(\sigma_n^2+\sigma_{s_A}^2)$ & $8\sigma_{s_B}^4+4\sigma_{s_B}^2\sigma_n^2+2\sigma_n^4$ & $2(\sigma_n^2+\sigma_{s_B}^2)$ \\ \hline
-$E[\tilde{r}_i^2]$          & $2\sigma_n^4$          & $4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4$                 & $2(\sigma_n^2+\sigma_{s_A}^2)$ & $4\sigma_{s_B}^2\sigma_n^2+2\sigma_n^4$                 & $2(\sigma_n^2+\sigma_{s_B}^2)$ \\ \hline
-$E[\bar{r}_i\bar{r}_j]$     & $0$                    & $0$                                                     & $0$                            & $0$                                                     & $0$                            \\ \hline
-$E[\bar{r}_i\tilde{r}_j]$   & $0$                    & $0$                                                     & $0$                            & $0$                                                     & $0$                            \\ \hline
-$E[\tilde{r}_i\tilde{r}_j]$ & $0$                    & $0$                                                     & $0$                            & $0$                                                     & $0$                            \\ \hline
-\end{tabular}
+  \label{table1}
+  \begin{tabular}{|c|c|c|c|c|c|}
+	\hline
+    \multirow{2}{*}{}           & \multirow{2}{*}{$H_0$} & \multicolumn{2}{c|}{$H_1$}                                                               & \multicolumn{2}{c|}{$H_2$}                                                               \\ \cline{3-6} 
+	&                        & situ1                                                   & situ2                          & situ1                                                   & situ2                          \\ \hline
+	$E[\bar{r}_i]$              & $0$                    & $2\simga_{s_A}^2$                                       & $0$                            &                                                         & $0$                            \\ \hline
+	$E[\tilde{r}_i]$            & $0$                    & $0$                                                     & $0$                            & $0$                                                     & $0$                            \\ \hline
+	$E[\bar{r}_i^2]$            & $2\sigma_n^4$          & $8\simga_{s_A}^4+4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4$ & $2(\sigma_n^2+\sigma_{s_A}^2)$ & $8\simga_{s_B}^4+4\sigma_{s_B}^2\sigma_n^2+2\sigma_n^4$ & $2(\sigma_n^2+\sigma_{s_B}^2)$ \\ \hline
+	$E[\tilde{r}_i^2]$          & $2\sigma_n^4$          & $4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4$                 & $2(\sigma_n^2+\sigma_{s_A}^2)$ & $4\sigma_{s_B}^2\sigma_n^2+2\sigma_n^4$                 & $2(\sigma_n^2+\sigma_{s_B}^2)$ \\ \hline
+	$E[\bar{r}_i\bar{r}_j]$     & $0$                    & $0$                                                     & $0$                            & $0$                                                     & $0$                            \\ \hline
+	$E[\bar{r}_i\tilde{r}_j]$   & $0$                    & $0$                                                     & $0$                            & $0$                                                     & $0$                            \\ \hline
+	$E[\tilde{r}_i\tilde{r}_j]$ & $0$                    & $0$                                                     & $0$                            & $0$                                                     & $0$                            \\ \hline
+  \end{tabular}
 \end{table}
 
 

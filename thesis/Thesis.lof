@@ -1,0 +1,17 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces The ROC surface for $k_1$, $k_2$ range from $-30$ to $30$ with step $0.1$}}{13}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Change of $P_{f_1}$, $P_{f_2}$ after each iteration.}}{41}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Change of $P_d$ after each iteration.}}{42}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Change of $P_{f_1}$, $P_{f_2}$ after each iteration.}}{45}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Change of $P_d$ after each iteration.}}{46}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Region that can be achieved by Neyman Pearson testing with $k_i \geq 0 (i=1, ..., M)$.}}{54}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Region that can be achieved by Neyman Pearson testing with $k_i \geq 0 (i=1, ..., M)$.}}{55}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces The M-ROC surface for Gaussian Hypotheses.}}{59}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Contour for M-ROC surface.}}{60}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces The M-ROC for Gaussian distribution with same variance.}}{62}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces The M-ROC for the Chi-square example.}}{65}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Block Diagram for Spectrum Sensing}}{67}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces M-ROC surface for $\sigma _\omega ^2 = 0.1$, $\sigma _{s_1}^2=0.1$, $\sigma _{s_3}^2=0.2$ and $N = 20$.}}{71}
