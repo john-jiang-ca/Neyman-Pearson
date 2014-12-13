@@ -39,7 +39,7 @@ The output of the measuring device is the real and imaginary part of the cyclic 
   Y = \begin{bmatrix}
 	R \\
 	I
-  \end{bmatrix}\,,
+   \end{bmatrix}\,,
   \label{cyclic_cov}
 \end{equation}
 where 
@@ -48,7 +48,7 @@ where
 \]
 and 
 \[
-  I = \Im(\hat{R}(l_D, \alpha))\,.
+I = \Im(\hat{R}(l_D, \alpha))\,.
 \]
 By observing $y$, a realization  of $Y$, the testing device determines the status of the channel.
 According to \cite{lunden2010robust}, $\hat{R}(l_D, \alpha)$ subject to normal distribution for a large $K$, so $Y$ has the two-dimensional Gaussian distribution \cite{goodman1963statistical}.
@@ -60,39 +60,39 @@ The moment function of $\bar{r}_i, \tilde{r}_i$ are derived in \cite{axell2011op
 % \usepackage{multirow}
 \begin{table}[h]
   \label{table1}
-  \begin{tabular}{|c|c|c|c|c|c|}
-	\hline
-	\multirow{2}{*}{}           & \multirow{2}{*}{$H_0$} & \multicolumn{2}{c|}{$H_1$}                                                               & \multicolumn{2}{c|}{$H_2$}                                                               \\ \cline{3-6} 
-	&                        & situ1                                                   & situ2                          & situ1                                                   & situ2                          \\ \hline
-	$E[\bar{r}_i]$              & $0$                    & $2\sigma_{s_A}^2$                                       & $0$                            & $2\sigma_{s_N}^2$                                                         & $0$                            \\ \hline
-	$E[\tilde{r}_i]$            & $0$                    & $0$                                                     & $0$                            & $0$                                                     & $0$                            \\ \hline
-	$E[\bar{r}_i^2]$            & $2\sigma_n^4$          & $8\sigma_{s_A}^4+4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4$ & $2(\sigma_n^2+\sigma_{s_A}^2)^2$ & $8\sigma_{s_B}^4+4\sigma_{s_B}^2\sigma_n^2+2\sigma_n^4$ & $2(\sigma_n^2+\sigma_{s_B}^2)^2$ \\ \hline
-	$E[\tilde{r}_i^2]$          & $2\sigma_n^4$          & $4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4$                 & $2(\sigma_n^2+\sigma_{s_A}^2)^2$ & $4\sigma_{s_B}^2\sigma_n^2+2\sigma_n^4$                 & $2(\sigma_n^2+\sigma_{s_B}^2)^2$ \\ \hline
-	$E[\bar{r}_i\bar{r}_j]$     & $0$                    & $0$                                                     & $0$                            & $0$                                                     & $0$                            \\ \hline
-	$E[\bar{r}_i\tilde{r}_j]$   & $0$                    & $0$                                                     & $0$                            & $0$                                                     & $0$                            \\ \hline
-	$E[\tilde{r}_i\tilde{r}_j]$ & $0$                    & $0$                                                     & $0$                            & $0$                                                     & $0$                            \\ \hline
-  \end{tabular}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\multirow{2}{*}{}           & \multirow{2}{*}{$H_0$} & \multicolumn{2}{c|}{$H_1$}                                                               & \multicolumn{2}{c|}{$H_2$}                                                               \\ \cline{3-6} 
+                            &                        & situ1                                                   & situ2                          & situ1                                                   & situ2                          \\ \hline
+							$E[\bar{r}_i]$              & $0$                    & $2\sigma_{s_A}^2$                                       & $0$                            & $2\sigma_{s_N}^2$                                                         & $0$                            \\ \hline
+$E[\tilde{r}_i]$            & $0$                    & $0$                                                     & $0$                            & $0$                                                     & $0$                            \\ \hline
+$E[\bar{r}_i^2]$            & $2\sigma_n^4$          & $8\sigma_{s_A}^4+4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4$ & $2(\sigma_n^2+\sigma_{s_A}^2)^2$ & $8\sigma_{s_B}^4+4\sigma_{s_B}^2\sigma_n^2+2\sigma_n^4$ & $2(\sigma_n^2+\sigma_{s_B}^2)^2$ \\ \hline
+$E[\tilde{r}_i^2]$          & $2\sigma_n^4$          & $4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4$                 & $2(\sigma_n^2+\sigma_{s_A}^2)^2$ & $4\sigma_{s_B}^2\sigma_n^2+2\sigma_n^4$                 & $2(\sigma_n^2+\sigma_{s_B}^2)^2$ \\ \hline
+$E[\bar{r}_i\bar{r}_j]$     & $0$                    & $0$                                                     & $0$                            & $0$                                                     & $0$                            \\ \hline
+$E[\bar{r}_i\tilde{r}_j]$   & $0$                    & $0$                                                     & $0$                            & $0$                                                     & $0$                            \\ \hline
+$E[\tilde{r}_i\tilde{r}_j]$ & $0$                    & $0$                                                     & $0$                            & $0$                                                     & $0$                            \\ \hline
+\end{tabular}
 \end{table}
 
 
 In the following, we consider the distribution of $\begin{bmatrix}
-  R \\
-  I
-\end{bmatrix}$ under hypothesis $H_1$ with synchronization mismatch $\tau = \tau_0$.
+	R \\
+	I
+   \end{bmatrix}$ under hypothesis $H_1$ with synchronization mismatch $\tau = \tau_0$.
 From the definition of $R$ and $I$, we have 
 \begin{equation}
   \begin{split}
-	R = &\Re{(\sum_{i=0}^{N-1} a_ir_i)}\\
-	= &\Re(\sum_{i=0}^{N-1}(\bar{a}_i+j\tilde{a}_i)(\bar{r}_i+j\tilde{r}_i))\\
-	= &\sum_{i=0}^{N-1}\bar{a}_i\bar{r}_i - \sum_{i=0}^{N-1}\tilde{a}_i\tilde{r}_i
-  \end{split}
+  R = &\Re{(\sum_{i=0}^{N-1} a_ir_i)}\\
+  = &\Re(\sum_{i=0}^{N-1}(\bar{a}_i+j\tilde{a}_i)(\bar{r}_i+j\tilde{r}_i))\\
+  = &\sum_{i=0}^{N-1}\bar{a}_i\bar{r}_i - \sum_{i=0}^{N-1}\tilde{a}_i\tilde{r}_i
+\end{split}
   \label{R}
 \end{equation}
 and
 \begin{equation}
   \begin{split}
-	I = &\Im(\sum_{i=0}^{N-1} a_ir_i)\\
-	= &\sum_{i=0}^{N-1}\tilde{a}_i\bar{r}_i + \sum_{i=0}^{N-1}\bar{a}_i\tilde{r}_i
+    I = &\Im(\sum_{i=0}^{N-1} a_ir_i)\\
+      = &\sum_{i=0}^{N-1}\tilde{a}_i\bar{r}_i + \sum_{i=0}^{N-1}\bar{a}_i\tilde{r}_i
   \end{split}
   \label{I}
 \end{equation}
@@ -102,31 +102,31 @@ From Figure XX, we can see $i \in \Theta_{\tau_0}$ if and only if $i + \tau_0 \i
 
 Let $\mu_{R|\tau_0}$ $\mu_{I|\tau_0}$ denote the mean of $R$ and $I$ with synchronization mismatch $\tau=\tau_0$ respectively. By using the statistics of $r_i$ in Table \ref{Tables}, we compute  $\mu_{R|\tau_0}$ $\mu_{I|\tau_0}$:
 \begin{equation}
-  \begin{split}
-	\mu_{R|\tau_0} =  E[R] = &\sum_{i=0}^{N-1}\bar{a}_iE[\bar{r}_i] - \sum_{i=0}^{N-1}\tilde{a}_iE[\tilde{r}_i]\\
-	= &\sum_{i\in\Theta_{\tau_0}}\bar{a}_i2\sigma_s^2
+\begin{split}
+  \mu_{R|\tau_0} =  E[R] = &\sum_{i=0}^{N-1}\bar{a}_iE[\bar{r}_i] - \sum_{i=0}^{N-1}\tilde{a}_iE[\tilde{r}_i]\\
+ = &\sum_{i\in\Theta_{\tau_0}}\bar{a}_i2\sigma_s^2
   \end{split}
   \label{ER}
 \end{equation}
 
 \begin{equation}
-  \begin{split}
-	\mu_{I|\tau_0} =  E[I] = &\sum_{i\in\Theta_0}\tilde{a}_i2\sigma_s^2\\
-	= &\sum_{i\in\Theta_0}\tilde{a}_i2\sigma_s^2\,.
+\begin{split}
+  \mu_{I|\tau_0} =  E[I] = &\sum_{i\in\Theta_0}\tilde{a}_i2\sigma_s^2\\
+  = &\sum_{i\in\Theta_0}\tilde{a}_i2\sigma_s^2\,.
   \end{split}
   \label{EI}
 \end{equation}
 
 The  second order statistic of $R$ and $I$ can be computed as
 \begin{equation}
-  \begin{split}
-	E[R^2] = &E[(\sum_{i=0}^{N-1}\bar{a}_i\bar{r}_i - \sum_{i=0}^{N-1}\tilde{a}_i\tilde{r}_i)(\sum_{i=0}^{N-1}\bar{a}_i\bar{r}_i - \sum_{i=0}^{N-1}\tilde{a}_i\tilde{r}_i)]\\
-	= &E[\sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\bar{a}_i\bar{a}_k\bar{r}_i\bar{r}_k - \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\bar{a}_i\tilde{a}_k\bar{r}_i\tilde{r}_k - \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\bar{a}_i\tilde{a}_k\bar{r}_i\tilde{r}_k + \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\tilde{a}_i\tilde{a}_k\tilde{r}_i\tilde{r}_k]\\
-	= &\sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\bar{a}_i\bar{a}_kE[\bar{r}_i\bar{r}_k] - \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\bar{a}_i\tilde{a}_kE[\bar{r}_i\tilde{r}_k] - \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\bar{a}_i\tilde{a}_kE[\bar{r}_i\tilde{r}_k] + \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\tilde{a}_i\tilde{a}_kE[\tilde{r}_i\tilde{r}_k]\\
-	= &\sum_{i=0}^{N-1}(\bar{a}_i^2E[\bar{r}^2] + \tilde{a}_i^2E[\tilde{r}_i^2])\\
-	= &\sum_{i\in\Theta_{\tau_0}}\bar{a}_i^2(8\sigma_{s_A}^4+4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4) + \sum_{i\in\Theta_{\tau_0}}\tilde{a}_i^2(4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4) + \sum_{i\notin\Theta_{\tau_0}}(\tilde{a}_i^2+\bar{a}_i^2)2(\sigma_n^2+\sigma_{s_A}^2)^2
+\begin{split}
+  E[R^2] = &E[(\sum_{i=0}^{N-1}\bar{a}_i\bar{r}_i - \sum_{i=0}^{N-1}\tilde{a}_i\tilde{r}_i)(\sum_{i=0}^{N-1}\bar{a}_i\bar{r}_i - \sum_{i=0}^{N-1}\tilde{a}_i\tilde{r}_i)]\\
+  = &E[\sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\bar{a}_i\bar{a}_k\bar{r}_i\bar{r}_k - \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\bar{a}_i\tilde{a}_k\bar{r}_i\tilde{r}_k - \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\bar{a}_i\tilde{a}_k\bar{r}_i\tilde{r}_k + \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\tilde{a}_i\tilde{a}_k\tilde{r}_i\tilde{r}_k]\\
+= &\sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\bar{a}_i\bar{a}_kE[\bar{r}_i\bar{r}_k] - \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\bar{a}_i\tilde{a}_kE[\bar{r}_i\tilde{r}_k] - \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\bar{a}_i\tilde{a}_kE[\bar{r}_i\tilde{r}_k] + \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\tilde{a}_i\tilde{a}_kE[\tilde{r}_i\tilde{r}_k]\\
+= &\sum_{i=0}^{N-1}(\bar{a}_i^2E[\bar{r}^2] + \tilde{a}_i^2E[\tilde{r}_i^2])\\
+= &\sum_{i\in\Theta_{\tau_0}}\bar{a}_i^2(8\sigma_{s_A}^4+4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4) + \sum_{i\in\Theta_{\tau_0}}\tilde{a}_i^2(4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4) + \sum_{i\notin\Theta_{\tau_0}}(\tilde{a}_i^2+\bar{a}_i^2)2(\sigma_n^2+\sigma_{s_A}^2)^2
   \end{split}
-  \label{ER^2}
+  \label{ER}
 \end{equation}
 From the definition of $a_i$, we have
 \begin{equation}
@@ -145,7 +145,7 @@ where $\#\Theta_{\tau_0}$ is the cardinality of set $\Theta_{\tau_0}$. Let $\sig
 \begin{equation}
   \begin{split}
 	\sigma_{R|\tau_0} = &\sqrt{E[R^2] - E[R]^2}\\
-	= &\left(\#\Theta_{\tau_0}(4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4) + 2(N - \#\Theta_{\tau_0})(\sigma_n^2+\sigma_{s_A}^2)^2 +  8\sum_{i\in\Theta_{\tau_0}}\bar{a}_i^2\sigma_{s_A}^4 - 4(\sum_{i\in\Theta_{\tau_0}}\bar{a}_i^2 )^2\sigma_{s_A}^4\right)^\frac{1}{2}\,.
+	= &(\#\Theta_{\tau_0}(4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4) + 2(N - \#\Theta_{\tau_0})(\sigma_n^2+\sigma_{s_A}^2)^2 +  8\sum_{i\in\Theta_{\tau_0}}\bar{a}_i^2\sigma_{s_A}^4 - (\sum_{i\in\Theta_{\tau_0}}\bar{a}_i^2 )4\sigma_{s_A}^4)^\frac{1}{2}\,.
   \end{split}
   \label{deviationR}
 \end{equation}
@@ -157,33 +157,32 @@ Similarly, we compute $\sigma_{I|\tau_0}$ and $E[RI]$ as
 \begin{equation}
   \begin{split}
 	\sigma_{I|\tau_0} = &\sqrt{E[I^2] - E[I]^2}\\
-	= &\left(\#\Theta_{\tau_0}(4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4) + 2(N - \#\Theta_{\tau_0})(\sigma_n^2+\sigma_{s_A}^2)^2 +  8\sum_{i\in\Theta_{\tau_0}}\tilde{a}_i^2\sigma_{s_A}^4 - 4(\sum_{i\in\Theta_{\tau_0}}\tilde{a}_i^2 )^2\sigma_{s_A}^4	\right)^\frac{1}{2}\,.
+	= &(\#\Theta_{\tau_0}(4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4) + 2(N - \#\Theta_{\tau_0})(\sigma_n^2+\sigma_{s_A}^2)^2 +  8\sum_{i\in\Theta_{\tau_0}}\tilde{a}_i^2\sigma_{s_A}^4 - (\sum_{i\in\Theta_{\tau_0}}\tilde{a}_i^2 )4\sigma_{s_A}^4
+	)^\frac{1}{2}\,.
   \end{split}
   \label{deviationI}
 \end{equation}
 \begin{equation}
   \begin{split}
-	E[RI]= &\sum_{i=0}^{N-1}\tilde{a}_i\bar{a}_iE[\bar{r}_i^2] - \sum_{i=0}^{N-1}\tilde{a}_i\bar{a}_iE[\tilde{r}_i^2]\\
-	= &8\sigma_{s_A}^2\sum_{i=0}^{N-1}\tilde{a}_i\bar{a}_i
-	\label{ERI}
-  \end{split}
+  E[RI]= &\sum_{i=0}^{N-1}\tilde{a}_i\bar{a}_iE[\bar{r}_i^2] - \sum_{i=0}^{N-1}\tilde{a}_i\bar{a}_iE[\tilde{r}_i^2]\\
+  = &8\sigma_{s_A}^2\sum_{i=0}^{N-1}\tilde{a}_i\bar{a}_i
+  \label{ERI}
 \end{equation}
 Let $\rho_{\tau_0}$ represents the correlation between $R$ and $I$ with synchronization mismatch $\tau_0$, we have
 \begin{equation}
-  \rho_{\rho_0} = \frac{E[RI]-\mu_{R|\tau_0}\mu_{I|\tau_0}}{\sigma_{R|\tau_0}\sigma_{I|\tau_0}}\,.
+  \rho_{\rho_0} = \frac{E[RI]-\mu_{R|\tau_0}}\mu_{I|\tau_0}{\sigma_{R|\tau_0}}\sigma_{I|\tau_0}\,.
   \label{RIcorrelation}
 \end{equation}
 We can get the exact value of $\rho_{\tau_0}$ by substituting \eqref{ER} \eqref{EI}, \eqref{deviationR} \eqref{deviationI} and \eqref{ERI} into \eqref{RIcorrelation}.
 Hence the distribution of 
 $\begin{bmatrix}
-  R \\
-  I
-\end{bmatrix}$ with synchronization mismatch $\tau = \tau_0$ is
-\begin{multline}
-  f(R,I | \tau=\tau_0) = \frac{1}{2\pi\sigma_{I|\tau_0}\sigma_{R|\tau_0}\sqrt{1 - \rho_{\tau_0}^2}}\exp\left( -\frac{1}{2(1-\rho_{\tau_0}^2)}\left[ \frac{(R-\mu_{R|\tau_0})^2}{\sigma_R^2} + \right.\right.\\
-\left. \left.  \frac{(I-\mu_{I|\tau_0})^2}{\sigma_I^2} - \frac{2\rho(R-\mu_{R|\tau_0})(I-\mu_{I|\tau_0})}{\sigma_{R|\tau_0}\sigma_{I|\tau_0}}\right] \right)
+	R \\
+	I
+   \end{bmatrix}$ with synchronization mismatch $\tau = \tau_0$ is
+\begin{equation}
+  f(R,I) = \frac{1}{2\pi\sigma_{I|\tau_0}\sigma_{R|\tau_0}\sqrt{1 - \rho_{\tau_0}^2}}\exp\left( -\frac{1}{2(1-\rho_{\tau_0}^2)}\left[ \frac{(R-\mu_{R|\tau_0})^2}{\sigma_R^2} +  \frac{(I-\mu_{I|\tau_0})^2}{\sigma_I^2} - \frac{2\rho(R-\mu_{R|\tau_0})(I-\mu_{I|\tau_0})}{\sigma_{R|\tau_0}\sigma_{I|\tau_0}}\right] \right)
   \label{disRI}
-\end{multline}
+\end{equation}
 
 
 

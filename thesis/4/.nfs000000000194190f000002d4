@@ -179,11 +179,11 @@ $\begin{bmatrix}
   R \\
   I
 \end{bmatrix}$ with synchronization mismatch $\tau = \tau_0$ is
-\begin{multline}
-  f(R,I | \tau=\tau_0) = \frac{1}{2\pi\sigma_{I|\tau_0}\sigma_{R|\tau_0}\sqrt{1 - \rho_{\tau_0}^2}}\exp\left( -\frac{1}{2(1-\rho_{\tau_0}^2)}\left[ \frac{(R-\mu_{R|\tau_0})^2}{\sigma_R^2} + \right.\right.\\
-\left. \left.  \frac{(I-\mu_{I|\tau_0})^2}{\sigma_I^2} - \frac{2\rho(R-\mu_{R|\tau_0})(I-\mu_{I|\tau_0})}{\sigma_{R|\tau_0}\sigma_{I|\tau_0}}\right] \right)
+\begin{align}
+  f(R,I | \tau=\tau_0) = \frac{1}{2\pi\sigma_{I|\tau_0}\sigma_{R|\tau_0}\sqrt{1 - \rho_{\tau_0}^2}}\exp\left( -\frac{1}{2(1-\rho_{\tau_0}^2)}\left[ \frac{(R-\mu_{R|\tau_0})^2}{\sigma_R^2} + \\
+  \frac{(I-\mu_{I|\tau_0})^2}{\sigma_I^2} - \frac{2\rho(R-\mu_{R|\tau_0})(I-\mu_{I|\tau_0})}{\sigma_{R|\tau_0}\sigma_{I|\tau_0}}\right] \right)
   \label{disRI}
-\end{multline}
+\end{align}
 
 
 
