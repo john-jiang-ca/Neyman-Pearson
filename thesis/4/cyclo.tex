@@ -127,12 +127,20 @@ The  second order statistic of $R$ and $I$ can be computed as
 
 Similarly method, we have 
 \begin{equation}
-  E[I^2] = \sum_{i=1}^N(\bar{a}_i^2E[\tilde{r}^2] + \tilde{a}_i^2E[\bar{r}_i^2])
+  \begin{split}
+    E[I^2] = &E[(\sum_{i=0}^{N-1}\tilde{a}_i\bar{r}_i - \sum_{i=0}^{N-1}\bar{a}_i\tilde{r}_i)(\sum_{i=0}^{N-1}\tilde{a}_i\bar{r}_i - \sum_{i=0}^{N-1}\bar{a}_i\tilde{r}_i)]\\
+    = &\sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\tilde{a}_i\tilde{a}_kE[\bar{r}_i\bar{r}_j] - \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\tilde{a}_i\bar{a}_jE[\bar{r}_i\tilde{r}_j] -\sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\tilde{a}_i\bar{a}_jE[\bar{r}_i\tilde{r}_j] + \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\bar{a}_i\bar{a}_jE[\tilde{r}_i\tilde{r}_j] \\
+    = &\sum_{i=0}^{N-1}(\bar{a}_i^2E[\tilde{r}^2] + \tilde{a}_i^2E[\bar{r}_i^2])
+  \end{split}
   \label{EI2}
 \end{equation}
 and
 \begin{equation}
-  E[RI]=\sum_{i=1}^N\tilde{a}_i\bar{a}_jE[\bar{r}_i^2] + \sum_{i=1}^N\tilde{a}_i\bar{a}_jE[\tilde{r}_i^2] \,.
+  \begin{split}
+    E[RI]= &E[(\sum_{i=0}^{N-1}\bar{a}_i\bar{r}_i - \sum_{i=0}^{N-1}\tilde{a}_i\tilde{r}_i)(\sum_{i=0}^{N-1}\tilde{a}_i\bar{r}_i - \sum_{i=0}^{N-1}\bar{a}_i\tilde{r}_i)]\\
+    = &\sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\bar{a}_i\tilde{a}_kE[\bar{r}_i^2] - \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\bar{a}_i\bar{a}_kE[\bar{r}_i\tilde{r}_k] - \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\tilde{a}_i\tilde{a}_kE[\bar{r}_i\tilde{r}_k] + \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\bar{a}_i\tilde{a}_kE[\tilde{r}_i^2]\\
+    = &\sum_{i=0}^{N-1}\tilde{a}_i\bar{a}_jE[\bar{r}_i^2] + \sum_{i=0}^{N-1}\tilde{a}_i\bar{a}_jE[\tilde{r}_i^2] \,.
+\end{split}
   \label{ERI}
 \end{equation}
 
