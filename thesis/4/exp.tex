@@ -23,6 +23,63 @@ First of all, we check moment order of $\tilde{n}_i$, $\bar{n}_i$, $\tilde{s}_i$
 \end{equation}
 
 \begin{equation}
+\begin{split}
+E[\bar{r}_i\bar{r}_k]= &E[(\bar{s}_i^2 + \bar{s}_i\bar{n}_j+\bar{n}_i\bar{s}_i+\bar{n}_i\bar{n}_j + \tilde{s}_i^2 + \tilde{s}_i\tilde{n}_j + \tilde{n}_i\tilde{s}_i + \tilde{n}_i\tilde{n}_j)(\bar{s}_k^2 + \bar{s}_k\bar{n}_l+\bar{n}_k\bar{s}_k+\bar{n}_k\bar{n}_l + \tilde{s}_k^2 + \tilde{s}_k\tilde{n}_l + \tilde{n}_k\tilde{s}_k + \tilde{n}_k\tilde{n}_l)]\\
+= &+E[\bar{s}_k^2]E[\bar{s}_i^2]+E[\bar{s}_k]E[\bar{s}_i^2]E[\bar{n}_l]+E[\bar{s}_k]E[\bar{n}_k]E[\bar{s}_i^2]+E[\bar{n}_k]E[\bar{s}_i^2]E[\bar{n}_l]+E[\tilde{s}_k^2]E[\bar{s}_i^2]\\
+&+E[\tilde{s}_k]E[\bar{s}_i^2]E[\tilde{n}_l]+E[\tilde{s}_k]E[\tilde{n}_k]E[\bar{s}_i^2]+E[\tilde{n}_k]E[\bar{s}_i^2]E[\tilde{n}_l]+E[\bar{n}_j]E[\bar{s}_i]E[\bar{s}_k^2]+E[\bar{n}_j]E[\bar{s}_i]E[\bar{n}_l]E[\bar{s}_k]\\
+&+E[\bar{n}_j]E[\bar{n}_k]E[\bar{s}_i]E[\bar{s}_k]+E[\bar{n}_j]E[\bar{n}_k]E[\bar{s}_i]E[\bar{n}_l]+E[\tilde{s}_k^2]E[\bar{n}_j]E[\bar{s}_i]+E[\tilde{s}_k]E[\bar{n}_j]E[\bar{s}_i]E[\tilde{n}_l]+E[\tilde{s}_k]E[\bar{n}_j]E[\tilde{n}_k]E[\bar{s}_i]\\
+&+E[\bar{n}_j]E[\tilde{n}_k]E[\bar{s}_i]E[\tilde{n}_l]+E[\bar{n}_i]E[\bar{s}_k^2]E[\bar{s}_i]+E[\bar{n}_i]E[\bar{s}_k]E[\bar{s}_i]E[\bar{n}_l]+E[\bar{n}_i]E[\bar{s}_k]E[\bar{n}_k]E[\bar{s}_i]+E[\bar{n}_i]E[\bar{n}_k]E[\bar{s}_i]E[\bar{n}_l]\\
+&+E[\bar{n}_i]E[\tilde{s}_k^2]E[\bar{s}_i]+E[\bar{n}_i]E[\tilde{s}_k]E[\bar{s}_i]E[\tilde{n}_l]+E[\bar{n}_i]E[\tilde{s}_k]E[\tilde{n}_k]E[\bar{s}_i]+E[\bar{n}_i]E[\tilde{n}_k]E[\bar{s}_i]E[\tilde{n}_l]+E[\bar{n}_i]E[\bar{s}_k^2]E[\bar{n}_j]\\
+&+E[\bar{n}_i]E[\bar{s}_k]E[\bar{n}_j]E[\bar{n}_l]+E[\bar{n}_i]E[\bar{s}_k]E[\bar{n}_k]E[\bar{n}_j]+E[\bar{n}_i]E[\bar{n}_k]E[\bar{n}_j]E[\bar{n}_l]+E[\bar{n}_i]E[\tilde{s}_k^2]E[\bar{n}_j]+E[\bar{n}_i]E[\tilde{s}_k]E[\bar{n}_j]E[\tilde{n}_l]\\
+&+E[\bar{n}_i]E[\tilde{s}_k]E[\tilde{n}_k]E[\bar{n}_j]+E[\bar{n}_i]E[\tilde{n}_k]E[\bar{n}_j]E[\tilde{n}_l]+E[\bar{s}_k^2]E[\tilde{s}_i^2]+E[\bar{s}_k]E[\tilde{s}_i^2]E[\bar{n}_l]+E[\bar{s}_k]E[\tilde{s}_i^2]E[\bar{n}_k]\\
+&+E[\tilde{s}_i^2]E[\bar{n}_k]E[\bar{n}_l]+E[\tilde{s}_k^2]E[\tilde{s}_i^2]+E[\tilde{s}_k]E[\tilde{s}_i^2]E[\tilde{n}_l]+E[\tilde{s}_k]E[\tilde{s}_i^2]E[\tilde{n}_k]+E[\tilde{s}_i^2]E[\tilde{n}_k]E[\tilde{n}_l]\\
+&+E[\bar{s}_k^2]E[\tilde{s}_i]E[\tilde{n}_j]+E[\bar{s}_k]E[\tilde{s}_i]E[\tilde{n}_j]E[\bar{n}_l]+E[\bar{s}_k]E[\tilde{s}_i]E[\bar{n}_k]E[\tilde{n}_j]+E[\tilde{s}_i]E[\bar{n}_k]E[\tilde{n}_j]E[\bar{n}_l]+E[\tilde{s}_k^2]E[\tilde{s}_i]E[\tilde{n}_j]\\
+&+E[\tilde{s}_k]E[\tilde{s}_i]E[\tilde{n}_l]E[\tilde{n}_j]+E[\tilde{s}_k]E[\tilde{s}_i]E[\tilde{n}_k]E[\tilde{n}_j]+E[\tilde{s}_i]E[\tilde{n}_k]E[\tilde{n}_l]E[\tilde{n}_j]+E[\tilde{n}_i]E[\tilde{s}_i]E[\bar{s}_k^2]+E[\tilde{n}_i]E[\tilde{s}_i]E[\bar{n}_l]E[\bar{s}_k]\\
+&+E[\tilde{n}_i]E[\tilde{s}_i]E[\bar{n}_k]E[\bar{s}_k]+E[\tilde{n}_i]E[\tilde{s}_i]E[\bar{n}_k]E[\bar{n}_l]+E[\tilde{s}_k^2]E[\tilde{n}_i]E[\tilde{s}_i]+E[\tilde{s}_k]E[\tilde{n}_i]E[\tilde{s}_i]E[\tilde{n}_l]+E[\tilde{s}_k]E[\tilde{n}_i]E[\tilde{s}_i]E[\tilde{n}_k]\\
+&+E[\tilde{n}_i]E[\tilde{s}_i]E[\tilde{n}_k]E[\tilde{n}_l]+E[\tilde{n}_i]E[\tilde{n}_j]E[\bar{s}_k^2]+E[\tilde{n}_i]E[\tilde{n}_j]E[\bar{n}_l]E[\bar{s}_k]+E[\tilde{n}_i]E[\tilde{n}_j]E[\bar{n}_k]E[\bar{s}_k]+E[\tilde{n}_i]E[\tilde{n}_j]E[\bar{n}_k]E[\bar{n}_l]\\
+&+E[\tilde{s}_k^2]E[\tilde{n}_i]E[\tilde{n}_j]+E[\tilde{s}_k]E[\tilde{n}_i]E[\tilde{n}_j]E[\tilde{n}_l]+E[\tilde{s}_k]E[\tilde{n}_i]E[\tilde{n}_j]E[\tilde{n}_k]+E[\tilde{n}_i]E[\tilde{n}_j]E[\tilde{n}_k]E[\tilde{n}_l]
+\end{split}
+\end{equation}
+
+\begin{equation}
+\begin{split}
+E{\bar{r}_i\tilde{r}_k}= &E[(+\bar{s}_i^2 + \bar{s}_i\bar{n}_j+\bar{n}_i\bar{s}_i+\bar{n}_i\bar{n}_j + \tilde{s}_i^2 + \tilde{s}_i\tilde{n}_j + \tilde{n}_i\tilde{s}_i + \tilde{n}_i\tilde{n}_j)(-\bar{s}_k\tilde{s}_k - \bar{s}_k\tilde{n}_l - \bar{n}_k\tilde{s}_k - \bar{n}_k\tilde{n}_l + \tilde{s}_k\bar{s}_k + \tilde{s}_k\bar{n}_l + \tilde{n}_k\bar{s}_k + \tilde{n}_k\bar{n}_l)]\\
+= &-E[\tilde{s}_k]E[\bar{s}_k]E[\bar{s}_i^2]-E[\bar{s}_k]E[\bar{s}_i^2]E[\tilde{n}_l]-E[\tilde{s}_k]E[\bar{n}_k]E[\bar{s}_i^2]-E[\bar{n}_k]E[\bar{s}_i^2]E[\tilde{n}_l]+E[\tilde{s}_k]E[\bar{s}_k]E[\bar{s}_i^2]\\
+&+E[\tilde{s}_k]E[\bar{s}_i^2]E[\bar{n}_l]+E[\bar{s}_k]E[\tilde{n}_k]E[\bar{s}_i^2]+E[\tilde{n}_k]E[\bar{s}_i^2]E[\bar{n}_l]-E[\tilde{s}_k]E[\bar{n}_j]E[\bar{s}_i]E[\bar{s}_k]-E[\bar{n}_j]E[\bar{s}_i]E[\tilde{n}_l]E[\bar{s}_k]\\
+&-E[\tilde{s}_k]E[\bar{n}_j]E[\bar{n}_k]E[\bar{s}_i]-E[\bar{n}_j]E[\bar{n}_k]E[\bar{s}_i]E[\tilde{n}_l]+E[\tilde{s}_k]E[\bar{n}_j]E[\bar{s}_i]E[\bar{s}_k]+E[\tilde{s}_k]E[\bar{n}_j]E[\bar{s}_i]E[\bar{n}_l]+E[\bar{n}_j]E[\tilde{n}_k]E[\bar{s}_i]E[\bar{s}_k]\\
+&+E[\bar{n}_j]E[\tilde{n}_k]E[\bar{s}_i]E[\bar{n}_l]-E[\bar{n}_i]E[\bar{s}_k]E[\bar{s}_i]E[\tilde{s}_k]-E[\bar{n}_i]E[\bar{s}_k]E[\bar{s}_i]E[\tilde{n}_l]-E[\bar{n}_i]E[\tilde{s}_k]E[\bar{n}_k]E[\bar{s}_i]-E[\bar{n}_i]E[\bar{n}_k]E[\bar{s}_i]E[\tilde{n}_l]\\
+&+E[\bar{n}_i]E[\tilde{s}_k]E[\bar{s}_i]E[\bar{s}_k]+E[\bar{n}_i]E[\tilde{s}_k]E[\bar{s}_i]E[\bar{n}_l]+E[\bar{n}_i]E[\bar{s}_k]E[\tilde{n}_k]E[\bar{s}_i]+E[\bar{n}_i]E[\tilde{n}_k]E[\bar{s}_i]E[\bar{n}_l]-E[\bar{n}_i]E[\bar{s}_k]E[\bar{n}_j]E[\tilde{s}_k]\\
+&-E[\bar{n}_i]E[\bar{s}_k]E[\bar{n}_j]E[\tilde{n}_l]-E[\bar{n}_i]E[\tilde{s}_k]E[\bar{n}_k]E[\bar{n}_j]-E[\bar{n}_i]E[\bar{n}_k]E[\bar{n}_j]E[\tilde{n}_l]+E[\bar{n}_i]E[\tilde{s}_k]E[\bar{n}_j]E[\bar{s}_k]+E[\bar{n}_i]E[\tilde{s}_k]E[\bar{n}_j]E[\bar{n}_l]\\
+&+E[\bar{n}_i]E[\bar{s}_k]E[\tilde{n}_k]E[\bar{n}_j]+E[\bar{n}_i]E[\tilde{n}_k]E[\bar{n}_j]E[\bar{n}_l]-E[\tilde{s}_k]E[\bar{s}_k]E[\tilde{s}_i^2]-E[\bar{s}_k]E[\tilde{s}_i^2]E[\tilde{n}_l]-E[\tilde{s}_k]E[\tilde{s}_i^2]E[\bar{n}_k]\\
+&-E[\tilde{s}_i^2]E[\tilde{n}_l]E[\bar{n}_k]+E[\tilde{s}_k]E[\bar{s}_k]E[\tilde{s}_i^2]+E[\tilde{s}_k]E[\tilde{s}_i^2]E[\bar{n}_l]+E[\bar{s}_k]E[\tilde{s}_i^2]E[\tilde{n}_k]+E[\tilde{s}_i^2]E[\tilde{n}_k]E[\bar{n}_l]\\
+&-E[\tilde{s}_k]E[\bar{s}_k]E[\tilde{s}_i]E[\tilde{n}_j]-E[\bar{s}_k]E[\tilde{s}_i]E[\tilde{n}_l]E[\tilde{n}_j]-E[\tilde{s}_k]E[\tilde{s}_i]E[\bar{n}_k]E[\tilde{n}_j]-E[\tilde{s}_i]E[\bar{n}_k]E[\tilde{n}_l]E[\tilde{n}_j]+E[\tilde{s}_k]E[\bar{s}_k]E[\tilde{s}_i]E[\tilde{n}_j]\\
+&+E[\tilde{s}_k]E[\tilde{s}_i]E[\tilde{n}_j]E[\bar{n}_l]+E[\bar{s}_k]E[\tilde{s}_i]E[\tilde{n}_k]E[\tilde{n}_j]+E[\tilde{s}_i]E[\tilde{n}_k]E[\tilde{n}_j]E[\bar{n}_l]-E[\tilde{s}_k]E[\tilde{n}_i]E[\tilde{s}_i]E[\bar{s}_k]-E[\tilde{n}_i]E[\tilde{s}_i]E[\tilde{n}_l]E[\bar{s}_k]\\
+&-E[\tilde{s}_k]E[\tilde{n}_i]E[\tilde{s}_i]E[\bar{n}_k]-E[\tilde{n}_i]E[\tilde{s}_i]E[\tilde{n}_l]E[\bar{n}_k]+E[\tilde{s}_k]E[\tilde{n}_i]E[\tilde{s}_i]E[\bar{s}_k]+E[\tilde{s}_k]E[\tilde{n}_i]E[\tilde{s}_i]E[\bar{n}_l]+E[\tilde{n}_i]E[\tilde{s}_i]E[\tilde{n}_k]E[\bar{s}_k]\\
+&+E[\tilde{n}_i]E[\tilde{s}_i]E[\tilde{n}_k]E[\bar{n}_l]-E[\tilde{s}_k]E[\tilde{n}_i]E[\tilde{n}_j]E[\bar{s}_k]-E[\tilde{n}_i]E[\tilde{n}_j]E[\tilde{n}_l]E[\bar{s}_k]-E[\tilde{s}_k]E[\tilde{n}_i]E[\tilde{n}_j]E[\bar{n}_k]-E[\tilde{n}_i]E[\tilde{n}_j]E[\tilde{n}_l]E[\bar{n}_k]\\
+&+E[\tilde{s}_k]E[\tilde{n}_i]E[\tilde{n}_j]E[\bar{s}_k]+E[\tilde{s}_k]E[\tilde{n}_i]E[\tilde{n}_j]E[\bar{n}_l]+E[\tilde{n}_i]E[\tilde{n}_j]E[\tilde{n}_k]E[\bar{s}_k]+E[\tilde{n}_i]E[\tilde{n}_j]E[\tilde{n}_k]E[\bar{n}_l]
+\end{split}
+\end{equation}
+
+\begin{equation}
+\begin{split}
+E[\tilde{r}_i\tilde{r_k}]= &E[(-\bar{s}_i\tilde{s}_i - \bar{s}_i\tilde{n}_j - \bar{n}_i\tilde{s}_i - \bar{n}_i\tilde{n}_j + \tilde{s}_i\bar{s}_i + \tilde{s}_i\bar{n}_j + \tilde{n}_i\bar{s}_i + \tilde{n}_i\bar{n}_j)(-\bar{s}_k\tilde{s}_k - \bar{s}_k\tilde{n}_l - \bar{n}_k\tilde{s}_k - \bar{n}_k\tilde{n}_l + \tilde{s}_k\bar{s}_k + \tilde{s}_k\bar{n}_l + \tilde{n}_k\bar{s}_k + \tilde{n}_k\bar{n}_l)]\\
+= &+E[\tilde{s}_k]E[\bar{s}_k]E[\tilde{s}_i]E[\bar{s}_i]+E[\bar{s}_k]E[\tilde{s}_i]E[\bar{s}_i]E[\tilde{n}_l]+E[\tilde{s}_k]E[\tilde{s}_i]E[\bar{s}_i]E[\bar{n}_k]+E[\tilde{s}_i]E[\bar{s}_i]E[\tilde{n}_l]E[\bar{n}_k]-E[\tilde{s}_k]E[\bar{s}_k]E[\tilde{s}_i]E[\bar{s}_i]\\
+&-E[\tilde{s}_k]E[\tilde{s}_i]E[\bar{s}_i]E[\bar{n}_l]-E[\tilde{n}_k]E[\bar{s}_k]E[\tilde{s}_i]E[\bar{s}_i]-E[\tilde{n}_k]E[\tilde{s}_i]E[\bar{s}_i]E[\bar{n}_l]+E[\tilde{s}_k]E[\bar{s}_k]E[\tilde{n}_j]E[\bar{s}_i]+E[\bar{s}_k]E[\tilde{n}_j]E[\bar{s}_i]E[\tilde{n}_l]\\
+&+E[\tilde{s}_k]E[\tilde{n}_j]E[\bar{s}_i]E[\bar{n}_k]+E[\tilde{n}_j]E[\bar{s}_i]E[\tilde{n}_l]E[\bar{n}_k]-E[\tilde{s}_k]E[\bar{s}_k]E[\tilde{n}_j]E[\bar{s}_i]-E[\tilde{s}_k]E[\tilde{n}_j]E[\bar{s}_i]E[\bar{n}_l]-E[\tilde{n}_k]E[\bar{s}_k]E[\tilde{n}_j]E[\bar{s}_i]\\
+&-E[\tilde{n}_k]E[\tilde{n}_j]E[\bar{s}_i]E[\bar{n}_l]+E[\bar{n}_i]E[\bar{s}_k]E[\tilde{s}_i]E[\tilde{s}_k]+E[\bar{n}_i]E[\bar{s}_k]E[\tilde{s}_i]E[\tilde{n}_l]+E[\bar{n}_i]E[\tilde{s}_k]E[\tilde{s}_i]E[\bar{n}_k]+E[\bar{n}_i]E[\tilde{s}_i]E[\tilde{n}_l]E[\bar{n}_k]\\
+&-E[\bar{n}_i]E[\tilde{s}_k]E[\tilde{s}_i]E[\bar{s}_k]-E[\bar{n}_i]E[\tilde{s}_k]E[\tilde{s}_i]E[\bar{n}_l]-E[\bar{n}_i]E[\bar{s}_k]E[\tilde{s}_i]E[\tilde{n}_k]-E[\bar{n}_i]E[\tilde{s}_i]E[\tilde{n}_k]E[\bar{n}_l]+E[\bar{n}_i]E[\bar{s}_k]E[\tilde{n}_j]E[\tilde{s}_k]\\
+&+E[\bar{n}_i]E[\bar{s}_k]E[\tilde{n}_j]E[\tilde{n}_l]+E[\bar{n}_i]E[\tilde{s}_k]E[\tilde{n}_j]E[\bar{n}_k]+E[\bar{n}_i]E[\tilde{n}_j]E[\tilde{n}_l]E[\bar{n}_k]-E[\bar{n}_i]E[\tilde{s}_k]E[\tilde{n}_j]E[\bar{s}_k]-E[\bar{n}_i]E[\tilde{s}_k]E[\tilde{n}_j]E[\bar{n}_l]\\
+&-E[\bar{n}_i]E[\bar{s}_k]E[\tilde{n}_j]E[\tilde{n}_k]-E[\bar{n}_i]E[\tilde{n}_j]E[\tilde{n}_k]E[\bar{n}_l]-E[\tilde{s}_k]E[\bar{s}_k]E[\tilde{s}_i]E[\bar{s}_i]-E[\bar{s}_k]E[\tilde{s}_i]E[\bar{s}_i]E[\tilde{n}_l]-E[\tilde{s}_k]E[\tilde{s}_i]E[\bar{s}_i]E[\bar{n}_k]\\
+&-E[\tilde{s}_i]E[\bar{s}_i]E[\tilde{n}_l]E[\bar{n}_k]+E[\tilde{s}_k]E[\bar{s}_k]E[\tilde{s}_i]E[\bar{s}_i]+E[\tilde{s}_k]E[\tilde{s}_i]E[\bar{s}_i]E[\bar{n}_l]+E[\tilde{n}_k]E[\bar{s}_k]E[\tilde{s}_i]E[\bar{s}_i]+E[\tilde{n}_k]E[\tilde{s}_i]E[\bar{s}_i]E[\bar{n}_l]\\
+&-E[\tilde{s}_k]E[\bar{s}_k]E[\tilde{s}_i]E[\bar{n}_j]-E[\bar{s}_k]E[\tilde{s}_i]E[\bar{n}_j]E[\tilde{n}_l]-E[\tilde{s}_k]E[\tilde{s}_i]E[\bar{n}_j]E[\bar{n}_k]-E[\tilde{s}_i]E[\bar{n}_j]E[\tilde{n}_l]E[\bar{n}_k]+E[\tilde{s}_k]E[\bar{s}_k]E[\tilde{s}_i]E[\bar{n}_j]\\
+&+E[\tilde{s}_k]E[\tilde{s}_i]E[\bar{n}_j]E[\bar{n}_l]+E[\tilde{n}_k]E[\bar{s}_k]E[\tilde{s}_i]E[\bar{n}_j]+E[\tilde{n}_k]E[\tilde{s}_i]E[\bar{n}_j]E[\bar{n}_l]-E[\tilde{s}_k]E[\tilde{n}_i]E[\bar{s}_i]E[\bar{s}_k]-E[\tilde{n}_i]E[\bar{s}_i]E[\tilde{n}_l]E[\bar{s}_k]\\
+&-E[\tilde{s}_k]E[\tilde{n}_i]E[\bar{n}_k]E[\bar{s}_i]-E[\tilde{n}_i]E[\bar{n}_k]E[\bar{s}_i]E[\tilde{n}_l]+E[\tilde{s}_k]E[\tilde{n}_i]E[\bar{s}_i]E[\bar{s}_k]+E[\tilde{s}_k]E[\tilde{n}_i]E[\bar{s}_i]E[\bar{n}_l]+E[\tilde{n}_i]E[\tilde{n}_k]E[\bar{s}_i]E[\bar{s}_k]\\
+&+E[\tilde{n}_i]E[\tilde{n}_k]E[\bar{s}_i]E[\bar{n}_l]-E[\tilde{s}_k]E[\tilde{n}_i]E[\bar{n}_j]E[\bar{s}_k]-E[\tilde{n}_i]E[\bar{n}_j]E[\tilde{n}_l]E[\bar{s}_k]-E[\tilde{s}_k]E[\tilde{n}_i]E[\bar{n}_k]E[\bar{n}_j]-E[\tilde{n}_i]E[\bar{n}_k]E[\bar{n}_j]E[\tilde{n}_l]\\
+&+E[\tilde{s}_k]E[\tilde{n}_i]E[\bar{n}_j]E[\bar{s}_k]+E[\tilde{s}_k]E[\tilde{n}_i]E[\bar{n}_j]E[\bar{n}_l]+E[\tilde{n}_i]E[\tilde{n}_k]E[\bar{n}_j]E[\bar{s}_k]+E[\tilde{n}_i]E[\tilde{n}_k]E[\bar{n}_j]E[\bar{n}_l]
+\end{split}
+\end{equation}
+
+\begin{equation}
   \begin{split}
     E[\bar{r}_i] = &E[\bar{s}_i^2 + \bar{s}_i\bar{n}_j+\bar{n}_i\bar{s}_i+\bar{n}_i\bar{n}_j
     +\tilde{s}_i^2 + \tilde{s}_i\tilde{n}_j + \tilde{n}_i\tilde{s}_i + \tilde{n}_i\tilde{n}_j]\\
