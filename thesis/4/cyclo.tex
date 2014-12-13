@@ -158,7 +158,7 @@ Similarly, we compute $\sigma_{I|\tau_0}$ and $E[RI]$ as
     = &\sum_{i=0}^{N-1}(\bar{a}_i^2E[\tilde{r}^2] + \tilde{a}_i^2E[\bar{r}_i^2])\\
     = &\#\Theta_{\tau_0}(4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4) + 2(N - \#\Theta_{\tau_0})(\sigma_n^2+\sigma_{s_A}^2)^2 +  8\sum_{i\in\Theta_{\tau_0}}\tilde{a}_i^2\sigma_{s_A}^4 
   \end{split}
-  \label{EI2}
+  \label{EI^2}
 \end{equation}
 %\begin{equation}
 %  E[I^2] = \sum_{i=0}^{N-1}(\bar{a}_i^2E[\tilde{r}^2] + \tilde{a}_i^2E[\bar{r}_i^2])
@@ -225,8 +225,8 @@ and the statistic of $R$ and $I$  under hypothesis $H_1$ are summarized in Table
 \begin{tabular}{|c|c|}
 \hline
 Statistics          & Value                                                                                                                                                                                                                 \\ \hline
-$\mu_{R|\tau_0}$    & $\displaystyle{\sum_{i\in\Theta_{\tau_0}}\bar{a}_i2\sigma_{sA}^2}$                                                                                                                                                                      \\ \hline
-$\mu_{I|\tau_0}$    & $\displaystyle{\sum_{i\in\Theta_0}\tilde{a}_i2\sigma_{sA}^2}$                                                                                                                                                                           \\ \hline
+$\mu_{R|\tau_0}$    & $\displaystyle{\sum_{i\in\Theta_{\tau_0}}\bar{a}_i2\sigma_{s_A}^2}$                                                                                                                                                                      \\ \hline
+$\mu_{I|\tau_0}$    & $\displaystyle{\sum_{i\in\Theta_0}\tilde{a}_i2\sigma_{s_A}^2}$                                                                                                                                                                           \\ \hline
 $\sigma_{R|\tau_0}$ & $\displaystyle{\left(\#\Theta_{\tau_0}(4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4) + 2(N - \#\Theta_{\tau_0})(\sigma_n^2+\sigma_{s_A}^2)^2+8\sum_{i\in\Theta_{\tau_0}}\bar{a}_i^2\sigma_{s_A}^4 - \mu_{R|\tau_0}^2 \right)^\frac{1}{2}}$  \\ \hline
 $\sigma_{I|\tau_0}$ & $\displaystyle{\left(\#\Theta_{\tau_0}(4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4) + 2(N - \#\Theta_{\tau_0})(\sigma_n^2+\sigma_{s_A}^2)^2+8\sum_{i\in\Theta_{\tau_0}}\tilde{a}_i^2\sigma_{s_A}^4 - \mu_{R|\tau_0}^2\right)^\frac{1}{2}}$ \\ \hline
 $\rho_{\tau_0}$    & $ \displaystyle{\frac{8\sigma_{s_A}^2\sum_{i\in \Theta_{\tau_0}}\tilde{a}_i\bar{a}_i - \mu_{R|\tau_0}\mu_{I|\tau_0}}{\sigma_{R|\tau_0}\sigma_{I|\tau_0}}}$                                                                            \\ \hline
@@ -245,30 +245,109 @@ under hypothesis $H_1$ can be written in form of
   \begin{split}
   f_2(R, I) &= \sum_{\tau_0 = 0}^{l_0-1} \frac{1}{l_0}f(R, I|\tau=\tau_0)\\
   &= \sum_{\tau_0 = 0}^{l_0-1}\frac{1}{2l_0\pi\sigma_{I|\tau_0}\sigma_{R|\tau_0}\sqrt{1 - \rho_{\tau_0}^2}}\exp\left( -\frac{1}{2(1-\rho_{\tau_0}^2)}\left[ \frac{(R-\mu_{R|\tau_0})^2}{\sigma_{R|\tau_0}^2} + \right.\right.\\
-  & \left. \left. \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \frac{(I-\mu_{I|\tau_0})^2}{\sigma_{I|\tau_0}^2} - \frac{2\rho(R-\mu_{R|\tau_0})(I-\mu_{I|\tau_0})}{\sigma_{R|\tau_0}\sigma_{I|\tau_0}}\right] \right)\,.
+  & \left. \left. \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \frac{(I-\mu_{I|\tau_0})^2}{\sigma_{I|\tau_0}^2} - \frac{2\rho(R-\mu_{R|\tau_0})(I-\mu_{I|\tau_0})}{\sigma_{R|\tau_0}\sigma_{I|\tau_0}}\right] \right)\,,
 \end{split}
   \label{f_1underH1}
 \end{equation}
-The statistics of $R$ and $I$ under hypothesis $H_2$ is given in Table \ref{Table3} on page \pageref{Table3}. 
+wherestatistics of $R$ and $I$ under hypothesis $H_2$ is given in Table \ref{Table3} on page \pageref{Table3}. 
 
-\begin{table}[h]
+\begin{table}[h] 
 \begin{tabular}{|c|c|}
 \hline
 Statistics          & Value                                                                                                                                                                                                                 \\ \hline
-$\mu_{R|\tau_0}$    & $\displaystyle{\sum_{i\in\Theta_{\tau_0}}\bar{a}_i2\sigma_{sB}^2}$                                                                                                                                                                      \\ \hline
-$\mu_{I|\tau_0}$    & $\displaystyle{\sum_{i\in\Theta_0}\tilde{a}_i2\sigma_{sB}^2}$                                                                                                                                                                           \\ \hline
-$\sigma_{R|\tau_0}$ & $\displaystyle{\left(\#\Theta_{\tau_0}(4\sigma_{sB}^2\sigma_n^2+2\sigma_n^4) + 2(N - \#\Theta_{\tau_0})(\sigma_n^2+\sigma_{sB}^2)^2+8\sum_{i\in\Theta_{\tau_0}}\bar{a}_i^2\sigma_{sB}^4 - \mu_{R|\tau_0}^2 \right)^\frac{1}{2}}$  \\ \hline
-$\sigma_{I|\tau_0}$ & $\displaystyle{\left(\#\Theta_{\tau_0}(4\sigma_{sB}^2\sigma_n^2+2\sigma_n^4) + 2(N - \#\Theta_{\tau_0})(\sigma_n^2+\sigma_{sB}^2)^2+8\sum_{i\in\Theta_{\tau_0}}\tilde{a}_i^2\sigma_{sB}^4 - \mu_{R|\tau_0}^2\right)^\frac{1}{2}}$ \\ \hline
-$\rho_{\tau_0}$    & $ \displaystyle{\frac{8\sigma_{sB}^2\sum_{i\in \Theta_{\tau_0}}\tilde{a}_i\bar{a}_i - \mu_{R|\tau_0}\mu_{I|\tau_0}}{\sigma_{R|\tau_0}\sigma_{I|\tau_0}}}$                                                                            \\ \hline
+$\mu_{R|\tau_0}$    & $\displaystyle{\sum_{i\in\Theta_{\tau_0}}\bar{a}_i2\sigma_{s_B}^2}$                                                                                                                                                                      \\ \hline
+$\mu_{I|\tau_0}$    & $\displaystyle{\sum_{i\in\Theta_0}\tilde{a}_i2\sigma_{s_B}^2}$                                                                                                                                                                           \\ \hline
+$\sigma_{R|\tau_0}$ & $\displaystyle{\left(\#\Theta_{\tau_0}(4\sigma_{s_B}^2\sigma_n^2+2\sigma_n^4) + 2(N - \#\Theta_{\tau_0})(\sigma_n^2+\sigma_{s_B}^2)^2+8\sum_{i\in\Theta_{\tau_0}}\bar{a}_i^2\sigma_{s_B}^4 - \mu_{R|\tau_0}^2 \right)^\frac{1}{2}}$  \\ \hline
+$\sigma_{I|\tau_0}$ & $\displaystyle{\left(\#\Theta_{\tau_0}(4\sigma_{s_B}^2\sigma_n^2+2\sigma_n^4) + 2(N - \#\Theta_{\tau_0})(\sigma_n^2+\sigma_{s_B}^2)^2+8\sum_{i\in\Theta_{\tau_0}}\tilde{a}_i^2\sigma_{s_B}^4 - \mu_{R|\tau_0}^2\right)^\frac{1}{2}}$ \\ \hline
+$\rho_{\tau_0}$    & $ \displaystyle{\frac{8\sigma_{s_B}^2\sum_{i\in \Theta_{\tau_0}}\tilde{a}_i\bar{a}_i - \mu_{R|\tau_0}\mu_{I|\tau_0}}{\sigma_{R|\tau_0}\sigma_{I|\tau_0}}}$                                                                            \\ \hline
 \end{tabular}
 \caption{Statistic for $R$ and $I$ under hypothesis $H_2$}
 \label{Table3}
 \end{table}
 
+Next we consider the distribution of 
+$\begin{bmatrix}
+  R \\
+  I
+\end{bmatrix}$
+under hypothesis $H_0$. 
 
+According to the expression of $R$ and $I$ given in \eqref{R} and \eqref{I}, $\mu_R$ and $\mu_I$ can be computed as
+\begin{equation}
+  \begin{split}
+    \mu_R =E[R] = &\sum_{i=0}^{N-1}\bar{a}_iE[\bar{r}_i] - \sum_{i=0}^{N-1}\tilde{a}_iE[\tilde{r}_i] \\
+    = &0
+  \end{split}
+  \label{ERnoise}
+\end{equation}
+and 
+\begin{equation}
+  \begin{split}
+  \mu_{I|\tau_0} =  E[I] = &\sum_{i\in\Theta_0}\tilde{a}_i2\sigma_s^2\\
+  = &0
+  \end{split}
+  \label{EInoise}
+\end{equation}
+The second order statistics of $R$ and $I$ are
+\begin{equation}
+  \begin{split}
+  E[R^2] = &E[(\sum_{i=0}^{N-1}\bar{a}_i\bar{r}_i - \sum_{i=0}^{N-1}\tilde{a}_i\tilde{r}_i)(\sum_{i=0}^{N-1}\bar{a}_i\bar{r}_i - \sum_{i=0}^{N-1}\tilde{a}_i\tilde{r}_i)]\\
+  = &E[\sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\bar{a}_i\bar{a}_k\bar{r}_i\bar{r}_k - \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\bar{a}_i\tilde{a}_k\bar{r}_i\tilde{r}_k - \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\bar{a}_i\tilde{a}_k\bar{r}_i\tilde{r}_k + \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\tilde{a}_i\tilde{a}_k\tilde{r}_i\tilde{r}_k]\\
+  = &\sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\bar{a}_i\bar{a}_kE[\bar{r}_i\bar{r}_k] - \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\bar{a}_i\tilde{a}_kE[\bar{r}_i\tilde{r}_k] - \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\bar{a}_i\tilde{a}_kE[\bar{r}_i\tilde{r}_k] + \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\tilde{a}_i\tilde{a}_kE[\tilde{r}_i\tilde{r}_k]\\
+  = &\sum_{i=0}^{N-1}(\bar{a}_i^2E[\bar{r}_i^2] + \tilde{a}_i^2E[\tilde{r}_i^2])\\
+  = &2N\sigma_n^4\,,
+\end{split}
+  \label{ER^2noise}
+\end{equation}
+ 
+\begin{equation}
+  \begin{split}
+    E[I^2] = &E[(\sum_{i=0}^{N-1}\tilde{a}_i\bar{r}_i + \sum_{i=0}^{N-1}\bar{a}_i\tilde{r}_i)(\sum_{i=0}^{N-1}\tilde{a}_i\bar{r}_i + \sum_{i=0}^{N-1}\bar{a}_i\tilde{r}_i)]\\
+    = &\sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\tilde{a}_i\tilde{a}_kE[\bar{r}_i\bar{r}_j] + \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\tilde{a}_i\bar{a}_jE[\bar{r}_i\tilde{r}_j] +\sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\tilde{a}_i\bar{a}_jE[\bar{r}_i\tilde{r}_j] + \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\bar{a}_i\bar{a}_jE[\tilde{r}_i\tilde{r}_j] \\
+    = &\sum_{i=0}^{N-1}(\bar{a}_i^2E[\tilde{r}^2] + \tilde{a}_i^2E[\bar{r}_i^2])\\
+    = &2N\sigma_n^4
+  \end{split}
+  \label{EI^2noise}
+\end{equation}
+and
 
+\begin{equation}
+  \begin{split}
+    E[RI]= &E[\sum_{i=0}^{N-1} \sum_{k=0}^{N-1} \bar{a}_i\tilde{a}_k\bar{r}_i\bar{r}_k + 
+\sum_{i=0}^{N-1} \sum_{k=0}^{N-1} \bar{a}_i\bar{a}_k\bar{r}_i\tilde{r}_k - 
+\sum_{i=0}^{N-1} \sum_{k=0}^{N-1} \tilde{a}_i\tilde{a}_k\tilde{r}_i\bar{r}_k - 
+\sum_{i=0}^{N-1} \sum_{k=0}^{N-1} \tilde{a}_i\bar{a}_k\tilde{r}_i\tilde{r}_k]\\
+= &\sum_{i=0}^{N-1} \sum_{k=0}^{N-1} \bar{a}_i\tilde{a}_kE[\bar{r}_i\bar{r}_k] + 
+\sum_{i=0}^{N-1} \sum_{k=0}^{N-1} \bar{a}_i\bar{a}_kE[\bar{r}_i\tilde{r}_k] - 
+\sum_{i=0}^{N-1} \sum_{k=0}^{N-1} \tilde{a}_i\tilde{a}_kE[\tilde{r}_i\bar{r}_k] - 
+\sum_{i=0}^{N-1} \sum_{k=0}^{N-1} \tilde{a}_i\bar{a}_kE[\tilde{r}_i\tilde{r}_k]\\
+  = 0\,.
+  \label{ERInoise}
+  \end{split}
+\end{equation}
 
+$\sigma_R$ and $\sigma_I$ can be computed as
+\begin{equation}
+  \sigma_R = \sqrt{E[R^2] - E[R]^2} = \sqrt{2N}\sigma_n^2
+  \label{deviationR}
+\end{equation}
+and
+\begin{equation}
+  \sigma_I = \sqrt{E[I^2] - E[I]^2} = \sqrt{2N}\sigma_n^2
+  \label{deviationR}
+\end{equation}
 
-
+Further more, since $E[RI] = E[R]E[I]$ = 0 and $R, I$ are combined gaussian distributed,  we know under hypothesis $H_0$ they are independent. Hence the distribution of $\begin{bmatrix}
+  R \\
+  I
+\end{bmatrix}$ can be written as
+\begin{equation}
+  \begin{split}
+  f_0(R, I)= &f_0(R)f_0(I)\\
+  = &\frac{1}{\sqrt{2N}\sigma_n^2\sqrt{2\pi}}\exp\left( -\frac{R^2}{4N\sigma_n^4} \right)\frac{1}{\sqrt{2N}\sigma_n^2\sqrt{2\pi}}\exp\left( -\frac{R^2}{4N\sigma_n^4} \right)\\
+  =&\frac{1}{4\pi N\sigma_n^4}\exp\left( -\frac{I^2+R^2}{4N\sigma_n^4} \right) 
+\end{split}
+  \label{f0RO}
+\end{equation}
 \subsection{Numerical Results}
 
