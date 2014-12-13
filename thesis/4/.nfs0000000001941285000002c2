@@ -1,0 +1,191 @@
+% cyclostationary based energy detection
+\section{Cyclostationary Detection for multiple Primary Users}
+\subsection{System Model}
+
+We consider a cognitive radio system where the spectrum can be occupied by exactly one of two distinct primary signals $\{s_A, s_B\}$ or it could be vacant. Let $H_0$ denote the situation under which the channel is free, $H_1$ denote the hypothesis under which the channel is occupied by signal $s_A$ and $H_2$ denote the hypothesis under which the channel is occupied by signals $s_B$. Both $s_A, s_B$ are OFDM signals with exactly the same data structure. The block diagram of the system is illustrated in Figure.
+
+The measuring device observes $M$ samples of the noise version signals that could be present in the channel and output a suitable testing statistics. With this statistics, the testing device employs MENP to determine the status of the channel. The input of measuring device is
+\begin{equation}
+  \mathbf{x} = \begin{cases}
+	\mathbf{n}\;\;\;\;\;\;&\text{when $H_0$ is true}\\
+	\mathbf{n}+\mathbf{s}_A\;\;\;\;\;\;&\text{when $H_1$ is true}\\
+	\mathbf{n}+\mathbf{s}_B\;\;\;\;\;\;&\text{when $H_2$ is true}\\
+  \end{cases}
+  \label{equ:1209a1}
+\end{equation}
+where 
+\begin{equation}
+  \begin{cases}
+	&\mathbf{x} = (x_0, x_1, \cdots, x_{M_1})\\
+	&\mathbf{s}_A = (s_{A0}, s_{A1}, \cdots, s_{A(M-1)})\\
+	&\mathbf{s}_B = (s_{B0}, s_{B1}, \cdots, s_{B(M-1)})\\
+	&\mathbf{n} = (n_{0}, n_{1}, \cdots, n_{M-1})\,.
+  \end{cases}
+  \label{xssn}
+\end{equation}
+Assume each OFDM frame contains a CP sequence of length $l_C$ followed by a data sequence of length $l_D$, so the total length of an OFDM frame is $l_0 = l_C+l_D$. In general case, when there are signal transmitting, the receiver is not synchronized to the transmitted signal (c.f. ), i.e. $s_{A0}$ ( or $s_{B0}$) is not the first symbol of an OFDM frame. Let $\tau$ represents the synchronization mismatch. That is, when $\tau = 0$, $s_0$ is the first symbol of an OFDM frame; when $\tau = l_C+l_D -1$, $s_0$ is the last symbol of an OFDM frame. Let $N = Kl_0$, i.e. when perfect synchronization the detector would observe $K$ complete  OFDM frames (as it is shown in Figure); otherwise, the detector would observe $K-1$ complete OFDM frame and $2$ incomplete OFDM frame (as it is shown in Figure). Like in most related literature (c.f. ), we assume  $n_i$ are i.i.d. CSCG with variance $2\sigma_n^2$, i.e. $n_i \sim \mathcal{CN}(0, 2\sigma_n^2)$. 
+
+The CP structure could introduce strong cyclostationarity to the transmitted OFDM signals ($s_A$ or $s_B$) \cite{lunden2010robust}. 
+Let $r_i=x_ix_j^\ast$ ($j=i+l_D$), \cite{lunden2007spectrum} shows $r_i$ exhibit cyclic property at frequency $\alpha = \frac{K}{l_0}$ ($K = \pm1, \pm2, \cdots$). In this case, we consider a single cyclic detector at frequency $\alpha = \frac{1}{l_0}$. 
+Let $\mathbf{r}$ denote the vector of $r_i$, since the length of vector $\mathbf{x}$ is $M$, the length of $\mathbf{r}$ is $M - l_D$. For simple representation, let $N = M - l_D$.
+Like in most related literature reviews (c.f. \cite{lunden2010robust} \cite{dandawate1994statistical}), the cyclic-covariance estimator for frequency $\alpha$ can be written as
+\begin{equation}
+  \hat{R}(l_D, \alpha) = \frac{1}{N}\sum_{i=0}^{N-1} r_ia_i\,.
+  \label{cyclicR}
+\end{equation}
+where $a_i = \exp(-j2\pi\alpha i)$. 
+The output of the measuring device is the real and imaginary part of the cyclic covariance estimator, i.e. 
+\begin{equation}
+  Y = \begin{bmatrix}
+	R \\
+	I
+   \end{bmatrix}\,,
+  \label{cyclic_cov}
+\end{equation}
+where 
+\[
+  R = \Re(\hat{R}(l_D, \alpha))
+\]
+and 
+\[
+I = \Im(\hat{R}(l_D, \alpha))\,.
+\]
+By observing $y$, a realization  of $Y$, the testing device determines the status of the channel.
+According to \cite{lunden2010robust}, $\hat{R}(l_D, \alpha)$ subject to normal distribution for a large $K$, so $Y$ has the two-dimensional Gaussian distribution \cite{goodman1963statistical}.
+Let $\bar{c}$ and $\tilde{c}$ denote the real and imaginary parts of a complex number $c$ respectively. Then, $a_i = \bar{a}_i + j\tilde{a}_i$  and $r_i = \bar{r}_i + j\tilde{r}_i$. 
+
+The moment function of $\bar{r}_i, \tilde{r}_i$ are derived in \cite{axell2011optimal} and summarized in Table \ref{table1}.
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+\begin{table}[h]
+  \label{table1}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\multirow{2}{*}{}           & \multirow{2}{*}{$H_0$} & \multicolumn{2}{c|}{$H_1$}                                                               & \multicolumn{2}{c|}{$H_2$}                                                               \\ \cline{3-6} 
+                            &                        & situ1                                                   & situ2                          & situ1                                                   & situ2                          \\ \hline
+							$E[\bar{r}_i]$              & $0$                    & $2\sigma_{s_A}^2$                                       & $0$                            & $2\sigma_{s_N}^2$                                                         & $0$                            \\ \hline
+$E[\tilde{r}_i]$            & $0$                    & $0$                                                     & $0$                            & $0$                                                     & $0$                            \\ \hline
+$E[\bar{r}_i^2]$            & $2\sigma_n^4$          & $8\sigma_{s_A}^4+4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4$ & $2(\sigma_n^2+\sigma_{s_A}^2)^2$ & $8\sigma_{s_B}^4+4\sigma_{s_B}^2\sigma_n^2+2\sigma_n^4$ & $2(\sigma_n^2+\sigma_{s_B}^2)^2$ \\ \hline
+$E[\tilde{r}_i^2]$          & $2\sigma_n^4$          & $4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4$                 & $2(\sigma_n^2+\sigma_{s_A}^2)^2$ & $4\sigma_{s_B}^2\sigma_n^2+2\sigma_n^4$                 & $2(\sigma_n^2+\sigma_{s_B}^2)^2$ \\ \hline
+$E[\bar{r}_i\bar{r}_j]$     & $0$                    & $0$                                                     & $0$                            & $0$                                                     & $0$                            \\ \hline
+$E[\bar{r}_i\tilde{r}_j]$   & $0$                    & $0$                                                     & $0$                            & $0$                                                     & $0$                            \\ \hline
+$E[\tilde{r}_i\tilde{r}_j]$ & $0$                    & $0$                                                     & $0$                            & $0$                                                     & $0$                            \\ \hline
+\end{tabular}
+\end{table}
+
+
+In the following, we consider the distribution of $\begin{bmatrix}
+	R \\
+	I
+   \end{bmatrix}$ under hypothesis $H_1$ with synchronization mismatch $\tau = \tau_0$.
+From the definition of $R$ and $I$, we have 
+\begin{equation}
+  \begin{split}
+  R = &\Re{(\sum_{i=0}^{N-1} a_ir_i)}\\
+  = &\Re(\sum_{i=0}^{N-1}(\bar{a}_i+j\tilde{a}_i)(\bar{r}_i+j\tilde{r}_i))\\
+  = &\sum_{i=0}^{N-1}\bar{a}_i\bar{r}_i - \sum_{i=0}^{N-1}\tilde{a}_i\tilde{r}_i
+\end{split}
+  \label{R}
+\end{equation}
+and
+\begin{equation}
+  \begin{split}
+    I = &\Im(\sum_{i=0}^{N-1} a_ir_i)\\
+      = &\sum_{i=0}^{N-1}\tilde{a}_i\bar{r}_i + \sum_{i=0}^{N-1}\bar{a}_i\tilde{r}_i
+  \end{split}
+  \label{I}
+\end{equation}
+
+Let $\Theta_{\tau_0}$ denote the set of subscripts such that if $i \in \Theta_{\tau_0}$,  $s[i]$ belongs to  CP sequence of an OFDM frame.
+From Figure XX, we can see $i \in \Theta_{\tau_0}$ if and only if $i + \tau_0 \in [Ml_0, Ml_0+l_c -1]$ ($M = 0, 1, \cdots, K$). 
+
+Let $\mu_{R|\tau_0}$ $\mu_{I|\tau_0}$ denote the mean of $R$ and $I$ with synchronization mismatch $\tau=\tau_0$ respectively. By using the statistics of $r_i$ in Table \ref{Tables}, we compute  $\mu_{R|\tau_0}$ $\mu_{I|\tau_0}$:
+\begin{equation}
+\begin{split}
+  \mu_{R|\tau_0} =  E[R] = &\sum_{i=0}^{N-1}\bar{a}_iE[\bar{r}_i] - \sum_{i=0}^{N-1}\tilde{a}_iE[\tilde{r}_i]\\
+ = &\sum_{i\in\Theta_{\tau_0}}\bar{a}_i2\sigma_s^2
+  \end{split}
+  \label{ER}
+\end{equation}
+
+\begin{equation}
+\begin{split}
+  \mu_{I|\tau_0} =  E[I] = &\sum_{i\in\Theta_0}\tilde{a}_i2\sigma_s^2\\
+  = &\sum_{i\in\Theta_0}\tilde{a}_i2\sigma_s^2\,.
+  \end{split}
+  \label{EI}
+\end{equation}
+
+The  second order statistic of $R$ and $I$ can be computed as
+\begin{equation}
+\begin{split}
+  E[R^2] = &E[(\sum_{i=0}^{N-1}\bar{a}_i\bar{r}_i - \sum_{i=0}^{N-1}\tilde{a}_i\tilde{r}_i)(\sum_{i=0}^{N-1}\bar{a}_i\bar{r}_i - \sum_{i=0}^{N-1}\tilde{a}_i\tilde{r}_i)]\\
+  = &E[\sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\bar{a}_i\bar{a}_k\bar{r}_i\bar{r}_k - \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\bar{a}_i\tilde{a}_k\bar{r}_i\tilde{r}_k - \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\bar{a}_i\tilde{a}_k\bar{r}_i\tilde{r}_k + \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\tilde{a}_i\tilde{a}_k\tilde{r}_i\tilde{r}_k]\\
+= &\sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\bar{a}_i\bar{a}_kE[\bar{r}_i\bar{r}_k] - \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\bar{a}_i\tilde{a}_kE[\bar{r}_i\tilde{r}_k] - \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\bar{a}_i\tilde{a}_kE[\bar{r}_i\tilde{r}_k] + \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\tilde{a}_i\tilde{a}_kE[\tilde{r}_i\tilde{r}_k]\\
+= &\sum_{i=0}^{N-1}(\bar{a}_i^2E[\bar{r}^2] + \tilde{a}_i^2E[\tilde{r}_i^2])\\
+= &\sum_{i\in\Theta_{\tau_0}}\bar{a}_i^2(8\sigma_{s_A}^4+4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4) + \sum_{i\in\Theta_{\tau_0}}\tilde{a}_i^2(4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4) + \sum_{i\notin\Theta_{\tau_0}}(\tilde{a}_i^2+\bar{a}_i^2)2(\sigma_n^2+\sigma_{s_A}^2)^2
+  \end{split}
+  \label{ER}
+\end{equation}
+From the definition of $a_i$, we have
+\begin{equation}
+  \bar{a}_i^2 + \tilde{a}_i^2 =1
+  \label{aisquare}
+\end{equation}
+so \eqref{ER} can be written as
+\begin{equation}
+  \begin{split}
+	E[R^2] = &\sum_{i\in\Theta_{\tau_0}}  (4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4)+ 8\sum_{i\in\Theta_{\tau_0}}\bar{a}_i^2\sigma_{s_A}^4 + 2\sum_{i\notin\Theta_{\tau_0}}(\sigma_n^2+\sigma_{s_A}^2)^2\\
+	= &\#\Theta_{\tau_0}(4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4) + 2(N - \#\Theta_{\tau_0})(\sigma_n^2+\sigma_{s_A}^2)^2 +  8\sum_{i\in\Theta_{\tau_0}}\bar{a}_i^2\sigma_{s_A}^4
+  \end{split}
+  \label{ER2}
+\end{equation}
+where $\#\Theta_{\tau_0}$ is the cardinality of set $\Theta_{\tau_0}$. Let $\sigma_{R|\tau_0}$ $\sigma_{I|\tau_0}$ denote the standard deviation of $R$ and $R$ when synchronization mismatch is $\tau_0$, 
+\begin{equation}
+  \begin{split}
+	\sigma_{R|\tau_0} = &\sqrt{E[R^2] - E[R]^2}\\
+	= &(\#\Theta_{\tau_0}(4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4) + 2(N - \#\Theta_{\tau_0})(\sigma_n^2+\sigma_{s_A}^2)^2 +  8\sum_{i\in\Theta_{\tau_0}}\bar{a}_i^2\sigma_{s_A}^4 - (\sum_{i\in\Theta_{\tau_0}}\bar{a}_i^2 )4\sigma_{s_A}^4
+	)^\frac{1}{2$}\,.
+  \end{split}
+  \label{deviationR}
+\end{equation}
+Similarly, we compute $\sigma_{I|\tau_0}$ and $E[RI]$ as
+%\begin{equation}
+%  E[I^2] = \sum_{i=0}^{N-1}(\bar{a}_i^2E[\tilde{r}^2] + \tilde{a}_i^2E[\bar{r}_i^2])
+%  \label{EI2}
+%\end{equation }
+\begin{equation}
+  \begin{split}
+	\sigma_{I|\tau_0} = &\sqrt{E[I^2] - E[I]^2}\\
+	= &(\#\Theta_{\tau_0}(4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4) + 2(N - \#\Theta_{\tau_0})(\sigma_n^2+\sigma_{s_A}^2)^2 +  8\sum_{i\in\Theta_{\tau_0}}\tilde{a}_i^2\sigma_{s_A}^4 - (\sum_{i\in\Theta_{\tau_0}}\tilde{a}_i^2 )4\sigma_{s_A}^4
+	)^\frac{1}{2$}\,.
+  \end{split}
+  \label{deviationI}
+\end{equation}
+\begin{equation}
+  \begin{split}
+  E[RI]= &\sum_{i=0}^{N-1}\tilde{a}_i\bar{a}_iE[\bar{r}_i^2] - \sum_{i=0}^{N-1}\tilde{a}_i\bar{a}_iE[\tilde{r}_i^2]\\
+  = &8\sigma_{s_A}^2\sum_{i=0}^{N-1}\tilde{a}_i\bar{a}_i
+  \label{ERI}
+\end{equation}
+Let $\rho_{\tau_0}$ represents the correlation between $R$ and $I$ with synchronization mismatch $\tau_0$, we have
+\begin{equation}
+  \rho_{\rho_0} = \frac{E[RI]-\mu_{R|\tau_0}}\mu_{I|\tau_0}{\sigma_{R|\tau_0}}\sigma_{I|\tau_0}\,.
+  \label{RIcorrelation}
+\end{equation}
+We can get the exact value of $\rho_{\tau_0}$ by substituting \eqref{ER} \eqref{EI}, \eqref{deviationR} \eqref{deviationI} and \eqref{ERI} into \eqref{RIcorrelation}.
+Hence the distribution of 
+$\begin{bmatrix}
+	R \\
+	I
+   \end{bmatrix}$ with synchronization mismatch $\tau = \tau_0$ is
+\begin{equation}
+  f(R,I) = \frac{1}{2\pi\sigma_{I|\tau_0}\sigma_{R|\tau_0}\sqrt{1 - \rho_{\tau_0}^2}}\exp\left( -\frac{1}{2(1-\rho_{\tau_0}^2)}\left[ \frac{(R-\mu_{R|\tau_0})^2}{\sigma_R^2} +  \frac{(I-\mu_{I|\tau_0})^2}{\sigma_I^2} - \frac{2\rho(R-\mu_{R|\tau_0})(I-\mu_{I|\tau_0})}{\sigma_{R|\tau_0}\sigma_{I|\tau_0}}\right] \right)
+  \label{disRI}
+\end{equation}
+
+
+
+\subsection{Numerical Results}
+
