@@ -182,7 +182,49 @@ When $i,k \in \Theta_{\tau_0}$, \eqref{1213a} can be written as
  \end{split}
    \label{equ:1213b}
 \end{equation}
-Hence we can conclude $E[\bar{r}_i\tilde{r}_k] = 0$ ($i \neq k $).  
+Hence we can conclude $E[\bar{r}_i\tilde{r}_k] = 0$ ($i \neq k $).  Now consider the value of $E[\tilde{r}_i\tilde{r}_k]$, which can be written as
+\begin{equation}
+  \begin{split}
+    E[\tilde{r}_i\tilde{r}_k] = &E[(\tilde{s}_i\bar{s}_j + \tilde{s}_i\bar{n}_j + \tilde{n}_i\bar{s}_j + \tilde{n}_i\bar{n}_j - \bar{s}_i\tilde{s}_j - \bar{s}_i\tilde{n}_j - \bar{n}_i\tilde{s}_j - \bar{n}_i\tilde{n}_j)\\
+    &(\tilde{s}_k\bar{s}_l + \tilde{s}_k\bar{n}_l + \tilde{n}_k\bar{s}_l + \tilde{n}_k\bar{n}_l - \bar{s}_k\tilde{s}_l - \bar{s}_k\tilde{n}_l - \bar{n}_k\tilde{s}_l - \bar{n}_k\tilde{n}_l)]\\
+    = &E[\bar{s}_j\tilde{s}_k\tilde{s}_i\bar{s}_l]+E[\bar{s}_j\tilde{s}_k\tilde{s}_i\bar{n}_l]+E[\bar{s}_j\tilde{s}_i\tilde{n}_k\bar{s}_l]+E[\bar{s}_j\tilde{s}_i\tilde{n}_k\bar{n}_l]-E[\bar{s}_j\bar{s}_k\tilde{s}_i\tilde{s}_l]\\
+&-E[\bar{s}_j\bar{s}_k\tilde{s}_i\tilde{n}_l]-E[\bar{s}_j\tilde{s}_i\bar{n}_k\tilde{s}_l]-E[\bar{s}_j\tilde{s}_i\tilde{n}_l\bar{n}_k]+E[\tilde{s}_k\tilde{s}_i\bar{n}_j\bar{s}_l]+E[\tilde{s}_k\tilde{s}_i\bar{n}_j\bar{n}_l]\\
+&+E[\tilde{n}_k\tilde{s}_i\bar{n}_j\bar{s}_l]+E[\tilde{n}_k\tilde{s}_i\bar{n}_j\bar{n}_l]-E[\bar{s}_k\tilde{s}_i\bar{n}_j\tilde{s}_l]-E[\bar{s}_k\tilde{s}_i\bar{n}_j\tilde{n}_l]-E[\tilde{s}_i\bar{n}_j\bar{n}_k\tilde{s}_l]\\
+&-E[\tilde{s}_i\bar{n}_j\tilde{n}_l\bar{n}_k]+E[\bar{s}_j\tilde{n}_i\bar{s}_l\tilde{s}_k]+E[\bar{s}_j\tilde{n}_i\bar{n}_l\tilde{s}_k]+E[\bar{s}_j\tilde{n}_i\tilde{n}_k\bar{s}_l]+E[\bar{s}_j\tilde{n}_i\tilde{n}_k\bar{n}_l]\\
+&-E[\bar{s}_j\tilde{n}_i\tilde{s}_l\bar{s}_k]-E[\bar{s}_j\tilde{n}_i\tilde{n}_l\bar{s}_k]-E[\bar{s}_j\tilde{n}_i\bar{n}_k\tilde{s}_l]-E[\bar{s}_j\tilde{n}_i\bar{n}_k\tilde{n}_l]+E[\tilde{s}_k\tilde{n}_i\bar{n}_j\bar{s}_l]\\
+&+E[\tilde{s}_k\tilde{n}_i\bar{n}_j\bar{n}_l]+E[\tilde{n}_i\tilde{n}_k\bar{n}_j\bar{s}_l]+E[\tilde{n}_i\tilde{n}_k\bar{n}_j\bar{n}_l]-E[\tilde{s}_l\tilde{n}_i\bar{n}_j\bar{s}_k]-E[\tilde{n}_i\bar{n}_j\tilde{n}_l\bar{s}_k]\\
+&-E[\tilde{n}_i\bar{n}_k\bar{n}_j\tilde{s}_l]-E[\tilde{n}_i\bar{n}_k\bar{n}_j\tilde{n}_l]-E[\tilde{s}_k\tilde{s}_j\bar{s}_i\bar{s}_l]-E[\tilde{s}_k\tilde{s}_j\bar{s}_i\bar{n}_l]-E[\tilde{s}_j\tilde{n}_k\bar{s}_i\bar{s}_l]\\
+&-E[\tilde{s}_j\tilde{n}_k\bar{s}_i\bar{n}_l]+E[\tilde{s}_l\tilde{s}_j\bar{s}_i\bar{s}_k]+E[\tilde{s}_j\bar{s}_i\tilde{n}_l\bar{s}_k]+E[\tilde{s}_j\bar{n}_k\bar{s}_i\tilde{s}_l]+E[\tilde{s}_j\bar{n}_k\bar{s}_i\tilde{n}_l]\\
+&-E[\tilde{s}_k\tilde{n}_j\bar{s}_i\bar{s}_l]-E[\tilde{s}_k\tilde{n}_j\bar{s}_i\bar{n}_l]-E[\tilde{n}_k\tilde{n}_j\bar{s}_i\bar{s}_l]-E[\tilde{n}_k\tilde{n}_j\bar{s}_i\bar{n}_l]+E[\bar{s}_k\tilde{n}_j\bar{s}_i\tilde{s}_l]\\
+&+E[\bar{s}_k\tilde{n}_j\bar{s}_i\tilde{n}_l]+E[\tilde{n}_j\bar{s}_i\bar{n}_k\tilde{s}_l]+E[\tilde{n}_j\bar{s}_i\tilde{n}_l\bar{n}_k]-E[\bar{n}_i\tilde{s}_j\bar{s}_l\tilde{s}_k]-E[\bar{n}_i\tilde{s}_j\bar{n}_l\tilde{s}_k]\\
+&-E[\bar{n}_i\tilde{s}_j\tilde{n}_k\bar{s}_l]-E[\bar{n}_i\tilde{s}_j\tilde{n}_k\bar{n}_l]+E[\bar{n}_i\tilde{s}_j\tilde{s}_l\bar{s}_k]+E[\bar{n}_i\tilde{s}_j\tilde{n}_l\bar{s}_k]+E[\bar{n}_i\tilde{s}_j\bar{n}_k\tilde{s}_l]\\
+&+E[\bar{n}_i\tilde{s}_j\bar{n}_k\tilde{n}_l]-E[\bar{n}_i\tilde{s}_k\tilde{n}_j\bar{s}_l]-E[\bar{n}_i\tilde{s}_k\tilde{n}_j\bar{n}_l]-E[\bar{n}_i\tilde{n}_j\tilde{n}_k\bar{s}_l]-E[\bar{n}_i\tilde{n}_j\tilde{n}_k\bar{n}_l]\\
+&+E[\bar{n}_i\bar{s}_k\tilde{n}_j\tilde{s}_l]+E[\bar{n}_i\bar{s}_k\tilde{n}_j\tilde{n}_l]+E[\bar{n}_i\tilde{n}_j\bar{n}_k\tilde{s}_l]+E[\bar{n}_i\tilde{n}_j\tilde{n}_l\bar{n}_k]
+  \end{split}
+  \label{EIrIr}
+\end{equation}
+Eliminate zero value items, we have 
+\begin{equation}
+  E[\tilde{r}_i\tilde{r}_k] = E[\bar{s}_j\tilde{s}_k\tilde{s}_i\bar{s}_l] -  E[\bar{s}_j\bar{s}_k\tilde{s}_i\tilde{s}_l] - E[\tilde{s}_j\tilde{s}_k\bar{s}_i\bar{s}_l] +E[\tilde{s}_j\bar{s}_k\bar{s}_i\tilde{s}_l]
+  \label{1213night}
+\end{equation}
+
+Similar with $E[\bar{r}_i\bar{r}_k]$, when $i$ (or $k$) does not belong to set $\Theta_{\tau_0}$, we have
+\begin{equation}
+   E[\tilde{r}_i\tilde{r}_k] = 0\,. 
+\end{equation}
+When $i, k \in \Theta_{\tau_0}$, equation \eqref{1213night} can be written as
+\begin{equation}
+  \begin{split}
+  E[\tilde{r}_i\tilde{r}_k] = &E[\bar{s}_i\tilde{s}_k\tilde{s}_i\bar{s}_k] -  E[\bar{s}_i\bar{s}_k\tilde{s}_i\tilde{s}_k] - E[\tilde{s}_i\tilde{s}_k\bar{s}_i\bar{s}_k] +E[\tilde{s}_i\bar{s}_k\bar{s}_i\tilde{s}_k]\\
+  = &E[\bar{s}_i]E[\tilde{s}_k]E[\tilde{s}_i]E[\bar{s}_k] -  E[\bar{s}_i]E[\bar{s}_k]E[\tilde{s}_i]E[\tilde{s}_k] - E[\tilde{s}_i]E[\tilde{s}_k]E[\bar{s}_i]E[\bar{s}_k] +E[\tilde{s}_i]E[\bar{s}_k]E[\bar{s}_i]E[\tilde{s}_k]\\
+  = &0\,.
+  \end{split}
+\end{equation}
+
+Hence we can conclude $E[\tilde{r}_i\tilde{r}_k] = 0$ when $i \neq k$.
+
+
 
 In the following, we consider the distribution of $\begin{bmatrix}
   R \\
