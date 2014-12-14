@@ -72,13 +72,117 @@ The moment function of $\bar{r}_i, \tilde{r}_i$ are derived in \cite{axell2011op
   \caption{Moment function of $r_i$}
   \label{table1}
 \end{table}
-Next we consider the statistic of $r_i$ and $r_k$ ($i < j$), for easy presentation, we let $j=i+l_D$ and $l=k+l_D$,
+
+Let $j = i + l_D$, when there are primary signal present in the channel the expression of $r_i$ can be written as
 \begin{equation}
   \begin{split}
-    E[\bar{r}_i\bar{r}_k]= 
-  \end{split}<++>
-  \label{<++>}
-\end{equation}<++>
+    r_i = &(s_i+n_i)(s_j + n_j)^\ast\\
+    = &(\bar{s}_i+j\tilde{s}_i + \bar{n}_i+j\tilde{n}_i)(\bar{s}_j-j\tilde{s}_j + \bar{n}_j-j\tilde{n}_j)\\
+    = &\bar{s}_i\bar{s}_j + \bar{s}_i\bar{n}_j +\tilde{s}_i\tilde{s}_j+\tilde{n}_i\tilde{n}_j + \bar{n}_i\bar{s}_j+\bar{n}_i\bar{n}_j+\tilde{n}_i\tilde{s}_j+\tilde{n}_i\tilde{n}_j\\
+    + &j\left( \tilde{s}_i\bar{s}_j + \tilde{s}_i\bar{n}_j + \tilde{n}_i\bar{s}_j + \tilde{n}_i\bar{n}_j - \bar{s}_i\tilde{s}_j - \bar{s}_i\tilde{n}_j - \bar{n}_i\tilde{s}_j - \bar{n}_i\tilde{n}_j \right)
+    %real part:   +\bar{s}_i^2 + \bar{s}_i\bar{n}_j+\bar{n}_i\bar{s}_i+\bar{n}_i\bar{n}_j + \tilde{s}_i^2 + \tilde{s}_i\tilde{n}_j + \tilde{n}_i\tilde{s}_i + \tilde{n}_i\tilde{n}_j
+    %imaginary part:   -\bar{s}_i\tilde{s}_i - \bar{s}_i\tilde{n}_j - \bar{n}_i\tilde{s}_i - \bar{n}_i\tilde{n}_j + \tilde{s}_i\bar{s}_i + \tilde{s}_i\bar{n}_j + \tilde{n}_i\bar{s}_i + \tilde{n}_i\bar{n}_j
+  \end{split}
+\end{equation}
+Thus we have 
+\begin{equation}
+  \begin{cases}
+    \bar{r}_i = \bar{s}_i\bar{s}_j + \bar{s}_i\bar{n}_j +\tilde{s}_i\tilde{s}_j+\tilde{n}_i\tilde{n}_j + \bar{n}_i\bar{s}_j+\bar{n}_i\bar{n}_j+\tilde{n}_i\tilde{s}_j+\tilde{n}_i\tilde{n}_j\\
+    \tilde{r}_i = \tilde{s}_i\bar{s}_j + \tilde{s}_i\bar{n}_j + \tilde{n}_i\bar{s}_j + \tilde{n}_i\bar{n}_j - \bar{s}_i\tilde{s}_j - \bar{s}_i\tilde{n}_j - \bar{n}_i\tilde{s}_j - \bar{n}_i\tilde{n}_j\,.
+  \end{cases}
+  \label{RrIr}
+\end{equation}
+
+Next we consider the statistic of $r_i$ and $r_k$ ($i \neq j$), for easy presentation, we let $l=k+l_D$,
+\begin{equation}
+  \begin{split}
+    E[\bar{r}_i\bar{r}_k] = &E[(\bar{s}_i\bar{s}_j + \bar{s}_i\bar{n}_j +\tilde{s}_i\tilde{s}_j+\tilde{n}_i\tilde{n}_j + \bar{n}_i\bar{s}_j+\bar{n}_i\bar{n}_j+\tilde{n}_i\tilde{s}_j+\tilde{n}_i\tilde{n}_j)\\
+    &(\bar{s}_k\bar{s}_l + \bar{s}_k\bar{n}_l +\tilde{s}_k\tilde{s}_l+\tilde{n}_k\tilde{n}_l + \bar{n}_k\bar{s}_l+\bar{n}_k\bar{n}_l+\tilde{n}_k\tilde{s}_l+\tilde{n}_k\tilde{n}_l)]\\
+    = &E[\bar{s}_j\bar{s}_k\bar{s}_i\bar{s}_l]+E[\bar{s}_j\bar{s}_k\bar{s}_i\bar{n}_l]+E[\bar{s}_j\tilde{s}_k\bar{s}_i\tilde{s}_l]+E[\bar{s}_j\tilde{n}_k\bar{s}_i\tilde{n}_l]+E[\bar{s}_j\bar{n}_k\bar{s}_i\bar{s}_l]\\
+&+E[\bar{s}_j\bar{n}_k\bar{s}_i\bar{n}_l]+E[\bar{s}_j\tilde{n}_k\bar{s}_i\tilde{s}_l]+E[\bar{s}_j\tilde{n}_k\bar{s}_i\tilde{n}_l]+E[\bar{n}_j\bar{s}_i\bar{s}_l\bar{s}_k]+E[\bar{n}_j\bar{s}_i\bar{n}_l\bar{s}_k]\\
+&+E[\tilde{s}_k\bar{n}_j\bar{s}_i\tilde{s}_l]+E[\bar{n}_j\tilde{n}_k\bar{s}_i\tilde{n}_l]+E[\bar{n}_j\bar{n}_k\bar{s}_i\bar{s}_l]+E[\bar{n}_j\bar{n}_k\bar{s}_i\bar{n}_l]+E[\bar{n}_j\tilde{n}_k\bar{s}_i\tilde{s}_l]\\
+&+E[\bar{n}_j\tilde{n}_k\bar{s}_i\tilde{n}_l]+E[\tilde{s}_j\tilde{s}_i\bar{s}_l\bar{s}_k]+E[\tilde{s}_j\tilde{s}_i\bar{n}_l\bar{s}_k]+E[\tilde{s}_k\tilde{s}_j\tilde{s}_i\tilde{s}_l]+E[\tilde{s}_j\tilde{s}_i\tilde{n}_k\tilde{n}_l]\\
+&+E[\tilde{s}_j\tilde{s}_i\bar{n}_k\bar{s}_l]+E[\tilde{s}_j\tilde{s}_i\bar{n}_k\bar{n}_l]+E[\tilde{s}_j\tilde{s}_i\tilde{n}_k\tilde{s}_l]+E[\tilde{s}_j\tilde{s}_i\tilde{n}_k\tilde{n}_l]+E[\tilde{n}_i\tilde{n}_j\bar{s}_l\bar{s}_k]\\
+&+E[\tilde{n}_i\tilde{n}_j\bar{n}_l\bar{s}_k]+E[\tilde{s}_k\tilde{n}_i\tilde{n}_j\tilde{s}_l]+E[\tilde{n}_i\tilde{n}_j\tilde{n}_k\tilde{n}_l]+E[\tilde{n}_i\tilde{n}_j\bar{n}_k\bar{s}_l]+E[\tilde{n}_i\tilde{n}_j\bar{n}_k\bar{n}_l]\\
+&+E[\tilde{n}_i\tilde{n}_j\tilde{n}_k\tilde{s}_l]+E[\tilde{n}_i\tilde{n}_j\tilde{n}_k\tilde{n}_l]+E[\bar{n}_i\bar{s}_j\bar{s}_l\bar{s}_k]+E[\bar{n}_i\bar{s}_j\bar{n}_l\bar{s}_k]+E[\bar{n}_i\bar{s}_j\tilde{s}_k\tilde{s}_l]\\
+&+E[\bar{n}_i\bar{s}_j\tilde{n}_k\tilde{n}_l]+E[\bar{n}_i\bar{s}_j\bar{n}_k\bar{s}_l]+E[\bar{n}_i\bar{s}_j\bar{n}_k\bar{n}_l]+E[\bar{n}_i\bar{s}_j\tilde{n}_k\tilde{s}_l]+E[\bar{n}_i\bar{s}_j\tilde{n}_k\tilde{n}_l]\\
+&+E[\bar{n}_i\bar{s}_k\bar{n}_j\bar{s}_l]+E[\bar{n}_i\bar{s}_k\bar{n}_j\bar{n}_l]+E[\bar{n}_i\tilde{s}_k\bar{n}_j\tilde{s}_l]+E[\bar{n}_i\tilde{n}_k\bar{n}_j\tilde{n}_l]+E[\bar{n}_i\bar{n}_k\bar{n}_j\bar{s}_l]\\
+&+E[\bar{n}_i\bar{n}_k\bar{n}_j\bar{n}_l]+E[\bar{n}_i\tilde{n}_k\bar{n}_j\tilde{s}_l]+E[\bar{n}_i\tilde{n}_k\bar{n}_j\tilde{n}_l]+E[\tilde{n}_i\bar{s}_k\bar{s}_l\tilde{s}_j]+E[\tilde{n}_i\bar{n}_l\bar{s}_k\tilde{s}_j]\\
+&+E[\tilde{s}_k\tilde{n}_i\tilde{s}_l\tilde{s}_j]+E[\tilde{n}_i\tilde{n}_k\tilde{n}_l\tilde{s}_j]+E[\tilde{n}_i\bar{n}_k\bar{s}_l\tilde{s}_j]+E[\tilde{n}_i\bar{n}_k\bar{n}_l\tilde{s}_j]+E[\tilde{s}_l\tilde{n}_i\tilde{n}_k\tilde{s}_j]\\
+&+E[\tilde{n}_i\tilde{n}_k\tilde{n}_l\tilde{s}_j]+E[\tilde{n}_i\tilde{n}_j\bar{s}_l\bar{s}_k]+E[\tilde{n}_i\tilde{n}_j\bar{n}_l\bar{s}_k]+E[\tilde{s}_k\tilde{n}_i\tilde{n}_j\tilde{s}_l]+E[\tilde{n}_i\tilde{n}_j\tilde{n}_k\tilde{n}_l]\\
+&+E[\tilde{n}_i\tilde{n}_j\bar{n}_k\bar{s}_l]+E[\tilde{n}_i\tilde{n}_j\bar{n}_k\bar{n}_l]+E[\tilde{n}_i\tilde{n}_j\tilde{n}_k\tilde{s}_l]+E[\tilde{n}_i\tilde{n}_j\tilde{n}_k\tilde{n}_l]
+  \end{split}
+  \label{Erij}
+\end{equation}
+Since all noise samples are governed by i.i.d Gaussian distribution with zero mean, we can see items include noise samples would have zero expectation and the above equation can be written as
+\begin{equation}
+  E[\bar{r}_i\bar{r}_k] = E[\bar{s}_i\bar{s}_j\bar{s}_k\bar{s}_l] + E[\bar{s}_i\bar{s}_j\tilde{s}_k\tilde{s}_l] + E[\tilde{s}_i\tilde{s}_j\bar{s}_k\bar{s}_l] + E[\tilde{s}_i\tilde{s}_j\tilde{s}_k\tilde{s}_l]
+  \label{equ:Erirk}
+\end{equation} 
+
+Without losing generality, we assume $i < k$. First consider the case when $k \notin \Theta_{\tau_0}$, then we know $s_k$ and $s_l$ are independent. Since $i<k$, We can also know $s_l$ is independent with $s_i$ or $s_j$. Hence \eqref{equ:Erirk} can be written as
+\begin{equation}
+  \begin{split}
+  E[\bar{r}_i\bar{r}_k] = &E[\bar{s}_i\bar{s}_j\bar{s}_k]E[\bar{s}_l] + E[\bar{s}_i\bar{s}_j\tilde{s}_k]E[\tilde{s}_l] + E[\tilde{s}_i\tilde{s}_j\bar{s}_k]E[\bar{s}_l] + E[\tilde{s}_i\tilde{s}_j\tilde{s}_k]E[\tilde{s}_l]\\
+  = &0\,.
+\end{split}
+  \label{equ:Erirksitu1}
+\end{equation} 
+Similarly we can prove when $i \notin \Theta_{\tau_0}$, $E[\bar{r}_i\bar{r}_k] =0 $. Now we consider the situation when $i, k \in \Theta_{\tau_0}$. In such case, we have 
+\begin{equation}
+  \begin{cases}
+    s_i &= s_j\\
+    s_k &= s_l
+  \end{cases}
+\end{equation}
+and \eqref{equ:Erirk} can be written in form of
+\begin{equation}
+  \begin{split}
+    E[\bar{r}_i\bar{r}_k] &= E[\bar{s}_i^2\bar{s}_k^2] + E[\bar{s}_i^2\tilde{s}_k^2]  +E[\tilde{s}_i^2\bar{s}_k^2] + E[\tilde{s}_i^2\tilde{s}_k^2] \\
+    &= E[\bar{s}_i^2]E[\bar{s}_k^2] + E[\bar{s}_i^2]E[\tilde{s}_k^2]  +E[\tilde{s}_i^2]E[\bar{s}_k^2] + E[\tilde{s}_i^2]E[\tilde{s}_k^2] \\
+    &= 4\sigma_{s_A}^4
+  \end{split}
+  \label{Eririsitu2}
+\end{equation}
+
+Next consider the value of $E[\bar{r}_i\tilde{r}_j]$.
+\begin{equation}
+  \begin{split}
+E[\bar{r}_i\tilde{r}_j] = &E[(\bar{s}_i\bar{s}_j + \bar{s}_i\bar{n}_j +\tilde{s}_i\tilde{s}_j+\tilde{n}_i\tilde{n}_j + \bar{n}_i\bar{s}_j+\bar{n}_i\bar{n}_j+\tilde{n}_i\tilde{s}_j+\tilde{n}_i\tilde{n}_j)\\
+              &(\tilde{s}_k\bar{s}_l + \tilde{s}_k\bar{n}_l + \tilde{n}_k\bar{s}_l + \tilde{n}_k\bar{n}_l - \bar{s}_k\tilde{s}_l - \bar{s}_k\tilde{n}_l - \bar{n}_k\tilde{s}_l - \bar{n}_k\tilde{n}_l)]\\
+              = &E[\bar{s}_j\tilde{s}_k\bar{s}_i\bar{s}_l]+E[\bar{s}_j\tilde{s}_k\bar{s}_i\bar{n}_l]+E[\bar{s}_j\tilde{n}_k\bar{s}_i\bar{s}_l]+E[\bar{s}_j\tilde{n}_k\bar{s}_i\bar{n}_l]-E[\bar{s}_j\bar{s}_k\bar{s}_i\tilde{s}_l]\\
+&-E[\bar{s}_j\bar{s}_k\bar{s}_i\tilde{n}_l]-E[\bar{s}_j\bar{n}_k\bar{s}_i\tilde{s}_l]-E[\bar{s}_j\bar{n}_k\bar{s}_i\tilde{n}_l]+E[\tilde{s}_k\bar{n}_j\bar{s}_i\bar{s}_l]+E[\tilde{s}_k\bar{n}_j\bar{s}_i\bar{n}_l]\\
+&+E[\bar{n}_j\tilde{n}_k\bar{s}_i\bar{s}_l]+E[\bar{n}_j\tilde{n}_k\bar{s}_i\bar{n}_l]-E[\tilde{s}_l\bar{n}_j\bar{s}_i\bar{s}_k]-E[\bar{n}_j\bar{s}_i\tilde{n}_l\bar{s}_k]-E[\bar{n}_j\bar{n}_k\bar{s}_i\tilde{s}_l]\\
+&-E[\bar{n}_j\bar{n}_k\bar{s}_i\tilde{n}_l]+E[\tilde{s}_k\tilde{s}_j\tilde{s}_i\bar{s}_l]+E[\tilde{s}_k\tilde{s}_j\tilde{s}_i\bar{n}_l]+E[\tilde{s}_j\tilde{s}_i\tilde{n}_k\bar{s}_l]+E[\tilde{s}_j\tilde{s}_i\tilde{n}_k\bar{n}_l]\\
+&-E[\tilde{s}_j\tilde{s}_i\tilde{s}_l\bar{s}_k]-E[\tilde{s}_j\tilde{s}_i\tilde{n}_l\bar{s}_k]-E[\tilde{s}_j\tilde{s}_i\bar{n}_k\tilde{s}_l]-E[\tilde{s}_j\tilde{s}_i\tilde{n}_l\bar{n}_k]+E[\tilde{s}_k\tilde{n}_i\tilde{n}_j\bar{s}_l]\\
+&+E[\tilde{s}_k\tilde{n}_i\tilde{n}_j\bar{n}_l]+E[\tilde{n}_i\tilde{n}_j\tilde{n}_k\bar{s}_l]+E[\tilde{n}_i\tilde{n}_j\tilde{n}_k\bar{n}_l]-E[\tilde{n}_i\tilde{n}_j\tilde{s}_l\bar{s}_k]-E[\tilde{n}_i\tilde{n}_j\tilde{n}_l\bar{s}_k]\\
+&-E[\tilde{n}_i\tilde{n}_j\bar{n}_k\tilde{s}_l]-E[\tilde{n}_i\tilde{n}_j\tilde{n}_l\bar{n}_k]+E[\bar{n}_i\bar{s}_j\bar{s}_l\tilde{s}_k]+E[\bar{n}_i\bar{s}_j\bar{n}_l\tilde{s}_k]+E[\bar{n}_i\bar{s}_j\tilde{n}_k\bar{s}_l]\\
+&+E[\bar{n}_i\bar{s}_j\tilde{n}_k\bar{n}_l]-E[\bar{n}_i\bar{s}_j\tilde{s}_l\bar{s}_k]-E[\bar{n}_i\bar{s}_j\tilde{n}_l\bar{s}_k]-E[\bar{n}_i\bar{s}_j\bar{n}_k\tilde{s}_l]-E[\bar{n}_i\bar{s}_j\bar{n}_k\tilde{n}_l]\\
+&+E[\bar{n}_i\tilde{s}_k\bar{n}_j\bar{s}_l]+E[\bar{n}_i\tilde{s}_k\bar{n}_j\bar{n}_l]+E[\bar{n}_i\tilde{n}_k\bar{n}_j\bar{s}_l]+E[\bar{n}_i\tilde{n}_k\bar{n}_j\bar{n}_l]-E[\bar{n}_i\bar{s}_k\bar{n}_j\tilde{s}_l]\\
+&-E[\bar{n}_i\bar{s}_k\bar{n}_j\tilde{n}_l]-E[\bar{n}_i\bar{n}_k\bar{n}_j\tilde{s}_l]-E[\bar{n}_i\bar{n}_k\bar{n}_j\tilde{n}_l]+E[\tilde{s}_k\tilde{n}_i\bar{s}_l\tilde{s}_j]+E[\tilde{s}_k\tilde{n}_i\bar{n}_l\tilde{s}_j]\\
+&+E[\tilde{n}_i\tilde{n}_k\bar{s}_l\tilde{s}_j]+E[\tilde{n}_i\tilde{n}_k\bar{n}_l\tilde{s}_j]-E[\tilde{n}_i\tilde{s}_l\bar{s}_k\tilde{s}_j]-E[\tilde{n}_i\tilde{n}_l\bar{s}_k\tilde{s}_j]-E[\tilde{n}_i\bar{n}_k\tilde{s}_l\tilde{s}_j]\\
+&-E[\tilde{n}_i\bar{n}_k\tilde{n}_l\tilde{s}_j]+E[\tilde{s}_k\tilde{n}_i\tilde{n}_j\bar{s}_l]+E[\tilde{s}_k\tilde{n}_i\tilde{n}_j\bar{n}_l]+E[\tilde{n}_i\tilde{n}_j\tilde{n}_k\bar{s}_l]+E[\tilde{n}_i\tilde{n}_j\tilde{n}_k\bar{n}_l]\\
+&-E[\tilde{n}_i\tilde{n}_j\tilde{s}_l\bar{s}_k]-E[\tilde{n}_i\tilde{n}_j\tilde{n}_l\bar{s}_k]-E[\tilde{n}_i\tilde{n}_j\bar{n}_k\tilde{s}_l]-E[\tilde{n}_i\tilde{n}_j\tilde{n}_l\bar{n}_k]
+\end{split}
+\end{equation}
+Eliminate zero value items, we have 
+ \begin{equation}
+   E[\bar{r}_i\tilde{r}_k] = E[\bar{s}_j\tilde{s}_k\bar{s}_i\bar{s}_l] -  E[\bar{s}_j\bar{s}_k\bar{s}_i\tilde{s}_l] + E[\tilde{s}_j\tilde{s}_k\tilde{s}_i\bar{s}_l] + E[\tilde{s}_j\bar{s}_k\tilde{s}_i\tilde{s}_l]\,.
+   \label{equ:1213a}
+\end{equation}
+Similar with $E[\bar{r}_i\bar{r}_k]$, when $i \notin \Theta_{\tau_0} $ or $k \notin \Theta_{\tau_0} $, we have 
+\[
+E[\bar{r}_i\tilde{r}_k] = 0\,.
+\]
+When $i,k \in \Theta_{\tau_0}$, \eqref{1213a} can be written as
+ \begin{equation}
+   \begin{split}
+   E[\bar{r}_i\tilde{r}_k] &= E[\tilde{s}_k\bar{s}_i^2\bar{s}_k] -  E[\bar{s}_i^2\bar{s}_k\tilde{s}_k] + E[\tilde{s}_k\tilde{s}_i^2\bar{s}_k] - E[\bar{s}_k\tilde{s}_i^2\tilde{s}_k]\\
+  &= 0\,. 
+ \end{split}
+   \label{equ:1213b}
+\end{equation}
+Hence we can conclude $E[\bar{r}_i\tilde{r}_k] = 0$ ($i \neq k $).  
 
 In the following, we consider the distribution of $\begin{bmatrix}
   R \\
@@ -137,9 +241,9 @@ Substitute the statistics of $r_i$ and eliminate the zero elements, we have
 	E[R^2]  
 	= &\sum_{i=0}^{N-1}(\bar{a}_i^2E[\bar{r}_i^2] + \tilde{a}_i^2E[\tilde{r}_i^2])\\
 	= &\sum_{i\in\Theta_{\tau_0}}\bar{a}_i^2(8\sigma_{s_A}^4+4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4) + \sum_{i\in\Theta_{\tau_0}}\tilde{a}_i^2(4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4) + \sum_{i\notin\Theta_{\tau_0}}(\tilde{a}_i^2+\bar{a}_i^2)2(\sigma_n^2+\sigma_{s_A}^2)^2
-  \end{split}<++>
-  \label{<++>}
-\end{equation}<++>
+  \end{split}
+  \label{}
+\end{equation}
 From the definition of $a_i$, we have
 \begin{equation}
   \bar{a}_i^2 + \tilde{a}_i^2 =1
