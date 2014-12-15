@@ -122,7 +122,7 @@ thus we have
   \end{split}
   \label{Erij}
 \end{equation}
-Since noise samples are governed by i.i.d Gaussian distribution with zero mean, items in \eqref{Erij} including noise samples would have zero value, e.g. $E[\bar{s}_j\bar{s}_k\bar{s}_i\bar{n}] = E[\bar{s}_j\bar{s}_k\bar{s}_i]E[\bar{n}] = 0$. Eliminate zero value items we have 
+Since noise samples are governed by i.i.d Gaussian distribution with zero mean, items in \eqref{Erij} including noise samples would have zero value, e.g. $E[\bar{s}_j\bar{s}_k\bar{s}_i\bar{n}_l] = E[\bar{s}_j\bar{s}_k\bar{s}_i]E[\bar{n}_l] = 0$. Eliminate zero value items in equation \eqref{Erij}:
 \begin{equation}
   E[\bar{r}_i\bar{r}_k] = E[\bar{s}_i\bar{s}_j\bar{s}_k\bar{s}_l] + E[\bar{s}_i\bar{s}_j\tilde{s}_k\tilde{s}_l] + E[\tilde{s}_i\tilde{s}_j\bar{s}_k\bar{s}_l] + E[\tilde{s}_i\tilde{s}_j\tilde{s}_k\tilde{s}_l]
   \label{equ:Erirk}
@@ -188,21 +188,15 @@ expand \eqref{Eriiiirk} and eliminate zero value items (items including noise sa
    E[\bar{r}_i\tilde{r}_k] = E[\bar{s}_j\tilde{s}_k\bar{s}_i\bar{s}_l] -  E[\bar{s}_j\bar{s}_k\bar{s}_i\tilde{s}_l] + E[\tilde{s}_j\tilde{s}_k\tilde{s}_i\bar{s}_l] - E[\tilde{s}_j\bar{s}_k\tilde{s}_i\tilde{s}_l]\,.
    \label{equ:1213a}
 \end{equation}
-Similar with $E[\bar{r}_i\bar{r}_k]$, it is easy to see when  $i \notin \Theta_{\tau_0} $ or $k \notin \Theta_{\tau_0} $, we have 
-$
-E[\bar{r}_i\tilde{r}_k] = 0\,.
-$
-
-When $i,k \in \Theta_{\tau_0}$, \eqref{equ:1213a} can be written as
- \begin{equation}
-   \begin{split}
-   E[\bar{r}_i\tilde{r}_k] &= E[\tilde{s}_k\bar{s}_i^2\bar{s}_k] -  E[\bar{s}_i^2\bar{s}_k\tilde{s}_k] + E[\tilde{s}_k\tilde{s}_i^2\bar{s}_k] - E[\bar{s}_k\tilde{s}_i^2\tilde{s}_k]\\
-   &= E[\tilde{s}_k\bar{s}_i^2\bar{s}_k] -  E[\tilde{s}_k\bar{s}_i^2\bar{s}_k] + E[\tilde{s}_k\tilde{s}_i^2\bar{s}_k] - E[\tilde{s}_k\tilde{s}_i^2\bar{s}_k]\\
-   &= 0\,. 
- \end{split}
-   \label{equ:1213b}
+Since the real and imaginary part of transmitted OFDM signals are independent, \eqref{equ:1213a} can be written as
+\begin{equation}
+  \begin{split}
+  E[\bar{r}_i\tilde{r}_k] &= E[\tilde{s}_k]E[\bar{s}_i\bar{s}_j\bar{s}_l]  - E[\tilde{s}_l]E[\bar{s}_i\bar{s}_j\bar{s}_k] + E[\bar{s}_l]E[\tilde{s}_i\tilde{s}_j\tilde{s}_k] -  E[\bar{s}_k]E[\tilde{s}_i\tilde{s}_j\tilde{s}_l]\\
+  &= 0
+\end{split}
+  \label{equ:1215m}
 \end{equation}
-From above discussion we can conclude $E[\bar{r}_i\tilde{r}_k] = 0$ ($i \neq k $).  
+thus we can see $E[\bar{r}_i\tilde{r}_k] = 0$  when $i \neq k $.  
 
 Next consider $E[\tilde{r}_i\tilde{r}_k]$, which can be written as
 \begin{equation}
@@ -286,7 +280,7 @@ Let $\mu_{R|\tau_0}$ $\mu_{I|\tau_0}$ denote the mean of $R$ and $I$ with synchr
 \begin{equation}
   \begin{split}
 	\mu_{R|\tau_0} =  E[R] = &\sum_{i=0}^{N-1}\bar{a}_iE[\bar{r}_i] - \sum_{i=0}^{N-1}\tilde{a}_iE[\tilde{r}_i]\\
-	= &\sum_{i\in\Theta_{\tau_0}}\bar{a}_i2\sigma_s^2
+	= &2\sigma_{s_A}^2\sum_{i\in\Theta_{\tau_0}}\bar{a}_i
   \end{split}
   \label{ER}
 \end{equation}
@@ -294,7 +288,7 @@ Let $\mu_{R|\tau_0}$ $\mu_{I|\tau_0}$ denote the mean of $R$ and $I$ with synchr
 \begin{equation}
   \begin{split}
 	\mu_{I|\tau_0} =  E[I] = &\sum_{i=0}^{N-1}\tilde{a}_iE[\bar{r}_i] + \sum_{i=0}^{N-1}\bar{a}_iE[\tilde{r}_i]\\
-	= &\sum_{i\in\Theta_0}\tilde{a}_i2\sigma_s^2\,.
+	= &2\sigma_{s_B}^2\sum_{i\in\Theta_0}\tilde{a}_i\,.
   \end{split}
   \label{EI}
 \end{equation}
@@ -367,7 +361,8 @@ Similarly, we compute $\sigma_{I|\tau_0}$ and $E[RI]$ as
 \begin{equation}
   \begin{split}
 	\sigma_{I|\tau_0} = &\sqrt{E[I^2] - E[I]^2}\\
-	= &\left(\#\Theta_{\tau_0}(4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4) + 2(N - \#\Theta_{\tau_0})(\sigma_n^2+\sigma_{s_A}^2)^2 +  8\sum_{i\in\Theta_{\tau_0}}\tilde{a}_i^2\sigma_{s_A}^4 + 4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\tilde{a}_i\tilde{a}_k- \mu_{I|\tau_0}^2	\right)^\frac{1}{2}\\
+	= &\left(\#\Theta_{\tau_0}(4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4) + 2(N - \#\Theta_{\tau_0})(\sigma_n^2+\sigma_{s_A}^2)^2 +  8\sum_{i\in\Theta_{\tau_0}}\tilde{a}_i^2\sigma_{s_A}^4 \right.\\
+	&\left.+ 4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\tilde{a}_i\tilde{a}_k- \mu_{I|\tau_0}^2	\right)^\frac{1}{2}\\
     = &\left(\beta_{\tau_0}^A +  8\sum_{i\in\Theta_{\tau_0}}\tilde{a}_i^2\sigma_{s_A}^4+ 4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\tilde{a}_i\tilde{a}_k- \mu_{I|\tau_0}^2	\right)^\frac{1}{2}\,.
   \end{split}
   \label{deviationI}
@@ -554,7 +549,7 @@ Further more, since $E[RI] = E[R]E[I]$ = 0 and $R, I$ are combined gaussian dist
 \begin{equation}
   \begin{split}
 	f_0(R, I)= &f_0(R)f_0(I)\\
-	= &\frac{1}{\sqrt{2N}\sigma_n^2\sqrt{2\pi}}\exp\left( -\frac{R^2}{4N\sigma_n^4} \right)\frac{1}{\sqrt{2N}\sigma_n^2\sqrt{2\pi}}\exp\left( -\frac{R^2}{4N\sigma_n^4} \right)\\
+	= &\frac{1}{\sqrt{2N}\sigma_n^2\sqrt{2\pi}}\exp\left( -\frac{R^2}{4N\sigma_n^4} \right)\frac{1}{\sqrt{2N}\sigma_n^2\sqrt{2\pi}}\exp\left( -\frac{I^2}{4N\sigma_n^4} \right)\\
 	=&\frac{1}{4\pi N\sigma_n^4}\exp\left( -\frac{I^2+R^2}{4N\sigma_n^4} \right) 
   \end{split}
   \label{f0RO}
