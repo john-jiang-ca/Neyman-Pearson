@@ -20,5 +20,5 @@
 \contentsline {subsection}{\numberline {4.1.2}Numerical Results}{70}
 \contentsline {section}{\numberline {4.2}Cyclostationary Detection for multiple Primary Users}{71}
 \contentsline {subsection}{\numberline {4.2.1}System Model}{71}
-\contentsline {subsection}{\numberline {4.2.2}Numerical Results}{88}
-\contentsline {chapter}{References}{89}
+\contentsline {subsection}{\numberline {4.2.2}Numerical Results}{89}
+\contentsline {chapter}{References}{90}

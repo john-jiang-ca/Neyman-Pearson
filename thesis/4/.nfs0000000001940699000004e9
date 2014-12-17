@@ -550,6 +550,7 @@ The standard deviation of $R$ and $I$ under hypothesis $H_0$ is
 and
 \begin{equation}
   \sigma_I = \sqrt{E[I^2] - E[I]^2} = \sqrt{frac{2}{N}}\sigma_n^2\,.
+
   \label{deviationR}
 \end{equation}
 
