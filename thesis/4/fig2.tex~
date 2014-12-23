@@ -1,0 +1,10 @@
+\documentclass{article}
+\usepackage{epsfig}
+\usepackage{color}
+\usepackage{amsmath}
+\setlength{\textwidth}{100cm}
+\setlength{\textheight}{100cm}
+\begin{document}
+\pagestyle{empty}
+\input{fig2.pstex_t}
+\end{document}

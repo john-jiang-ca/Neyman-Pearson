@@ -1,0 +1,9 @@
+\documentclass{article}
+\usepackage{epsfig}
+\setlength{\textwidth}{100cm}
+\setlength{\textheight}{100cm}
+\begin{document}
+\pagestyle{empty}
+%\input{figurecyclo_t}
+\end{document}
+

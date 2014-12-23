@@ -1,0 +1,9 @@
+\documentclass{article}
+\usepackage{epsfig}
+\usepackage{amsmath}
+\setlength{\textwidth}{100cm}
+\setheight{\textwidth}{100cm}
+\begin{document}
+\pagestyle{empty}
+\input{cyclofigure.pstex_t}
+\end{document}
