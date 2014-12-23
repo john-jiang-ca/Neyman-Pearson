@@ -2,7 +2,7 @@
 \section{Cyclostationary Detection for multiple Primary Users}
 \subsection{System Model}
 
-We consider a cognitive radio system where the spectrum can be occupied by exactly one of two distinct primary signals $\{s_A, s_B\}$ or it could be vacant. Let $H_0$ denote the situation under which the channel is free, $H_1$ denote the hypothesis under which the channel is occupied by signal $s_A$ and $H_2$ denote the hypothesis under which the channel is occupied by signals $s_B$. Both $s_A, s_B$ are OFDM signals with same frame structure. The block diagram of the system is illustrated in Figure.
+We consider a cognitive radio system where the spectrum can be occupied by exactly one of two distinct primary signals $\{s_A, s_B\}$ or it could be vacant. Let $H_0$ denote the situation under which the channel is free, $H_1$ denote the hypothesis under which the channel is occupied by signal $s_A$ and $H_2$ denote the hypothesis under which the channel is occupied by signals $s_B$. In this case, we assume $s_A, s_B$ are OFDM signals with same frame structure. The block diagram of the system is illustrated in Figure \ref{pic:1222a0}.
 
 \begin{figure}[!t]
   \centering 
@@ -29,7 +29,7 @@ where
   \end{cases}
   \label{xssn}
 \end{equation}
-Assume each OFDM frame contains a CP sequence of length $l_C$ followed by a data sequence of length $l_D$, so the total length of an OFDM frame is $l_0 = l_C+l_D$. In general case, when there are signal transmitting, the receiver is not synchronized to the transmitted signal, i.e. $s_{A0}$ ( or $s_{B0}$) is not the first symbol of an OFDM frame. Let $\tau$ represents the synchronization mismatch. That is, when $\tau = 0$, $s_0$ is the first symbol of an OFDM frame; when $\tau = l_C+l_D -1$, $s_0$ is the last symbol of an OFDM frame. Let $M = Kl_0$, we can see when perfect synchronization the detector would observe $K$ complete  OFDM frames (as it is shown in Figure); otherwise, the detector would observe $K-1$ complete OFDM frames and $2$ incomplete OFDM frames (as it is shown in Figure). 
+Assume each OFDM frame contains a CP sequence of length $l_C$ followed by a data sequence of length $l_D$, so the total length of an OFDM frame is $l_0 = l_C+l_D$. In general case, when there are signal transmitting, the receiver is not synchronized to the transmitted signal, i.e. $s_{A0}$ ( or $s_{B0}$) is not the first symbol of an OFDM frame. Let $\tau$ represents the synchronization mismatch. That is, when $\tau = 0$, $s_0$ is the first symbol of an OFDM frame; when $\tau = l_C+l_D -1$, $s_0$ is the last symbol of an OFDM frame. Let $M = Kl_0$, we can see when perfect synchronization the detector would observe $K$ complete  OFDM frames (as it is shown in Figure \ref{pic:1221n0}); otherwise, the detector would observe $K-1$ complete OFDM frames and $2$ incomplete OFDM frames (as it is shown in Figure \ref{pic:1222a2}). 
 \begin{figure}[!t]
   \centering 
   \includegraphics[width=\textwidth]{4/fig2.eps}
@@ -43,15 +43,15 @@ Assume each OFDM frame contains a CP sequence of length $l_C$ followed by a data
   \caption{Received signal for synchronization mismatch $\tau_0$.}
   \label{pic:1222a2}
 \end{figure}
-Assume $\tau = \tau_0$, let $\Theta_{\tau_0}$ denote the set of subscripts such that if $i \in \Theta_{\tau_0}$,  $s_i$ is a symbol of CP sequence. [To be added].
-From Figure XX, we can see $i \in \Theta_{\tau_0}$ only if $i + \tau_0 \in [Ql_0, Ql_0+l_c -1]$ ($Q = 0, 1, \cdots, K-1$). 
+Assume $\tau = \tau_0$, let $\Theta_{\tau_0}$ denote the set of subscripts such that if $i \in \Theta_{\tau_0}$,  $s_i$ is a symbol of CP sequence. From Figure \ref{pic:1221n0} we can see, in the situation of perfect synchronization ( $\tau_0 =0$), when $i \in [Ql_0, Ql_0+l_c-1]$, the associated $s_i$ belongs to CP sequence. 
+From Figure \ref{1222a2}, we can see in the situation of imperfect synchronization, $i \in \Theta_{\tau_0}$ only if $i + \tau_0 \in [Ql_0, Ql_0+l_c -1]$ ($Q = 0, 1, \cdots, K-1$). 
 Let $\Theta_{\tau_0}^k$ denotes set $\Theta_{\tau_0}$ subtract set $\{k\}$ ($k$ is also a subscript), i.e.
 \begin{equation}
   \{i\in \Theta_{\tau_0}^k| i + \tau_0 \in [Ql_0, Ql_0+l_c -1] (Q = 0, 1, \cdots, K-1)\;\;\;\; \text{and}\;\;\;\; i\neq k\}
   \label{definitionof}
 \end{equation}
 
-Like in (c.f. ), we make following assumptions about the noise and signal: (1) all noise samples are i.i.d. mean zero circularly symmetric complex Gaussian (CSCG) with variance $\sigma_n^2$; (2) under hypothesis $H_1$ the transmitted signal symbols in the data sequence are i.i.d. zero mean CSCG with variance $\sigma_{s_A}^2$ (or $\sigma_{s_B}^2$ under hypothesis $H_2$); (3) if $s_i$ is a sample in CP sequence, then we have $s_i = s_{i+l_D}$. 
+Like in (c.f. \eqref{axell2011optimal}), we make following assumptions about the noise and signal: (1) all noise samples are i.i.d. mean zero circularly symmetric complex Gaussian (CSCG) with variance $\sigma_n^2$; (2) under hypothesis $H_1$ the transmitted signal symbols in the data sequence are i.i.d. zero mean CSCG with variance $\sigma_{s_A}^2$ (or $\sigma_{s_B}^2$ under hypothesis $H_2$); (3) if $s_i$ is a sample in CP sequence, then we have $s_i = s_{i+l_D}$. 
 
 The CP structure could introduce strong cyclostationarity to the transmitted OFDM signals ($s_A$ or $s_B$) \cite{lunden2010robust}. 
 Let $r_i=x_ix_j^\ast$ ($j=i+l_D$), \cite{lunden2007spectrum} shows $r_i$ exhibit cyclic property at frequency $\alpha = \frac{Q}{l_0}$ ($Q = \pm1, \pm2, \cdots$). In this case, we consider a single cyclic detector at frequency $\alpha = \frac{1}{l_0}$. 
@@ -303,10 +303,10 @@ Let $a_i = \frac{1}{N}b_i$, then we have
   \label{definitionofRI}
 \end{equation}
 
-Let $\mu_{R|\tau_0}$ $\mu_{I|\tau_0}$ denote the mean of $R$ and $I$ with synchronization mismatch $\tau=\tau_0$ respectively. By using the statistics of $r_i$ in Table \ref{Table1}, we compute  $\mu_{R|\tau_0}$ and  $\mu_{I|\tau_0}$:
+Let $\mu_{AR|\tau_0}$ $\mu_{AI|\tau_0}$ denote the mean of $R$ and $I$ with synchronization mismatch $\tau=\tau_0$ respectively. By using the statistics of $r_i$ in Table \ref{Table1}, we compute  $\mu_{AR|\tau_0}$ and  $\mu_{AI|\tau_0}$:
 \begin{equation}
   \begin{split}
-	\mu_{R|\tau_0} =  E[R] = &\sum_{i=0}^{N-1}\bar{a}_iE[\bar{r}_i] - \sum_{i=0}^{N-1}\tilde{a}_iE[\tilde{r}_i]\\
+	\mu_{AR|\tau_0} =  E[R] = &\sum_{i=0}^{N-1}\bar{a}_iE[\bar{r}_i] - \sum_{i=0}^{N-1}\tilde{a}_iE[\tilde{r}_i]\\
 	= &\sum_{i\in\Theta_{\tau_0}}\bar{a}_iE[\bar{r}_i]\\
 	= &2\sigma_{s_A}^2\sum_{i\in\Theta_{\tau_0}}\bar{a}_i
   \end{split}
@@ -315,7 +315,7 @@ Let $\mu_{R|\tau_0}$ $\mu_{I|\tau_0}$ denote the mean of $R$ and $I$ with synchr
 
 \begin{equation}
   \begin{split}
-	\mu_{I|\tau_0} =  E[I] = &\sum_{i=0}^{N-1}\tilde{a}_iE[\bar{r}_i] + \sum_{i=0}^{N-1}\bar{a}_iE[\tilde{r}_i]\\
+	\mu_{AI|\tau_0} =  E[I] = &\sum_{i=0}^{N-1}\tilde{a}_iE[\bar{r}_i] + \sum_{i=0}^{N-1}\bar{a}_iE[\tilde{r}_i]\\
 	= &\sum_{i\in\Theta_{\tau_0}}\tilde{a}_iE[\bar{r}_i]\\
 	= &2\sigma_{s_A}^2\sum_{i\in\Theta_0}\tilde{a}_i\,.
   \end{split}
@@ -357,23 +357,23 @@ hence \eqref{ER} can be written as
   \label{ER2}
 \end{equation}
 where $\#\Theta_{\tau_0}$ is the cardinality of set $\Theta_{\tau_0}$. 
-Let $\sigma_{R|\tau_0}$ $\sigma_{I|\tau_0}$ denote the standard deviation of $R$ and $I$ when synchronization mismatch is $\tau_0$, 
+Let $\sigma_{AR|\tau_0}$ $\sigma_{AI|\tau_0}$ denote the standard deviation of $R$ and $I$ when synchronization mismatch is $\tau_0$, 
 \begin{equation}
   \begin{split}
-	\sigma_{R|\tau_0} = &\sqrt{E[R^2] - E[R]^2}\\
+	\sigma_{AR|\tau_0} = &\sqrt{E[R^2] - E[R]^2}\\
 	= &\left(\frac{1}{N^2}\#\Theta_{\tau_0}(4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4) + \frac{2}{N^2}(N - \#\Theta_{\tau_0})(\sigma_n^2+\sigma_{s_A}^2)^2 +  8\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\bar{a}_i^2 \right.\\
-  &\left.+ 4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\bar{a}_k- \mu_{R|\tau_0}^2\right)^\frac{1}{2}\,.
+  &\left.+ 4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\bar{a}_k- \mu_{AR|\tau_0}^2\right)^\frac{1}{2}\,.
   \end{split}
   \label{deviationR}
 \end{equation}
 Let $\beta_{\tau_0}^A = \frac{1}{N^2}\#\Theta_{\tau_0}(4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4) + \frac{2}{N^2}(N - \#\Theta_{\tau_0})(\sigma_n^2+\sigma_{s_A}^2)^2$ and above equation can be written as
 \begin{equation}
-  \sigma_{R|\tau_0} = \left(\beta_{\tau_0}^A+  8\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\bar{a}_i^2 
-    + 4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\bar{a}_k- \mu_{R|\tau_0}^2\right)^\frac{1}{2}\,.
+  \sigma_{AR|\tau_0} = \left(\beta_{\tau_0}^A+  8\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\bar{a}_i^2 
+    + 4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\bar{a}_k- \mu_{AR|\tau_0}^2\right)^\frac{1}{2}\,.
   \label{devR}
 \end{equation}
 
-Similarly, we compute $\sigma_{I|\tau_0}$ and $E[RI]$ as
+Similarly, we compute $\sigma_{AI|\tau_0}$ and $E[RI]$ as
 \begin{equation}
   \begin{split}
 	E[I^2] = &E[(\sum_{i=0}^{N-1}\tilde{a}_i\bar{r}_i + \sum_{i=0}^{N-1}\bar{a}_i\tilde{r}_i)(\sum_{i=0}^{N-1}\tilde{a}_i\bar{r}_i + \sum_{i=0}^{N-1}\bar{a}_i\tilde{r}_i)]\\
@@ -390,10 +390,10 @@ Similarly, we compute $\sigma_{I|\tau_0}$ and $E[RI]$ as
 %\end{equation }
 \begin{equation}
   \begin{split}
-	\sigma_{I|\tau_0} = &\sqrt{E[I^2] - E[I]^2}\\
+	\sigma_{AI|\tau_0} = &\sqrt{E[I^2] - E[I]^2}\\
 	= &\left(\frac{1}{N^2}\#\Theta_{\tau_0}(4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4) + \frac{2}{N^2}(N - \#\Theta_{\tau_0})(\sigma_n^2+\sigma_{s_A}^2)^2 +  8\sum_{i\in\Theta_{\tau_0}}\tilde{a}_i^2\sigma_{s_A}^4 \right.\\
-	&\left.+ 4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\tilde{a}_i\tilde{a}_k- \mu_{I|\tau_0}^2	\right)^\frac{1}{2}\\
-    = &\left(\beta_{\tau_0}^A +  8\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\tilde{a}_i^2+ 4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\tilde{a}_i\tilde{a}_k- \mu_{I|\tau_0}^2	\right)^\frac{1}{2}\,.
+	&\left.+ 4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\tilde{a}_i\tilde{a}_k- \mu_{AI|\tau_0}^2	\right)^\frac{1}{2}\\
+    = &\left(\beta_{\tau_0}^A +  8\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\tilde{a}_i^2+ 4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\tilde{a}_i\tilde{a}_k- \mu_{AI|\tau_0}^2	\right)^\frac{1}{2}\,.
   \end{split}
   \label{deviationI}
 \end{equation}
@@ -413,18 +413,18 @@ Similarly, we compute $\sigma_{I|\tau_0}$ and $E[RI]$ as
   \end{split}
 \end{equation}
 The last step comes from the fact that when $i \notin \Theta_{\tau_0}$, $E[\bar{r}_i^2] = E[\tilde{r}_i^2] = 2(\sigma_{s_A}^2 + \sigma_{n}^2)^2$.
-Let $\rho_{\tau_0}$ represents the correlation between $R$ and $I$ when synchronization mismatch is $\tau_0$, we have
+Let $\rho_{A|\tau_0}$ represents the correlation between $R$ and $I$ when synchronization mismatch is $\tau_0$, we have
 \begin{equation}
   \begin{split}
-	\rho_{\tau_0} = &\frac{E[RI]-\mu_{R|\tau_0}\mu_{I|\tau_0}}{\sigma_{R|\tau_0}\sigma_{I|\tau_0}}\\
-	= &\frac{8\sigma_{s_A}^4\sum_{i\in \Theta_{\tau_0}}\tilde{a}_i\bar{a}_i + 4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\tilde{a}_k - \mu_{R|\tau_0}\mu_{I|\tau_0}}{\sigma_{R|\tau_0}\sigma_{I|\tau_0}}
+	\rho_{A|\tau_0} = &\frac{E[RI]-\mu_{AR|\tau_0}\mu_{AI|\tau_0}}{\sigma_{AR|\tau_0}\sigma_{AI|\tau_0}}\\
+	= &\frac{8\sigma_{s_A}^4\sum_{i\in \Theta_{\tau_0}}\tilde{a}_i\bar{a}_i + 4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\tilde{a}_k - \mu_{AR|\tau_0}\mu_{AI|\tau_0}}{\sigma_{AR|\tau_0}\sigma_{AI|\tau_0}}
   \end{split}
   \label{RIcorrelation}
 \end{equation}
 From \eqref{ER} and \eqref{EI} we have 
 \begin{equation}
   \begin{split}
-  \mu_{R|\tau_0}\mu_{I|\tau_0} = &4\sigma_{s_A}^4(\sum_{i\in\Theta_{\tau_0}}\bar{a}_i)(\sum_{i\in\Theta_{\tau_0}}\bar{a}_i)\\
+  \mu_{AR|\tau_0}\mu_{AI|\tau_0} = &4\sigma_{s_A}^4(\sum_{i\in\Theta_{\tau_0}}\bar{a}_i)(\sum_{i\in\Theta_{\tau_0}}\bar{a}_i)\\
   = &4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}}\bar{a}_i\tilde{a}_k\\
   = &4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\tilde{a}_k + 4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\bar{a}_i\tilde{a}_i
 \end{split}
@@ -432,7 +432,7 @@ From \eqref{ER} and \eqref{EI} we have
 \end{equation}
 thus \eqref{ERI} can be written as
 \begin{equation}
-  \rho_{\tau_0}= \frac{4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\bar{a}_i\tilde{a}_i}{\sigma_{R|\tau_0}\sigma_{I|\tau_0}}\,.
+  \rho_{A|\tau_0}= \frac{4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\bar{a}_i\tilde{a}_i}{\sigma_{AR|\tau_0}\sigma_{AI|\tau_0}}\,.
   \label{ERI2}
 \end{equation}
  
@@ -442,8 +442,8 @@ $\begin{bmatrix}
   I
 \end{bmatrix}$ with synchronization mismatch $\tau = \tau_0$ can be written as
 \begin{multline}
-  f(R,I | \tau=\tau_0) = \frac{1}{2\pi\sigma_{I|\tau_0}\sigma_{R|\tau_0}\sqrt{1 - \rho_{\tau_0}^2}}\exp\left( -\frac{1}{2(1-\rho_{\tau_0}^2)}\left[ \frac{(R-\mu_{R|\tau_0})^2}{\sigma_{R|\tau_0}^2} + \right.\right.\\
-  \left. \left.  \frac{(I-\mu_{I|\tau_0})^2}{\sigma_{I|\tau_0}^2} - \frac{2\rho(R-\mu_{R|\tau_0})(I-\mu_{I|\tau_0})}{\sigma_{R|\tau_0}\sigma_{I|\tau_0}}\right] \right)
+  f(R,I | \tau=\tau_0) = \frac{1}{2\pi\sigma_{AI|\tau_0}\sigma_{AR|\tau_0}\sqrt{1 - \rho_{A|\tau_0}^2}}\exp\left( -\frac{1}{2(1-\rho_{A|\tau_0}^2)}\left[ \frac{(R-\mu_{AR|\tau_0})^2}{\sigma_{AR|\tau_0}^2} + \right.\right.\\
+  \left. \left.  \frac{(I-\mu_{AI|\tau_0})^2}{\sigma_{AI|\tau_0}^2} - \frac{2\rho_{A|\tau_0}(R-\mu_{AR|\tau_0})(I-\mu_{AI|\tau_0})}{\sigma_{AR|\tau_0}\sigma_{AI|\tau_0}}\right] \right)
   \label{disRI}
 \end{multline}
 
@@ -456,8 +456,8 @@ under hypothesis $H_1$ can be written in form of
 \begin{equation}
   \begin{split}
 	f_1(R, I) &= \sum_{\tau_0 = 0}^{l_0-1} \frac{1}{l_0}f(R, I|\tau=\tau_0)\\
-	&= \sum_{\tau_0 = 0}^{l_0-1}\frac{1}{2l_0\pi\sigma_{I|\tau_0}\sigma_{R|\tau_0}\sqrt{1 - \rho_{\tau_0}^2}}\exp\left( -\frac{1}{2(1-\rho_{\tau_0}^2)}\left[ \frac{(R-\mu_{R|\tau_0})^2}{\sigma_{R|\tau_0}^2} + \right.\right.\\
-	& \left. \left. \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \frac{(I-\mu_{I|\tau_0})^2}{\sigma_{I|\tau_0}^2} - \frac{2\rho(R-\mu_{R|\tau_0})(I-\mu_{I|\tau_0})}{\sigma_{R|\tau_0}\sigma_{I|\tau_0}}\right] \right)
+	&= \sum_{\tau_0 = 0}^{l_0-1}\frac{1}{2l_0\pi\sigma_{AI|\tau_0}\sigma_{AR|\tau_0}\sqrt{1 - \rho_{A|\tau_0}^2}}\exp\left( -\frac{1}{2(1-\rho_{A|\tau_0}^2)}\left[ \frac{(R-\mu_{AR|\tau_0})^2}{\sigma_{AR|\tau_0}^2} + \right.\right.\\
+	& \left. \left. \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \frac{(I-\mu_{AI|\tau_0})^2}{\sigma_{AI|\tau_0}^2} - \frac{2\rho_{A|\tau_0}(R-\mu_{AR|\tau_0})(I-\mu_{AI|\tau_0})}{\sigma_{AR|\tau_0}\sigma_{AI|\tau_0}}\right] \right)
   \end{split}
   \label{f_1underH1}
 \end{equation}
@@ -467,13 +467,13 @@ and the statistic of $R$ and $I$  under hypothesis $H_1$ are summarized in Table
   \begin{tabular}{|c|c|}
 	\hline
 	Statistics          & Value                                                                                                                                                                                                                 \\ \hline
-	$\mu_{R|\tau_0}$    & $\displaystyle{\sum_{i\in\Theta_{\tau_0}}\bar{a}_i2\sigma_{s_A}^2}$                                                                                                                                                                      \\ \hline
-	$\mu_{I|\tau_0}$    & $\displaystyle{\sum_{i\in\Theta_0}\tilde{a}_i2\sigma_{s_A}^2}$                                                                                                                                                                           \\ \hline
-    $\sigma_{R|\tau_0}$ & $\displaystyle{\left(\beta_{\tau_0}^A+8\sum_{i\in\Theta_{\tau_0}}\bar{a}_i^2\sigma_{s_A}^4 + 4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\bar{a}_k- \mu_{R|\tau_0}^2 \right)^\frac{1}{2}}$  \\ \hline
-    $\sigma_{I|\tau_0}$ & 
-    $\begin{array} {l} \displaystyle{\left(\beta_{\tau_0}^A +8\sum_{i\in\Theta_{\tau_0}}\tilde{a}_i^2\sigma_{s_A}^4 +4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\tilde{a}_i\tilde{a}_k- \mu_{R|\tau_0}^2\right)^\frac{1}{2}}\end{array}$ 
+	$\mu_{AR|\tau_0}$    & $\displaystyle{\sum_{i\in\Theta_{\tau_0}}\bar{a}_i2\sigma_{s_A}^2}$                                                                                                                                                                      \\ \hline
+	$\mu_{AI|\tau_0}$    & $\displaystyle{\sum_{i\in\Theta_0}\tilde{a}_i2\sigma_{s_A}^2}$                                                                                                                                                                           \\ \hline
+    $\sigma_{AR|\tau_0}$ & $\displaystyle{\left(\beta_{\tau_0}^A+8\sum_{i\in\Theta_{\tau_0}}\bar{a}_i^2\sigma_{s_A}^4 + 4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\bar{a}_k- \mu_{AR|\tau_0}^2 \right)^\frac{1}{2}}$  \\ \hline
+    $\sigma_{AI|\tau_0}$ & 
+    $\begin{array} {l} \displaystyle{\left(\beta_{\tau_0}^A +8\sum_{i\in\Theta_{\tau_0}}\tilde{a}_i^2\sigma_{s_A}^4 +4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\tilde{a}_i\tilde{a}_k- \mu_{AR|\tau_0}^2\right)^\frac{1}{2}}\end{array}$ 
     \\ \hline
-	$\rho_{\tau_0}$    & $ \displaystyle{\frac{4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\bar{a}_i\tilde{a}_i}{\sigma_{R|\tau_0}\sigma_{I|\tau_0}}}$                                                                            \\ \hline
+	$\rho_{A|\tau_0}$    & $ \displaystyle{\frac{4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\bar{a}_i\tilde{a}_i}{\sigma_{AR|\tau_0}\sigma_{AI|\tau_0}}}$                                                                            \\ \hline
   \end{tabular}
   \caption{Statistic for $R$ and $I$ under hypothesis $H_1$}
   \label{Table2}
@@ -487,8 +487,8 @@ under hypothesis $H_2$ can be written in form of
 \begin{equation}
   \begin{split}
 	f_2(R, I) &= \sum_{\tau_0 = 0}^{l_0-1} \frac{1}{l_0}f(R, I|\tau=\tau_0)\\
-	&= \sum_{\tau_0 = 0}^{l_0-1}\frac{1}{2l_0\pi\sigma_{I|\tau_0}\sigma_{R|\tau_0}\sqrt{1 - \rho_{\tau_0}^2}}\exp\left( -\frac{1}{2(1-\rho_{\tau_0}^2)}\left[ \frac{(R-\mu_{R|\tau_0})^2}{\sigma_{R|\tau_0}^2} + \right.\right.\\
-	& \left. \left. \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \frac{(I-\mu_{I|\tau_0})^2}{\sigma_{I|\tau_0}^2} - \frac{2\rho(R-\mu_{R|\tau_0})(I-\mu_{I|\tau_0})}{\sigma_{R|\tau_0}\sigma_{I|\tau_0}}\right] \right)\,,
+	&= \sum_{\tau_0 = 0}^{l_0-1}\frac{1}{2l_0\pi\sigma_{BI|\tau_0}\sigma_{BR|\tau_0}\sqrt{1 - \rho_{B|\tau_0}^2}}\exp\left( -\frac{1}{2(1-\rho_{B|\tau_0}^2)}\left[ \frac{(R-\mu_{BR|\tau_0})^2}{\sigma_{BR|\tau_0}^2} + \right.\right.\\
+	& \left. \left. \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \frac{(I-\mu_{AI|\tau_0})^2}{\sigma_{BI|\tau_0}^2} - \frac{2\rho_{B|\tau_0}(R-\mu_{BR|\tau_0})(I-\mu_{BI|\tau_0})}{\sigma_{BR|\tau_0}\sigma_{BI|\tau_0}}\right] \right)\,,
   \end{split}
   \label{f_2underH2}
 \end{equation}
@@ -499,13 +499,13 @@ the statistics of $R$ and $I$ under hypothesis $H_2$ are given in Table \ref{Tab
   \begin{tabular}{|c|c|}
 	\hline
 	Statistics          & Value                                                                                                                                                                                                                 \\ \hline
-	$\mu_{R|\tau_0}$    & $\displaystyle{\sum_{i\in\Theta_{\tau_0}}\bar{a}_i2\sigma_{s_B}^2}$                                                                                                                                                                      \\ \hline
-	$\mu_{I|\tau_0}$    & $\displaystyle{\sum_{i\in\Theta_0}\tilde{a}_i2\sigma_{s_B}^2}$                                                                                                                                                                           \\ \hline
-    $\sigma_{R|\tau_0}$ & $\displaystyle{\left(\beta_{\tau_0}^B+8\sum_{i\in\Theta_{\tau_0}}\bar{a}_i^2\sigma_{s_B}^4 + 4\sigma_{s_B}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\bar{a}_k- \mu_{R|\tau_0}^2 \right)^\frac{1}{2}}$  \\ \hline
-    $\sigma_{I|\tau_0}$ & 
-    $\begin{array} {l} \displaystyle{\left(\beta_{\tau_0}^B +8\sum_{i\in\Theta_{\tau_0}}\tilde{a}_i^2\sigma_{s_B}^4 +4\sigma_{s_B}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\tilde{a}_i\tilde{a}_k- \mu_{R|\tau_0}^2\right)^\frac{1}{2}}\end{array}$ 
+	$\mu_{BR|\tau_0}$    & $\displaystyle{\sum_{i\in\Theta_{\tau_0}}\bar{a}_i2\sigma_{s_B}^2}$                                                                                                                                                                      \\ \hline
+	$\mu_{BI|\tau_0}$    & $\displaystyle{\sum_{i\in\Theta_0}\tilde{a}_i2\sigma_{s_B}^2}$                                                                                                                                                                           \\ \hline
+    $\sigma_{BR|\tau_0}$ & $\displaystyle{\left(\beta_{\tau_0}^B+8\sum_{i\in\Theta_{\tau_0}}\bar{a}_i^2\sigma_{s_B}^4 + 4\sigma_{s_B}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\bar{a}_k- \mu_{BR|\tau_0}^2 \right)^\frac{1}{2}}$  \\ \hline
+    $\sigma_{BI|\tau_0}$ & 
+    $\begin{array} {l} \displaystyle{\left(\beta_{\tau_0}^B +8\sum_{i\in\Theta_{\tau_0}}\tilde{a}_i^2\sigma_{s_B}^4 +4\sigma_{s_B}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\tilde{a}_i\tilde{a}_k- \mu_{BR|\tau_0}^2\right)^\frac{1}{2}}\end{array}$ 
     \\ \hline
-	$\rho_{\tau_0}$    & $ \displaystyle{\frac{4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\bar{a}_i\tilde{a}_i}{\sigma_{R|\tau_0}\sigma_{I|\tau_0}}}$                                                                            \\ \hline
+	$\rho_{B\tau_0}$    & $ \displaystyle{\frac{4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\bar{a}_i\tilde{a}_i}{\sigma_{R|\tau_0}\sigma_{I|\tau_0}}}$                                                                            \\ \hline
   \end{tabular}
   \caption{Statistic for $R$ and $I$ under hypothesis $H_2$}
   \label{Table2}
@@ -528,7 +528,7 @@ According to the expression of $R$ and $I$ given in \eqref{R} and \eqref{I}, $\m
 and 
 \begin{equation}
   \begin{split}
-	\mu_{I|\tau_0} =  E[I] = &\sum_{i=0}^{N-1}\tilde{a}_iE[\bar{r}_i] + \sum_{i=0}^{N-1}\bar{a}_iE[\tilde{r}_i]\\
+	\mu_I =  E[I] = &\sum_{i=0}^{N-1}\tilde{a}_iE[\bar{r}_i] + \sum_{i=0}^{N-1}\bar{a}_iE[\tilde{r}_i]\\
 	= &0\,.
   \end{split}
   \label{EInoise}
@@ -663,6 +663,11 @@ $ 19 $ & $ 5.3876e-02 $ &  $ -5.3615e-02 $ & $ 1.8299e-04 $ & $ 1.8286e-04 $ & $
 \caption{$\mu_R$ $\mu_I$ $\sigma_R^2$ $\sigma_I^2$ and $\rho$ under hypothesis $H_2$}
 \label{Table12}
 \end{table}
+According to ENP lemma, the decision rule can be written in form of 
+\begin{equation}
+  \frac{f_0(R,I)}{k_1f_1(R,I)+k_2f_2(R,I)} \substack{H_0 \\ \geq \\ < \\ \bar{H}_0}1\,,
+\end{equation}
+substitute \eqref{f_1underH1}, \eqref{f_2underH2} and \eqref{f0R0} we have 
 
 By using \eqref{f_1underH1}, \eqref{f_2underH2} and \eqref{f0R0} we can compute the PDFs of  $\begin{bmatrix}
   R \\
