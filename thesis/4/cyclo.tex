@@ -29,12 +29,12 @@ where
   \end{cases}
   \label{xssn}
 \end{equation}
-Assume each OFDM frame contains a CP sequence of length $l_C$ followed by a data sequence of length $l_D$, so the total length of an OFDM frame is $l_0 = l_C+l_D$. In general case, when there are signal transmitting, the receiver is not synchronized to the transmitted signal, i.e. $s_{A0}$ ( or $s_{B0}$) is not the first symbol of an OFDM frame. Let $\tau$ represents the synchronization mismatch. That is, when $\tau = 0$, $s_0$ is the first symbol of an OFDM frame; when $\tau = l_C+l_D -1$, $s_0$ is the last symbol of an OFDM frame. Let $M = Kl_0$, we can see when perfect synchronization the detector would observe $K$ complete  OFDM frames (as it is shown in Figure \ref{pic:1221n0}); otherwise, the detector would observe $K-1$ complete OFDM frames and $2$ incomplete OFDM frames (as it is shown in Figure \ref{pic:1222a2}). 
+Assume each OFDM frame contains a CP sequence of length $l_C$ followed by a data sequence of length $l_D$, so the total length of an OFDM frame is $l_0 = l_C+l_D$. In general case, when there are signal transmitting, the receiver is not synchronized to the transmitted signal, i.e. $s_{A0}$ ( or $s_{B0}$) is not the first symbol of an OFDM frame. Let $\tau$ represents the synchronization mismatch. That is, when $\tau = 0$, $s_0$ is the first symbol of an OFDM frame; when $\tau = l_C+l_D -1$, $s_0$ is the last symbol of an OFDM frame. Let $M = Kl_0$, we can see when perfect synchronization the detector would observe $K$ complete  OFDM frames (as it is shown in Figure \ref{pic:1222ext0}); otherwise, the detector would observe $K-1$ complete OFDM frames and $2$ incomplete OFDM frames (as it is shown in Figure \ref{pic:1222a2}). 
 \begin{figure}[!t]
   \centering 
   \includegraphics[width=\textwidth]{4/fig2.eps}
   \caption{Received signal for perfect synchronization.}
-  \label{pic:1221n0}
+  \label{pic:1222ext0}
 \end{figure}
 
 \begin{figure}[!t]
@@ -43,15 +43,15 @@ Assume each OFDM frame contains a CP sequence of length $l_C$ followed by a data
   \caption{Received signal for synchronization mismatch $\tau_0$.}
   \label{pic:1222a2}
 \end{figure}
-Assume $\tau = \tau_0$, let $\Theta_{\tau_0}$ denote the set of subscripts such that if $i \in \Theta_{\tau_0}$,  $s_i$ is a symbol of CP sequence. From Figure \ref{pic:1221n0} we can see, in the situation of perfect synchronization ( $\tau_0 =0$), when $i \in [Ql_0, Ql_0+l_c-1]$, the associated $s_i$ belongs to CP sequence. 
-From Figure \ref{1222a2}, we can see in the situation of imperfect synchronization, $i \in \Theta_{\tau_0}$ only if $i + \tau_0 \in [Ql_0, Ql_0+l_c -1]$ ($Q = 0, 1, \cdots, K-1$). 
+Assume $\tau = \tau_0$, let $\Theta_{\tau_0}$ denote the set of subscripts such that if $i \in \Theta_{\tau_0}$,  $s_i$ is a symbol of CP sequence. From Figure \ref{pic:1222ext0} we can see, in the situation of perfect synchronization ( $\tau_0 =0$), when $i \in [Ql_0, Ql_0+l_c-1]$, the associated $s_i$ belongs to CP sequence. 
+From Figure \ref{pic:1222a2}, we can see in the situation of imperfect synchronization, $i \in \Theta_{\tau_0}$ only if $i + \tau_0 \in [Ql_0, Ql_0+l_c -1]$ ($Q = 0, 1, \cdots, K-1$). 
 Let $\Theta_{\tau_0}^k$ denotes set $\Theta_{\tau_0}$ subtract set $\{k\}$ ($k$ is also a subscript), i.e.
 \begin{equation}
   \{i\in \Theta_{\tau_0}^k| i + \tau_0 \in [Ql_0, Ql_0+l_c -1] (Q = 0, 1, \cdots, K-1)\;\;\;\; \text{and}\;\;\;\; i\neq k\}
   \label{definitionof}
 \end{equation}
 
-Like in (c.f. \eqref{axell2011optimal}), we make following assumptions about the noise and signal: (1) all noise samples are i.i.d. mean zero circularly symmetric complex Gaussian (CSCG) with variance $\sigma_n^2$; (2) under hypothesis $H_1$ the transmitted signal symbols in the data sequence are i.i.d. zero mean CSCG with variance $\sigma_{s_A}^2$ (or $\sigma_{s_B}^2$ under hypothesis $H_2$); (3) if $s_i$ is a sample in CP sequence, then we have $s_i = s_{i+l_D}$. 
+Like in  \cite{axell2011optimal}, we make following assumptions about the noise and signal: (1) all noise samples are i.i.d. mean zero circularly symmetric complex Gaussian (CSCG) with variance $\sigma_n^2$; (2) under hypothesis $H_1$ the transmitted signal symbols in the data sequence are i.i.d. zero mean CSCG with variance $\sigma_{s_A}^2$ (or $\sigma_{s_B}^2$ under hypothesis $H_2$); (3) if $s_i$ is a sample in CP sequence, then we have $s_i = s_{i+l_D}$. 
 
 The CP structure could introduce strong cyclostationarity to the transmitted OFDM signals ($s_A$ or $s_B$) \cite{lunden2010robust}. 
 Let $r_i=x_ix_j^\ast$ ($j=i+l_D$), \cite{lunden2007spectrum} shows $r_i$ exhibit cyclic property at frequency $\alpha = \frac{Q}{l_0}$ ($Q = \pm1, \pm2, \cdots$). In this case, we consider a single cyclic detector at frequency $\alpha = \frac{1}{l_0}$. 
@@ -317,7 +317,7 @@ Let $\mu_{AR|\tau_0}$ $\mu_{AI|\tau_0}$ denote the mean of $R$ and $I$ with sync
   \begin{split}
 	\mu_{AI|\tau_0} =  E[I] = &\sum_{i=0}^{N-1}\tilde{a}_iE[\bar{r}_i] + \sum_{i=0}^{N-1}\bar{a}_iE[\tilde{r}_i]\\
 	= &\sum_{i\in\Theta_{\tau_0}}\tilde{a}_iE[\bar{r}_i]\\
-	= &2\sigma_{s_A}^2\sum_{i\in\Theta_0}\tilde{a}_i\,.
+    = &2\sigma_{s_A}^2\sum_{i\in\Theta_{\tau_0}}\tilde{a}_i\,.
   \end{split}
   \label{EI}
 \end{equation}
@@ -468,7 +468,7 @@ and the statistic of $R$ and $I$  under hypothesis $H_1$ are summarized in Table
 	\hline
 	Statistics          & Value                                                                                                                                                                                                                 \\ \hline
 	$\mu_{AR|\tau_0}$    & $\displaystyle{\sum_{i\in\Theta_{\tau_0}}\bar{a}_i2\sigma_{s_A}^2}$                                                                                                                                                                      \\ \hline
-	$\mu_{AI|\tau_0}$    & $\displaystyle{\sum_{i\in\Theta_0}\tilde{a}_i2\sigma_{s_A}^2}$                                                                                                                                                                           \\ \hline
+    $\mu_{AI|\tau_0}$    & $\displaystyle{\sum_{i\in\Theta_{\tau_0}}\tilde{a}_i2\sigma_{s_A}^2}$                                                                                                                                                                           \\ \hline
     $\sigma_{AR|\tau_0}$ & $\displaystyle{\left(\beta_{\tau_0}^A+8\sum_{i\in\Theta_{\tau_0}}\bar{a}_i^2\sigma_{s_A}^4 + 4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\bar{a}_k- \mu_{AR|\tau_0}^2 \right)^\frac{1}{2}}$  \\ \hline
     $\sigma_{AI|\tau_0}$ & 
     $\begin{array} {l} \displaystyle{\left(\beta_{\tau_0}^A +8\sum_{i\in\Theta_{\tau_0}}\tilde{a}_i^2\sigma_{s_A}^4 +4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\tilde{a}_i\tilde{a}_k- \mu_{AR|\tau_0}^2\right)^\frac{1}{2}}\end{array}$ 
@@ -500,7 +500,7 @@ the statistics of $R$ and $I$ under hypothesis $H_2$ are given in Table \ref{Tab
 	\hline
 	Statistics          & Value                                                                                                                                                                                                                 \\ \hline
 	$\mu_{BR|\tau_0}$    & $\displaystyle{\sum_{i\in\Theta_{\tau_0}}\bar{a}_i2\sigma_{s_B}^2}$                                                                                                                                                                      \\ \hline
-	$\mu_{BI|\tau_0}$    & $\displaystyle{\sum_{i\in\Theta_0}\tilde{a}_i2\sigma_{s_B}^2}$                                                                                                                                                                           \\ \hline
+    $\mu_{BI|\tau_0}$    & $\displaystyle{\sum_{i\in\Theta_{\tau_0}}\tilde{a}_i2\sigma_{s_B}^2}$                                                                                                                                                                           \\ \hline
     $\sigma_{BR|\tau_0}$ & $\displaystyle{\left(\beta_{\tau_0}^B+8\sum_{i\in\Theta_{\tau_0}}\bar{a}_i^2\sigma_{s_B}^4 + 4\sigma_{s_B}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\bar{a}_k- \mu_{BR|\tau_0}^2 \right)^\frac{1}{2}}$  \\ \hline
     $\sigma_{BI|\tau_0}$ & 
     $\begin{array} {l} \displaystyle{\left(\beta_{\tau_0}^B +8\sum_{i\in\Theta_{\tau_0}}\tilde{a}_i^2\sigma_{s_B}^4 +4\sigma_{s_B}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\tilde{a}_i\tilde{a}_k- \mu_{BR|\tau_0}^2\right)^\frac{1}{2}}\end{array}$ 
@@ -668,21 +668,51 @@ According to ENP lemma, the decision rule can be written in form of
   \frac{f_0(R,I)}{k_1f_1(R,I)+k_2f_2(R,I)} \substack{H_0 \\ \geq \\ < \\ \bar{H}_0}1\,,
 \end{equation}
 substitute \eqref{f_1underH1}, \eqref{f_2underH2} and \eqref{f0R0} we have 
+\begin{equation}
+\begin{split}
+\sum_{\tau_0=0}^{l_0-1}\frac{N}{2k_1\sigma_n^4}l_0\sigma_{AR|\tau_0}\sigma_{AI|\tau_0}\sqrt{1-\rho_{A|\tau_0}^2}\exp\left(\frac{1}{2(1-\rho_{A|\tau_0}^2)}\left[ \frac{(R-\mu_{AR|\tau_0})^2}{\sigma_{AR|\tau_0}^2}+\frac{(I-\mu_{AI|\tau_0})^2}{\sigma_{AI|\tau_0}^2} \right. \right. \\
+\left. \left.  - \frac{2\rho_{A|\tau_0}(R-\mu_{AR|\tau_0})(I-\mu_{AI|\tau_0})}{\sigma_{AR|\tau_0}\sigma_{AI|\tau_0}} \right] -\frac{NI^2+NR^2}{4\sigma_n^4}\right)
++\\
+\sum_{\tau_0=0}^{l_0-1}\frac{N}{2k_2\sigma_n^4}l_0\sigma_{BR|\tau_0}\sigma_{BI|\tau_0}\sqrt{1-\rho_{B|\tau_0}^2}\exp\left(
+\frac{1}{2(1-\rho_{B|\tau_0}^2)}\left[ \frac{(R-\mu_{BR|\tau_0})^2}{\sigma_{BR|\tau_0}^2}+\frac{(I-\mu_{BI|\tau_0})^2}{\sigma_{BI|\tau_0}^2} \right. \right. \\
+\left. \left. - \frac{2\rho_{B|\tau_0}(R-\mu_{BR|\tau_0})(I-\mu_{BI|\tau_0})}{\sigma_{BR|\tau_0}\sigma_{BI|\tau_0}}  
+\right] -\frac{NI^2+NR^2}{4\sigma_n^4}
+\right) \substack{H_0 \\ \geq \\ < \\ \bar{H}_0}1\,.
+\end{split}
+\end{equation}
 
 By using \eqref{f_1underH1}, \eqref{f_2underH2} and \eqref{f0R0} we can compute the PDFs of  $\begin{bmatrix}
   R \\
   I
-\end{bmatrix}$ under hypotheses $H_0$ $H_1$ and $H_2$, which are illustrated in Figure \ref{pic:1218n0} Figure \ref{pic:1218n1} Figure \ref{pic:1218n2} respectively. According to ENP test, the expression of $P_d$ $P_{f_1}$ and $P_{f_2}$ are
+\end{bmatrix}$ under hypotheses $H_0$ $H_1$ and $H_2$, which are illustrated in Figure \ref{pic:1218n0} Figure \ref{pic:1218n1} Figure \ref{pic:1218n2} respectively. 
+According to ENP lemma, the decision rule can be written in form of 
+\begin{equation}
+  \frac{f_0(R,I)}{k_1f_1(R,I)+k_2f_2(R,I)} \substack{H_0 \\ \geq \\ < \\ \bar{H}_0}1\,,
+\end{equation}
+substitute \eqref{f_1underH1}, \eqref{f_2underH2} and \eqref{f0R0} we have 
+\begin{equation}
+\begin{split}
+\sum_{\tau_0=0}^{l_0-1}\frac{N}{2k_1\sigma_n^4}l_0\sigma_{AR|\tau_0}\sigma_{AI|\tau_0}\sqrt{1-\rho_{A|\tau_0}^2}\exp\left(\frac{1}{2(1-\rho_{A|\tau_0}^2)}\left[ \frac{(R-\mu_{AR|\tau_0})^2}{\sigma_{AR|\tau_0}^2}+\frac{(I-\mu_{AI|\tau_0})^2}{\sigma_{AI|\tau_0}^2} \right. \right. \\
+\left. \left.  - \frac{2\rho_{A|\tau_0}(R-\mu_{AR|\tau_0})(I-\mu_{AI|\tau_0})}{\sigma_{AR|\tau_0}\sigma_{AI|\tau_0}} \right] -\frac{NI^2+NR^2}{4\sigma_n^4}\right)
++\\
+\sum_{\tau_0=0}^{l_0-1}\frac{N}{2k_2\sigma_n^4}l_0\sigma_{BR|\tau_0}\sigma_{BI|\tau_0}\sqrt{1-\rho_{B|\tau_0}^2}\exp\left(
+\frac{1}{2(1-\rho_{B|\tau_0}^2)}\left[ \frac{(R-\mu_{BR|\tau_0})^2}{\sigma_{BR|\tau_0}^2}+\frac{(I-\mu_{BI|\tau_0})^2}{\sigma_{BI|\tau_0}^2} \right. \right. \\
+\left. \left. - \frac{2\rho_{B|\tau_0}(R-\mu_{BR|\tau_0})(I-\mu_{BI|\tau_0})}{\sigma_{BR|\tau_0}\sigma_{BI|\tau_0}}  
+\right] -\frac{NI^2+NR^2}{4\sigma_n^4}
+\right) \substack{H_0 \\ \geq \\ < \\ \bar{H}_0}1\,.
+\end{split}
+\end{equation}
+The expression of $P_d$ $P_{f_1}$ and $P_{f_2}$ can be written as
 \begin{equation}
   \begin{cases}
 	P_d = \int_{\infty}^\infty u(f_0(R,I) - k_1f_1(R,I) - k_2f_2(R,I))f_0(R,I)\mathrm{d}R\mathrm{d}I\\ 
-	P_{f_1} = \int_{\infty}^\infty u(f_0(R,I) - k_1f_1(R,I) - k_2f_2(R,I))f_1(R,I)\mathrm{d}R\mathrm{d}I\\ 
+	P_{f_1} = \int_{\infty}^\infty u(f_0(R,I) - k_1f_1(R,I) - k_2f_2(R,I))f_1(R,I)\mathrm{d}R\mathrm{d}I\\
 	P_{f_2} = \int_{\infty}^\infty u(f_0(R,I) - k_1f_1(R,I) - k_2f_2(R,I))f_2(R,I)\mathrm{d}R\mathrm{d}I\,. 
   \end{cases}
   \label{asdffghj}
 \end{equation}
 
-We use look-up table method proposed in chapter 2 to compute the whole M-ROC.  Let $k_1$ $k_2$ increase from $0.1$ to $10000$ with step $0.1$ and store the corresponding $P_d, P_{f_1}$ and $P_{f_2}$ value in table $T_1$. For a given $c_1, c_2$, we iterate every item in table $T_1$ and put the item into table $T_2$ if the item satisfies: $P_{f_1} \leq c_1$ and $P_{f_2}\leq c_2$. After that, we iterate every item in table $T-2$ and get the largest $P_d$ in table $T_2$. The M-ROC is illustrated in figure \ref{1221n0}.  
+We use look-up table method proposed in chapter 2 to compute the whole M-ROC.  Let $k_1$ $k_2$ increase from $0.1$ to $10000$ with step $0.1$ and store the corresponding $P_d, P_{f_1}$ and $P_{f_2}$ value in table $T_1$. For a given $c_1, c_2$, we iterate every item in table $T_1$ and put the item into table $T_2$ if the item satisfies: $P_{f_1} \leq c_1$ and $P_{f_2}\leq c_2$. After that, we iterate every item in table $T-2$ and get the largest $P_d$ in table $T_2$. The M-ROC is illustrated in figure \ref{pic:1221n0}.  
 
 \begin{figure}[!t]
   \centering 
