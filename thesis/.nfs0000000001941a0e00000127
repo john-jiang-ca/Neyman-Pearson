@@ -7,7 +7,6 @@
 \usepackage{longtable}          % Tables spanning pages
 \DeclareGraphicsExtensions{.pdf,.png,.jpg,.mps}
 \usepackage{amssymb}
-\usepackage{courier}
 \usepackage{mathtools}
 \usepackage{ amsmath, bm }
 \usepackage{graphicx}
