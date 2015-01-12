@@ -26,4 +26,25 @@ cyclodetection.m         & Generate MROC for cyclostationary detection.         
 
 To run a program, all of the files in Table \ref{filelist} in the Matlab current work folder. These programs have been successfully run using Matlab 2013b and Matlab 2014a on Linux platform with 12 GB RAM.  When execute JAchisquare.m, gaussiansitu.m or gaussianexample.m, the program loads configurations from init.txt file. When the computation finishes file output.mat stores the result and plotfigure.m execute automatically to generate associated figure. 
 
-The adjustable parameters for ENP (MENP) test are listed in the following table. 
+The adjustable parameters for ENP (MENP) test are listed in table \ref{constantlist}. 
+\begin{table}[h]
+\begin{tabular}{l|p{350pt}} 
+\hline
+\hline
+Constant Name & Description                                                                                           \\
+\hline
+STEP\_K       & Step of ENP parameters, should be positive                                                            \\
+RANGE\_K      & Range of ENP parameters, should be positive                                                           \\
+RANGE\_K\_NEG & Should be negative.                                                                                   \\
+CHI\_DEGREE   & Degree of freedom in Chi-Square Example. Should be a positive integer.                                \\
+SNR1          & The SNR of signal of hypothesis 1 in term of db.                                                      \\
+SNR2          & The SNR of signal of hypothesis 2 in term of db.                                                      \\
+SYM\_NUM      & The number of received symbols in energy detector. Should be positive.                                \\
+DA\_LEN       & The length of data structure of an OFDM symbol. Should be an positive.integer                         \\
+CP\_LEN       & The length of CP structure of an OFDM symbol. Should be an positive integer and smaller than DA\_LEN. \\
+FRAME\_NUM    & The number of received OFDM frames. Should be an positive integer.\\
+\hline                                   
+\end{tabular}
+\label{constantlist}
+\caption{Adjustable Constants}
+\end{table}
