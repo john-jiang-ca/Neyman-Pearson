@@ -147,7 +147,7 @@ Since noise samples are governed by i.i.d Gaussian distribution with zero mean a
   \label{equ:Erirk}
 \end{equation} 
 
-Without losing generality, we assume $i < k$. Consider the situation when $k \notin \Theta_{\tau_0}$, in such case $s_k$ and $s_l$ are independent. It is easy to see $s_l$ is also independent with $s_i$ and $s_j$. Hence \eqref{equ:Erirk} can be written as
+Without losing generality, we assume $i < k$. Consider the situation when $k \notin \Theta_{\tau_0}$, in such case $s_k$ is a symbol in data sequence so $s_k$ and $s_{k+l_D}$ are independent, i.e. $s_k$ and $s_l$ are independent. Furether more, it is easy to see $s_l$ is also independent with $s_i$ and $s_j$. Hence \eqref{equ:Erirk} can be written as
 \begin{equation}
   \begin{split}
   E[\bar{r}_i\bar{r}_k] = &E[\bar{s}_i\bar{s}_j\bar{s}_k]E[\bar{s}_l] + E[\bar{s}_i\bar{s}_j\tilde{s}_k]E[\tilde{s}_l] + E[\tilde{s}_i\tilde{s}_j\bar{s}_k]E[\bar{s}_l] + E[\tilde{s}_i\tilde{s}_j\tilde{s}_k]E[\tilde{s}_l]\\
@@ -335,9 +335,11 @@ Substitute the statistics of $r_i$ in Table \ref{Table1}, Table \ref{Table3} and
 \begin{equation}
   \begin{split}
 	E[R^2]  
-	= &\sum_{i=0}^{N-1}\bar{a}_i^2E[\bar{r}_i^2] + \sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\bar{a}_kE[\bar{r}_i\bar{r}_k] + \sum_{i=0}^{N-1}\tilde{a}_i^2E[\bar{r}_i^2]\\
+	= &\sum_{i=0}^{N-1}\bar{a}_i^2E[\bar{r}_i^2] + \sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\bar{a}_kE[\bar{r}_i\bar{r}_k] + \sum_{i=0}^{N-1}\tilde{a}_i^2E[\tilde{r}_i^2]\\
 	= &\sum_{i\in\Theta_{\tau_0}}\bar{a}_i^2E[\bar{r}_i^2] + \sum_{i\in\Theta_{\tau_0}}\tilde{a}_i^2E[\tilde{r}_i^2] + \sum_{i\notin\Theta_{\tau_0}}(\bar{a}_i^2E[\bar{r}_i^2]+\tilde{a}_i^2E[\tilde{r}_i^2]) + \sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\bar{a}_kE[\bar{r}_i\bar{r}_k]\\
 	= &\sum_{i\in\Theta_{\tau_0}}\bar{a}_i^2(8\sigma_{s_A}^4+4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4) + \sum_{i\in\Theta_{\tau_0}}\tilde{a}_i^2(4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4) + \sum_{i\notin\Theta_{\tau_0}}(\tilde{a}_i^2+\bar{a}_i^2)2(\sigma_n^2+\sigma_{s_A}^2)^2\\
+    &+4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\bar{a}_k\\
+  = & \sum_{i\in\Theta_{\tau_0}}(\tilde{a}_i^2 + \bar{a}_i^2)(4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4)+ \sum_{i\in\Theta_{\tau_0}}\bar{a}_i^2 8\sigma_{s_A}^4 + \sum_{i\notin\Theta_{\tau_0}}(\tilde{a}_i^2+\bar{a}_i^2)2(\sigma_n^2+\sigma_{s_A}^2)^2\\
     &+4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\bar{a}_k
   \end{split}
   \label{}
@@ -399,7 +401,8 @@ Similarly, we compute $\sigma_{AI|\tau_0}$ and $E[RI]$ as
 \end{equation}
 \begin{equation}
   \begin{split}
-	E[RI]= &E[\sum_{i=0}^{N-1} \sum_{k=0}^{N-1} \bar{a}_i\tilde{a}_k\bar{r}_i\bar{r}_k + 
+	E[RI]= &E[(\sum_{i=0}^{N-1}\bar{a}_i\bar{r}_i - \sum_{i=0}^{N-1}\tilde{a}_i\tilde{r}_i)(\sum_{i=0}^{N-1}\tilde{a}_i\bar{r}_i + \sum_{i=0}^{N-1}\bar{a}_i\tilde{r}_i)]\\
+  = &E[\sum_{i=0}^{N-1} \sum_{k=0}^{N-1} \bar{a}_i\tilde{a}_k\bar{r}_i\bar{r}_k + 
 	  \sum_{i=0}^{N-1} \sum_{k=0}^{N-1} \bar{a}_i\bar{a}_k\bar{r}_i\tilde{r}_k - 
 	  \sum_{i=0}^{N-1} \sum_{k=0}^{N-1} \tilde{a}_i\tilde{a}_k\tilde{r}_i\bar{r}_k - 
 	\sum_{i=0}^{N-1} \sum_{k=0}^{N-1} \tilde{a}_i\bar{a}_k\tilde{r}_i\tilde{r}_k]\\
@@ -412,7 +415,7 @@ Similarly, we compute $\sigma_{AI|\tau_0}$ and $E[RI]$ as
 	\label{ERI}
   \end{split}
 \end{equation}
-The last step comes from the fact that when $i \notin \Theta_{\tau_0}$, $E[\bar{r}_i^2] = E[\tilde{r}_i^2] = 2(\sigma_{s_A}^2 + \sigma_{n}^2)^2$.
+The last step comes from the fact that when $i \notin \Theta_{\tau_0}$, $E[\bar{r}_i^2] = E[\tilde{r}_i^2] = 2(\sigma_{s_A}^2 + \sigma_{n}^2)^2$; when $i \notin \Theta_{\tau_0}$, $E[\bar{r}_i^2] - E[\tilde{r}_i^2] = 8\sigma_{s_A}^4$.
 Let $\rho_{A|\tau_0}$ represents the correlation between $R$ and $I$ when synchronization mismatch is $\tau_0$, we have
 \begin{equation}
   \begin{split}
@@ -493,7 +496,7 @@ under hypothesis $H_2$ can be written in form of
   \label{f_2underH2}
 \end{equation}
 Let $\beta_{\tau_0}^B = \frac{1}{N^2}\#\Theta_{\tau_0}(4\sigma_{s_B}^2\sigma_n^2+2\sigma_n^4) + \frac{2}{N^2}(N - \#\Theta_{\tau_0})(\sigma_n^2+\sigma_{s_B}^2)^2$, 
-the statistics of $R$ and $I$ under hypothesis $H_2$ are given in Table \ref{Table3} on page \pageref{Table3}. 
+the statistics of $R$ and $I$ under hypothesis $H_2$ are given in Table \ref{Table4} on page \pageref{Table4}. 
 \begin{table}[h]
 \centering
   \begin{tabular}{|c|c|}
@@ -505,10 +508,10 @@ the statistics of $R$ and $I$ under hypothesis $H_2$ are given in Table \ref{Tab
     $\sigma_{BI|\tau_0}$ & 
     $\begin{array} {l} \displaystyle{\left(\beta_{\tau_0}^B +8\sum_{i\in\Theta_{\tau_0}}\tilde{a}_i^2\sigma_{s_B}^4 +4\sigma_{s_B}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\tilde{a}_i\tilde{a}_k- \mu_{BR|\tau_0}^2\right)^\frac{1}{2}}\end{array}$ 
     \\ \hline
-	$\rho_{B\tau_0}$    & $ \displaystyle{\frac{4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\bar{a}_i\tilde{a}_i}{\sigma_{R|\tau_0}\sigma_{I|\tau_0}}}$                                                                            \\ \hline
+	$\rho_{B\tau_0}$    & $ \displaystyle{\frac{4\sigma_{s_B}^4\sum_{i\in\Theta_{\tau_0}}\bar{a}_i\tilde{a}_i}{\sigma_{R|\tau_0}\sigma_{I|\tau_0}}}$                                                                            \\ \hline
   \end{tabular}
   \caption{Statistic for $R$ and $I$ under hypothesis $H_2$}
-  \label{Table2}
+  \label{Table4}
 \end{table}
 
 Next we consider the distribution of 
@@ -542,7 +545,7 @@ The second order statistics of $R$ and $I$ are
     \end{split}
   \label{ER^2noise}
 \end{equation}
-Since all noise samples are independent and $r_i = n_i, r_k = n_k$,  we can see when $i/neq k$ $E[\bar{r}_i\bar{r}_k] = E[\bar{r}_i\tilde{r}_k] = E[\tilde{r}_i\tilde{r}_k] = 0$. The above equation can be simplified as 
+Since all noise samples are independent and $r_i = n_i, r_k = n_k$,  we can see when $i\neq k$ $E[\bar{r}_i\bar{r}_k] = E[\bar{r}_i\tilde{r}_k] = E[\tilde{r}_i\tilde{r}_k] = 0$. Inserting the statistics in Table \ref{Table1} and Table \ref{Table3}, the above equation can be simplified as 
 \begin{equation}
 \begin{split}
 E[R^2] = &\sum_{i=0}^{N-1}(\bar{a}_i^2E[\bar{r}_i^2] + \tilde{a}_i^2E[\tilde{r}_i^2])\\
@@ -571,7 +574,7 @@ and
 	\sum_{i=0}^{N-1} \sum_{k=0}^{N-1} \bar{a}_i\bar{a}_kE[\bar{r}_i\tilde{r}_k] - 
 	\sum_{i=0}^{N-1} \sum_{k=0}^{N-1} \tilde{a}_i\tilde{a}_kE[\tilde{r}_i\bar{r}_k] - 
 	\sum_{i=0}^{N-1} \sum_{k=0}^{N-1} \tilde{a}_i\bar{a}_kE[\tilde{r}_i\tilde{r}_k]\\
-	= 0\,.
+	= &0\,.
 	\label{ERInoise}
   \end{split}
 \end{equation}
@@ -600,9 +603,10 @@ Further more, since $E[RI] = E[R]E[I]$ = 0 and $R, I$ are combined gaussian dist
 \end{equation}
 \subsection{Numerical Results}
 
-Assume $l_c = 4$ $l_d = 16$ $l_0 = 20$ and $K = 50$. We set the variance of noise is $\sigma_n^2 = 0.1$, the variance of signal $s_A$ and $s_B$ are $\sigma_{s_A} = 0.05$ and $\sigma_{s_B} = 0.3$ respectively. 
+Assume $l_c = 4$ $l_d = 16$ $l_0 = 20$ and $K = 50$. We set the variance of noise is $\sigma_n^2 = 0.1$, the variance of signal $s_A$ and $s_B$ are $\sigma_{s_A}^2 = 0.05$ and $\sigma_{s_B}^2 = 0.3$ respectively. 
 The value of $\mu_R$ $\mu_I$ $\sigma_R^2$ $\sigma_I^2$ and $\rho$ under hypotheses $H_1$ and $H_2$ are derived from Table \ref{Table3} and Table \ref{Table2} and illustrated in Table \ref{Table11} on page \pageref{Table11} and Table \ref{Table12} on page \pageref{Table12}. 
 \begin{table}[h]
+\centering
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline
 $\tau$ & $\mu_R$ & $\mu_I$ & $\sigma_R^2$ & $\sigma_I^2$ & $\rho$ \\
@@ -634,6 +638,7 @@ $ 19 $ & $ 1.3469e-02 $ &  $ -1.3404e-02 $ & $ 4.5736e-05 $ & $ 4.5728e-05 $ & $
 \end{table}
 
 \begin{table}[h]
+\centering
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline
 $\tau$ & $\mu_R$ & $\mu_I$ & $\sigma_R^2$ & $\sigma_I^2$ &$ \rho$ \\
@@ -663,23 +668,6 @@ $ 19 $ & $ 5.3876e-02 $ &  $ -5.3615e-02 $ & $ 1.8299e-04 $ & $ 1.8286e-04 $ & $
 \caption{$\mu_R$ $\mu_I$ $\sigma_R^2$ $\sigma_I^2$ and $\rho$ under hypothesis $H_2$}
 \label{Table12}
 \end{table}
-According to ENP lemma, the decision rule can be written in form of 
-\begin{equation}
-  \frac{f_0(R,I)}{k_1f_1(R,I)+k_2f_2(R,I)} \substack{H_0 \\ \geq \\ < \\ \bar{H}_0}1\,,
-\end{equation}
-substitute \eqref{f_1underH1}, \eqref{f_2underH2} and \eqref{f0R0} we have 
-\begin{equation}
-\begin{split}
-\sum_{\tau_0=0}^{l_0-1}\frac{N}{2k_1\sigma_n^4}l_0\sigma_{AR|\tau_0}\sigma_{AI|\tau_0}\sqrt{1-\rho_{A|\tau_0}^2}\exp\left(\frac{1}{2(1-\rho_{A|\tau_0}^2)}\left[ \frac{(R-\mu_{AR|\tau_0})^2}{\sigma_{AR|\tau_0}^2}+\frac{(I-\mu_{AI|\tau_0})^2}{\sigma_{AI|\tau_0}^2} \right. \right. \\
-\left. \left.  - \frac{2\rho_{A|\tau_0}(R-\mu_{AR|\tau_0})(I-\mu_{AI|\tau_0})}{\sigma_{AR|\tau_0}\sigma_{AI|\tau_0}} \right] -\frac{NI^2+NR^2}{4\sigma_n^4}\right)
-+\\
-\sum_{\tau_0=0}^{l_0-1}\frac{N}{2k_2\sigma_n^4}l_0\sigma_{BR|\tau_0}\sigma_{BI|\tau_0}\sqrt{1-\rho_{B|\tau_0}^2}\exp\left(
-\frac{1}{2(1-\rho_{B|\tau_0}^2)}\left[ \frac{(R-\mu_{BR|\tau_0})^2}{\sigma_{BR|\tau_0}^2}+\frac{(I-\mu_{BI|\tau_0})^2}{\sigma_{BI|\tau_0}^2} \right. \right. \\
-\left. \left. - \frac{2\rho_{B|\tau_0}(R-\mu_{BR|\tau_0})(I-\mu_{BI|\tau_0})}{\sigma_{BR|\tau_0}\sigma_{BI|\tau_0}}  
-\right] -\frac{NI^2+NR^2}{4\sigma_n^4}
-\right) \substack{H_0 \\ \geq \\ < \\ \bar{H}_0}1\,.
-\end{split}
-\end{equation}
 
 By using \eqref{f_1underH1}, \eqref{f_2underH2} and \eqref{f0R0} we can compute the PDFs of  $\begin{bmatrix}
   R \\
@@ -689,7 +677,7 @@ According to ENP lemma, the decision rule can be written in form of
 \begin{equation}
   \frac{f_0(R,I)}{k_1f_1(R,I)+k_2f_2(R,I)} \substack{H_0 \\ \geq \\ < \\ \bar{H}_0}1\,,
 \end{equation}
-substitute \eqref{f_1underH1}, \eqref{f_2underH2} and \eqref{f0R0} we have 
+substitute \eqref{f_1underH1}, \eqref{f_2underH2} and \eqref{f0R0} into above equation we have 
 \begin{equation}
 \begin{split}
 \sum_{\tau_0=0}^{l_0-1}\frac{N}{2k_1\sigma_n^4}l_0\sigma_{AR|\tau_0}\sigma_{AI|\tau_0}\sqrt{1-\rho_{A|\tau_0}^2}\exp\left(\frac{1}{2(1-\rho_{A|\tau_0}^2)}\left[ \frac{(R-\mu_{AR|\tau_0})^2}{\sigma_{AR|\tau_0}^2}+\frac{(I-\mu_{AI|\tau_0})^2}{\sigma_{AI|\tau_0}^2} \right. \right. \\
@@ -705,14 +693,14 @@ substitute \eqref{f_1underH1}, \eqref{f_2underH2} and \eqref{f0R0} we have
 The expression of $P_d$ $P_{f_1}$ and $P_{f_2}$ can be written as
 \begin{equation}
   \begin{cases}
-	P_d = \int_{\infty}^\infty u(f_0(R,I) - k_1f_1(R,I) - k_2f_2(R,I))f_0(R,I)\mathrm{d}R\mathrm{d}I\\ 
-	P_{f_1} = \int_{\infty}^\infty u(f_0(R,I) - k_1f_1(R,I) - k_2f_2(R,I))f_1(R,I)\mathrm{d}R\mathrm{d}I\\
-	P_{f_2} = \int_{\infty}^\infty u(f_0(R,I) - k_1f_1(R,I) - k_2f_2(R,I))f_2(R,I)\mathrm{d}R\mathrm{d}I\,. 
+    P_d = \int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty} u(f_0(R,I) - k_1f_1(R,I) - k_2f_2(R,I))f_0(R,I)\mathrm{d}R\mathrm{d}I\\ 
+	P_{f_1} = \int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty} u(f_0(R,I) - k_1f_1(R,I) - k_2f_2(R,I))f_1(R,I)\mathrm{d}R\mathrm{d}I\\
+	P_{f_2} = \int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty} u(f_0(R,I) - k_1f_1(R,I) - k_2f_2(R,I))f_2(R,I)\mathrm{d}R\mathrm{d}I\,. 
   \end{cases}
   \label{asdffghj}
 \end{equation}
 
-We use look-up table method proposed in chapter 2 to compute the whole M-ROC.  Let $k_1$ $k_2$ increase from $0.1$ to $10000$ with step $0.1$ and store the corresponding $P_d, P_{f_1}$ and $P_{f_2}$ value in table $T_1$. For a given $c_1, c_2$, we iterate every item in table $T_1$ and put the item into table $T_2$ if the item satisfies: $P_{f_1} \leq c_1$ and $P_{f_2}\leq c_2$. After that, we iterate every item in table $T-2$ and get the largest $P_d$ in table $T_2$. The M-ROC is illustrated in figure \ref{pic:1221n0}.  
+We use look-up table method proposed in chapter 2 to compute the whole M-ROC.  Let $k_1$ $k_2$ increase from $0.1$ to $10000$ with step $0.1$ and store the corresponding $P_d, P_{f_1}$ and $P_{f_2}$ value in table $T_1$. For a given $c_1, c_2$, we iterate every item in table $T_1$ and put the item in table $T_2$ if the item satisfies: $P_{f_1} \leq c_1$ and $P_{f_2}\leq c_2$. After that, we iterate every item in table $T_2$ and get the largest $P_d$. The M-ROC is illustrated in figure \ref{pic:1221n0}.  
 
 \begin{figure}[!t]
   \centering 

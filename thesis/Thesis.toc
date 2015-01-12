@@ -21,7 +21,7 @@
 \contentsline {section}{\numberline {4.2}Cyclostationary Detection for multiple Primary Users}{72}
 \contentsline {subsection}{\numberline {4.2.1}System Model}{72}
 \contentsline {subsection}{\numberline {4.2.2}Numerical Results}{90}
-\contentsline {chapter}{\numberline {5}Conclusions}{98}
-\contentsline {chapter}{\numberline {A}\LaTeX {}Macros}{101}
-\contentsline {section}{\numberline {A.1}Numerical Results Overview and Guide }{101}
-\contentsline {chapter}{References}{103}
+\contentsline {chapter}{\numberline {5}Conclusions}{97}
+\contentsline {chapter}{\numberline {A}\LaTeX {}Macros}{99}
+\contentsline {section}{\numberline {A.1}Numerical Results Overview and Guide }{99}
+\contentsline {chapter}{References}{101}
