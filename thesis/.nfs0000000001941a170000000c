@@ -17,11 +17,11 @@ gaussian\_equal\_var.m   & Generate MROC for Gaussian distributions with equal v
 gaussian\_situ.m         & Generate MROC for normal Gaussian situation.                   \\
 JAchisquare.m            & Generate MROC for Chi-Square situation.                        \\
 energy.m                 & Generate MROC for energy detection.                            \\
-cyclodetection.m         & Generate MROC for cyclostationary detection.                 \\ 
+cyclodetection.m         & Generate MROC for cyclostationary detection.                  
 \hline
 \end{tabular}
 \label{filelist}
-\caption{Matlab source files}
+\captain{Matlab source files}
 \end{table}
 
 To run a program, all of the files in Table \ref{filelist} in the Matlab current work folder. These programs have been successfully run using Matlab 2013b and Matlab 2014a on Linux platform with 12 GB RAM.  When execute JAchisquare.m, gaussiansitu.m or gaussianexample.m, the program loads configurations from init.txt file. When the computation finishes file output.mat stores the result and plotfigure.m execute automatically to generate associated figure. 
