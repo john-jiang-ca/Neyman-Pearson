@@ -6,7 +6,7 @@
 This section explains how to use the Matlab code that were used to generate the numerical results in this thesis. The capabilities are also discussed. The following table provides an overview of each source code file. All of these files can be found on the attached CD. 
 
 \begin{table}[h]
-\begin{tabular}{l|p{300pt}}
+\begin{tabular}{ll}
 \hline
 \hline
 Source File Name                  & Description                                                                \\ \hline
@@ -47,7 +47,7 @@ The file loads configurations from init.txt file. When the computation finishes 
 To generate MROC surface for Chi-Square situation, run JAchisquare.m. This can be done by running the following command in Matlab command line.
 \\Matlab$>$ JAchisquare
 
-The file loads configurations from init.txt file. When the computation finishes file output\_chi.mat stores the results and plotfigure.m excutes automatically to generate the MROC surface.
+The file loads configurations from init.txt file. When the computation finishes file output_chi.mat stores the results and plotfigure.m excutes automatically to generate the MROC surface.
 
 To generate MROC surface cyclostationary detection, run cyclo.m. This can be done by running the following command in Matlab command line.
 \\Matlab$>$ cyclo
@@ -63,19 +63,16 @@ Constant Name & Description                                                     
 \hline
 STEP\_K       & Step of ENP parameters, should be positive                                                            \\
 RANGE\_K      & Range of ENP parameters, should be positive                                                           \\
-MU0		  &  Mean of hypothesis $H_0$.\\
-MU1		  & Mean of hypothesis $H_1$.\\
-MU2       & Mean of hypothesis $H_2$.\\
-VAR0      &    Variance of hypothesis $H_0$.\\
-VAR1		&	Variance of hypothesis $H_1$.\\
-VAR2		&		Variance of hypothesis $H_2$.\\
+RANGE\_K\_NEG & Should be negative.                                                                                   \\
 CHI\_DEGREE   & Degree of freedom in Chi-Square Example. Should be a positive integer.                                \\
-DA\_LEN       & The length of data of OFDM. Should be an positive integer.                      \\
-CP\_LEN       & The length of CP\_OFDM. Should be an positive integer and smaller than DA\_LEN. \\
+SNR1          & The SNR of signal of hypothesis 1 in term of db.                                                      \\
+SNR2          & The SNR of signal of hypothesis 2 in term of db.                                                      \\
+SYM\_NUM      & The number of received symbols in energy detector. Should be positive.                                \\
+DA\_LEN       & The length of data structure of an OFDM symbol. Should be an positive.integer                         \\
+CP\_LEN       & The length of CP structure of an OFDM symbol. Should be an positive integer and smaller than DA\_LEN. \\
 FRAME\_NUM    & The number of received OFDM frames. Should be an positive integer.\\
 \hline                                   
 \end{tabular}
 \label{constantlist}
 \caption{Adjustable Constants}
 \end{table}
-
