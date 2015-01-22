@@ -12,12 +12,11 @@ H_1:\;\;\;\;&Y \sim \mathcal{N}(0, 1)\\
 H_2:\;\;\;\;&Y \sim \mathcal{N}(1, 1)
 \end{split}
 \end{equation}
-where $\mathcal{N}(\mu, \epsilon^2)$ denotes a Gaussian PDF with mean $\mu$ and variance $\epsilon^2$. 
-By conducting an exhaustive search on the grid of $k_1, k_2$ (range from $-30$ to $30$ with step $0.05$), an ROC surface is achieved  and presented in Fig. \ref{fig: 2.1}. 
+where $\mathcal{N}(\mu, \epsilon^2)$ denotes a Gaussian PDF with mean $\mu$ and variance $\epsilon^2$. By conducting an exhaustive search on the grid of $k_1, k_2$ (range from $-30$ to $30$ with step $0.1$), an ROC surface is achieved  and presented in Fig. \ref{fig: 2.1}. 
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width = 12cm, height=16cm]{2/c21.eps}
+\includegraphics[width = 12cm height=16cm]{2/c21.eps}
 \caption{The ROC surface for $k_1$, $k_2$ range from $-30$ to $30$ with step $0.1$}
 \label{fig: 2.1}
 \end{figure}
