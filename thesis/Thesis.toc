@@ -1,26 +1,26 @@
 \contentsline {chapter}{\numberline {1}Introduction}{1}
-\contentsline {section}{\numberline {1.1}Thesis Objectives}{5}
+\contentsline {section}{\numberline {1.1}Thesis Objectives}{4}
 \contentsline {section}{\numberline {1.2}Thesis Organization and Contribution}{5}
 \contentsline {chapter}{\numberline {2}Extended Neyman Pearson Test}{7}
-\contentsline {section}{\numberline {2.1}Extended Neyman Pearson Hypotheses Test}{7}
+\contentsline {section}{\numberline {2.1}The Extended Neyman Pearson Hypotheses Test}{7}
 \contentsline {section}{\numberline {2.2}Properties of ENP Test}{11}
 \contentsline {subsection}{\numberline {2.2.1}An Example}{12}
-\contentsline {subsection}{\numberline {2.2.2}Three Lemmas of ENP Test}{13}
-\contentsline {section}{\numberline {2.3}Relationship to Bayesian Hypotheses Test}{29}
-\contentsline {section}{\numberline {2.4}Modified Extended Neyman Pearson Testing}{33}
-\contentsline {section}{\numberline {2.5}Determine the decision rule under MENP Framework}{36}
-\contentsline {subsection}{\numberline {2.5.1}An Example}{40}
-\contentsline {chapter}{\numberline {3}The ROC Surface of Modified Extended Neyman Pearson Test}{48}
-\contentsline {section}{\numberline {3.1}Modified Receiver of Characters of MENP test}{48}
-\contentsline {section}{\numberline {3.2}MROC Surface under Gaussian Hypotheses}{52}
-\contentsline {section}{\numberline {3.3}MROC Surface under Chi-Square Hypotheses}{62}
-\contentsline {chapter}{\numberline {4}Application of MENP Framework in Spectrum Sensing and Simulation Results}{66}
-\contentsline {section}{\numberline {4.1}Energy based Spectrum Detector for Multiple Primary Users}{67}
-\contentsline {subsection}{\numberline {4.1.1}System Model}{67}
-\contentsline {subsection}{\numberline {4.1.2}Numerical Results}{70}
-\contentsline {section}{\numberline {4.2}Cyclostationary Detection for multiple Primary Users}{72}
-\contentsline {subsection}{\numberline {4.2.1}System Model}{72}
-\contentsline {subsection}{\numberline {4.2.2}Numerical Results}{90}
-\contentsline {chapter}{\numberline {5}Conclusions}{97}
-\contentsline {chapter}{\numberline {A}Numerical Results Program Guide}{99}
-\contentsline {chapter}{References}{102}
+\contentsline {subsection}{\numberline {2.2.2}Three Lemmas for the ENP Test}{14}
+\contentsline {section}{\numberline {2.3}Relationship to Bayesian Hypotheses Test}{30}
+\contentsline {section}{\numberline {2.4}Modified Extended Neyman Pearson Testing}{34}
+\contentsline {section}{\numberline {2.5}Determine the decision rule under MENP Framework}{37}
+\contentsline {subsection}{\numberline {2.5.1}An Example}{41}
+\contentsline {chapter}{\numberline {3}The ROC Surface of Modified Extended Neyman Pearson Test}{50}
+\contentsline {section}{\numberline {3.1}Modified Receiver of Characters of MENP test}{50}
+\contentsline {section}{\numberline {3.2}MROC Surface under Gaussian Hypotheses}{54}
+\contentsline {section}{\numberline {3.3}MROC Surface under Chi-Square Hypotheses}{64}
+\contentsline {chapter}{\numberline {4}Application of MENP Framework in Spectrum Sensing and Simulation Results}{68}
+\contentsline {section}{\numberline {4.1}Energy based Spectrum Detector for Multiple Primary Users}{69}
+\contentsline {subsection}{\numberline {4.1.1}System Model}{69}
+\contentsline {subsection}{\numberline {4.1.2}Numerical Results}{72}
+\contentsline {section}{\numberline {4.2}Cyclostationary Detection for multiple Primary Users}{74}
+\contentsline {subsection}{\numberline {4.2.1}System Model}{74}
+\contentsline {subsection}{\numberline {4.2.2}Numerical Results}{92}
+\contentsline {chapter}{\numberline {5}Conclusions}{99}
+\contentsline {chapter}{\numberline {A}Numerical Results Program Guide}{101}
+\contentsline {chapter}{References}{104}

@@ -1,5 +1,5 @@
 \section{Relationship to Bayesian Hypotheses Test}
-Upon examination the properties of ENP Test, this section will present the relationship between ENP Test and Bayesian Test. 
+This section considers  the relationship between the ENP Test and the Bayesian Test. 
 
 Consider the following $M+1$ hypotheses concerning an observation of $X$
 \begin{equation}
@@ -12,35 +12,42 @@ H_{M}:\;\;\;\;&X \sim f_M(x)\,,
 \end{split}
 \end{equation}
 where $f_i(x)$ ($i=0, 1, ..., M$) are Probability Density Functions (PDFs). 
-Let $\pi_0, \pi_1, ..., \pi_M$ be the probability of occurrences of hypotheses $H_0$, $H_1$, ..., $H_M$, respectively. 
-Based on $x$, a realization of $X$, a Bayesian Test $\delta_B$ is used to discriminate which hypothesis it comes from.  
-Let $C_{ij}$ denote the cost incurred by choosing hypothesis $H_i$ when hypothesis $H_j$ is true. 
-Let $\mathcal{C}_i$ ($i=1, ..., M$) denote a subset of $\mathbb{R}$ such that under decision rule $\delta_B$ we choose $H_i$ when $x \in \mathcal{C}_i$. 
-Let $P_i(\mathcal{C}_j)$ denote the integration of $f_i(x)$ over subset $\mathcal{C}_j$, i.e. 
+In spectrum sensing, $H_0$ denotes the channel is free and $H_i$ ($i = 1, 2, \cdots M$) denotes the channel is occupied by primary user $i$. 
+Let $\pi_0, \pi_1, ..., \pi_M$ be the a-prior probabilities of occurrences of hypotheses $H_0$, $H_1$, ..., $H_M$, respectively. 
+Based on $x$, a realization of $X$, a Bayesian Test $\delta_B$ is used to decide which hypothesis $x$ comes from.  
+Let $C_{ji}$ denote the cost incurred by choosing hypothesis $H_j$ when hypothesis $H_i$ is true. 
+Let $\mathcal{C}_j$ ($j=1, ..., M$) denote a subset of $\mathbb{R}$ such that under decision rule $\delta_B$ we choose $H_j$ when $x \in \mathcal{C}_j$. 
+Define
 \[
 P_i(\mathcal{C}_j) = \int_{\mathcal{C}_j} f_i(x)\mathrm{d}x\,.
 \]
-Before we process, we make following assumption:
-\\(1) $C_{ij} = 0$ when $i \neq 0$ and $j \neq 0$
-\\(2) $C_{10} = C_{20} = ... = C_{M0}$
+which is the probabilities that when $H_i$ is correct we choose $H_j$.
+In the context of spectrum sensing, following events will jeopardize the system performance:
 
-In the following, we consider the form of $\delta_B$ under such assumption.
+\\(1) The system miss a spectrum hole, the lost is represented by $C_{i0}$ ($i = 1, ..., M$). In spectrum sensing, the performance lost caused by choosing $H_k$ when $H_0$ is true ($C_{k0}$) is equal to the lost caused by choosing $H_j$ when $H_0$ is true ($C_{j0}$), where $k \neq j$ and $k, j \neq 0$, hence we have $C_{10} = C_{20} = ... C_{M0}$.
+\\(2) Primary user $i$ is interfered by secondary user while transferring data, the lost is represented by $C_{0i}$. 
+
+For $C_{ij}$ other than mentioned above, we set them to zero. 
+
+From discussion above,  we make following assumptions:
+\\(1) $C_{00} = 0$;
+\\(2) $C_{ij} = 0$ when $i \neq 0$ and $j \neq 0$;
+\\(3) $C_{10} = C_{20} = ... = C_{M0}$.
+
+In the following, we consider the form of $\delta_B$ under such assumptions.
 Let $a_0 = C_{10} = C_{20} = ... = C_{M0}$ and $a_i = C_{0i}$ ($i= 1, 2, ..., M$).
 The conditional risk for Bayesian Test can be written as 
 \begin{equation}
 \begin{split}
 R_0(\delta_B) &= C_{00}P_0(\mathcal{C}_0) + C_{10}P_0(\mathcal{C}_1) + ... +  C_{M0}P_0(\mathcal{C}_M)\\
 &= a_0P_0(\mathcal{C}_1) + a_0P_0(\mathcal{C}_2) + ... + a_0P_0(\mathcal{C}_M)\\
-&= a_0P_0(\mathcal{C}_1\cup \mathcal{C}_2 \cup ... \cup \mathcal{C}_M)\\
-&= a_0P_0(\bar{\mathcal{C}_0})\\
-&= a_0(1 - P_0(\mathcal{C}_0))\\
+&= a_0 \int_{\bar{\mathcal{C}}_0}f_0(x)\mathrm{d}x\\
 &= a_0(1 - \int_{\mathcal{C}_0}f_0(x)\mathrm{d}x)
 \end{split}
 \end{equation}
 \begin{equation}
 \begin{split}
 R_1(\delta_B) &= C_{01}P_1(\mathcal{C}_0) + C_{11}P_1(\mathcal{C}_1) + ... +  C_{M1}P_1(\mathcal{C}_M)\\  
-&= a_1P_1(\mathcal{C}_0)\\
 &= a_1\int_{\mathcal{C}_0}f_1(x)\mathrm{d}x
 \end{split}
 \end{equation}
@@ -50,7 +57,6 @@ R_1(\delta_B) &= C_{01}P_1(\mathcal{C}_0) + C_{11}P_1(\mathcal{C}_1) + ... +  C_
 \begin{equation}
 \begin{split}
 R_M(\delta_B) &= C_{0M}P_M(\mathcal{C}_0) + C_{1M}P_M(\mathcal{C}_1) + ... +  C_{2M}P_M(\mathcal{C}_2)\\
-&= a_MP_M(\mathcal{C}_0)\\
 &= a_M\int_{\mathcal{C}_0}f_{M}(x)\mathrm{d}x\,.
 \end{split}
 \end{equation}
@@ -60,70 +66,29 @@ The total cost function $r(\delta_B)$ can be written as
 \begin{split}
 \label{r00}
 r(\delta_B) &= \pi_0 R_0(\delta) + \pi_1R_1(\delta) + ... +  \pi_MR_M(\delta)\\
-&= \pi_0a_0 - (\pi_0a_0P_0(\mathcal{C}_0) - \pi_1a_1P_1(\mathcal{C}_0 - ... - \pi_Ma_MP_M(\mathcal{C}_0)))\\
 &= \pi_0a_0 - \int_{\mathcal{C}_0}\pi_0a_0f_0(x) - \pi_1a_1f_1(x) - ... - \pi_Ma_Mf_M(x) \mathrm{d}x\,. 
 \end{split}
 \end{equation}
-and thus we see that $r(\delta)$ is a minimum over all $\mathcal{C}_0$ if and only if 
+and thus we see that $r(\delta)$ is minimized over $\mathcal{C}_0$ if and only if 
 \begin{equation}
-\begin{split}
 \label{equ: C}
- \{ x\in \mathcal{C}_0 | \pi_0a_0f_0(x) - \pi_1a_1f_1(x) - ... - \pi_Ma_Mf_M(x) \geq 0\}\\
- \therefore \{ x\in \mathcal{C}_0 | f_0(x) \geq \sum_{i=1}^{M}\frac{\pi_ia_i}{\pi_0a_0}f_i(x) \}\,.
-\end{split}
+\mathcal{C}_0 =  \{ x | \pi_0a_0f_0(x) - \pi_1a_1f_1(x) - ... - \pi_Ma_Mf_M(x) \geq 0\}
+\end{equation}
+on equivalently
+\begin{equation}
+  \mathcal{C}_0 = \{ x | f_0(x) \geq \sum_{i=1}^{M}\frac{\pi_ia_i}{\pi_0a_0}f_i(x) \}\,.
+  \label{2015feb04a1}
 \end{equation}
 
-Since $\mathcal{C}_1$, $\mathcal{C}_2$..., $\mathcal{C}_M$ can not be determined through $r(\delta_B)$,  $\delta_B$ cannot discriminate among $H_i$ ($ i = 1, ..., M$). In other words, $\delta_B$ can only distinguish between $H_0$ and $\bar{H}_0$.  Decision rule $\delta_B$ can be written in form of: 
-
+We see that in order to minimize $r(\delta_B)$, $\mathcal{C}_0$ has to be chosen as in \eqref{2015feb04a1}. All the other decision region $\mathcal{C}_i$ ($i = 1, 2, \dots M$) can be chosen arbitrary, since they do not affect \eqerf{r00}. A decision rule that employs only $\mathcal{C}_0$ is given by  
 \begin{equation}
 \label{dec: minimax form}
 f_0(x) \substack{H_0 \\ \geq \\ < \\ \bar{H}_0} \sum_{i=1}^{M}\frac{\pi_ia_i}{\pi_0a_0}f_i(x)\,.
 \end{equation}
 
-Assume $\pi_0 = \pi_1 = ... = \pi_{M} = \frac{1}{M+1}$, $a_0 = 1$ and $a_i = k_i$ ($i=0, 1, ..., M$), \eqref{dec: minimax form} can be written as
+It is seen that \eqref{dec: minimax form} can be used to test $H_0$ against $\bar{H}_0$ only. Assume $k_i = \frac{\pi_ia_i}{\pi_0a_0}$ ($i = 1, 2, \dots, M$),  we have  
 \begin{equation}
 \label{dec: bay ney}
 f_0(x) \substack{H_0 \\ \geq \\ < \\ \bar{H}_0} \sum_{i=1}^{M}k_if_i(x)\,. 
 \end{equation}
-
-It can be observed \eqref{dec: bay ney} is an ENP decision rule. This implies an ENP test
-\[
-f_0(x) \substack{H_0 \\ \geq \\ < \\ \bar{H}_0} \sum_{i=1}^{M}k_if_i(x)
-\]
-is a Bayesian test with:
-\\(1) $C_{ij} = 0$ when $i \neq 0$ and $j \neq 0$;
-\\(2) $C_{10} = C_{20} = ... = C_{M0} =1$;
-\\(3) $C_{0i} = k_i$ ($i = 1, 2, ..., M$);
-\\(4) $\pi_i = \frac{1}{M+1}$ ($i=0, 1, ..., M$).
-
-Furthermore, by substituting $\pi_0 = \pi_1 = ... = \pi_M = \frac{1}{M+1}$, $a_0 = 1$  and $a_i = k_i$ ($i = 1, 2, ..., M$) into \eqref{r00}, the total cost function can be written as
-\begin{equation}
-\label{r00 2}
-\begin{split}
-r(\delta)&= 1 - \int_{\mathcal{C}_0}f_0(x) - \sum_{i=1}^{M}k_if_i(x)\mathrm{d}x\\
-&= 1 - (\int_{\mathcal{C}_0}f_0(x)\mathrm{d}x - \sum_{i=1}^{M}k_i\int_{\mathcal{C}_0}f_i(x)\mathrm{d}x)
-\end{split}
-\end{equation}
-Under the framework of ENP test, $P_d$ and $\mathbf{P}_f$ can be written in form of: 
-\begin{equation}
-\begin{split}
-\label{equ: 2 pd}
-P_d = \int_{\mathcal{C}_0}f_0\mathrm{d}x\\
-P_{f_i} = \int_{\mathcal{C}_0}f_i\mathrm{d}x \,,
-\end{split}
-\end{equation}
-Substitute \eqref{equ: 2 pd} into \eqref{r00 2},
-\begin{equation}
-\label{r00 3}
-r(\delta) = 1 - (P_d - \sum_{i=1}^{M}k_iP_{f_i})\,.
-\end{equation}
-Previous discussion suggests an ENP test 
-\[
-f_0(x) \substack{H_0 \\ \geq \\ < \\ \bar{H}_0} \sum_{i=1}^{M}k_if_i(x)\,. 
-\]
-maximizes 
-\[
-r(\delta) = P_d - \sum_{i=1}^{M}k_iP_{f_i}\,.
-\]
-among all possible decision rules.
-
+and it is identical to the ENP decision rule. 
