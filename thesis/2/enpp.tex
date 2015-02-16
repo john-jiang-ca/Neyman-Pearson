@@ -154,25 +154,68 @@ Equation \eqref{1120t3} implies $G(\bmu_0)$ is a convex function for $\bmu_0 \in
 
 According to the definition of $G(\bmu_0)$, when $\mu_i$ increases, the false alarm constraints are relaxed, 
 so the value of $G(\bmu_0)$ will either remain the same or increase. 
-This suggests $G(\bmu_0)$ is a non-decreasing function of $\bmu_0$. This is not contradictory with the conclusion we reach from the example in Section (2.1.1). In that example we study the relationship between the probability of detection and the probability of false alarm, here we study the relationship between the probability of detection ($G(\bmu_0)$) and the probability of false alarm constraints ($\bmu_0$).   
+This suggests $G(\bmu_0)$ is a non-decreasing function of $\bmu_0$. 
+This is not contradictory with the conclusion that 
+$P_d$ is not always an increasing with $P_f$ (we arrived at this conclusion in Chapter 2 section 1.1 on page 12).  This is because $\bmu_0$ is not the probability of false alarms but rather the constraints of probability of false alarm. 
 
 Next we will show when $\boldsymbol{\mu}_0 \neq 0$, the value of $G(\boldsymbol{\mu}_0)$ is strictly larger than zero.
-Let $\delta^\ast$ be the optimal decision rule for $\bmu_0$. By optimal  we mean that this decision rule provides the largest $P_d$ under the constraints $\mathbf{P}_f \leq \bmu_0$. 
-Assume $P_d(\delta) = 0$, i.e.
-\[
-  \int_{\mathcal{S}^\ast} f_0(x) \mathrm{d}x = 0\,.
-\]
-This implies the measure of $\mathcal{S}^\ast$ is zero. Thus we can see
-\[
-  P_{f_l} = \int_{\mathcal{S}}f_l(x)\mathrm{d}x  = 0 < \mu_l\;\;\;\;(l = 1, 2, \cdots, M)
-\]
-Since all $P_{f_l}$ ($l = 1, 2, \cdots, M$) are strictly smaller than its associated constraints, we can enlarge the integral range ($\mathcal{S}^\ast$) to increase $P_d$ while keeping $\mathbf{P}_f \leq \bmu_0$ (This is also shown on \cite{zhang2000efficient} page 157). This is contradictory with the condition that $\delta^\ast $ is the optimal decision rule for $\bmu_0$. Hence we can conclude $P_d(\delta^\ast) > 0$, i.e. $G(\bmu_0) > 0$.  
+Let $\delta^\ast$ be the optimal decision rule for $\bmu_0$. By optimal  we mean that this decision rule provides the largest $P_d$ under the constraints $\mathbf{P}_f \leq \bmu_0$. Consider two decision rule $\delta^1$ and $\delta^2$ defined as 
+\begin{equation}
+  \label{2015feb09a4}
+  \delta^1 \begin{cases}
+    x &\text{belongs to $H_0$ if } x \in \emptyset \\
+    x &\text{belongs to $\bar{H}_0$ if } x \in \mathcal{D}
+  \end{cases}
+\end{equation}
+and
+\begin{equation}
+  \label{2015feb09a5}
+  \delta^1 \begin{cases}
+    x &\text{belongs to $H_0$ if } x \in \emptyset \\
+    x &\text{belongs to $\bar{H}_0$ if } x \in \mathcal{D}
+  \end{cases}
+\end{equation}
 
-According to \cite{zhang2000efficient}, there exists at least one probability of false alarm is equal to its associated constraint. Without losing generality, let $P_{f_l}(\delta^\ast) = \mu_l$, i.e. 
+From \eqref{2015feb09a4} and \eqref{2015feb09a5} we can see
+\begin{equation}
+  \begin{split}
+  P_d(\delta^1) &= \int_{\emptyset}f_0(x)\mathrm{d}x\\
+                &= 0
+\end{split}
+\end{equation}
+\begin{equation}
+  \begin{split}
+    P_{f_i}(\delta^1) &= \int_{\emptyset}f_i(x)\mathrm{d}x\\
+                &= 0
+\end{split}
+\end{equation}
+\begin{equation}
+  \begin{split}
+    P_d(\delta^2) &= \int_{\mathcal{D}}f_0(x)\mathrm{d}x\\
+                &= 1
+\end{split}
+\end{equation}
+\begin{equation}
+  \begin{split}
+    P_{f_i}(\delta^2) &= \int_{\mathcal{D}}f_i(x)\mathrm{d}x\\
+                &= 1
+\end{split}
+\end{equation}
+
+Let $\mu_{min} = \min(\mu_1, \mu_2, \cdots, \mu_M)$, since $\bmu_0 \geq 0^M$, it can be seen $\mu_{min} > 0$. Construct a new randomized test $\delta^3$ where $\delta^1$ and $\delta^2$ are used with probability $1 - \mu_{min} $ and $\mu_{min}$. With decision rule $\delta^3$ we have
+\begin{equation}
+  P_d(\delta^3) = (1 - \mu_{min})P_d(\delta^1) + \mu_{min}P_d(\delta^2) = \mu_{min}
+\end{equation}
+\begin{equation}
+  P_{f_i}(\delta^3) = (1 - \mu_{min})P_{f_i}(\delta^2) + \mu_{min}P_{f_i}(\delta^2) = \mu_{min} \leq \mu_i
+\end{equation}
+
+Hence we can see by using $\delta^3$ we have
 \[
-\int_{\mathcal{S}^\ast}f_l(x)\mathrm{d}x = \mu_l \neq 0\,.
+  \mathbf{P}_f(\delta^3) \leq \bmu_0\,.
 \]
-This equation implies the measurement of $\mathcal{S}^\ast$  is not zero. Since we know $f_0(x) \neq 0$ a.e. on $\mathcal{D}$, we can conclude $G(\bmu_0) = \int_{\mathcal{S}^\ast}f_0(x)\mathrm{d}x > 0$. 
+Since $\delta^\ast $ is the optimal decision rule for $\bmu_0$, it can be seen $P_d(\delta^\ast) > P_d(\delta^3) > 0$. Since $G(\bmu_0) = P_d(\delta^\ast)$, we can conclude $G(\bmu_0) > 0$.  
+
 
 In the following, we consider the property of $G_s$. First we will prove that $G_s$ is a convex set. 
 Let $\boldsymbol{\mu}^1$ and  $\boldsymbol{\mu}^2$ be two points belongs to $G_s$ with coordinates $(\boldsymbol{\mu}^1_0, \mu_{M+1}^1)$ and $(\boldsymbol{\mu}^2_0, \mu_{M+1}^2)$. According to the definition of $G_s$, we have 

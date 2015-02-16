@@ -23,7 +23,6 @@ P_i(\mathcal{C}_j) = \int_{\mathcal{C}_j} f_i(x)\mathrm{d}x\,.
 \]
 which is the probabilities that when $H_i$ is correct we choose $H_j$.
 In the context of spectrum sensing, following events will jeopardize the system performance:
-
 \\(1) The system miss a spectrum hole, the lost is represented by $C_{i0}$ ($i = 1, ..., M$). In spectrum sensing, the performance lost caused by choosing $H_k$ when $H_0$ is true ($C_{k0}$) is equal to the lost caused by choosing $H_j$ when $H_0$ is true ($C_{j0}$), where $k \neq j$ and $k, j \neq 0$, hence we have $C_{10} = C_{20} = ... C_{M0}$.
 \\(2) Primary user $i$ is interfered by secondary user while transferring data, the lost is represented by $C_{0i}$. 
 
@@ -80,7 +79,7 @@ on equivalently
   \label{2015feb04a1}
 \end{equation}
 
-We see that in order to minimize $r(\delta_B)$, $\mathcal{C}_0$ has to be chosen as in \eqref{2015feb04a1}. All the other decision region $\mathcal{C}_i$ ($i = 1, 2, \dots M$) can be chosen arbitrary, since they do not affect \eqerf{r00}. A decision rule that employs only $\mathcal{C}_0$ is given by  
+We see that in order to minimize $r(\delta_B)$, $\mathcal{C}_0$ has to be chosen as in \eqref{2015feb04a1}. All the other decision region $\mathcal{C}_i$ ($i = 1, 2, \dots M$) can be chosen arbitrary, since they do not affect \eqref{r00}. A decision rule that employs only $\mathcal{C}_0$ is given by  
 \begin{equation}
 \label{dec: minimax form}
 f_0(x) \substack{H_0 \\ \geq \\ < \\ \bar{H}_0} \sum_{i=1}^{M}\frac{\pi_ia_i}{\pi_0a_0}f_i(x)\,.

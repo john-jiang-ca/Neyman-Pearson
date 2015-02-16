@@ -15,12 +15,31 @@ Following problem needs to be solve in the context of spectrum sensing.
       \end{equation}
 where $\mathbf{c} \in (0, 1)^M$.
 
-According to ENP Lemma, this problem can be solved by an ENP test only when there are parameters $k_i \geq 0, \;\;i=1, ..., M$ such that 
+According to ENP Lemma \rmnum{3}, if a decision rule $\delta^\ast$ satisfies 
 \begin{equation}
+  \label{2015feb09a0}
+  \mathbf{P}_f(\delta^\ast) = \mathbf{c}
+\end{equation}
+and $\delta^\ast$ can be written in form of 
+\begin{equation}
+  \label{2015feb09a1}
+  f_0(x) \substack{H_0 \\ \geq \\ < \\ \bar{H}_0} \sum_{i=1}^{M}f_i(x)\;\;\;\;(k_i \geq 0)\,,
+\end{equation}
+then $\delta^\ast$ is the optimal decision rule for \eqref{equ: problemstate}. From \eqref{equ: pf and pd} we can see 
+\begin{equation}
+  \label{2015feb09a2}
+  P_{f_j} = \int u(f_0(x) - \sum_{i=1}^{M}k_if_i(x))f_j(x)\mathrm{d}x \;\;\;\;(k_i \geq 0)\,.
+\end{equation}
+Combining \eqref{2015feb09a0} and \eqref{2015feb09a2},
+\begin{equation}
+\int u(f_0(x) - \sum_{i=1}^{M}k_if_i(x))f_j(x)\mathrm{d}x = c_j\;\;\;\;k_i \geq 0\,.
+\label{2015feb09a3}
+\end{equation}
+
+From \eqref{2015feba3} we can see the problem given in \eqref{equ: problemstate} can be solved by ENP test only when there are parameters $k_i \geq 0$, $i = 1, 2, \cdots, M$ such that  
+\begin{equation}
+\int u(f_0(x) - \sum_{i=1}^{M}k_if_i(x))f_j(x)\mathrm{d}x = c_j\,.
 \label{equ: condition for ENP}
-\begin{split}
-c_i = \int_{-\infty}^{\infty}u(f_0 - \sum_{j=1}^{M}k_jf_j(x))f_i(x)\mathrm{d}x \;\;i = 1, ..., M
-\end{split}
 \end{equation}
 
 The case when the given $c_i\;\; (i= 1, 2, ..., M)$ do not satisfy \eqref{equ: condition for ENP} was not considered so far. 

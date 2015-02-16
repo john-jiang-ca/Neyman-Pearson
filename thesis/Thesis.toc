@@ -6,9 +6,9 @@
 \contentsline {section}{\numberline {2.2}Properties of ENP Test}{11}
 \contentsline {subsection}{\numberline {2.2.1}An Example}{12}
 \contentsline {subsection}{\numberline {2.2.2}Three Lemmas for the ENP Test}{14}
-\contentsline {section}{\numberline {2.3}Relationship to Bayesian Hypotheses Test}{30}
+\contentsline {section}{\numberline {2.3}Relationship to Bayesian Hypotheses Test}{31}
 \contentsline {section}{\numberline {2.4}Modified Extended Neyman Pearson Testing}{34}
-\contentsline {section}{\numberline {2.5}Determine the decision rule under MENP Framework}{37}
+\contentsline {section}{\numberline {2.5}Determine the decision rule under MENP Framework}{38}
 \contentsline {subsection}{\numberline {2.5.1}An Example}{41}
 \contentsline {chapter}{\numberline {3}The ROC Surface of Modified Extended Neyman Pearson Test}{50}
 \contentsline {section}{\numberline {3.1}Modified Receiver of Characters of MENP test}{50}
