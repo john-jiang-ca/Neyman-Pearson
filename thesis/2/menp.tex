@@ -5,7 +5,7 @@
 %define \JUDGEMENT
 \def \JUDGEMENT{u(f_0(x) - \sum_{j=1}^{M}k_j f_j(x))}
 
-Following problem needs to be solve in the context of spectrum sensing. 
+The following problem needs to be solve in the context of spectrum sensing. 
       \begin{equation}
       \label{equ: problemstate}
       \begin{split}
@@ -25,7 +25,7 @@ and $\delta^\ast$ can be written in form of
   \label{2015feb09a1}
   f_0(x) \substack{H_0 \\ \geq \\ < \\ \bar{H}_0} \sum_{i=1}^{M}f_i(x)\;\;\;\;(k_i \geq 0)\,,
 \end{equation}
-then $\delta^\ast$ is the optimal decision rule for \eqref{equ: problemstate}. From \eqref{equ: pf and pd} we can see 
+then $\delta^\ast$ is the optimal decision rule for \eqref{equ: problemstate}. From \eqref{equ: pf and pd}  we can see 
 \begin{equation}
   \label{2015feb09a2}
   P_{f_j} = \int u(f_0(x) - \sum_{i=1}^{M}k_if_i(x))f_j(x)\mathrm{d}x \;\;\;\;(k_i \geq 0)\,.
@@ -36,7 +36,7 @@ Combining \eqref{2015feb09a0} and \eqref{2015feb09a2},
 \label{2015feb09a3}
 \end{equation}
 
-From \eqref{2015feba3} we can see the problem given in \eqref{equ: problemstate} can be solved by ENP test only when there are parameters $k_i \geq 0$, $i = 1, 2, \cdots, M$ such that  
+From \eqref{2015feb09a3} we can see the problem given in \eqref{equ: problemstate} can be solved by ENP test only when there are parameters $k_i \geq 0$, $i = 1, 2, \cdots, M$ such that  
 \begin{equation}
 \int u(f_0(x) - \sum_{i=1}^{M}k_if_i(x))f_j(x)\mathrm{d}x = c_j\,.
 \label{equ: condition for ENP}
@@ -44,7 +44,7 @@ From \eqref{2015feba3} we can see the problem given in \eqref{equ: problemstate}
 
 The case when the given $c_i\;\; (i= 1, 2, ..., M)$ do not satisfy \eqref{equ: condition for ENP} was not considered so far. 
 
-Next we present the Modified Extended Neyman Pearson Test (MENP) for solving \eqref{equ: problemstate}.
+Next we present the Modified Extended Neyman Pearson Test (MENP) for solving \eqref{equ: problemstate} for all $\mathbf{c}$.
 
 Before we proceed, we will define some notations for easy presentation.
 Define the set 
