@@ -9,7 +9,7 @@
 \contentsline {section}{\numberline {2.3}Relationship to Bayesian Hypotheses Test}{33}
 \contentsline {section}{\numberline {2.4}Modified Extended Neyman Pearson Testing}{36}
 \contentsline {section}{\numberline {2.5}Determine the decision rule under MENP Framework}{40}
-\contentsline {subsection}{\numberline {2.5.1}An Example}{44}
+\contentsline {subsection}{\numberline {2.5.1}An Example}{43}
 \contentsline {chapter}{\numberline {3}The ROC Surface of Modified Extended Neyman Pearson Test}{52}
 \contentsline {section}{\numberline {3.1}Modified Receiver of Characteristic of MENP test}{52}
 \contentsline {section}{\numberline {3.2}MROC Surface under Gaussian Hypotheses}{56}
