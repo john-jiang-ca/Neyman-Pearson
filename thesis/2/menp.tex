@@ -140,7 +140,7 @@ Hence we conclude $\delta^0$ is the optimal solution for \eqref{equ: problemstat
 Both MENP (\rmnum{1}) and MNEP (\rmnum{2}) shows the optimal decision rule for \eqref{equ: problemstate} is an ENP decision rule  with non-negative parameters such that: (1) its $P_{f_i}$ is smaller or equal to its associated constraints; (2) it maximizes $P_d$ among all ENP decision rule with non-negative parameters satisfying (1).
 
 Base on above discussion, 
-next we present a look-up table method of finding $\mathbf{k}$. For a specific $\mathbf{c}$, in order to get $\mathbf{a}^0$, we need to determine the set of $\alpha^+$. We can conduct an exhaustive search over a grid of $k_1, ..., k_M$ ($k_i \geq 0$) depending on preferable accuracy and store these results ($P_d, \mathbf{P}_f, \mathbf{k}$) into a lookup table $T_1$. 
+next we present a look-up table method of finding $\mathbf{k}$. For a specific $\mathbf{c}$, we conduct an exhaustive search over a grid of $k_1, ..., k_M$ ($k_i \geq 0$) depending on preferable accuracy and store these results ($P_d, \mathbf{P}_f, \mathbf{k}$) into a lookup table $T_1$. 
 %Then we check if there exists a item in table $T_1$ satisfying $\mathbf{P}_f = \mathbf{c}$. If so, get the item's associated $\mathbf{k}$ as the MENP parameters. If not,  
 Then we iterate every item in $T_1$ and put the item into table $T_2$ if the item satisfies:  $\mathbf{P}_f \leq \mathbf{c}$.
 At last, we iterate every item in $T_2$ and get the largest $P_d$ and its decision rule $\mathbf{k}$.
