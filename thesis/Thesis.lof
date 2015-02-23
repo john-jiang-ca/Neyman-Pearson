@@ -10,18 +10,17 @@
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Region that can be achieved by Neyman Pearson testing with $k_i \geq 0 (i=1, ..., M)$.}}{58}
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Region that can be achieved by Neyman Pearson testing with $k_i \geq 0 (i=1, ..., M)$.}}{59}
 \contentsline {figure}{\numberline {3.3}{\ignorespaces The M-ROC surface for Gaussian Hypotheses.}}{63}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Contour for M-ROC surface.}}{64}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces The M-ROC for Gaussian distribution with same variance.}}{66}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces The M-ROC for the Chi-square example.}}{69}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces The M-ROC for Gaussian distribution with same variance.}}{65}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces The M-ROC for the Chi-square example.}}{68}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Block Diagram for Spectrum Sensing}}{71}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces M-ROC surface for $\sigma _n^2 = 0.1$, $\sigma _{s_A}^2=0.05$, $\sigma _{s_B}^2=0.15$ and $N = 20$.}}{75}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Block Diagram for cyclostationary detector.}}{76}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Received signal for perfect synchronization.}}{77}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Received signal for synchronization mismatch $\tau _0$.}}{78}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces PDF under hypothesis $H_0$.}}{97}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces PDF under hypothesis $H_1$.}}{98}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces PDF under hypothesis $H_2$.}}{99}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces M-ROC surface for cyclostationary detector.}}{100}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Block Diagram for Spectrum Sensing}}{70}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces M-ROC surface for $\sigma _n^2 = 0.1$, $\sigma _{s_A}^2=0.05$, $\sigma _{s_B}^2=0.15$ and $N = 20$.}}{74}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Block Diagram for cyclostationary detector.}}{75}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Received signal for perfect synchronization.}}{76}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Received signal for synchronization mismatch $\tau _0$.}}{77}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces PDF under hypothesis $H_0$.}}{96}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces PDF under hypothesis $H_1$.}}{97}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces PDF under hypothesis $H_2$.}}{98}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces M-ROC surface for cyclostationary detector.}}{99}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

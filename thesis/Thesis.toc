@@ -9,18 +9,18 @@
 \contentsline {section}{\numberline {2.3}Relationship to Bayesian Hypotheses Test}{33}
 \contentsline {section}{\numberline {2.4}Modified Extended Neyman Pearson Testing}{36}
 \contentsline {section}{\numberline {2.5}Determine the decision rule under MENP Framework}{40}
-\contentsline {subsection}{\numberline {2.5.1}An Example}{43}
+\contentsline {subsection}{\numberline {2.5.1}An Example}{44}
 \contentsline {chapter}{\numberline {3}The ROC Surface of Modified Extended Neyman Pearson Test}{52}
-\contentsline {section}{\numberline {3.1}Modified Receiver of Characters of MENP test}{52}
+\contentsline {section}{\numberline {3.1}Modified Receiver of Characteristic of MENP test}{52}
 \contentsline {section}{\numberline {3.2}MROC Surface under Gaussian Hypotheses}{56}
-\contentsline {section}{\numberline {3.3}MROC Surface under Chi-Square Hypotheses}{66}
-\contentsline {chapter}{\numberline {4}Application of MENP Framework in Spectrum Sensing and Simulation Results}{70}
-\contentsline {section}{\numberline {4.1}Energy based Spectrum Detector for Multiple Primary Users}{71}
-\contentsline {subsection}{\numberline {4.1.1}System Model}{71}
-\contentsline {subsection}{\numberline {4.1.2}Numerical Results}{74}
-\contentsline {section}{\numberline {4.2}Cyclostationary Detection for multiple Primary Users}{76}
-\contentsline {subsection}{\numberline {4.2.1}System Model}{76}
-\contentsline {subsection}{\numberline {4.2.2}Numerical Results}{94}
-\contentsline {chapter}{\numberline {5}Conclusions}{101}
-\contentsline {chapter}{\numberline {A}Numerical Results Program Guide}{103}
-\contentsline {chapter}{References}{106}
+\contentsline {section}{\numberline {3.3}MROC Surface under Chi-Square Hypotheses}{65}
+\contentsline {chapter}{\numberline {4}Application of MENP Framework in Spectrum Sensing and Simulation Results}{69}
+\contentsline {section}{\numberline {4.1}Energy based Spectrum Detector for Multiple Primary Users}{70}
+\contentsline {subsection}{\numberline {4.1.1}System Model}{70}
+\contentsline {subsection}{\numberline {4.1.2}Numerical Results}{73}
+\contentsline {section}{\numberline {4.2}Cyclostationary Detection for multiple Primary Users}{75}
+\contentsline {subsection}{\numberline {4.2.1}System Model}{75}
+\contentsline {subsection}{\numberline {4.2.2}Numerical Results}{93}
+\contentsline {chapter}{\numberline {5}Conclusions}{100}
+\contentsline {chapter}{\numberline {A}Numerical Results Program Guide}{102}
+\contentsline {chapter}{References}{105}

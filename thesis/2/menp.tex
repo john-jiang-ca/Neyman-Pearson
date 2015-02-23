@@ -44,9 +44,11 @@ From \eqref{2015feb09a3} we can see the problem given in \eqref{equ: problemstat
 
 The case when the given $c_i\;\; (i= 1, 2, ..., M)$ do not satisfy \eqref{equ: condition for ENP} was not considered so far. 
 
+
 Next we present the Modified Extended Neyman Pearson Test (MENP) for solving \eqref{equ: problemstate} for all $\mathbf{c}$.
 
 Before we proceed, we will define some notations for easy presentation.
+Let $F(\mathbf{a})$ denote the largest $P_d$ can be achieved while keeping $\mathbf{P}_f = \mathbf{a}$. 
 Define the set 
 \[\mathcal{A}_\mathbf{c} = \{
   \mathbf{P}_f | 0 \leq P_{f_i} \leq c_i
@@ -85,12 +87,12 @@ Since $\mathbf{a}^0 \in \mathcal{A}_{\mathbf{c}} \cap \alpha^+$, from \textnorma
 Next we will show \textbf{Modified Extended Neyman Pearson Test} can provide an optimal solution for \eqref{equ: problemstate} when $f_0(x) \neq 0$ a.e. on its domain.
 
 \textbf{PROOF}
-MENP (\rmnum{1}) is a direct conclusion from ENP Lemma, we will consider MENP (\rmnum{2}). Assume $\mathbf{a}^0$ satisfy
+MENP (\rmnum{1}) is a direct conclusion from ENP Lemma (\rmnum{3}). In the following,  we give the proof for MENP (\rmnum{2}). Assume $\mathbf{a}^0$ satisfy
 \begin{equation}
 \label{a0}
 \max_{\mathbf{a}\in\mathcal{C}} F(\mathbf{a}) = F(\mathbf{a^0})
 \end{equation}
-and decision rule $\delta^0$ maximizes $P_d$ under the constraints $P_{f_i} = a^0_i$ ($i = 1, ..., M$). Since $\mathbf{a}^0 \in \alpha^+$, from (\rmnum{1}) we know there exists $k_1^0, ..., k_M^0$ such that $\delta^0$ can be written in form of 
+and decision rule $\delta^0$ maximizes $P_d$ under the constraints $P_{f_i} = a^0_i$ ($i = 1, ..., M$). Since $\mathbf{a}^0 \in \alpha^+$, from MENP (\rmnum{1}) we know there exists $k_1^0, ..., k_M^0$ such that $\delta^0$ can be written in form of 
 \[
 \delta^0:\;\;\;\;f_0(x) \substack{H_0 \\ \geq \\ < \\ \bar{H_0}} \sum_{i=1}^{M}k_i^0f_i(x)\,.
 \] 
@@ -110,6 +112,7 @@ P_{d}(\delta') > P_d(\delta^0)\,.
 From \textbf{Lemma 1}, there exists non-negative constants $k_1', ..., k_M'$ such that $\delta'$ can be written in form of 
 \begin{equation}
 f_0(x) \substack{H_0 \\ \geq \\ < \\ \bar{H_0}} \sum_{i=1}^{M}k_i'f_i(x)\,.
+\label{2015feb20a1}
 \end{equation}
 and thus $P_d(\delta')$ and $P_{f_i}(\delta')$ can be written as
 \begin{equation}
@@ -121,14 +124,25 @@ P_{f_i}(\delta') &= \int_{-\infty}^{\infty} u(f_0(x) - \sum_{i=1}^{M}k_i'f_i(x))
 \end{equation}
 where $k_i' \geq 0$.
 
-From \eqref{condition 1} and \eqref{TEMP10}, we can conclude $\mathbf{P}_f(\delta') \in \mathcal{A}_\mathbf{c} \cap \alpha^+$. Let $\mathbf{a}' = \mathbf{P}_f(\delta')$, and we have $F(\mathbf{a}') = P_d(\delta')$. This is because $\delta'$ is an ENP test with $\mathbf{P}_f$ is equal to $\mathbf{a}'$.  
+From the definition of $\mathcal{A}_c$ and \eqref{condition 1}, we know $\mathbf{P}_f(\delta') \in \mathcal{A}_c$. 
+From the definition of $\alpha^+$ and \eqref{TEMP10}, we know $\mathbf{P}_f(\delta') \in \alpha^+$. 
+Thus it can be seen $\mathbf{P}_f(\delta') \in \mathcal{A}_\mathbf{c} \cap \alpha^+$, i.e. $\mathbf{P}_f(\delta') \in \mathcal{C}$.  
+Let $\mathbf{a}' = \mathbf{P}_f(\delta')$. 
+Since $\delta'$ can be written in form of \eqref{2015feb20a1}, from ENP Lemma (\rmnum{2}), we know decision rule achieve the largest $P_d$ while keeping $\mathbf{P}_f = \mathbf{a}'$, i.e.  
+$F(\mathbf{a}') = P_d(\delta')$. 
 
-Since $P_d(\delta') > P_d(\delta^0)$, we have $F(\mathbf{a'}) > F(\mathbf{a^0})$. This is contradictory with the condition that $\mathbf{a^0}$ satisfy \eqref{a0}.
+Since $P_d(\delta') > P_d(\delta^0)$, $F(\mathbf{a}^0) = P_d(\delta^0)$ and  $F(\mathbf{a}') = P_d(\delta')$, we have $F(\mathbf{a'}) > F(\mathbf{a^0})$. 
+
+As $\mathbf{a}' \in \mathcal{C}$ and $F(\mathbf{a'}) > F(\mathbf{a^0})$, it is contradictory with the condition that $\mathbf{a^0}$ satisfy \eqref{a0}.
 
 Hence we conclude $\delta^0$ is the optimal solution for \eqref{equ: problemstate}. $\blacksquare$
 
-Next we present a look-up table method of finding $\mathbf{k}$ when $\mathbf{c} \notin \alpha^+$. For a specific $\mathbf{c}$, in order to get $\mathbf{a}^0$, we need to determine the set of $\alpha^+$. We can conduct an exhaustive search over a grid of $k_1, ..., k_M$ ($k_i \geq 0$) depending on preferable accuracy and store these results ($P_d, \mathbf{P}_f, \mathbf{k}$) into a lookup table $T_1$. After that, we iterate every item in $T_1$ and put the item into table $T_2$ if the item satisfies:  $\mathbf{P}_f \leq \mathbf{c}$.
-At last, we iterate every item in $T_2$ and get the largest $P_d$ and its decision rule $\mathbf{k}$.
-Obviously, the look-up table method also applies to the situation when $\mathbf{c} \in \alpha^+$. Thus we can see by searching $T_1$ we can get the decision rule for any $\mathbf{c}$.  
+Both MENP (\rmnum{1}) and MNEP (\rmnum{2}) shows the optimal decision rule for \eqref{equ: problemstate} is an ENP decision rule  with non-negative parameters such that: (1) its $P_{f_i}$ is smaller or equal to its associated constraints; (2) it maximizes $P_d$ among all ENP decision rule with non-negative parameters satisfying (1).
 
-From above discussion, we can see if an ENP decision rule with positive parameters acquires the largest $P_d$ while keeping $\mathbf{P}_f \leq \mathbf{c}$ among all ENP test with positive parameters, it is the theoretical solution for \eqref{equ: problemstate}. 
+Base on above discussion, 
+next we present a look-up table method of finding $\mathbf{k}$. For a specific $\mathbf{c}$, in order to get $\mathbf{a}^0$, we need to determine the set of $\alpha^+$. We can conduct an exhaustive search over a grid of $k_1, ..., k_M$ ($k_i \geq 0$) depending on preferable accuracy and store these results ($P_d, \mathbf{P}_f, \mathbf{k}$) into a lookup table $T_1$. 
+%Then we check if there exists a item in table $T_1$ satisfying $\mathbf{P}_f = \mathbf{c}$. If so, get the item's associated $\mathbf{k}$ as the MENP parameters. If not,  
+Then we iterate every item in $T_1$ and put the item into table $T_2$ if the item satisfies:  $\mathbf{P}_f \leq \mathbf{c}$.
+At last, we iterate every item in $T_2$ and get the largest $P_d$ and its decision rule $\mathbf{k}$.
+
+%From above discussion, we can see if an ENP decision rule with positive parameters acquires the largest $P_d$ while keeping $\mathbf{P}_f \leq \mathbf{c}$ among all ENP test with positive parameters, it is the theoretical solution for \eqref{equ: problemstate}. 
