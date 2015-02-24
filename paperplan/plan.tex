@@ -1,0 +1,68 @@
+\documentclass{article}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{ amsmath, bm }
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{yhmath}
+\DeclareGraphicsExtensions{.pdf,.eps,.png,.jpg,.mps}
+\usepackage{dsfont}
+\usepackage{bbm}
+\usepackage{setspace}
+\usepackage[top=1.5in, bottom=1.5in, left=1in, right=1in]{geometry}
+
+%For lemma, theorem, proposition, corllary, proof, definition,example and remark.
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+\newcommand\bigfrown[2][\textstyle]{\ensuremath{%
+  \array[b]{c}\text{\scalebox{2}{$#1\frown$}}\\[-1.3ex]#1#2\endarray}}
+% End
+\author{An~Jiang, Harry Leib,~
+    }
+\title{The Extended Neyman-Pearson Hypotheses Testing Framework and its Application to Spectrum Sensing in Cognitive Wireless Communication}
+\date{\today}
+\begin{document}
+\begin{spacing}{2.0}
+\maketitle
+\begin{abstract}
+We propose the Modified Extended Neyman Pearson (MENP) framework which is suitable for spectrum sensing when there might be different types of primary signals. Our work generalizes existing Neyman Pearson (NP) test to accommodate multiple probability of false alarm constraints. This allows the cognitive radio wireless communication system to provide different levels of protection for various primary users.  
+The M-ROC surface, representing the relationship between the probability of detection and the constraints, is used to depict the performance of the MENP testing.   
+
+Using the MENP framework, an energy based spectrum detector  is developed to detect multiple primary signals. This detector is designed to have the largest probability of detection under any probability of false alarm constraints.  
+
+Performance analysis result of the M-ROC surface behavior for the energy based detector is presented.  
+The relationship between the probability of detection and the probability of false alarm constraints is evaluated.  
+\end{abstract}
+
+\section{Introduction}
+This section commences by an introduction to cognitive radio wireless communication system. Various of spectrum sensing techniques are examined after that. Then the shortcomings of current hypotheses testing framework are presented. The paper objectives and organization are illustrated in the end.  
+\newpage
+\section{The Extended Neyman Pearson Test}
+This section starts by introducing the Extended Neyman Pearson Framework. Some properties concerning the ENP test are concluded, as well as its limitation. Then the Modified Extended Neyman Pearson (MENP) framework is presented aiming to achieve the largest probability of detection under any possible probability of false alarm constraints. Then an algorithm which aims at achieving the MENP parameters is reviewed, and  computer simulation results, which illustrate the performance of the algorithm, are presented. 
+\subsection{The Extended Neyman Pearson Hypotheses Testing}
+\subsection{Properties of ENP Test}
+\subsection{Relationship to Bayesian Hypotheses Test}
+\subsection{The Modified Extended Neyman Pearson Test}
+\subsection{Determine the decision rule under the Modified Extended Neyman Pearson Framework}
+\newpage
+\section{The ROC surface of the Modified Extended Neyman Pearson Test}
+Previous section showed the MENP framework could achieve the largest probability of detection under any possible probability of false alarm constraints.  This section proposes the M-ROC surface to depict the relationship between probability of detection and probability of false alarm under MENP framework. We then present two examples of the M-ROC surface, one associated with a Gaussian problem and the other with a Chi-Square problem.  
+
+\subsection{The Modified Receiver of Characteristic of the MENP test}
+\subsection{MROC surface  under Gaussian Hypotheses}
+\subsection{MROC surface  under Chi-Square Hypotheses}
+\newpage
+\section{Application of MENP Framework in Spectrum Sensing and Simulation Results}
+Upon examination the theoretical part of MENP framework and M-ROC surface, this paper now applies the new hypotheses testing framework to application, which in our case is spectrum sensing for multiple primary users. We proposed energy based detector  to detect two primary users. Performance analysis results, which illustrate the performance of the energy based detector, is presented.   
+\subsection{Energy Based Spectrum Detector for Multiple Primary Users}
+\newpage
+\section{ Conclusion}
+\section{List of Appendixes}
+\section{References}
+\newpage
+\bibliographystyle{ieeetr}	% (uses file "plain.bst")
+\bibliography{mybib}		% expects file "myrefs.bib"
+\end{spacing}
+\end{document}
