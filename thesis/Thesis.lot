@@ -2,13 +2,13 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces The moments of $r_i$}}{78}
-\contentsline {table}{\numberline {4.2}{\ignorespaces $E[\mathaccentV {bar}016{r}_i\mathaccentV {bar}016{r}_k]$, $E[\mathaccentV {bar}016{r}_i\mathaccentV {tilde}07E{r}_k]$ and $E[\mathaccentV {tilde}07E{r}_i\mathaccentV {tilde}07E{r}_k]$ under hypothesis $H_1$}}{83}
-\contentsline {table}{\numberline {4.3}{\ignorespaces Statistic for $R$ and $I$ under hypothesis $H_1$}}{90}
-\contentsline {table}{\numberline {4.4}{\ignorespaces Statistic for $R$ and $I$ under hypothesis $H_2$}}{91}
-\contentsline {table}{\numberline {4.5}{\ignorespaces $\mu _R$ $\mu _I$ $\sigma _R^2$ $\sigma _I^2$ and $\rho $ under hypothesis $H_1$}}{94}
-\contentsline {table}{\numberline {4.6}{\ignorespaces $\mu _R$ $\mu _I$ $\sigma _R^2$ $\sigma _I^2$ and $\rho $ under hypothesis $H_2$}}{95}
+\contentsline {table}{\numberline {4.1}{\ignorespaces The moments of $r_i$}}{80}
+\contentsline {table}{\numberline {4.2}{\ignorespaces $E[\mathaccentV {bar}016{r}_i\mathaccentV {bar}016{r}_k]$, $E[\mathaccentV {bar}016{r}_i\mathaccentV {tilde}07E{r}_k]$ and $E[\mathaccentV {tilde}07E{r}_i\mathaccentV {tilde}07E{r}_k]$ under hypothesis $H_1$}}{85}
+\contentsline {table}{\numberline {4.3}{\ignorespaces Statistic for $R$ and $I$ under hypothesis $H_1$}}{92}
+\contentsline {table}{\numberline {4.4}{\ignorespaces Statistic for $R$ and $I$ under hypothesis $H_2$}}{93}
+\contentsline {table}{\numberline {4.5}{\ignorespaces $\mu _R$ $\mu _I$ $\sigma _R^2$ $\sigma _I^2$ and $\rho $ under hypothesis $H_1$}}{96}
+\contentsline {table}{\numberline {4.6}{\ignorespaces $\mu _R$ $\mu _I$ $\sigma _R^2$ $\sigma _I^2$ and $\rho $ under hypothesis $H_2$}}{97}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {A.1}{\ignorespaces Matlab source files}}{102}
-\contentsline {table}{\numberline {A.2}{\ignorespaces Adjustable Constants}}{104}
+\contentsline {table}{\numberline {A.1}{\ignorespaces Matlab source files}}{104}
+\contentsline {table}{\numberline {A.2}{\ignorespaces Adjustable Constants}}{106}

@@ -25,7 +25,7 @@ From \eqref{equ: pf and pd} we can see the expression of $P_{f_1} $, $P_{f_2}$ a
 \end{equation}
 
 By increasing $k_1$ and $k_2$ from $-30$ to $30$ with step $0.05$ separately, we can calculate the associated $P_{f_1}, P_{f_2}$ and $P_d$ from \eqref{2015jan29a1}. 
-Fig. \ref{fig: 2.1} and Fig. \ref{fig: 2.2mar9} present the ROC surface from two different viewing angles. The contour of the ROC surface is given in Fig. \ref{fig: 2.3mar9}. The region enclosed by the two dash lines in Fig. \ref{fig: 2.1}, Fig. \ref{fig: 2.2mar9} and Fig. \ref{fig: 2.3mar9} are the set of points achieved by non-negative $k_1, k_2$.  
+Fig. \ref{fig: 2.1} and Fig. \ref{fig: 2.2} presents the ROC surface from two different viewing angles. The contour of the ROC surface is given in Fig. \ref{fig: 2.3}. The region enclosed by the two dash lines in Fig. \ref{fig: 2.1}, Fig. \ref{fig: 2.2} and Fig. \ref{fig: 2.3} are the set of points achieved by non-negative $k_1, k_2$.  
 
 \begin{figure}[!t]
 \centering
@@ -34,18 +34,18 @@ Fig. \ref{fig: 2.1} and Fig. \ref{fig: 2.2mar9} present the ROC surface from two
 \label{fig: 2.1}
 \end{figure}
 
-\begin{figure}[!t]
+\begin{figur e}[!t]
 \centering
-\includegraphics[width = 10cm, height=16cm]{2/ex2.eps}
+\includegraphics[width = 12cm, height=16cm]{2/ex2.eps}
 \caption{The ROC surface for problem \eqref{2015jan29a2}.}
-\label{fig: 2.2mar9}
+\label{fig: 2.2}
 \end{figure}
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width = 10cm, height=16cm]{2/ex3.eps}
+\includegraphics[width = 12cm, height=16cm]{2/ex3.eps}
 \caption{The contour for the ROC surface.}
-\label{fig: 2.3mar9}
+\label{fig: 2.3}
 \end{figure}
 
 
@@ -70,7 +70,7 @@ set $\mathcal{S}$  must  be the whole real line, i.e. $\mathcal{S} = (-\infty, \
 Hence we can see there is no decision rule can satisfy $P_{f_1} = 1$ and $P_{f_2} = 0$ at the same time, which makes the corresponding $P_d$ do not exist.
 Recall in the case of binary hypotheses testing (Traditional Neyman Pearson Test), for a given $P_f \in [0, 1]$, there always exists a corresponding $P_d$. 
 
-Now let us consider points $A$ and $B$ on the ROC surface, which are marked with '$\bullet$' and '$\blacksquare$', respectively.  The coordinate of point $A$ is $(P_{f_1}, P_{f_2}, P_d) = (0.350, 0.315, 0.730)$; and the coordinate of point $B$ is  $(P_{f_1}, P_{f_2}, P_d) = (0.355, 0.730, 0.690)$. We can see even through $P_{f_1}$ and $P_{f_2}$ of point $B$ is larger than that of point $A$, the probability of detection of point $B$ is  smaller than that of point $A$.  
+Now let us consider points $A$ and $B$ on the ROC surface, which are marked with '$\bullet$' and '$\blacksquare$', respectively.  The coordinate of point $A$ is $(P_{f_1}, P_{f_2}, P_d) = (0.350, 0.315, 0.730)$; and the coordinate of point $B$ is  $(P_{f_1}, P_{f_2}, P_d) = (0.355, 0.730, 0.690)$. We can see even through $P_{f_1}$ and $P_{f_2}$ of point $B$ is larger than that of point $A$, the probability of detection of point $A$ is  smaller than that of point $B$.  
 Unlike NP test, where $P_d$ is always non-decreasing with $P_f$, in the case of multiple hypotheses testing (Extended Neyman Pearson Test), $P_d$ is not always a non-decreasing function of  $P_{f_i}$ ($i=1, ..., M$).
 
 Furthermore, we can see in the case of point $B$, the value of $P_d$ is smaller than the value of $P_{f_2}$, i.e. under ENP test framework, $P_d \geq P_{f_i}$  ($i = 1, ..., M$) does not always hold (Qian Zhang arrives at the same conclusion in  \cite{zhang1999design, zhang2000efficient} using a different method). 
