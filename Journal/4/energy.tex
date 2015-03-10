@@ -1,0 +1,113 @@
+% Energy based spectrum sensing
+\section{Energy based Spectrum Detector for Multiple Primary Users}
+\subsection{System Model}
+We consider a cognitive radio system where the licensed frequency spectrum could be occupied by exactly one of two distinct signals $\{s_A, s_B\}$ or it could be vacant. Let $H_0$ denote the hypothesis under which the channel is free, ${H}_1$ denote the hypothesis under which the channel is occupied by $s_A$ and ${H}_2$ denote the hypothesis under which the channel is occupied by $s_B$. We are interested to test $H_0$ against $\bar{{H}_0}$, where $\bar{H}_0$ denotes the hypothesis under which the channel is not free, using MENP framework.
+
+A block diagram of the system is illustrated in Figure \ref{pic: block diagram}.
+
+\begin{figure}[!hbp]
+\centering
+\includegraphics[width = \textwidth]{4/fig4.eps}
+\caption{Block Diagram for Spectrum Sensing}
+\label{pic: block diagram}
+\end{figure}
+
+The detector consists a measuring device followed by a testing device. 
+The measuring device observes the noisy version of the signals that could present in the channel and outputs the sum energy of the sampled signals.
+With this energy, the testing device employs MENP framework to decide about the state of the channel.
+The input to the measuring device is 
+\begin{equation}
+  \mathbf{x} = \begin{cases}
+	\mathbf{n}\;\;\;\;\;\;&\text{when $H_0$ is true}\\
+	\mathbf{n}+\mathbf{s}_A\;\;\;\;\;\;&\text{when $H_1$ is true}\\
+	\mathbf{n}+\mathbf{s}_B\;\;\;\;\;\;&\text{when $H_2$ is true}\\
+  \end{cases}
+  \label{equ:1222n0}
+\end{equation}
+where 
+\begin{equation}
+  \begin{cases}
+	&\mathbf{x} = (x_0, x_1, \cdots, x_{N-1})\\
+	&\mathbf{s}_A = (s_{A0}, s_{A1}, \cdots, s_{A(N-1)})\\
+	&\mathbf{s}_B = (s_{B0}, s_{B1}, \cdots, s_{B(N-1)})\\
+	&\mathbf{n} = (n_{0}, n_{1}, \cdots, n_{N-1})\,.
+  \end{cases}
+  \label{1222n1}
+\end{equation}
+
+We assume  $s_{A_i}$ $s_{B_i}$ and $n_i$ are zero-mean independent and identically distributed (iid) circularly symmetric complex Gaussian (CSCG) random variables with variances $2\sigma_{s_A}^2$, $2\sigma_{s_B}^2$ and $2\sigma_{n}^2$, i.e., $s_{A_i} \sim \mathcal{CN}(0, 2\sigma_{s_A}^2)$, $s_{B_i} \sim \mathcal{CN}(0, 2\sigma_{s_B}^2)$ and $n_i \sim \mathcal{CN}(0, 2\sigma_{n}^2)$.
+Each noisy sample $x_i = s_i + n_i$ is governed by a probability law under each hypothesis. In our model
+since the noise and signal are independent, $s_i+ n_i \sim \mathcal{CN}(0, 2(\sigma_{s}^2 + \sigma_n^2))$.  Define $\sigma_0^2 = \sigma_n^2$, $\sigma_1^2 = \sigma_{s_A}^2 + \sigma_n^2$ and $\sigma_2^2 = \sigma_{s_B}^2 + \sigma_n^2$, we can see
+\begin{equation}
+  \label{1129a1}
+  \begin{split}
+  n_i &\sim \mathcal{CN}(0, 2\sigma_0^2)\\
+  n_i + s_{A_i} &\sim \mathcal{CN}(0, 2\sigma_1^2)\\
+   n_i + s_{B_i}&\sim \mathcal{CN}(0, 2\sigma_2^2) \,,
+  \end{split}
+\end{equation}
+thus the distribution of $x_i$ under each hypothesis is given by
+\begin{equation}
+   \begin{split}
+  H_0:\;\;\;\;\begin{pmatrix} x_{i_R} \\ x_{i_I} \end{pmatrix} \sim \mathcal{N}\Big( \begin{bmatrix} 0 \\ 0 \end{bmatrix}, \begin{bmatrix} \sigma_0^2 & 0\\ 0 & \sigma_0^2 \end{bmatrix} \Big)\\
+  H_1:\;\;\;\;\begin{pmatrix} x_{i_R} \\ x_{i_I} \end{pmatrix} \sim \mathcal{N}\Big( \begin{bmatrix} 0 \\ 0 \end{bmatrix}, \begin{bmatrix} \sigma_1^2 & 0\\ 0 & \sigma_1^2 \end{bmatrix} \Big)\\
+  H_2:\;\;\;\;\begin{pmatrix} x_{i_R} \\ x_{i_I} \end{pmatrix} \sim \mathcal{N}\Big( \begin{bmatrix} 0 \\ 0 \end{bmatrix}, \begin{bmatrix} \sigma_2^2 & 0\\ 0 & \sigma_2^2 \end{bmatrix} \Big)
+\end{split}
+  \label{equ:xdistribution}
+\end{equation}
+where $x_{i_R}$ and $x_{i_I}$ are real and imaginary component of signal $x_i$.
+In our case, the measuring device is an energy detector, the output is given by
+\begin{equation} 
+  Y = \sum_{i=0}^{N-1}|x_i|^2 = \sum_{i=0}^{N-1}(x_{i_R}^2+x_{i_I}^2)\,.
+  \label{equ: testing device}
+\end{equation}
+By observing $y$, a realization of $Y$, the testing device determines the status of the channel. 
+Since $x_{i_R}, x_{i_I}$ are uncorrelated Gaussian random variable with zero mean and variance $\sigma_i^2$, $\frac{y}{\sigma_i^2} = \sum_{n=0}^{N-1}((\frac{x_{i_R}}{\sigma_i})^2 + (\frac{x_{I_i}}{\sigma_i})^2)$ is governed by a Chi-Square distribution with $2N$ freedom degree under hypothesis $H_i$.
+Hence the distribution of $Y$ can be expressed as:
+\begin{equation} 
+  \label{equ: abstract}
+  \begin{split}
+	H_0:\;\;\;\;&\frac{Y}{\sigma_0^2}\sim \mathcal{X}(2N)\\
+	H_1:\;\;\;\;&\frac{Y}{\sigma_1^2}\sim \mathcal{X}(2N)\\
+	H_2:\;\;\;\;&\frac{Y}{\sigma_2^2}\sim \mathcal{X}(2N)\,,
+  \end{split}
+\end{equation}
+where $\mathcal{X}(2N)$ is the Chi-square distribution with $2N$ degree freedom. 
+
+Let $P_d$ denote the probability of detection, i.e. the probability that the channel is correctly declared vacant ($H_0$ is correctly declared true) and $P_{f_1}$ $P_{f_2}$ denote the probability of false alarm with respect to $s_A$  and $s_B$, i.e. the probability that the channel is declared vacant when signal $s_A$ ( $s_B$) is transmitting. Let $c_i$ ($i = 1, 2$) denotes the specific positive constraints on the probability of false alarm. The performance of the system can be depicted by $P_d$ and $c_i$ ($i = 1, 2$), and we use MENP framework to solve following optimization problem:
+\begin{equation}
+  \begin{split}
+	\max\;\;\;\;&P_d\\
+	\text{s.t.}\;\;\;\;&P_{f_1}\leq c_1\\
+	&P_{f_2} \leq c_2\,.
+  \end{split}
+  \label{1129a3}
+\end{equation}
+Our goal is to plot M-ROC surface and to find the decision rule for a given $c_1, c_2$ value.
+
+\subsection{Numerical Results}
+Assume $\sigma_n^2=0.1$ $\sigma_{s_A}^2=0.05$ $\sigma_{s_B}^2=0.15$ and $N=20$. We can see $\sigma_0^2=0.1$ $\sigma_1^2=0.15$ and $\sigma_2^2=0.25$, 
+thus $\sigma_0^2 < \sigma_1^2, \sigma_2^2$. Hence  problem given in \eqref{1129a3} under hypotheses \eqref{equ: abstract} has the same form as that of Chi-Square Example given in chapter 3. 
+If $y$ is an observation of $Y$, 
+from the conclusion in chapter 3 the optimal  decision rule for a given $c_1, c_2$ is 
+\begin{equation}
+  y \substack{H_0 \\ < \\ > \\ \bar{H}_0} V_\tau
+  \label{equ:1129a4}
+\end{equation}
+where $V_\tau = \min\{F_1^{-1}(c_1),  F_2^{-1}(c_2)\}$ and function $F_1,  F_2$ are the CDFs of $Y$ under hypothesis $H_1, H_2$ respectively. The expression of $P_d$ is 
+\begin{equation}
+  P_d = F_0(V_\tau)\,.
+  \label{equ:1129a5}
+\end{equation}
+
+Similar to energy detection in binary hypothesis testing, energy detection for multiple hypothesis testing differentiates between $H_0$ and $\bar{H}_0$ by comparing the test statistic (in form of energy) with a threshold $V_\tau$. The value of the threshold can be determined by the probability of false alarm constraints.   
+
+We use Matlab to compute the M-ROC for this energy detector. The value of $c_1, c_2$ range from 0 to 0.1 with step 0.001. By using \eqref{equ:1129a4} and \eqref{equ:1129a5}, the value of $P_d$ can be acquired. The M-ROC is illustrate in Figure. \ref{pic:1201a1}.  
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=12cm, height=16cm]{4/energy.eps}
+\caption{M-ROC surface for $\sigma_n^2 = 0.1$, $\sigma_{s_A}^2=0.05$, $\sigma_{s_B}^2=0.15$ and $N = 20$.}
+\label{pic:1201a1}
+\end{figure}
+

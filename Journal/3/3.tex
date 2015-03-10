@@ -1,0 +1,128 @@
+% This is for chapter 3
+\chapter{The ROC Surface of Modified Extended Neyman Pearson Test}
+Previous chapter showed the MENP framework can achieve the largest probability of detection under any possible probability of false alarm constraints. This chapter proposes the Receiver of Characteristic surface of MENP test (M-ROC) to depict the relationship between probability of detection and probability of false alarm constraints under MENP framework. Three examples,  two concerning the Gaussian case and one concerning the Chi-Square case, are presented after that. An analysis of the relationship between the probability of detection and the probability of false alarm constraints will be performed. 
+
+\section{Modified Receiver of Characteristic of MENP test}
+
+The ROC surface of MENP test (M-ROC) depicts the relationship between $P_d$ and $c_1, c_2, ..., c_M$. On one hand, it  illustrates the largest $P_d$ can be achieved under the constraint $\mathbf{P}_{f} \leq \mathbf{c}$, on the other hand, it provides the range of $\mathbf{c}$ for a given $P_d$.
+Points $(P_d, c_1, c_2, ..., c_M)$ on M-ROC  surface can be divided into two types: 
+\\1. Those with $[c_1, c_2, ..., c_M] \in \alpha^+$. Define this set of points as $M_0$; 
+\\2. Those with $[c_1, c_2, ..., c_M] \notin \alpha^+$. Define this set of points as $M_1$. 
+
+Obviously points in $M_0$ can be achieved by MENP (\rmnum{1}) and points in $M_1$ can  be achieved by MENP (\rmnum{2}). Next we consider a property of M-ROC surface.
+
+\noindent \textbf{Property 1}
+\noindent \textit{
+  \noindent Assume hypotheses given as:
+}
+\begin{equation}
+  \begin{split}
+	H_0:\;\;\;\;\;\;&X \sim f_0(x)\\
+	H_1:\;\;\;\;\;\;&X \sim f_1(x)\\
+	&......\\
+	H_M:\;\;\;\;\;\;&X \sim f_M(x)
+  \end{split}
+\end{equation}
+\textit{
+  define $g(x) = \frac{\sum_{i=1}^{M}k_if_i(x)}{f_0(x)}$ and let $F_i(x)$ represent the CDF of hypothesis $H_i$ ($i = 1, ..., M$). If $g(x)$ is a monotonically increasing function of $x$ for any non-negative $k_i\;\;(i = 1, ..., M)$ and $F_i(x)$ is monotonically increasing function, then we have:}
+
+  \textit{(1)The region achieved by ENP test with non-negative parameters degenerates to a curve.}
+
+  \textit{(2)For a specific false alarm constraints $P_{f_i} \leq c_i\;\;(i = 1, ..., M)$, the decision rule for MENP test is $x \substack{\bar{H}_0 \\ \geq \\ < \\H_0} x_0$, where $x_0 = \min\{F_1^{-1}(c_1), ..., F_M^{-1}(c_M)\}$.}
+
+  \textit{(3)The expression of $P_d$, $P_{f_1}$, ..., $P_{f_M}$ can be written as}
+  \begin{equation}
+	\label{equ: chi pd}
+	\begin{split}
+	  P_d & = F_0(x_0)\\
+	  P_{f_1} & = F_1(x_0)\\
+	  &......\\
+	  P_{f_M} & = F_M(x_0)
+	\end{split}
+  \end{equation}
+
+  \noindent \textbf{PROOF}
+  According to the definition, $M_0$ is the region achieved by ENP test with $k_i \geq 0 (i=1, ..., M)$. The ENP decision rule is
+  \begin{equation}
+	\label{1127a}
+	\frac{\sum_{i=1}^{M}k_if_i(x)}{f_0(x)} \substack{\bar{H}_0 \\\geq\\< \\H_0}1\,.
+  \end{equation}
+  From the condition $g(x) = \frac{\sum_{i=1}^{M}k_if_i(x)}{f_0(x)} $, \eqref{1127a} can be written as 
+  \begin{equation}
+	\label{dec: gx}
+	g(x)\substack{\bar{H}_0 \\\geq\\< \\H_0}1
+  \end{equation}
+  Since $g(x)$ is a monotonically increasing function with $x$, hence $g^{-1}(x)$ exists and \eqref{dec: gx} can be written in form of 
+  \begin{equation}
+	\label{dec: x0}
+	x\substack{\bar{H}_0 \\\geq\\< \\H_0}x_0\,,
+  \end{equation}
+  where $x_0 = g^{-1}(1)$.
+  Under decision rule \eqref{dec: x0}, the expression of $P_d$, $P_{f_1}$, ..., $P_{f_M}$ is: 
+  \begin{equation}
+	\begin{split}
+	  \label{equ: pd under x0}
+	  P_d &= \text{Pr}(X \leq x_0 | H_0) = F_0(x_0)\\
+	  P_{f_1} &= \text{Pr}(X \leq x_0 | H_1) = F_1(x_0)\\
+	  &......\\
+	  P_{f_M} &= \text{Pr}(X \leq x_0 | H_M) = F_M(x_0)
+	\end{split}
+  \end{equation}
+  where $F_0$, $F_1$, ..., $F_M$ are the CDFs of $X$ under $H_0$, $H_1$, ..., $H_M$. From \eqref{equ: pd under x0}, $P_{f_1}$ determines $x_0$ that in turn determines $P_{f_2}$, ..., $P_{f_M}$, $P_d$. Hence for a given $P_{f_1}$, there is only one corresponding $P_{f_i} (i= 1, ..., M)$. Hence the ROC surface with $k_i \geq 0 (i = 1, ..., M)$ degenerates to a curve in this case.
+
+  Furthermore, \eqref{dec: x0}  implies for an ENP decision rule with non-negative parameters, there exists an $x_0$ such that the ENP decision rule can be written in form of 
+  \begin{equation}
+	\label{1125 dec: x0}
+	x\substack{\bar{H}_0 \\\geq\\< \\H_0}x_0\,.
+  \end{equation}
+
+  Next we consider the optical decision rule $\delta^\ast$ of
+  \begin{equation}
+	\begin{split}
+	  \max\;\;\;\; &P_d\\
+	  \text{s.t.}\;\;\;\;&\mathbf{P}_f \leq \mathbf{c}\,,
+	\end{split}
+  \end{equation}
+  where $\mathbf{c} \in (0, 1)$.
+  From \textbf{Lemma 1} we know $\delta^\ast$ is an ENP test with non-negative parameters, hence according to our previous discussion there exists an $x_0$ such that $\delta^\ast$ can be written in form of 
+  \begin{equation}
+	\label{1124a1}
+	x\substack{\bar{H}_0 \\\geq\\< \\H_0}x_0\,,
+  \end{equation}
+  and the expression of $P_d$ and $\mathbf{P}_f$ are given in \eqref{equ: pd under x0}. 
+  In the following, we will determine the value of $x_0$. 
+  As $P_d$ is an increasing function with respect to $x_0$, in order to acquire the maximum $P_d$ we need to achieve the largest $x_0$ while keeping 
+  \begin{equation}
+	P_{f_i} \leq c_i\;\;\;\;(i = 1, 2, ..., M)\,.
+  \end{equation}
+  Substitute \eqref{equ: pd under x0} into above equation, we have
+  \begin{equation}
+	F_i(x_0) \leq c_i \;\;\;\;(i=1, 2, ..., M)\,.
+  \end{equation}
+  \begin{equation}
+	\label{1125a1}
+	\therefore\;\;\;\; x_0 \leq F^{-1}_{i}(c_i) \;\;\;\;(i=1, 2, ..., M)\,.
+  \end{equation}
+  \eqref{1125a1} can be fulfilled only if $x_0$ is 
+  smaller or equal to the minimum of $F^{-1}_{i}(c_i)$ ($i=1, 2, ..., M$). This implies the largest $x_0$ can be achieved is $\min\{F_1^{-1}(c_1), F_2^{-1}(c_2), ..., F_M^{-1}(c_M)\}$, i.e.
+  \begin{equation}
+	\label{1127a2}
+	x_0 = \min(F_1^{-1}(c_1), F_2^{-1}(c_2), ..., F_M^{-1}(c_M))\,.
+  \end{equation}
+  And by  using decision rule \eqref{1125 dec: x0}, we have
+  \begin{equation}
+	\begin{split}
+	  \label{equ: pd under x00}
+	  P_d &=  F_0(x_0)\\
+	  P_{f_1} &=  F_1(x_0)\\
+	  &......\\
+	  P_{f_M} &= F_M(x_0)\,.
+	\end{split}
+  \end{equation}
+%==================================================================================================
+  \typeout{}
+  \input{3/gaussian}
+
+%==================================================================================================
+  \typeout{}
+  \input{3/chisquare}

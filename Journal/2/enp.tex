@@ -1,0 +1,108 @@
+% chapter 2 section 1
+\section{The Extended Neyman Pearson Hypotheses Test}
+The theories of hypotheses testing have been a subject of continuous studies over years, and have found applications in various fields such as radar systems, spectrum sensing for cognitive communication systems, and in  medical science \cite{ma2008soft, srinivasan1986distributed, spielman1973refutation}. One type of hypotheses testing problem can be abstracted as  follows: assume $M+1$  hypotheses $H_0$, $H_1$, ..., $H_{M}$, inducing $M+1$  Probability Density Functions (PDFs) on the observable $Y$,
+\begin{equation}
+\label{equ:hypothesis}
+\begin{split}
+H_0:\;\;\;\;\;\;\;\;\;&Y \sim f_0(y) \\
+H_1:\;\;\;\;\;\;\;\;\;&Y \sim f_1(y)\\
+&......\\
+H_M:\;\;\;\;\;\;\;\;\;&Y \sim f_M(y)\\
+\end{split}
+\end{equation}
+
+Based on $y$, a realization of $Y$, the detector needs to decide whether or not it comes from $f_0(y)$. A framework for solving this problem for $M=1$ was introduced in \cite{neyman1933problem} and it is commonly known as Neyman Pearson (NP) testing \cite{neyman1933problem}. The theory of NP testing was further developed for $M \geq 2$ in \cite{wald1939contributions} and \cite{dantzig1951fundamental}.  A comprehensive exposition of such generalized NP testing can be found in \cite{LehmannTest}.
+
+\noindent  \textbf{The Extended Neyman Pearson (ENP) Lemma:}
+
+\textit{
+  Let $f_0(x), f_1(x), ..., f_{M}(x)$ be real Borel measurable functions  defined on finite dimensional Euclidean Space $\mathcal{R}$ such that $\int \limits_\mathcal{R} | f_i(x)|\mathrm{d}x < \infty (i=0, 1,...,M)$.  Suppose that for given constants $c_1,...,c_M$ there exists a class of subsets $\mathcal{S}$, denoted $\mathcal{C}_\mathcal{S}$, such that for every $\mathcal{S} \in \mathcal{C}_\mathcal{S}$ we have
+\begin{equation}
+\label{one}
+\int\limits_\mathcal{S} f_i(x)\mathrm{d}x = c_i, \;\;\;\;\;\;i=1,...,M
+\end{equation}
+Then:
+%No. 1
+\\\textnormal{(\rmnum{1})} Among all members of $\mathcal{C}_\mathcal{S}$ there exists one that maximizes
+\[
+\int \limits_\mathcal{S} f_{0}(x)\mathrm{d}x.
+\]
+%No.2
+\\\textnormal{(\rmnum{2})} A sufficient condition for a member of $\mathcal{C}_\mathcal{S}$ to maximize
+\[
+\int \limits_\mathcal{S} f_{0}(x)\mathrm{d}x.
+\]
+is the existence of constants $k_1,...,k_M$ such that
+\begin{equation}
+\label{2}
+f_{0}(x)>\sum\limits_{j=1}^M k_j f_j(x)\;\;\;\;\text{when $x \in \mathcal{S}$}
+\end{equation}
+\begin{equation}
+\label{3}
+f_{0}(x)<\sum\limits_{j=1}^M k_j f_j(x)\;\;\;\;\text{when $x \notin \mathcal{S}$}
+\end{equation}
+%No. 3
+\\\textnormal{(\rmnum{3})} If a member of $\mathcal{C}_\mathcal{S}$ satisfies  \textnormal{(\ref{2})} and \textnormal{(\ref{3})} with $k_1,...,k_M\geq0$, then it maximizes
+\begin{equation}
+\label{4}
+\int \limits_\mathcal{S} f_{0}(x)\mathrm{d}x
+\end{equation}
+among all $\mathcal{S}$ satisfying
+\begin{equation}
+\label{5}
+\int \limits_\mathcal{S} f_i(x)\mathrm{d}x\leq c_i,\;\;\;\;i=1,...,M.
+\end{equation}
+%no. 4
+\\\textnormal{(\rmnum{4})} The set $M$ of points in $M$-dimensional space whose coordinates are 
+\begin{equation}
+(\int_{\mathcal{S}}f_1(x)\mathrm{d}x, ..., \int_{\mathcal{S}}f_M(x)\mathrm{d}x)
+\end{equation}
+for any $\mathcal{S}$ is convex and closed. If $(c_1, ..., c_M)$ is an inner point of $M$, then a  necessary condition for a member of $\mathcal{C}_\mathcal{S}$ to maximize 
+\[
+\int \limits_\mathcal{S} f_{0}(x)\mathrm{d}x.
+\]
+is that there exists $M$ constants $k_1, ..., k_M$ such that \eqref{2} \eqref{3} holds a.e..
+}
+
+The associated probability of detection, $P_d$ and false alarms $P_{f_i}$ for a certain subset $\mathcal{S}$ are defined as
+\cite{neyman1933problem}, 
+\begin{equation}
+\begin{split}
+P_d &= P(H_0 | H_0) = \int_{\mathcal{S}}f_0(x)\mathrm{d}x\\
+P_{f_1} &= P(H_0 | H_1) = \int_{\mathcal{S}}f_1(x)\mathrm{d}x\\
+&......\\
+P_{f_M} &= P(H_0 | H_M) = \int_{\mathcal{S}}f_M(x)\mathrm{d}x
+\end{split}
+\end{equation}
+
+ Define the step function
+\begin{equation}
+   \label{equ: step function}
+   u(x) = \begin{cases}
+     0\;\;\;\;\;\;&x < 0\\
+     0.5\;\;\;\;\;\;&x=0\\
+     1\;\;\;\;\;\;&x>0\,,
+   \end{cases}
+\end{equation}
+then for a subset $\mathcal{S}$ satisfying \eqref{2} and \eqref{3} we have:
+\begin{equation}
+\label{equ: pf and pd}
+\begin{split}
+&P_d = \int_{-\infty}^{\infty} u(f_0(x) - \sum_{j=1}^{M}k_jf_j(x)) f_0(x)\mathrm{d}x	\,, \\
+&P_{f_i} = \int_{-\infty}^{\infty} u(f_0(x) - \sum_{j=1}^{M}k_jf_j(x)) f_i(x) \mathrm{d}x\;\;	 i=1, 2, ..., M\,.
+\end{split}
+\end{equation}
+The relationship between $P_d$ and $P_{f_i}$ can be represented by Receiver Operating Characteristic (ROC) surface \cite{LehmannTest}.
+
+From to \eqref{2} \eqref{3}, the ENP Decision rule $\delta$ is
+
+\begin{equation}
+\label{equ: decision rule}
+\delta: f_0(x) \substack{H_0 \\ \geq \\ < \\ \bar{H}_0}  \sum_{j=1}^{M} k_jf_j(x)
+\end{equation}
+
+From the  \textbf{ENP Lemma}, $\delta$  achieves the largest $P_d$ under the constraints $P_{f_i} = c_i (i = 1, 2, ..., M)$.
+When $M=1$, it achieves the largest $P_d$ under the constraint $P_f \leq c$ \cite{LehmannTest}, which is the well known and commonly used form.
+
+% notes from Prof. Leib.
+For applications in spectrum sensing, $H_0$ denotes the hypothesis that the channel is free and $H_m \;(m=1, ..., M)$ corresponds to the hypothesis that the channel is occupied by the $m$-th primary signal. Although we have $M$ hypotheses, we intend to determine if the channel is free or not. Hence we need  a binary test of deciding $H_0$ versus $\bar{H}_0$ such that $P_d$ is maximized under the constraints $P_{f_m} \leq c_m$ $m = 1, ..., M$. In context of spectrum sensing, $1-P_{f_m}$ can be interpreted as the protection level of the $m-$th primary signal. The larger is this protection level, the smaller is the probability that when the $m-$th signal is active, the test will not detect it and will declare the channel free. In context of spectrum sensing, the solution of the ENP problem maximizes the probability of detecting a free channel under a constraint on the protection level for each primary signal. The protection levels of primary signals can be different and they are guaranteed.

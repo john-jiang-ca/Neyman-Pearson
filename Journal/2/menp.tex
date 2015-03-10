@@ -1,0 +1,148 @@
+% MENP test 
+
+\section{Modified Extended Neyman Pearson Testing}
+
+%define \JUDGEMENT
+\def \JUDGEMENT{u(f_0(x) - \sum_{j=1}^{M}k_j f_j(x))}
+
+The following problem needs to be solve in the context of spectrum sensing. 
+      \begin{equation}
+      \label{equ: problemstate}
+      \begin{split}
+      \max\;\;\;\;\;\;&P_d\\
+      \text{s.t.}\;\;\;\;\;\;&\mathbf{P}_f \leq \mathbf{c}\,,
+      \end{split}
+      \end{equation}
+where $\mathbf{c} \in (0, 1)^M$.
+
+According to ENP Lemma (\rmnum{3}), if a decision rule $\delta^\ast$ satisfies 
+\begin{equation}
+  \label{2015feb09a0}
+  \mathbf{P}_f(\delta^\ast) = \mathbf{c}
+\end{equation}
+and $\delta^\ast$ can be written in form of 
+\begin{equation}
+  \label{2015feb09a1}
+  f_0(x) \substack{H_0 \\ \geq \\ < \\ \bar{H}_0} \sum_{i=1}^{M}f_i(x)\;\;\;\;(k_i \geq 0)\,,
+\end{equation}
+then $\delta^\ast$ is the optimal decision rule for \eqref{equ: problemstate}. From \eqref{equ: pf and pd}  we can see 
+\begin{equation}
+  \label{2015feb09a2}
+  P_{f_j} = \int u(f_0(x) - \sum_{i=1}^{M}k_if_i(x))f_j(x)\mathrm{d}x \;\;\;\;(k_i \geq 0)\,.
+\end{equation}
+Combining \eqref{2015feb09a0} and \eqref{2015feb09a2},
+\begin{equation}
+\int u(f_0(x) - \sum_{i=1}^{M}k_if_i(x))f_j(x)\mathrm{d}x = c_j\;\;\;\;k_i \geq 0\,.
+\label{2015feb09a3}
+\end{equation}
+
+From \eqref{2015feb09a3} we can see the problem given in \eqref{equ: problemstate} can be solved by ENP test only when there are parameters $k_i \geq 0$, $i = 1, 2, \cdots, M$ such that  
+\begin{equation}
+\int u(f_0(x) - \sum_{i=1}^{M}k_if_i(x))f_j(x)\mathrm{d}x = c_j\,.
+\label{equ: condition for ENP}
+\end{equation}
+
+The case when the given $c_i\;\; (i= 1, 2, ..., M)$ do not satisfy \eqref{equ: condition for ENP} was not considered so far. 
+
+
+Next we present the Modified Extended Neyman Pearson Test (MENP) for solving \eqref{equ: problemstate} for all $\mathbf{c}$.
+
+Before we proceed, we will define some notations for easy presentation.
+Let $F(\mathbf{a})$ denote the largest $P_d$ can be achieved while keeping $\mathbf{P}_f = \mathbf{a}$. 
+Define the set 
+\[\mathcal{A}_\mathbf{c} = \{
+  \mathbf{P}_f | 0 \leq P_{f_i} \leq c_i
+  \;\;i=1, 2, ..., M\}\,.
+\]
+and set 
+\[
+\alpha^+ \triangleq \{\mathbf{P}_f | P_{f_i} = \int_{-\infty}^{\infty} \JUDGEMENT f_i(x) \mathrm{d}x, \text{where\;\;} k_i \geq 0 \;\;i=1, ..., M\}\,.
+\]
+\noindent \textbf{Modified Extended Neyman Pearson Test}
+\noindent \textit{
+\\\textnormal{(\rmnum{1})} Assume $\mathbf{c} \in \alpha^+$. Then there must be a $\mathbf{k}^0 = [k_1^0, k_2^0, ..., k_M^0]^T$ with $k_i \geq 0\;\;i=1, ..., M$ satisfying
+}
+\begin{equation}
+\label{equ:Pf}
+  P_{f_i}^0 = \int_{-\infty}^{\infty} u(f_0(x) - \sum_{j=1}^{M}k_j^0f_j(x))f_i(x)\mathrm{d}x = c_i \;\; (i= 1, 2, ..., M)\,.
+\end{equation}
+\textit{
+    and the decision rule $\delta $ solving  \eqref{equ: problemstate} is:
+}
+\begin{equation}
+\label{equ:decision rule}
+\delta:\;\;\;\;f_0(x) \substack{H_0 \\ \geq \\ < \\ \bar{H}_0} \sum_{i=1}^{M}k_i^0f_i(x)
+\end{equation}
+\textit{
+\noindent \textnormal{(\rmnum{2})} Assuming $\mathbf{c} \notin \alpha^+$, Let $\mathcal{C} = \mathcal{A}_{\mathbf{c}} \cap \alpha^+$, and $\mathbf{a}^0 = [a_1^0, a_2^0, ..., a_M^0]^T \in \mathcal{C}$ be such that
+}
+\begin{equation}
+\label{equ: F0}
+\max_{\mathbf{a} \in \mathcal{C}}\;\;\;\;F(\mathbf{a}) = F(\mathbf{a}^0)\\
+\end{equation}
+\textit{
+Since $\mathbf{a}^0 \in \mathcal{A}_{\mathbf{c}} \cap \alpha^+$, from \textnormal{(\rmnum{1})} we have that there exists a vector $\mathbf{k}^0$ such that \eqref{equ:decision rule}  maximizes $P_d$ under the constraints $P_{f_i} = a_i^0, \;i=1, ..., M$. Here since $a_i^0 \leq c_i^0, \;i=1, ..., M$ this decision rule  solves \eqref{equ: problemstate}.
+}
+
+Next we will show \textbf{Modified Extended Neyman Pearson Test} can provide an optimal solution for \eqref{equ: problemstate} when $f_0(x) \neq 0$ a.e. on its domain.
+
+\textbf{PROOF}
+MENP (\rmnum{1}) is a direct conclusion from ENP Lemma (\rmnum{3}). In the following,  we give the proof for MENP (\rmnum{2}). Assume $\mathbf{a}^0$ satisfy
+\begin{equation}
+\label{a0}
+\max_{\mathbf{a}\in\mathcal{C}} F(\mathbf{a}) = F(\mathbf{a^0})
+\end{equation}
+and decision rule $\delta^0$ maximizes $P_d$ under the constraints $P_{f_i} = a^0_i$ ($i = 1, ..., M$). Since $\mathbf{a}^0 \in \alpha^+$, from MENP (\rmnum{1}) we know there exists $k_1^0, ..., k_M^0$ such that $\delta^0$ can be written in form of 
+\[
+\delta^0:\;\;\;\;f_0(x) \substack{H_0 \\ \geq \\ < \\ \bar{H_0}} \sum_{i=1}^{M}k_i^0f_i(x)\,.
+\] 
+From the definition of $F(\mathbf{a})$, we know $F(\mathbf{a^0}) = P_d(\delta^0)$.
+
+In the following, we  will prove $\delta^0$ is the optimal solution for \eqref{equ: problemstate}. 
+Assume  $\delta^0$ does not achieve the largest $P_d$ under constraints $P_{f_i} \leq c_i$ ($i=1, ..., M$) and let $\delta'$ be the optimal decision rule for \eqref{equ: problemstate}, hence  we can conclude
+\begin{equation}
+\label{condition 1}
+P_{f_i}(\delta') \leq c_i\;\;\;\;i=1, 2, ..., M\\
+\end{equation}
+and
+\begin{equation}
+\label{condition 2}
+P_{d}(\delta') > P_d(\delta^0)\,.
+\end{equation}
+From \textbf{Lemma 1}, there exists non-negative constants $k_1', ..., k_M'$ such that $\delta'$ can be written in form of 
+\begin{equation}
+f_0(x) \substack{H_0 \\ \geq \\ < \\ \bar{H_0}} \sum_{i=1}^{M}k_i'f_i(x)\,.
+\label{2015feb20a1}
+\end{equation}
+and thus $P_d(\delta')$ and $P_{f_i}(\delta')$ can be written as
+\begin{equation}
+\begin{cases}
+\label{TEMP10}
+P_{d}(\delta') &= \int_{-\infty}^{\infty} u(f_0(x) - \sum_{i=1}^{M}k_i'f_i(x)) f_0(x) \mathrm{d}x\\
+P_{f_i}(\delta') &= \int_{-\infty}^{\infty} u(f_0(x) - \sum_{i=1}^{M}k_i'f_i(x)) f_i(x) \mathrm{d}x
+\end{cases}
+\end{equation}
+where $k_i' \geq 0$.
+
+From the definition of $\mathcal{A}_c$ and \eqref{condition 1}, we know $\mathbf{P}_f(\delta') \in \mathcal{A}_c$. 
+From the definition of $\alpha^+$ and \eqref{TEMP10}, we know $\mathbf{P}_f(\delta') \in \alpha^+$. 
+Thus it can be seen $\mathbf{P}_f(\delta') \in \mathcal{A}_\mathbf{c} \cap \alpha^+$, i.e. $\mathbf{P}_f(\delta') \in \mathcal{C}$.  
+Let $\mathbf{a}' = \mathbf{P}_f(\delta')$. 
+Since $\delta'$ can be written in form of \eqref{2015feb20a1}, from ENP Lemma (\rmnum{2}), we know decision rule achieve the largest $P_d$ while keeping $\mathbf{P}_f = \mathbf{a}'$, i.e.  
+$F(\mathbf{a}') = P_d(\delta')$. 
+
+Since $P_d(\delta') > P_d(\delta^0)$, $F(\mathbf{a}^0) = P_d(\delta^0)$ and  $F(\mathbf{a}') = P_d(\delta')$, we have $F(\mathbf{a'}) > F(\mathbf{a^0})$. 
+
+As $\mathbf{a}' \in \mathcal{C}$ and $F(\mathbf{a'}) > F(\mathbf{a^0})$, it is contradictory with the condition that $\mathbf{a^0}$ satisfy \eqref{a0}.
+
+Hence we conclude $\delta^0$ is the optimal solution for \eqref{equ: problemstate}. $\blacksquare$
+
+Both MENP (\rmnum{1}) and MNEP (\rmnum{2}) shows the optimal decision rule for \eqref{equ: problemstate} is an ENP decision rule  with non-negative parameters such that: (1) its $P_{f_i}$ is smaller or equal to its associated constraints; (2) it maximizes $P_d$ among all ENP decision rule with non-negative parameters satisfying (1).
+
+Base on above discussion, 
+next we present a look-up table method of finding $\mathbf{k}$. For a specific $\mathbf{c}$, we conduct an exhaustive search over a grid of $k_1, ..., k_M$ ($k_i \geq 0$) depending on preferable accuracy and store these results ($P_d, \mathbf{P}_f, \mathbf{k}$) into a lookup table $T_1$. 
+%Then we check if there exists a item in table $T_1$ satisfying $\mathbf{P}_f = \mathbf{c}$. If so, get the item's associated $\mathbf{k}$ as the MENP parameters. If not,  
+Then we iterate every item in $T_1$ and put the item into table $T_2$ if the item satisfies:  $\mathbf{P}_f \leq \mathbf{c}$.
+At last, we iterate every item in $T_2$ and get the largest $P_d$ and its decision rule $\mathbf{k}$.
+
+%From above discussion, we can see if an ENP decision rule with positive parameters acquires the largest $P_d$ while keeping $\mathbf{P}_f \leq \mathbf{c}$ among all ENP test with positive parameters, it is the theoretical solution for \eqref{equ: problemstate}. 
