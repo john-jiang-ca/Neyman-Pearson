@@ -1,6 +1,6 @@
 % determine the decision rule
 
-\section{Determine the decision rule under MENP Framework}
+\subsection{Determine the decision rule under MENP Framework}
 In the context of spectrum sensing, the lookup table $T_1$ can be pre-computed and stored in the detector before the detector is deployed. Once the probability of false alarm constraint(s) is(are) changed, the detector utilizes $T_1$ to get the MENP decision  rule parameters accordingly. The size of $T_1$ depends on the value of $M$, the range and the step of $k_i$.  Assume the value of $k_i$ ranges from $0$ to $\Gamma$ with step $\tau_0$. As $T_1$ is an exhaustive lookup table on the grid of $k_1, ..., k_M$, it has $(\frac{\Gamma}{\tau_0})^M$ items. Since a linear increase of $M$ leads to an exponential increase in the size of $T_1$, this method is no plausible for for the situation when $M$ is large. 
 
 In \cite{zhang1999design, zhang2000efficient} Qian proposed an algorithm to solve this issue.  The algorithm can iteratively refine $k_i$ ($i=1, ..., M$) and generate an ENP test  such that among all ENP test with non-negative parameters it achieves the largest $P_d$ while keeping $P_{f_i}$ below the prescribed constraints. 
@@ -53,7 +53,7 @@ Hence in the tolerance check, the algorithm checks whether $c_i - P_{f_i}$ ($i \
 
 For each cycle, let $P_d^0$ represents the probability of detection before the cycle starts, and let $P_d^1$ represents the probability of detection after the cycle ends. In the weight adjustment process, the weight and threshold are refined such that the probability of detection is fixed. In the threshold adjustment process, the algorithm revise the threshold such that the probability of detection increases. Hence we can see $P_d^0$ is strictly below $P_d^1$, i.e. after each cycle, the probability of detection increases. Let $P_d^\ast$ denotes the theoretical solution, as long as $P_d^0 < P_d^\ast$  the algorithm can bring the probability of detection closer to the theoretical solution  through changing the threshold $t$ and weight $\bom$.
 
-\subsection{An Example}
+\subsubsection{An Example}
 In the following we use an example to illustrate the operation of the algorithm. Assume three hypotheses given as
 
 \begin{equation}

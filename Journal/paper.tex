@@ -1,0 +1,111 @@
+\documentclass[12pt,journal,a4paper,twoside,onecolumn]{IEEEtran}
+\usepackage{amssymb}
+\usepackage{verbatim}
+\usepackage{mathtools}
+\usepackage{ amsmath, bm }
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{yhmath}
+\DeclareGraphicsExtensions{.pdf,.eps,.png,.jpg,.mps}
+\usepackage{dsfont}
+\usepackage{bbm}
+\usepackage{setspace}
+\usepackage[top=0.7in, bottom=0.7in, left=0.5in, right=0.5in]{geometry}
+
+%For lemma, theorem, proposition, corllary, proof, definition,example and remark.
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+\newcommand\bigfrown[2][\textstyle]{\ensuremath{%
+  \array[b]{c}\text{\scalebox{2}{$#1\frown$}}\\[-1.3ex]#1#2\endarray}}
+% End
+\author{An~Jiang,~
+        Harry~Leib,~\\
+          Department of Electrical Engineering\\
+          McGill University\\
+          Montreal,~Quebec,~Canada,~\\
+          Email: an.jiang@mail.mcgill.ca,~harry.leib@mcgill.ca
+}
+\title{The Extended Neyman-Pearson Hypotheses Testing Framework and its Application to Spectrum Sensing in Cognitive Wireless Communication}
+\date{\today}
+\begin{document}
+\begin{spacing}{1.5}
+\maketitle
+\begin{abstract}
+%Neyman Person (NP) testing for two hypotheses is widely used in radar system, spectrum sensing, medical detection and many other applications. Traditional NP testing maximizes the probability of detection under a probability of false alarm constraint. This paper consider an extended form of the NP test that is suitable for spectrum sensing when there might be different type of primary signals.
+We propose a Modified Extended Neyman Pearson (MENP) framework which is suitable for spectrum sensing when there might be different types of primary signals. Our work generalizes existing Neyman Pearson (NP) test to accommodate multiple probability of false alarm constraints. This allows the cognitive radio wireless communication system to provide different levels of protection for various primary users.  
+The M-ROC surface, representing the relationship between the probability of detection and the constraints, is used to depict the performance of the MENP testing.   
+Using the MENP framework, an energy based spectrum detector is developed to detect multiple primary signals. This detector is designed to have the largest probability of detection under any probability of false alarm constraints. 
+\end{abstract}
+
+\begin{IEEEkeywords}
+Neyman Pearson, Hypothesis Testing, Spectrum Sensin, Cognitive Radio
+\end{IEEEkeywords}
+
+\section{Introduction}
+The increasing radio spectrum demand for wireless communication is driving the development of new approaches for its usage, such as Cognitive Radio (CR)\cite{a001}. The concept behind CR networks is the unlicensed use of radio spectrum while ensuring no interference to the licensed users. \cite{goldsmith2009breaking}.
+To achieve this goal, a CR system must have ``cognitive" abilities to identify opportunities for communication\cite{buddhikot2007understanding}. In CR systems, the spectrum sensing component brings in such capabilities \cite{tandra2009spectrum}.
+
+ Spectrum sensing has been a subject for extensive studies in the last years\cite{axell2012spectrum}. Common techniques for spectrum sensing are based on energy detection, exploitation of cyclostationarity properties of  the signal being sensed, and also could use preamble sequences that are embedded in the signals \cite{cabric2004implementation}.  In \cite{axell2011optimal}, the authors point out that for OFDM signals when the variances of the noise and signal are known, the performance of energy based spectrum sensing is very close to optimal. Cooperative spectrum sensing \cite{ganesan2005cooperative}, employing multiple sensors that are geographically scattered, are effective against shadowing.
+Different sensing algorithms and DSP techniques have been introduced for specific situations, such as in \cite{tian2007compressed} where the authors study algorithms for wide band spectrum sensing focusing on sub-Neyquist sampling techniques. In  \cite{sun2013wideband} and  \cite{sun2013wideband2} the authors propose compressed sensing and sub-Nyquist sampling techniques for wide band spectrum sensing.
+
+In order to detect a free frequency channel, a spectrum sensing scheme solves a binary hypotheses testing problem, where the null hypothesis refers to the event that a user is not using the channel and the alternative hypothesis refers to the event that a user is occupying the channel. If the a-prior probabilities of null and alternative hypotheses are known, then such a problem can be solved using a Bayesian framework \cite{poor1994introduction}. The situation when Baysian framework could be used is considered in \cite{zeng2010review} and the performance of such scheme is analyzed.
+Even though the Baysian framework can be used in some situations, in more often cases, the a-prior probabilities are not available. In such situations Neyman Pearson testing is employed \cite{poor1994introduction}.When there is a single type of primary user (two hypotheses), NP testing will achieve the largest probability of detecting a vacant channel when no primary user is present under a constraint on the probability that the channel will be declared vacant when in fact a primary user is present.
+Traditional NP testing has been extensively used for two hypotheses problem. In such cases,  the performance is characterized by the Receiver Operating Characteristic (ROC) curve, which represents the relationship between probability of detection and probability of false alarm \cite{poor1994introduction}.
+
+In spectrum sensing application, there may be more than one type of primary users. For example in IEEE 802.22 \cite{shellhammer2008spectrum} the channel can be occupied by Analog-TV Digital-TV and wireless microphone. In such cases, an extended NP (ENP) test can provide important advantages \cite{zhang1999desig}. A detector based on ENP testing can ensure the largest probability of detection under a separate constraint of false alarm for each primary user type \cite{LehmannTest}.
+
+With an ENP detector however, the achievable false alarm probabilities are limited. In this work we analyze the properties of the ENP test and propose the Modified Extended Neyman Pearson (MENP) test, that circumvents the limitations of the false alarm probabilities. The structure of the remaining of this paper is [TO BE ADDED].
+% To Be Add
+%===============================================
+% Input of 2 3 
+\typeout{}
+\input{2/2}
+
+\typeout{}
+\input{3/3}
+
+
+\typeout{}
+\input{4/4}
+
+\section{Conclusions}
+In this paper, we explore the new field of spectrum sensing with emphasis on providing different levels of protections for various primary users. 
+The proposed MENP test could achieve a value approaches to the largest probability of detection detection under multiple constraints of probability of false alarms. 
+After that, we approach M-ROC surface to represent the relationship between the probability of detection and the constraint conditions. Two examples respectively concerning Gaussian distribution and Chi-Square distribution are given to show the properties of M-ROC surface. 
+One method to achieve the MENP decision rule is provided with simulation. 
+We also proposed an energy based detector for two different types of primary users.
+For simplicity, we assume the signal samples of the primary users subject to iid CSCG distribution and the variance of the signal and the noise are known to the detector.
+In this work, we did not consider randomized decision rule. This could be a future topic.
+
+
+\section{Reference}
+\newpage
+\bibliographystyle{ieeetr}	% (uses file "plain.bst")
+\bibliography{mybib}		% expects file "myrefs.bib"
+
+\section{Figures}
+\begin{figure}[!t]
+\centering
+\includegraphics[width = 10cm, height=16cm]{2/ex1.eps}
+\caption{The ROC surface for $k_1$, $k_2$ range from $-30$ to $30$ with step $0.05$.}
+\label{fig: 2.1}
+\end{figure}
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width = 10cm, height=16cm]{2/ex2.eps}
+\caption{The ROC surface for problem \eqref{2015jan29a2}.}
+\label{fig: 2.2mar9}
+\end{figure}
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width = 10cm, height=16cm]{2/ex3.eps}
+\caption{The contour for the ROC surface.}
+\label{fig: 2.3mar9}
+\end{figure}
+
+\end{spacing}
+\end{document}
