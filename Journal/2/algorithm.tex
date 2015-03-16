@@ -1,12 +1,12 @@
 % determine the decision rule
 
 \subsection{Determine the decision rule under MENP Framework}
-In the context of spectrum sensing, the lookup table $T_1$ can be pre-computed and stored in the detector before the detector is deployed. Once the probability of false alarm constraint(s) is(are) changed, the detector utilizes $T_1$ to get the MENP decision  rule parameters accordingly. The size of $T_1$ depends on the value of $M$, the range and the step of $k_i$.  Assume the value of $k_i$ ranges from $0$ to $\Gamma$ with step $\tau_0$. As $T_1$ is an exhaustive lookup table on the grid of $k_1, ..., k_M$, it has $(\frac{\Gamma}{\tau_0})^M$ items. Since a linear increase of $M$ leads to an exponential increase in the size of $T_1$, this method is no plausible for for the situation when $M$ is large. 
+In the context of spectrum sensing, the lookup table $T_1$ can be pre-computed and stored in the detector before the detector is deployed. Once the probability of false alarm constraint(s) is(are) changed, the detector utilizes $T_1$ to get the MENP decision  rule parameters accordingly. The size of $T_1$ depends on the value of $M$, the range and the step of $k_i$.  Assume the value of $k_i$ ranges from $0$ to $\Gamma$ with step $\tau_0$. As $T_1$ is an exhaustive lookup table on the grid of $k_1, ..., k_M$, it has $(\frac{\Gamma}{\tau_0})^M$ items. Since a linear increase of $M$ leads to an exponential increase in the size of $T_1$, this method is no plausible for the situation when $M$ is large. 
 
-In \cite{zhang1999design, zhang2000efficient} Qian proposed an algorithm to solve this issue.  The algorithm can iteratively refine $k_i$ ($i=1, ..., M$) and generate an ENP test  such that among all ENP test with non-negative parameters it achieves the largest $P_d$ while keeping $P_{f_i}$ below the prescribed constraints. 
+In \cite{ zhang2000efficient} Qian proposed an algorithm to solve this issue.  The algorithm can iteratively refine $k_i$ ($i=1, ..., M$) and generate an ENP test  such that among all ENP test with non-negative parameters it achieves the largest $P_d$ while keeping $P_{f_i}$ below the prescribed constraints. 
 %Obviously if the theoretical solution for \eqref{equ: problemstate} is an ENP test with positive parameters, this algorithm can acquire the optimal solution. 
 In \textbf{Lemma 1}, we showed if $f_0(x) \neq 0$ a.e. on its domain,  the theatrical solution for \eqref{equ: problemstate} is an ENP decision rule with positive parameters. 
-Thus it can be seen if $f_0(x) \neq 0$ a.e. on its domain, the algorithm approached by Qian in \cite{zhang1999design, zhang2000efficient} can generate the theoretical solution for \eqref{equ: problemstate}.
+Thus it can be seen if $f_0(x) \neq 0$ a.e. on its domain, the algorithm approached by Qian in \cite{ zhang2000efficient} can generate the theoretical solution for \eqref{equ: problemstate}.
 
 The algorithm is summarized as follows. Let $t = \sum_{i=1}^{M}k_i$ and $\omega_i = \frac{k_i}{t}$ ($i=1, 2, ..., M$). In the algorithm, $\bom$ is termed the weight of the decision rule and $t$ is termed the threshold of the decision rule. Since only non-negative $k_i$ are considered, both $\omega_i, t$ are greater or equal to zero. The ENP test can be written in form of 
 \begin{equation}
@@ -53,116 +53,3 @@ Hence in the tolerance check, the algorithm checks whether $c_i - P_{f_i}$ ($i \
 
 For each cycle, let $P_d^0$ represents the probability of detection before the cycle starts, and let $P_d^1$ represents the probability of detection after the cycle ends. In the weight adjustment process, the weight and threshold are refined such that the probability of detection is fixed. In the threshold adjustment process, the algorithm revise the threshold such that the probability of detection increases. Hence we can see $P_d^0$ is strictly below $P_d^1$, i.e. after each cycle, the probability of detection increases. Let $P_d^\ast$ denotes the theoretical solution, as long as $P_d^0 < P_d^\ast$  the algorithm can bring the probability of detection closer to the theoretical solution  through changing the threshold $t$ and weight $\bom$.
 
-\subsubsection{An Example}
-In the following we use an example to illustrate the operation of the algorithm. Assume three hypotheses given as
-
-\begin{equation}
-\label{equ: Gaussian Hypothesis}
-\begin{split}
-	H_0:\;\;\;\;\;\;\;\;&X \sim \mathcal{N}(-1,1)\\
-    H_1:\;\;\;\;\;\;\;\;&X \sim \mathcal{N}(0,1)\\
-    H_2:\;\;\;\;\;\;\;\;&X \sim \mathcal{N}(1,10)\,,
-\end{split}
-\end{equation}
-where $\mathcal{N}(\mu, \epsilon^2)$ denotes a Gaussian PDF with mean $\mu$ and variance $\epsilon^2$.
-The tolerance of the algorithm is set $0.0001$, i.e. in the tolerance checking process, when $c_i - P_{f_i} < 0.0001$ ($i = 1, 2, ..., M$), the algorithm stops. The initial weight of the algorithm is set to be $\omega_1 = \omega_2 = 0.5$. 
-Two cases will be considered in this part. In the first case we consider the situation when $\mathbf{c} \in \alpha^+$. In the second case we consider the case when $\mathbf{c} \notin \alpha^+$.
-
-First we consider the case when $c_1 = 0.15$ and $c_2 = 0.2$.
-After the initiation, the weight and threshold are set $\omega_1 = \omega_2 = 0.5$, $t =2.3544$, and the corresponding performance measures are $P_{f_1}  = 0.1500$, $P_{f_2} = 0.1445$ and $P_d = 0.4520$. The algorithm carries $163$ iterations of weight threshold adjustment. The $(P_{f_1}, P_{f_2})$  points after each iteration are plotted as '$\bullet$' in Fig. \ref{fig: 2.3}. 
-The $(P_{f_1}, P_{f_2})$ point of the initialization is plotted as  a 'o' and the $(P_{f_1}, P_{f_2})$ point of the final solution are plotted as a '$\square$'. 
-In Figure \ref{fig: 2.2}, the change of $P_d$ with respect to the iteration times is depicted through a curve marked with stars.   
-The dotted line in Figure \ref{fig: 2.2} represents the theoretical value of $P_d$ under constraint $\mathbf{P}_f \leq \mathbf{c}$. This value is achieved through the look-up table method approached in last section. We can see, after each cycle of weight-threshold adjustment, the corresponding $P_d$ converges to the theoretical solution. 
-
-\begin{figure}[H]
-\centering
-\includegraphics[width = 14cm]{2/152pf.eps}
-\caption{Change of $P_{f_1}$, $P_{f_2}$ after each iteration.}
-\label{fig: 2.3}
-\end{figure}
-\newpage
-\begin{figure}[H]
-\centering
-\includegraphics[width = 14cm]{2/152pd.eps}
-\caption{Change of $P_d$ after each iteration.}
-\label{fig: 2.2}
-\end{figure}
-\newpage
-
-The weight and threshold of the final solution are
-
-\[
-\begin{split}
-\omega_1 = 0.9208\\
-\omega_2 = 0.0792\\
-t = 1.7889
-\end{split}
-\]
-Since $k_1 = \omega_1 t$ and $k_2 = \omega_2 t$, we can see
-\[
-\begin{split}
-k_1 &= 1.6474\\
-k_2 &= 0.1416
-\end{split}
-\]
-The performance measure of the decision rule are
-\[
-\begin{split}
-P_{f_1} &= 0.1500\\
-P_{f_2} &= 0.1999\\
-P_d &= 0.4838
-\end{split}
-\]
-
-
-We can see, $P_{f_1}$ is equal to its associated constraint $c_1$  while $P_{f_2}$ is $0.0001$ smaller than its associated  constraint $c_2$. 
-
-
-Then we consider an ENP test for $c_1 = 0.2$ and $c_2 = 0.4$.
-After the initiation, the weight and threshold are $\omega_1 = \omega_2 = 0.5$, $t =2.0278$, and the corresponding performance measures are $P_{f_1}  = 0.2000$, $P_{f_2} = 0.1720$ and $P_d = 0.5367$. The algorithm carries $14$ iterations of weight  threshold adjustment. The corresponding $(P_{f_1}, P_{f_2})$ are   
-marked as '*' and connected by a dotted line in Fig. \ref{fig: 2.4}. 
-The $(P_{f_1}, P_{f_2})$ point of the initialization is plotted as  a 'o' and the $(P_{f_1}, P_{f_2})$ point of the final solution are plotted as a '$\square$'. The change of $P_d$ after each iteration is plotted in Figure \ref{fig: 2.5}. 
-The dotted line in Figure \ref{fig: 2.5} represents the theoretical probability of detection under constraint $\mathbf{P}_f \leq \mathbf{c}$. This value is derived through the exhaustive search method approached last section.  
-
-
-The weight and threshold of the final solution are
-\[
-\begin{split}
-\omega_1 = 1.000\\
-\omega_2 = 0.000\\
-t = 1.4075
-\end{split}
-\]
-Since $k_1 = \omega_1t$ and $k_2 = \omega_2t$, we can see
-\[
-\begin{split}
-k_1 &= 1.4072\\
-k_2 &= 0.000
-\end{split}
-\]
-The performance measure of the decision rule are
-\[
-\begin{split}
-P_{f_1} &= 0.2000\\
-P_{f_2} &= 0.2799\\
-P_d &= 0.5629
-\end{split}
-\]
-
-\begin{figure}[H]
-\centering
-\includegraphics[width = 14cm]{2/24pf.eps}
-\caption{Change of $P_{f_1}$, $P_{f_2}$ after each iteration.}
-\label{fig: 2.4}
-\end{figure}
-\newpage
-\begin{figure}[H]
-\centering
-\includegraphics[width = 14cm]{2/24pd.eps}
-\caption{Change of $P_d$ after each iteration.}
-\label{fig: 2.5}
-\end{figure}
-\newpage
-
-
-Thus we can observe, $P_{f_1}$ is equal to its constraint ($c_1 = 0.2$) while $P_{f_2}$ is much smaller than its constraint ($c_2 =0.4$). However since $\omega_2$ is equal to zero, $P_{f_2}$ does not have to be close to $c_2$ to stop the algorithm. By using the exhaustive search method approached last section, we can verify the largest probability of detection under the constraint $\mathbf{P}_f \leq \mathbf{c}$ is $0.5629$, which is equal to the solution generated by the algorithm.

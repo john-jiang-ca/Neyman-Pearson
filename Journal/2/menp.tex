@@ -20,17 +20,8 @@ According to ENP Lemma (\rmnum{3}), if a decision rule $\delta^\ast$ satisfies
   \label{2015feb09a0}
   \mathbf{P}_f(\delta^\ast) = \mathbf{c}
 \end{equation}
-and $\delta^\ast$ can be written in form of 
-\begin{equation}
-  \label{2015feb09a1}
-  f_0(x) \substack{H_0 \\ \geq \\ < \\ \bar{H}_0} \sum_{i=1}^{M}f_i(x)\;\;\;\;(k_i \geq 0)\,,
-\end{equation}
-then $\delta^\ast$ is the optimal decision rule for \eqref{equ: problemstate}. From \eqref{equ: pf and pd}  we can see 
-\begin{equation}
-  \label{2015feb09a2}
-  P_{f_j} = \int u(f_0(x) - \sum_{i=1}^{M}k_if_i(x))f_j(x)\mathrm{d}x \;\;\;\;(k_i \geq 0)\,.
-\end{equation}
-Combining \eqref{2015feb09a0} and \eqref{2015feb09a2},
+and $\delta^\ast$ can be written in form of \eqref{equ: decision rule} with non-negative $k_i$, 
+then $\delta^\ast$ is the optimal decision rule for \eqref{equ: problemstate}. From \eqref{equ: pf and pd}  and \eqref{2015feb09a0} we can see 
 \begin{equation}
 \int u(f_0(x) - \sum_{i=1}^{M}k_if_i(x))f_j(x)\mathrm{d}x = c_j\;\;\;\;k_i \geq 0\,.
 \label{2015feb09a3}
@@ -43,10 +34,7 @@ From \eqref{2015feb09a3} we can see the problem given in \eqref{equ: problemstat
 \end{equation}
 
 The case when the given $c_i\;\; (i= 1, 2, ..., M)$ do not satisfy \eqref{equ: condition for ENP} was not considered so far. 
-
-
 Next we present the Modified Extended Neyman Pearson Test (MENP) for solving \eqref{equ: problemstate} for all $\mathbf{c}$.
-
 Before we proceed, we will define some notations for easy presentation.
 Let $F(\mathbf{a})$ denote the largest $P_d$ can be achieved while keeping $\mathbf{P}_f = \mathbf{a}$. 
 Define the set 
@@ -137,7 +125,7 @@ As $\mathbf{a}' \in \mathcal{C}$ and $F(\mathbf{a'}) > F(\mathbf{a^0})$, it is c
 
 Hence we conclude $\delta^0$ is the optimal solution for \eqref{equ: problemstate}. $\blacksquare$
 
-Both MENP (\rmnum{1}) and MNEP (\rmnum{2}) shows the optimal decision rule for \eqref{equ: problemstate} is an ENP decision rule  with non-negative parameters such that: (1) its $P_{f_i}$ is smaller or equal to its associated constraints; (2) it maximizes $P_d$ among all ENP decision rule with non-negative parameters satisfying (1).
+Both MENP (\rmnum{1}) and MNEP (\rmnum{2}) shows the optimal decision rule for \eqref{equ: problemstate} is an ENP decision rule  with non-negative parameters such that: (a) its $P_{f_i}$ is smaller or equal to its associated constraints; (b) it maximizes $P_d$ among all ENP decision rule with non-negative parameters satisfying (a).
 
 Base on above discussion, 
 next we present a look-up table method of finding $\mathbf{k}$. For a specific $\mathbf{c}$, we conduct an exhaustive search over a grid of $k_1, ..., k_M$ ($k_i \geq 0$) depending on preferable accuracy and store these results ($P_d, \mathbf{P}_f, \mathbf{k}$) into a lookup table $T_1$. 

@@ -29,20 +29,7 @@ we have
 \end{equation}
 We use Matlab to compute the M-ROC for region $M_0$. The values of $k_1$ and $k_2$ range from $0$ to $100$ in steps of $0.01$. Substituting the value of $k_1$ and $k_2$ into \eqref{1125c0}, results in the corresponding $P_d$ $P_{f_1}$ and $P_{f_2}$.  The set $M_0$ is illustrated in Figure \ref{pic: surface for m0 gaussian}. Figure \ref{pic: contour for m0 gaussian} presents the projection of Figure \ref{pic: surface for m0 gaussian} on the $c_1, c_2$ plane.
 
-\begin{figure}[!t]
-\centering
-\includegraphics[width=12cm, height=16cm]{3/singleROC.eps}
-\caption{Region that can be achieved by Neyman Pearson testing with $k_i \geq 0 (i=1, ..., M)$.}
-\label{pic: surface for m0 gaussian}
-\end{figure}
-\newpage
 
-\begin{figure}[!t]
-\centering
-\includegraphics[width=12cm, height = 16cm]{3/singlecontour.eps}
-\caption{Region that can be achieved by Neyman Pearson testing with $k_i \geq 0 (i=1, ..., M)$.}
-\label{pic: contour for m0 gaussian}
-\end{figure}
 
 In Figure \ref{pic: contour for m0 gaussian} $N_0$ is the projection of $M_0$ on the $c_1, c_2$ plane. Since $M_0$ is the set of points with $[c_1, c_2] \in \alpha^+$, $N_0$ is the set of points belonging to $\alpha^+$.
 Define curve $L_1$ as the set of points such that 
@@ -106,12 +93,7 @@ Q.E.D
 
 Since we have computed $P_d$ for $(c_1, c_2) \in N_0$ and curves $L_1$ and $L_2$ belong to $N_0$, we can get $P_d$ for $(c_1, c_2)$ belongs to $N_1$ and $N_2$ through \textbf{Property 2}. M-ROC surface for this example is given in Figure  \ref{pic: LJS}.
 
-\begin{figure}[!t]
-\centering
-\includegraphics[width=12cm, height=16cm]{3/ROC2.eps}
-\caption{The M-ROC surface for Gaussian Hypotheses.}
-\label{pic: LJS}
-\end{figure}
+
 
 \noindent \textbf{Example 2:}
 
@@ -162,9 +144,4 @@ P_d = F_0(x_0)
 
 Figure \ref{pic: surface for same variance} shows the M-ROC surface for $M=2$, $\mu_0 = 0$, $\mu_1 = 1$, $\mu_2 = 2$ and $\sigma_0^2 = \sigma_1^2 = \sigma_2^2 = 1$. The bold curve is region $M_0$.
 
-\begin{figure}[!t]
-\centering
-\includegraphics[width=12cm, height=16cm]{3/gaussian.eps}
-\caption{The M-ROC for Gaussian distribution with same variance.}
-\label{pic: surface for same variance}
-\end{figure}
+

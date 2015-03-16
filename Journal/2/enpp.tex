@@ -12,7 +12,7 @@ H_2:\;\;\;\;&X \sim \mathcal{N}(1, 10)
 \end{split}
 \end{equation}
 where $\mathcal{N}(\mu, \epsilon^2)$ denotes a Gaussian PDF with mean $\mu$ and variance $\epsilon^2$. 
-By increasing $k_1$ and $k_2$ from $-30$ to $30$ with step $0.05$ separately, we can calculate the associated $P_{f_1}, P_{f_2}$ and $P_d$ from \eqref{2015jan29a1}. 
+By increasing $k_1$ and $k_2$ from $-30$ to $30$ with step $0.05$ separately, we can calculate the associated $P_{f_1}, P_{f_2}$ and $P_d$ from \eqref{equ: pf and pd}. 
 Fig. \ref{fig: 2.1} and Fig. \ref{fig: 2.2mar9} present the ROC surface from two different viewing angles. The contour of the ROC surface is given in Fig. \ref{fig: 2.3mar9}. The region enclosed by the two dash lines in Fig. \ref{fig: 2.1}, Fig. \ref{fig: 2.2mar9} and Fig. \ref{fig: 2.3mar9} are the set of points achieved by non-negative $k_1, k_2$.  
 
 It is interesting to observe that under ENP test framework, for a given $(P_{f_1}, P_{f_2})$  ($P_{f_1}, P_{f_2}\in [0, 1]$) the associated $P_d$ may not exists. This is because for a given $c_1, c_2 \in [0, 1]$, it is possible that there is no decision rule can satisfy
@@ -55,8 +55,6 @@ f_0(x) \substack{H_0 \\ \geq \\ < \\ \bar{H}_0} \sum_{j=1}^{M}k_jf_j(x)
 Moreover, under decision rule $\delta^\ast$ if  $P_{f_i} < c_i$, then $k_i = 0$. 
 }
 
-Qian Zhang also arrives at the conclusion that if $P_{f_i} < c_i$, then $k_i = 0$ in \cite{zhang1999design, zhang2000efficient} through analysing the performance of $P_d$ with respect to $k_i$. In the following we will prove \textbf{Lemma 1} using a mathematical method such that used in \cite{LehmannTest, dantzig1951fundamental} to prove the ENP Lemma (\rmnum{4}).
-
 \noindent\textbf{PROOF}
 \newcommand{\bmu}{\boldsymbol{\mu}}
 We start by defining 
@@ -81,12 +79,6 @@ G_s =  \{(\boldsymbol{\mu}_0, \mu_{M+1}) | \boldsymbol{\mu}_0\in [0, 1]^M, \mu_{
   \end{equation}
   From \eqref{def: G'} and \eqref{2015feb16n1}, it can be seen $G' \in G_s$. Fig. \ref{fig: feb18} depicts the relationship between $G'$ and $G_s$ when $M=2$. In Fig. \ref{fig: feb18}, $G'$ is the surface enclosed by curve $\stackrel\frown{AC}$, curve $\stackrel\frown{AD}$, segment $\overline{OC}$ and segment $\overline{OD}$. Set $G_s$ is the space enclosed by plane $ABC$, plane $ABD$, plane $COD$ and surface $G'$.  
 
-\begin{figure}[!t]
-\centering
-\includegraphics[width = 12cm, height=16cm]{2/example_pic.eps}
-\caption{Relationship between $G'$ and $G_s$}
-\label{fig: feb18}
-\end{figure}
 Let us define the set of points in $M+1$ dimensional Euclidean
 \begin{equation}
 \begin{split}
@@ -195,9 +187,9 @@ Let $\mu_{min} = \min(\mu_1, \mu_2, \cdots, \mu_M)$, since $\bmu_0 > 0^M$, it ca
 \end{equation}
 
 Hence we can see by using $\delta^3$ we have
-\[
+$
   \mathbf{P}_f(\delta^3) \leq \bmu_0\,.
-\]
+$
 Since $\delta^\ast $ is the optimal decision rule for $\bmu_0$, we can conclude $P_d(\delta^\ast) \geq  P_d(\delta^3) = \mu_{min} >  0$. Since $G(\bmu_0) = P_d(\delta^\ast)$, we can conclude $G(\bmu_0) > 0$ when $\bmu_0 > 0 $. 
 
 
@@ -262,21 +254,15 @@ Hence we proved $\mathcal{N} \subseteq G_s$.
 
 Assume $(\mu_1^0, \mu_2^0, ..., \mu_{M+1}^0)$ is a point on hyper surface $G'$ and $\bmu_0 > 0^M$. Then from previous proof we can conclude $G(\bmu_0) > 0$.
 Since $G_s$ is a convext set and $G(\bmu_0)>0$, we can conclude that there exists constant $\mathbf{k}$ such that 
-\[
+\begin{equation}
 \mu_{M+1} - \sum_{i=1}^{M}k_i\mu_i \leq \mu_{M+1}^0 - \sum_{i=1}^{M}k_i\mu_i^0
-\]
-holds for any $(\mu_1, \mu_2, ..., \mu_{M+1}) \in G_s$ \cite{dantzig1951fundamental, LehmannTest}.
-
-
-In the following we will show for point $(\mu_1^0, \mu_2^0, ..., \mu_{M+1}^0)$ that belongs to $G'$ ($\mu_i^0 \in (0, 1), i = 1, 2, ..., M$), there exists a non-negative $\mathbf{k}$ such that  
-\[
-\mu_{M+1} - \sum_{i=1}^{M}k_i\mu_i \leq \mu_{M+1}^0 - \sum_{i=1}^{M}k_i\mu_i^0
-\]
-holds for any $(\mu_1, \mu_2, ..., \mu_{M+1}) \in G_s$, 
+\label{mar16a0}
+\end{equation}
+holds for any $(\mu_1, \mu_2, ..., \mu_{M+1}) \in G_s$ \cite{LehmannTest, dantzig1951fundamental}.
 
 Furthermore,  consider another point on $G'$ with coordinate $(\mu_1^0, ..., \mu_l^0+\epsilon, ..., \mu_M^0, \mu_{M+1}')$, where $\epsilon > 0$ and $l$ is an integer between $1$ and $M$.  Since both points $(\mu_1^0, ..., \mu_l^0, ..., \mu_M^0, \mu_{M+1}^0)$ and $(\mu_1^0, ..., \mu_l^0+\epsilon, ..., \mu_M^0, \mu_{M+1}')$ lies on $G'$, we can conclude $G([\mu_1^0, ..., \mu_l^0, ...., \mu_M^0]) = \mu_{M+1}^0$ and $G([\mu_1^0, ..., \mu_l^0 + \epsilon, ...., \mu_M^0]) = \mu_{M+1}'$. As we proved $G(\bmu_0)$ is a non-decreasing function, we must have  $\mu_{M+1}' \geq \mu_{M+1}^0$.
 
-Substituting $(\mu_1^0, ..., \mu_l^0+\epsilon, ..., \mu_M^0, \mu_{M+1}')$ into the left side of \eqref{PPI3}, we have
+Substituting $(\mu_1^0, ..., \mu_l^0+\epsilon, ..., \mu_M^0, \mu_{M+1}')$ into the left side of \eqref{mar16a0}, we have
 \begin{equation}
 \mu_{M+1}' - k_1\mu_1^0 - ... - k_l(\mu_l^0+\epsilon)- ... - k_M\mu_M^0 \leq \mu_{M+1}^0 - k_1\mu_1^0 - ... - k_l\mu_l^0- ... - k_M\mu_M^0
 \end{equation}
@@ -290,7 +276,7 @@ Substituting $(\mu_1^0, ..., \mu_l^0+\epsilon, ..., \mu_M^0, \mu_{M+1}')$ into t
 \therefore k_l \geq \frac{\mu_{M+1}' - \mu_{M+1}^0}{\epsilon} \geq 0 \;\;\;\;l = 1, 2, \cdots, M
 \label{2015feb16a1}
 \end{equation}
-From \eqref{2015feb16a1} we can see that the constants $k_l$ ($l = 1, 2, \cdots, M$) in \eqref{PPI3} are non-negative.
+From \eqref{2015feb16a1} we can see that the constants $k_l$ ($l = 1, 2, \cdots, M$) in \eqref{mar16a0} are non-negative.
  Hence we can conclude 
 if  $(\bmu_0^0, \mu_{M+1}^0) \in G'$ and $\bmu_0^0 \in (0, 1)^M$, there exists constants $k_1, ..., k_M \geq 0 $ such that  
 \begin{equation}
@@ -400,7 +386,7 @@ G(\mathbf{c}) - \sum_{i=1}^{M}k_iP_{f_i}(\delta^\ast) =  G(\mathbf{c}) - \sum_{i
 \[
 \therefore  \sum_{i=1}^{M}k_iP_{f_i}(\delta^\ast) =  \sum_{i=1}^{M}k_ic_i
 \]
-Since $k_iP_{f_i}(\delta^\ast) \leq k_ic_i$ (for $i=1, ..., M$), the above equation can be fulfilled only if $k_iP_{f_i}(\delta^\ast) = k_ic_i$ (for $i=1, ..., M$). When for a certain $i$ $P_{f_i}(\delta^\ast) < c_i$, then $k_i$ must be zero.
+Since $k_iP_{f_i}(\delta^\ast) \leq k_ic_i$ (for $i=1, ..., M$), the above equation can be fulfilled only if $k_iP_{f_i}(\delta^\ast) = k_ic_i$ (for $i=1, ..., M$). When for a certain $i$, $P_{f_i}(\delta^\ast) < c_i$, then $k_i$ must be zero.
 
 Q.E.D.
 
