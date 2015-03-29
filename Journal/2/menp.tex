@@ -16,24 +16,18 @@ The following problem needs to be solve in the context of spectrum sensing.
 where $\mathbf{c} \in (0, 1)^M$.
 
 According to ENP Lemma (\rmnum{3}), if a decision rule $\delta^\ast$ satisfies 
-\begin{equation}
-  \label{2015feb09a0}
-  \mathbf{P}_f(\delta^\ast) = \mathbf{c}
-\end{equation}
+$  \mathbf{P}_f(\delta^\ast) = \mathbf{c} $
 and $\delta^\ast$ can be written in form of \eqref{equ: decision rule} with non-negative $k_i$, 
-then $\delta^\ast$ is the optimal decision rule for \eqref{equ: problemstate}. From \eqref{equ: pf and pd}  and \eqref{2015feb09a0} we can see 
+then $\delta^\ast$ is the optimal decision rule for \eqref{equ: problemstate}. From \eqref{equ: pf and pd}  and we can see 
 \begin{equation}
-\int u(f_0(x) - \sum_{i=1}^{M}k_if_i(x))f_j(x)\mathrm{d}x = c_j\;\;\;\;k_i \geq 0\,.
+  c_j = P_{f_j} = \int u(f_0(x) - \sum_{i=1}^{M}k_if_i(x))f_j(x)\mathrm{d}x\;\;\;\;k_i \geq 0\,.
 \label{2015feb09a3}
 \end{equation}
 
-From \eqref{2015feb09a3} we can see the problem given in \eqref{equ: problemstate} can be solved by ENP test only when there are parameters $k_i \geq 0$, $i = 1, 2, \cdots, M$ such that  
-\begin{equation}
-\int u(f_0(x) - \sum_{i=1}^{M}k_if_i(x))f_j(x)\mathrm{d}x = c_j\,.
-\label{equ: condition for ENP}
-\end{equation}
+Hence we can see the problem given in \eqref{equ: problemstate} can be solved by ENP test only when there are parameters $k_i \geq 0$, $i = 1, 2, \cdots, M$ such that  
+$\int u(f_0(x) - \sum_{i=1}^{M}k_if_i(x))f_j(x)\mathrm{d}x = c_j\,.$
 
-The case when the given $c_i\;\; (i= 1, 2, ..., M)$ do not satisfy \eqref{equ: condition for ENP} was not considered so far. 
+The case when the given $c_i\;\; (i= 1, 2, ..., M)$ does not satisfy this condition  was not considered so far. 
 Next we present the Modified Extended Neyman Pearson Test (MENP) for solving \eqref{equ: problemstate} for all $\mathbf{c}$.
 Before we proceed, we will define some notations for easy presentation.
 Let $F(\mathbf{a})$ denote the largest $P_d$ can be achieved while keeping $\mathbf{P}_f = \mathbf{a}$. 
@@ -75,11 +69,7 @@ Since $\mathbf{a}^0 \in \mathcal{A}_{\mathbf{c}} \cap \alpha^+$, from \textnorma
 Next we will show \textbf{Modified Extended Neyman Pearson Test} can provide an optimal solution for \eqref{equ: problemstate} when $f_0(x) \neq 0$ a.e. on its domain.
 
 \textbf{PROOF}
-MENP (\rmnum{1}) is a direct conclusion from ENP Lemma (\rmnum{3}). In the following,  we give the proof for MENP (\rmnum{2}). Assume $\mathbf{a}^0$ satisfy
-\begin{equation}
-\label{a0}
-\max_{\mathbf{a}\in\mathcal{C}} F(\mathbf{a}) = F(\mathbf{a^0})
-\end{equation}
+MENP (\rmnum{1}) is a direct conclusion from ENP Lemma (\rmnum{3}). In the following,  we give the proof for MENP (\rmnum{2}). Assume $\mathbf{a}^0$ satisfy \eqref{equ: F0}
 and decision rule $\delta^0$ maximizes $P_d$ under the constraints $P_{f_i} = a^0_i$ ($i = 1, ..., M$). Since $\mathbf{a}^0 \in \alpha^+$, from MENP (\rmnum{1}) we know there exists $k_1^0, ..., k_M^0$ such that $\delta^0$ can be written in form of 
 \[
 \delta^0:\;\;\;\;f_0(x) \substack{H_0 \\ \geq \\ < \\ \bar{H_0}} \sum_{i=1}^{M}k_i^0f_i(x)\,.
@@ -87,41 +77,24 @@ and decision rule $\delta^0$ maximizes $P_d$ under the constraints $P_{f_i} = a^
 From the definition of $F(\mathbf{a})$, we know $F(\mathbf{a^0}) = P_d(\delta^0)$.
 
 In the following, we  will prove $\delta^0$ is the optimal solution for \eqref{equ: problemstate}. 
-Assume  $\delta^0$ does not achieve the largest $P_d$ under constraints $P_{f_i} \leq c_i$ ($i=1, ..., M$) and let $\delta'$ be the optimal decision rule for \eqref{equ: problemstate}, hence  we can conclude
-\begin{equation}
-\label{condition 1}
-P_{f_i}(\delta') \leq c_i\;\;\;\;i=1, 2, ..., M\\
-\end{equation}
+Assume  $\delta^0$ does not achieve the largest $P_d$ under constraints $P_{f_i} \leq c_i$ ($i=1, ..., M$) and let $\delta'$ be the optimal decision rule for \eqref{equ: problemstate}, hence we can conclude
+$P_{f_i}(\delta') \leq c_i$
 and
-\begin{equation}
-\label{condition 2}
-P_{d}(\delta') > P_d(\delta^0)\,.
-\end{equation}
-From \textbf{Lemma 1}, there exists non-negative constants $k_1', ..., k_M'$ such that $\delta'$ can be written in form of 
-\begin{equation}
-f_0(x) \substack{H_0 \\ \geq \\ < \\ \bar{H_0}} \sum_{i=1}^{M}k_i'f_i(x)\,.
-\label{2015feb20a1}
-\end{equation}
-and thus $P_d(\delta')$ and $P_{f_i}(\delta')$ can be written as
-\begin{equation}
-\begin{cases}
-\label{TEMP10}
-P_{d}(\delta') &= \int_{-\infty}^{\infty} u(f_0(x) - \sum_{i=1}^{M}k_i'f_i(x)) f_0(x) \mathrm{d}x\\
-P_{f_i}(\delta') &= \int_{-\infty}^{\infty} u(f_0(x) - \sum_{i=1}^{M}k_i'f_i(x)) f_i(x) \mathrm{d}x
-\end{cases}
-\end{equation}
-where $k_i' \geq 0$.
+$P_{d}(\delta') > P_d(\delta^0)$.
+From \textbf{Lemma 1}, there exists non-negative constants $k_1', ..., k_M'$ such that $\delta'$ can be written in form of \eqref{2015mar24} 
+and thus $P_d(\delta')$ and $P_{f_i}(\delta')$ can be written as \eqref{equ: pf and pd}
+where $k_i \geq 0$.
 
-From the definition of $\mathcal{A}_c$ and \eqref{condition 1}, we know $\mathbf{P}_f(\delta') \in \mathcal{A}_c$. 
-From the definition of $\alpha^+$ and \eqref{TEMP10}, we know $\mathbf{P}_f(\delta') \in \alpha^+$. 
+From the definition of $\mathcal{A}_c$, we know $\mathbf{P}_f(\delta') \in \mathcal{A}_c$. 
+From the definition of $\alpha^+$, we know $\mathbf{P}_f(\delta') \in \alpha^+$. 
 Thus it can be seen $\mathbf{P}_f(\delta') \in \mathcal{A}_\mathbf{c} \cap \alpha^+$, i.e. $\mathbf{P}_f(\delta') \in \mathcal{C}$.  
 Let $\mathbf{a}' = \mathbf{P}_f(\delta')$. 
-Since $\delta'$ can be written in form of \eqref{2015feb20a1}, from ENP Lemma (\rmnum{2}), we know decision rule achieve the largest $P_d$ while keeping $\mathbf{P}_f = \mathbf{a}'$, i.e.  
+Since $\delta'$ can be written in form of \eqref{2015mar24} with non-negative $k_i$, from ENP Lemma (\rmnum{2}), we know decision rule $\delta'$ achieves the largest $P_d$ while keeping $\mathbf{P}_f = \mathbf{a}'$, i.e.  
 $F(\mathbf{a}') = P_d(\delta')$. 
 
 Since $P_d(\delta') > P_d(\delta^0)$, $F(\mathbf{a}^0) = P_d(\delta^0)$ and  $F(\mathbf{a}') = P_d(\delta')$, we have $F(\mathbf{a'}) > F(\mathbf{a^0})$. 
 
-As $\mathbf{a}' \in \mathcal{C}$ and $F(\mathbf{a'}) > F(\mathbf{a^0})$, it is contradictory with the condition that $\mathbf{a^0}$ satisfy \eqref{a0}.
+As $\mathbf{a}' \in \mathcal{C}$ and $F(\mathbf{a'}) > F(\mathbf{a^0})$, it is contradictory with the condition that $\mathbf{a^0}$ satisfy \eqref{equ: F0}.
 
 Hence we conclude $\delta^0$ is the optimal solution for \eqref{equ: problemstate}. $\blacksquare$
 

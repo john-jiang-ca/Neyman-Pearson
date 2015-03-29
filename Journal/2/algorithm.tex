@@ -5,8 +5,8 @@ In the context of spectrum sensing, the lookup table $T_1$ can be pre-computed a
 
 In \cite{ zhang2000efficient} Qian proposed an algorithm to solve this issue.  The algorithm can iteratively refine $k_i$ ($i=1, ..., M$) and generate an ENP test  such that among all ENP test with non-negative parameters it achieves the largest $P_d$ while keeping $P_{f_i}$ below the prescribed constraints. 
 %Obviously if the theoretical solution for \eqref{equ: problemstate} is an ENP test with positive parameters, this algorithm can acquire the optimal solution. 
-In \textbf{Lemma 1}, we showed if $f_0(x) \neq 0$ a.e. on its domain,  the theatrical solution for \eqref{equ: problemstate} is an ENP decision rule with positive parameters. 
-Thus it can be seen if $f_0(x) \neq 0$ a.e. on its domain, the algorithm approached by Qian in \cite{ zhang2000efficient} can generate the theoretical solution for \eqref{equ: problemstate}.
+In \textbf{Lemma 1}, we showed if $c_i \in  (0, 1)$,  the theatrical solution for \eqref{equ: problemstate} is an ENP decision rule with positive parameters. 
+Thus it can be seen if $c_i \in (0, 1)$, the algorithm approached by Qian in \cite{ zhang2000efficient} can generate the theoretical solution for \eqref{equ: problemstate}.
 
 The algorithm is summarized as follows. Let $t = \sum_{i=1}^{M}k_i$ and $\omega_i = \frac{k_i}{t}$ ($i=1, 2, ..., M$). In the algorithm, $\bom$ is termed the weight of the decision rule and $t$ is termed the threshold of the decision rule. Since only non-negative $k_i$ are considered, both $\omega_i, t$ are greater or equal to zero. The ENP test can be written in form of 
 \begin{equation}

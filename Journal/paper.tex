@@ -1,4 +1,5 @@
 \documentclass[12pt,journal,a4paper,twoside,onecolumn]{IEEEtran}
+\usepackage{floatrow}
 \usepackage{amssymb}
 \usepackage{verbatim}
 \usepackage{mathtools}
@@ -56,7 +57,13 @@ Traditional NP testing has been extensively used for two hypotheses problem. In 
 
 In spectrum sensing application, there may be more than one type of primary users. For example in IEEE 802.22 \cite{shellhammer2008spectrum} the channel can be occupied by Analog-TV Digital-TV and wireless microphone. In such cases, an extended NP (ENP) test can provide important advantages \cite{zhang1999desig}. A detector based on ENP testing can ensure the largest probability of detection under a separate constraint of false alarm for each primary user type \cite{LehmannTest}.
 
-With an ENP detector however, the achievable false alarm probabilities are limited. In this work we analyze the properties of the ENP test and propose the Modified Extended Neyman Pearson (MENP) test, that circumvents the limitations of the false alarm probabilities. The structure of the remaining of this paper is [TO BE ADDED].
+With an ENP detector however, the achievable false alarm probabilities are limited. In this work we analyze the properties of the ENP test and propose the Modified Extended Neyman Pearson (MENP) test, that circumvents the limitations of the false alarm probabilities. The structure of the remaining of this paper is given as folllows.
+We review the ENP framework and propose the MENP framework in Section 2. In particular,  we consider  a necessary condition proof for an  ENP test followed by  two lemmas concerning the ROC surface of ENP tests. 
+We then presents Modified Extended Neyman Pearson framework aiming to  achieve the largest probability of detection  under any probability of false alarm constraints.
+Then an algorithm which aims at achieving the MENP parameters is reviewed. 
+In Section 3, M-ROC, the figure depicting the relationship between probability of detection and probability of false alarm constraints, is considered.  We then present two examples of M-ROC surfaceone associated with a Gaussian problem and the other with a Chi-Square problem. 
+Once the MENP framework is presented, we apply MENP framework to energy based detection in Section 4. We consider  performances of energy based detectors for the situation when there are two primary users.  
+Section 5 provides a summary of this paper, and recommends some directions for future work.  
 % To Be Add
 %===============================================
 % Input of 2 3 
@@ -86,70 +93,40 @@ In this work, we did not consider randomized decision rule. This could be a futu
 
 \section{Figures}
 
-
-
-\begin{figure}[!t]
-\centering
-\includegraphics[width = 10cm, height=16cm]{2/ex1.eps}
-\caption{The ROC surface for $k_1$, $k_2$ range from $-30$ to $30$ with step $0.05$.}
-\label{fig: 2.1}
+\begin{figure}[!h]
+           \begin{floatrow}
+             \ffigbox{\includegraphics[width=6cm, height=8cm]{2/ex1.eps}}{\caption{The ROC surface for $k_1$, $k_2$ range from $-30$ to $30$ with step $0.05$.}\label{fig: 2.1}}
+             \ffigbox{\includegraphics[width=6cm, height=8cm]{2/ex2.eps}}{\caption{The ROC surface for problem \eqref{2015jan29a2}}\label{fig: 2.2mar9}}
+           \end{floatrow}
 \end{figure}
 
-\begin{figure}[!t]
-\centering
-\includegraphics[width = 10cm, height=16cm]{2/ex2.eps}
-\caption{The ROC surface for problem \eqref{2015jan29a2}.}
-\label{fig: 2.2mar9}
+\begin{figure}[!h]
+           \begin{floatrow}
+             \ffigbox{\includegraphics[width=6cm, height=8cm]{2/ex3.eps}}{\caption{The contour for the ROC surface.}\label{fig: 2.3mar9}}
+             \ffigbox{\includegraphics[width=6cm, height=8cm]{2/example_pic.eps}}{\caption{Relationship between $G'$ and $G_s$.}\label{fig: feb18}}
+           \end{floatrow}
+\end{figure}o
+
+\begin{figure}[!h]
+           \begin{floatrow}
+             \ffigbox{\includegraphics[width=6cm, height=8cm]{3/singleROC.eps}}{\caption{Region that can be achieved by Neyman Pearson testing with $k_i \geq 0 (i=1, ..., M)$.}\label{pic: surface for m0 gaussian}}
+             \ffigbox{\includegraphics[width=6cm, height=8cm]{3/singlecontour.eps}}{\caption{Region that can be achieved by Neyman Pearson testing with $k_i \geq 0 (i=1, ..., M)$.}\label{pic: contour for m0 gaussian}}
+           \end{floatrow}
 \end{figure}
 
-\begin{figure}[!t]
-\centering
-\includegraphics[width = 10cm, height=16cm]{2/ex3.eps}
-\caption{The contour for the ROC surface.}
-\label{fig: 2.3mar9}
-\end{figure}
-
-\begin{figure}[!t]
-\centering
-\includegraphics[width = 12cm, height=16cm]{2/example_pic.eps}
-\caption{Relationship between $G'$ and $G_s$}
-\label{fig: feb18}
-\end{figure}
-
-\begin{figure}[!t]
-\centering
-\includegraphics[width=12cm, height=16cm]{3/singleROC.eps}
-\caption{Region that can be achieved by Neyman Pearson testing with $k_i \geq 0 (i=1, ..., M)$.}
-\label{pic: surface for m0 gaussian}
-\end{figure}
-\newpage
-
-\begin{figure}[!t]
-\centering
-\includegraphics[width=12cm, height = 16cm]{3/singlecontour.eps}
-\caption{Region that can be achieved by Neyman Pearson testing with $k_i \geq 0 (i=1, ..., M)$.}
-\label{pic: contour for m0 gaussian}
-\end{figure}
-
-\begin{figure}[!t]
-\centering
-\includegraphics[width=12cm, height=16cm]{3/ROC2.eps}
-\caption{The M-ROC surface for Gaussian Hypotheses.}
-\label{pic: LJS}
-\end{figure}
-
-\begin{figure}[!t]
-\centering
-\includegraphics[width=12cm, height=16cm]{3/gaussian.eps}
-\caption{The M-ROC for Gaussian distribution with same variance.}
-\label{pic: surface for same variance}
-\end{figure}
-
-\begin{figure}[!t]
-\centering
-\includegraphics[width=12cm, height=16cm]{3/example3.eps}
-\caption{The M-ROC for the Chi-square example.}
-\label{pic: LJS for chisquare}
+\begin{figure}[!h]
+           \begin{floatrow}
+             \ffigbox{
+             \includegraphics[width=6cm, height=8cm]{3/ROC2.eps}}
+			 {\caption{The M-ROC surface for Gaussian Hypotheses.}
+			\label{pic: LJS}
+             }
+             \ffigbox{
+             \includegraphics[width=6cm, height=8cm]{3/example3.eps}}
+			       {\caption{The M-ROC for the Chi-square example.}
+              \label{pic: LJS for chisquare}
+             }
+           \end{floatrow}
 \end{figure}
 
 \begin{figure}[!hbp]
@@ -158,14 +135,6 @@ In this work, we did not consider randomized decision rule. This could be a futu
 \caption{Block Diagram for Spectrum Sensing}
 \label{pic: block diagram}
 \end{figure}
-
-\begin{figure}[!t]
-\centering
-\includegraphics[width=12cm, height=16cm]{4/energy.eps}
-\caption{M-ROC surface for $\sigma_n^2 = 0.1$, $\sigma_{s_A}^2=0.05$, $\sigma_{s_B}^2=0.15$ and $N = 20$.}
-\label{pic:1201a1}
-\end{figure}
-
 
 \end{spacing}
 \end{document}

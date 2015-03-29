@@ -1,17 +1,7 @@
 \subsection{Relationship to Bayesian Hypotheses Test}
 This section considers  the relationship between the ENP Test and the Bayesian Test. 
 
-Consider the following $M+1$ hypotheses concerning an observation of $X$
-\begin{equation}
-\label{equ: 2 pdf}
-\begin{split}
-H_0:\;\;\;\;&X \sim f_0(x)\\
-H_1:\;\;\;\;&X \sim f_1(x)\\
-&......\\
-H_{M}:\;\;\;\;&X \sim f_M(x)\,,
-\end{split}
-\end{equation}
-where $f_i(x)$ ($i=0, 1, ..., M$) are Probability Density Functions (PDFs). 
+Consider the problem given in \eqref{equ:hypothesis}. 
 In spectrum sensing, $H_0$ denotes the channel is free and $H_i$ ($i = 1, 2, \cdots M$) denotes the channel is occupied by primary user $i$. 
 Let $\pi_0, \pi_1, ..., \pi_M$ be the a-prior probabilities of occurrences of hypotheses $H_0$, $H_1$, ..., $H_M$, respectively. 
 Based on $x$, a realization of $X$, a Bayesian Test $\delta_B$ is used to decide which hypothesis $x$ comes from.  
@@ -27,11 +17,10 @@ In the context of spectrum sensing, following events will jeopardize the system 
 \\(2) Primary user $i$ is interfered by secondary user while transferring data, the lost is represented by $C_{0i}$. 
 
 For $C_{ij}$ other than mentioned above, we set them to zero. 
-
 From discussion above,  we make following assumptions:
-\\(1) $C_{00} = 0$;
-\\(2) $C_{ij} = 0$ when $i \neq 0$ and $j \neq 0$;
-\\(3) $C_{10} = C_{20} = ... = C_{M0}$.
+(1) $C_{00} = 0$;
+(2) $C_{ij} = 0$ when $i \neq 0$ and $j \neq 0$;
+(3) $C_{10} = C_{20} = ... = C_{M0}$.
 
 In the following, we consider the form of $\delta_B$ under such assumptions.
 Let $a_0 = C_{10} = C_{20} = ... = C_{M0}$ and $a_i = C_{0i}$ ($i= 1, 2, ..., M$).
