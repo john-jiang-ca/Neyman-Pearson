@@ -12,32 +12,32 @@ H_2:\;\;\;\;&X \sim \mathcal{N}(1, 10)
 \end{split}
 \end{equation}
 where $\mathcal{N}(\mu, \epsilon^2)$ denotes a Gaussian PDF with mean $\mu$ and variance $\epsilon^2$. 
-We use ENP Lemma to detect hypothesis $H_0$ against $\bar{H}_0$. 
+We use ENP Lemma to test hypothesis $H_0$ against $\bar{H}_0$. 
 
 By increasing $k_1$ and $k_2$ from $-30$ to $30$ with step $0.05$ separately, we can calculate the associated $P_{f_1}, P_{f_2}$ and $P_d$ from \eqref{equ: pf and pd}. 
 Fig. \ref{fig: 2.1} and Fig. \ref{fig: 2.2mar9} present the ROC surface from two different viewing angles. The contour of the ROC surface is given in Fig. \ref{fig: 2.3mar9}. The region enclosed by the two dash lines in Fig. \ref{fig: 2.1}, Fig. \ref{fig: 2.2mar9} and Fig. \ref{fig: 2.3mar9} are the set of points achieved by non-negative $k_1, k_2$.  
 
 It is interesting to observe that under ENP test framework, for a given $(P_{f_1}, P_{f_2})$  ($P_{f_1}, P_{f_2}\in [0, 1]$) the associated $P_d$ may not exists. This is because for a given $c_1, c_2 \in [0, 1]$, it is possible that there is no decision rule can satisfy
-\[
+$
   P_{f_1} = \int_{\mathcal{S}}f_1(x)\mathrm{d}x =  c_1
-\]
+$
 and
-\[
+$
   P_{f_2} = \int_{\mathcal{S}}f_2(x)\mathrm{d}x = c_2
-\]
+$
 at the same time. In such case, the corresponding $P_d$ does not exist. 
 For example, assume $c_1 = 1$ and $c_2 = 0$. In order to satisfy 
-\[
+$
   P_{f_1} = \int_{\mathcal{S}}f_1(x)\mathrm{d}x = 1\,,
-\]
+$
 set $\mathcal{S}$  must  be the whole real line, i.e. $\mathcal{S} = (-\infty, \infty)$. However in such case, we have
-\[
+$
   P_{f_2} = \int_{\mathcal{S}}f_2(x)\mathrm{d}x = 1 \neq 0
-\]
+$.
 Hence we can see there is no decision rule can satisfy $P_{f_1} = 1$ and $P_{f_2} = 0$ at the same time, which makes the corresponding $P_d$ do not exist.
 Recall in the case of binary hypotheses testing (Traditional Neyman Pearson Test), for a given $P_f \in [0, 1]$, there always exists a corresponding $P_d$. 
 
-Now let us consider points $A$ and $B$ on the ROC surface, which are marked with '$\bullet$' and '$\blacksquare$', respectively.  The coordinate of point $A$ is $(P_{f_1}, P_{f_2}, P_d) = (0.350, 0.315, 0.730)$; and the coordinate of point $B$ is  $(P_{f_1}, P_{f_2}, P_d) = (0.355, 0.730, 0.690)$. We can see even through $P_{f_1}$ and $P_{f_2}$ of point $B$ is larger than that of point $A$, the probability of detection of point $B$ is  smaller than that of point $A$.  
+Now let us consider points $A$ and $B$ on the ROC surface.  The coordinate of point $A$ is $(P_{f_1}, P_{f_2}, P_d) = (0.350, 0.315, 0.730)$; and the coordinate of point $B$ is  $(P_{f_1}, P_{f_2}, P_d) = (0.355, 0.730, 0.690)$. We can see even through $P_{f_1}$ and $P_{f_2}$ of point $B$ is larger than that of point $A$, the probability of detection of point $B$ is  smaller than that of point $A$.  
 Unlike NP test, where $P_d$ is always non-decreasing with $P_f$, in the case of multiple hypotheses testing (Extended Neyman Pearson Test), $P_d$ is not always a non-decreasing function of  $P_{f_i}$ ($i=1, ..., M$).
 
 Furthermore, we can see in the case of point $B$, the value of $P_d$ is smaller than the value of $P_{f_2}$, i.e. under ENP test framework, $P_d \geq P_{f_i}$  ($i = 1, ..., M$) does not always hold (Qian Zhang arrives at the same conclusion in  \cite{zhang1999design, zhang2000efficient} using a different method). 
@@ -82,7 +82,7 @@ G_s =  \{(\boldsymbol{\mu}_0, \mu_{M+1}) | \boldsymbol{\mu}_0\in [0, 1]^M, \mu_{
   \end{equation}
   From \eqref{def: G'} and \eqref{2015feb16n1}, it can be seen $G' \in G_s$. Fig. \ref{fig: feb18} depicts the relationship between $G'$ and $G_s$ when $M=2$. In Fig. \ref{fig: feb18}, $G'$ is the surface enclosed by curve $\stackrel\frown{AC}$, curve $\stackrel\frown{AD}$, segment $\overline{OC}$ and segment $\overline{OD}$. Set $G_s$ is the space enclosed by plane $ABC$, plane $ABD$, plane $COD$ and surface $G'$.  
 
-Let us define the set of points in $M+1$ dimensional Euclidean
+Let us define the set of points in $M+1$ dimensional Euclidean space
 \begin{equation}
   \mathcal{N} = \{(\mu_1, \mu_2, ..., \mu_{M+1}) | \mu_i = \int_{\mathcal{S}}f_i(x)\mathrm{d}x \;\;i=1, ..., M, \mu_{M+1}=\int_{\mathcal{S}}f_{0}(x)\mathrm{d}x \;\;\text{ for an $\mathcal{S}$}\}
 \end{equation}
@@ -242,7 +242,7 @@ Substitute $G(\mathbf{c}) = P_d(\delta^\ast)$ into \eqref{ASD},  we get
 where $(\mu_0, ..., \mu_{M+1}) \in G_s$.
 
 Since $\mathcal{N} \subseteq G_s$, \eqref{TEMP2} also holds for a point belonging to $\mathcal{N}$.
-According to the definition of $\mathcal{N}$, for $(\mu_1, \mu_2, ..., \mu_{M+1} \in \mathcal{N})$, we have  
+According to the definition of $\mathcal{N}$, for $(\mu_1, \mu_2, ..., \mu_{M+1}) \in \mathcal{N}$, we have  
 $\mu_i = \int_{\mathcal{S}}f_i(x)\mathrm{d}x$ and $
 \mu_{M+1} = \int_{\mathcal{S}}f_{0}(x)\mathrm{d}x$,  
 where $\mathcal{S}$ can be any subset of domain $\mathcal{D}$. 

@@ -18,7 +18,7 @@ where $\mathbf{c} \in (0, 1)^M$.
 According to ENP Lemma (\rmnum{3}), if a decision rule $\delta^\ast$ satisfies 
 $  \mathbf{P}_f(\delta^\ast) = \mathbf{c} $
 and $\delta^\ast$ can be written in form of \eqref{equ: decision rule} with non-negative $k_i$, 
-then $\delta^\ast$ is the optimal decision rule for \eqref{equ: problemstate}. From \eqref{equ: pf and pd}  and we can see 
+then $\delta^\ast$ is the optimal decision rule for \eqref{equ: problemstate}. Combining \eqref{equ: pf and pd}  and  the condition that $P_{f_j}(\delta^\ast) = c_j$, we get
 \begin{equation}
   c_j = P_{f_j} = \int u(f_0(x) - \sum_{i=1}^{M}k_if_i(x))f_j(x)\mathrm{d}x\;\;\;\;k_i \geq 0\,.
 \label{2015feb09a3}
@@ -26,7 +26,6 @@ then $\delta^\ast$ is the optimal decision rule for \eqref{equ: problemstate}. F
 
 Hence we can see the problem given in \eqref{equ: problemstate} can be solved by ENP test only when there are parameters $k_i \geq 0$, $i = 1, 2, \cdots, M$ such that  
 $\int u(f_0(x) - \sum_{i=1}^{M}k_if_i(x))f_j(x)\mathrm{d}x = c_j\,.$
-
 The case when the given $c_i\;\; (i= 1, 2, ..., M)$ does not satisfy this condition  was not considered so far. 
 Next we present the Modified Extended Neyman Pearson Test (MENP) for solving \eqref{equ: problemstate} for all $\mathbf{c}$.
 Before we proceed, we will define some notations for easy presentation.
