@@ -46,21 +46,20 @@ The case when the given $c_i\;\; (i= 1, 2, ..., M)$ do not satisfy \eqref{equ: c
 
 
 Next we present the Modified Extended Neyman Pearson Test (MENP) for solving \eqref{equ: problemstate} for all $\mathbf{c}$.
-
 Before we proceed, we will define some notations for easy presentation.
-Let $F(\mathbf{a})$ denote the largest $P_d$ can be achieved while keeping $\mathbf{P}_f = \mathbf{a}$. 
+Let $F(\mathbf{a})$ denote the largest $P_d$ that can be achieved while keeping $\mathbf{P}_f = \mathbf{a}$. 
 Define the set 
 \[\mathcal{A}_\mathbf{c} = \{
   \mathbf{P}_f | 0 \leq P_{f_i} \leq c_i
   \;\;i=1, 2, ..., M\}\,.
 \]
-and set 
+and the set 
 \[
 \alpha^+ \triangleq \{\mathbf{P}_f | P_{f_i} = \int_{-\infty}^{\infty} \JUDGEMENT f_i(x) \mathrm{d}x, \text{where\;\;} k_i \geq 0 \;\;i=1, ..., M\}\,.
 \]
 \noindent \textbf{Modified Extended Neyman Pearson Test}
 \noindent \textit{
-\\\textnormal{(\rmnum{1})} Assume $\mathbf{c} \in \alpha^+$. Then there must be a $\mathbf{k}^0 = [k_1^0, k_2^0, ..., k_M^0]^T$ with $k_i \geq 0\;\;i=1, ..., M$ satisfying
+\\\textnormal{(\rmnum{1})} Assume $\mathbf{c} \in \alpha^+$. Then there must be a $\mathbf{k}^0 = [k_1^0, k_2^0, ..., k_M^0]^T$ with $k_i^0 \geq 0\;\;i=1, ..., M$ satisfying
 }
 \begin{equation}
 \label{equ:Pf}
@@ -81,10 +80,11 @@ and set
 \max_{\mathbf{a} \in \mathcal{C}}\;\;\;\;F(\mathbf{a}) = F(\mathbf{a}^0)\\
 \end{equation}
 \textit{
-Since $\mathbf{a}^0 \in \mathcal{A}_{\mathbf{c}} \cap \alpha^+$, from \textnormal{(\rmnum{1})} we have that there exists a vector $\mathbf{k}^0$ such that \eqref{equ:decision rule}  maximizes $P_d$ under the constraints $P_{f_i} = a_i^0, \;i=1, ..., M$. Here since $a_i^0 \leq c_i^0, \;i=1, ..., M$ this decision rule  solves \eqref{equ: problemstate}.
+Since $\mathbf{a}^0 \in \mathcal{A}_{\mathbf{c}} \cap \alpha^+$, from \textnormal{(\rmnum{1})} we have that there exists a vector $\mathbf{k}^0$ such that \eqref{equ:decision rule}  maximizes $P_d$ under the constraints $P_{f_i} = a_i^0, \;i=1, ..., M$. Hence since $a_i^0 \leq c_i^0, \;i=1, ..., M$ this decision rule  solves \eqref{equ: problemstate}.
 }
 
-Next we will show \textbf{Modified Extended Neyman Pearson Test} can provide an optimal solution for \eqref{equ: problemstate} when $f_0(x) \neq 0$ a.e. on its domain.
+
+Next we will show that the \textbf{Modified Extended Neyman Pearson Test} can provide an optimal solution for \eqref{equ: problemstate} when $f_0(x) \neq 0$ a.e. on its domain.
 
 \textbf{PROOF}
 MENP (\rmnum{1}) is a direct conclusion from ENP Lemma (\rmnum{3}). In the following,  we give the proof for MENP (\rmnum{2}). Assume $\mathbf{a}^0$ satisfy

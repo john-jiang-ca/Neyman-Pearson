@@ -16,7 +16,7 @@ Based on $y$, a realization of $Y$, the detector needs to decide whether or not 
 \noindent  \textbf{The Extended Neyman Pearson (ENP) Lemma:}
 
 \textit{
-  Let $f_0(x), f_1(x), ..., f_{M}(x)$ be real Borel measurable functions  defined on finite dimensional Euclidean Space $\mathcal{R}$ such that $\int \limits_\mathcal{R} | f_i(x)|\mathrm{d}x < \infty (i=0, 1,...,M)$.  Suppose that for given constants $c_1,...,c_M$ there exists a class of subsets $\mathcal{S}$, denoted $\mathcal{C}_\mathcal{S}$, such that for every $\mathcal{S} \in \mathcal{C}_\mathcal{S}$ we have
+  Let $f_0(x), f_1(x), ..., f_{M}(x)$ be real Borel measurable functions  defined on a finite dimensional Euclidean Space $\mathcal{R}$, such that $\int \limits_\mathcal{R} | f_i(x)|\mathrm{d}x < \infty (i=0, 1,...,M)$.  Suppose that for given constants $c_1,...,c_M$ there exists a class of subsets $\mathcal{S}$, denoted $\mathcal{C}_\mathcal{S}$, such that for every $\mathcal{S} \in \mathcal{C}_\mathcal{S}$ we have
 \begin{equation}
 \label{one}
 \int\limits_\mathcal{S} f_i(x)\mathrm{d}x = c_i, \;\;\;\;\;\;i=1,...,M
@@ -53,11 +53,11 @@ among all $\mathcal{S}$ satisfying
 \int \limits_\mathcal{S} f_i(x)\mathrm{d}x\leq c_i,\;\;\;\;i=1,...,M.
 \end{equation}
 %no. 4
-\\\textnormal{(\rmnum{4})} The set $M$ of points in $M$-dimensional space whose coordinates are 
+\\\textnormal{(\rmnum{4})} The set $\mathcal{V}_\mathcal{M}$ of points in $M$-dimensional space whose coordinates are 
 \begin{equation}
 (\int_{\mathcal{S}}f_1(x)\mathrm{d}x, ..., \int_{\mathcal{S}}f_M(x)\mathrm{d}x)
 \end{equation}
-for any $\mathcal{S}$ is convex and closed. If $(c_1, ..., c_M)$ is an inner point of $M$, then a  necessary condition for a member of $\mathcal{C}_\mathcal{S}$ to maximize 
+for any $\mathcal{S}$ is convex and closed. If $(c_1, ..., c_M)$ is an inner point of $\mathcal{V}_\mathcal{M}$, then a  necessary condition for a member of $\mathcal{C}_\mathcal{S}$ to maximize 
 \[
 \int \limits_\mathcal{S} f_{0}(x)\mathrm{d}x.
 \]
@@ -102,7 +102,7 @@ From to \eqref{2} \eqref{3}, the ENP Decision rule $\delta$ is
 \end{equation}
 
 From the  \textbf{ENP Lemma}, $\delta$  achieves the largest $P_d$ under the constraints $P_{f_i} = c_i (i = 1, 2, ..., M)$.
-When $M=1$, it achieves the largest $P_d$ under the constraint $P_f \leq c$ \cite{LehmannTest}, which is the well known and commonly used form.
+When $M=1$, it achieves the largest $P_d$ under the constraint $P_f \leq c$ \cite{LehmannTest}, which is the well known and commonly used form of the NP test.
 
 % notes from Prof. Leib.
 For applications in spectrum sensing, $H_0$ denotes the hypothesis that the channel is free and $H_m \;(m=1, ..., M)$ corresponds to the hypothesis that the channel is occupied by the $m$-th primary signal. Although we have $M$ hypotheses, we intend to determine if the channel is free or not. Hence we need  a binary test of deciding $H_0$ versus $\bar{H}_0$ such that $P_d$ is maximized under the constraints $P_{f_m} \leq c_m$ $m = 1, ..., M$. In context of spectrum sensing, $1-P_{f_m}$ can be interpreted as the protection level of the $m-$th primary signal. The larger is this protection level, the smaller is the probability that when the $m-$th signal is active, the test will not detect it and will declare the channel free. In context of spectrum sensing, the solution of the ENP problem maximizes the probability of detecting a free channel under a constraint on the protection level for each primary signal. The protection levels of primary signals can be different and they are guaranteed.

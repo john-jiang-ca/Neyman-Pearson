@@ -1,7 +1,7 @@
 \section{Relationship to Bayesian Hypotheses Test}
 This section considers  the relationship between the ENP Test and the Bayesian Test. 
 
-Consider the following $M+1$ hypotheses concerning an observation of $X$
+Consider the following $M+1$ hypotheses concerning an observation $X$
 \begin{equation}
 \label{equ: 2 pdf}
 \begin{split}
@@ -14,7 +14,7 @@ H_{M}:\;\;\;\;&X \sim f_M(x)\,,
 where $f_i(x)$ ($i=0, 1, ..., M$) are Probability Density Functions (PDFs). 
 In spectrum sensing, $H_0$ denotes the channel is free and $H_i$ ($i = 1, 2, \cdots M$) denotes the channel is occupied by primary user $i$. 
 Let $\pi_0, \pi_1, ..., \pi_M$ be the a-prior probabilities of occurrences of hypotheses $H_0$, $H_1$, ..., $H_M$, respectively. 
-Based on $x$, a realization of $X$, a Bayesian Test $\delta_B$ is used to decide which hypothesis $x$ comes from.  
+Based on $x$, a realization of $X$, a Bayesian Test $\delta_B$ is used to decide which hypothesis $x$ associated with.  
 Let $C_{ji}$ denote the cost incurred by choosing hypothesis $H_j$ when hypothesis $H_i$ is true. 
 Let $\mathcal{C}_j$ ($j=1, ..., M$) denote a subset of $\mathbb{R}$ such that under decision rule $\delta_B$ we choose $H_j$ when $x \in \mathcal{C}_j$. 
 Define
@@ -22,12 +22,11 @@ Define
 P_i(\mathcal{C}_j) = \int_{\mathcal{C}_j} f_i(x)\mathrm{d}x\,.
 \]
 which is the probabilities that when $H_i$ is correct we choose $H_j$.
-In the context of spectrum sensing, following events will jeopardize the system performance:
-\\(1) The system miss a spectrum hole, the lost is represented by $C_{i0}$ ($i = 1, ..., M$). In spectrum sensing, the performance lost caused by choosing $H_k$ when $H_0$ is true ($C_{k0}$) is equal to the lost caused by choosing $H_j$ when $H_0$ is true ($C_{j0}$), where $k \neq j$ and $k, j \neq 0$, hence we have $C_{10} = C_{20} = ... C_{M0}$.
+In the context of spectrum sensing, the following events will jeopardize the system performance:
+\\(1) The system miss a spectrum hole, the cost is represented by $C_{i0}$ ($i = 1, ..., M$). We assume equal such cases, and hence we have $C_{10} = C_{20} = ... C_{M0}$.
 \\(2) Primary user $i$ is interfered by secondary user while transferring data, the lost is represented by $C_{0i}$. 
 
-For $C_{ij}$ other than mentioned above, we set them to zero. 
-
+For $C_{ij}$ other than mentioned above, we assume zero. 
 From discussion above,  we make following assumptions:
 \\(1) $C_{00} = 0$;
 \\(2) $C_{ij} = 0$ when $i \neq 0$ and $j \neq 0$;
@@ -68,7 +67,7 @@ r(\delta_B) &= \pi_0 R_0(\delta) + \pi_1R_1(\delta) + ... +  \pi_MR_M(\delta)\\
 &= \pi_0a_0 - \int_{\mathcal{C}_0}\pi_0a_0f_0(x) - \pi_1a_1f_1(x) - ... - \pi_Ma_Mf_M(x) \mathrm{d}x\,. 
 \end{split}
 \end{equation}
-and thus we see that $r(\delta)$ is minimized over $\mathcal{C}_0$ if and only if 
+and thus we see that $r(\delta_B)$ is minimized over $\mathcal{C}_0$ if and only if 
 \begin{equation}
 \label{equ: C}
 \mathcal{C}_0 =  \{ x | \pi_0a_0f_0(x) - \pi_1a_1f_1(x) - ... - \pi_Ma_Mf_M(x) \geq 0\}

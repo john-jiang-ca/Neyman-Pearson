@@ -12,8 +12,8 @@ H_1:\;\;\;\;&X \sim \mathcal{N}(0, 1)\\
 H_2:\;\;\;\;&X \sim \mathcal{N}(1, 10)
 \end{split}
 \end{equation}
-where $\mathcal{N}(\mu, \epsilon^2)$ denotes a Gaussian PDF with mean $\mu$ and variance $\epsilon^2$. In the following, we compute the ROC surface for problem \eqref{2015jan29a2}.  
-From \eqref{equ: pf and pd} we can see the expression of $P_{f_1} $, $P_{f_2}$ and $P_d$ can be written in form of  
+where $\mathcal{N}(\mu, \epsilon^2)$ denotes a Gaussian PDF with mean $\mu$ and variance $\epsilon^2$. In the following, we compute the ROC surface for the three hypotheses problem \eqref{2015jan29a2}.  
+From \eqref{equ: pf and pd} we have  
 \begin{equation}
   \begin{split}
 	P_{f_1} &= \int_{-\infty}^{\infty}u(f_0(x) - k_1f_1(x) -k_2f_2(x))f_1(x)\mathrm{d}x\\
@@ -23,8 +23,28 @@ From \eqref{equ: pf and pd} we can see the expression of $P_{f_1} $, $P_{f_2}$ a
   \label{2015jan29a1}
 \end{equation}
 
-By increasing $k_1$ and $k_2$ from $-30$ to $30$ with step $0.05$ separately, we can calculate the associated $P_{f_1}, P_{f_2}$ and $P_d$ from \eqref{2015jan29a1}. 
-Fig. \ref{fig: 2.1} and Fig. \ref{fig: 2.2mar9} present the ROC surface from two different viewing angles. The contour of the ROC surface is given in Fig. \ref{fig: 2.3mar9}. The region enclosed by the two dash lines in Fig. \ref{fig: 2.1}, Fig. \ref{fig: 2.2mar9} and Fig. \ref{fig: 2.3mar9} are the set of points achieved by non-negative $k_1, k_2$.  
+By separately increasing $k_1$ and $k_2$ from $-30$ to $30$ with steps $0.05$, we can calculate the associated $P_{f_1}, P_{f_2}$ and $P_d$ with \eqref{2015jan29a1}. 
+Plotting $P_d$ as a function of $P_{f_1}$ and $P_{f_2}$ results in the ROC surface illustrated in Fig. \ref{fig: 2.1} and Fig. \ref{fig: 2.2mar9}. The contour of the ROC surface is given in Fig. \ref{fig: 2.3mar9}. The region enclosed by the two dash lines in Fig. \ref{fig: 2.1}, Fig. \ref{fig: 2.2mar9} and Fig. \ref{fig: 2.3mar9} are the set of points achieved by non-negative $k_1, k_2$.  
+
+It is interesting to observe that under the ENP test framework, not all $(P_{f_1}, P_{f_2})$  ($P_{f_1}, P_{f_2}\in [0, 1]$) value may have an associated $P_d$. This is because for a given $c_1, c_2 \in [0, 1]$, it is possible that no decision rule can satisfy
+\[
+  P_{f_1} = \int_{\mathcal{S}}f_1(x)\mathrm{d}x =  c_1
+\]
+and
+\[
+  P_{f_2} = \int_{\mathcal{S}}f_2(x)\mathrm{d}x = c_2
+\]
+at the same time. Hence in such case, the corresponding $P_d$ does not exist. 
+For example, assume $c_1 = 1$ and $c_2 = 0$. In order to satisfy 
+\[
+  P_{f_1} = \int_{\mathcal{S}}f_1(x)\mathrm{d}x = 1\,,
+\]
+the set $\mathcal{S}$  must  be the whole real line, i.e. $\mathcal{S} = (-\infty, \infty)$. However in such case, we have
+\[
+  P_{f_2} = \int_{\mathcal{S}}f_2(x)\mathrm{d}x = 1 \neq 0
+\]
+Hence we can see there is no decision rule can satisfy $P_{f_1} = 1$ and $P_{f_2} = 0$ at the same time, and hence the corresponding $P_d$ does not exist.
+Recall in the case of binary hypotheses testing (Traditional Neyman Pearson Test), for a given $P_f \in [0, 1]$, there always exists a corresponding $P_d$. 
 
 \begin{figure}[!t]
 \centering
@@ -47,29 +67,7 @@ Fig. \ref{fig: 2.1} and Fig. \ref{fig: 2.2mar9} present the ROC surface from two
 \label{fig: 2.3mar9}
 \end{figure}
 
-
-
-It is interesting to observe that under ENP test framework, for a given $(P_{f_1}, P_{f_2})$  ($P_{f_1}, P_{f_2}\in [0, 1]$) the associated $P_d$ may not exists. This is because for a given $c_1, c_2 \in [0, 1]$, it is possible that there is no decision rule can satisfy
-\[
-  P_{f_1} = \int_{\mathcal{S}}f_1(x)\mathrm{d}x =  c_1
-\]
-and
-\[
-  P_{f_2} = \int_{\mathcal{S}}f_2(x)\mathrm{d}x = c_2
-\]
-at the same time. In such case, the corresponding $P_d$ does not exist. 
-For example, assume $c_1 = 1$ and $c_2 = 0$. In order to satisfy 
-\[
-  P_{f_1} = \int_{\mathcal{S}}f_1(x)\mathrm{d}x = 1\,,
-\]
-set $\mathcal{S}$  must  be the whole real line, i.e. $\mathcal{S} = (-\infty, \infty)$. However in such case, we have
-\[
-  P_{f_2} = \int_{\mathcal{S}}f_2(x)\mathrm{d}x = 1 \neq 0
-\]
-Hence we can see there is no decision rule can satisfy $P_{f_1} = 1$ and $P_{f_2} = 0$ at the same time, which makes the corresponding $P_d$ do not exist.
-Recall in the case of binary hypotheses testing (Traditional Neyman Pearson Test), for a given $P_f \in [0, 1]$, there always exists a corresponding $P_d$. 
-
-Now let us consider points $A$ and $B$ on the ROC surface, which are marked with '$\bullet$' and '$\blacksquare$', respectively.  The coordinate of point $A$ is $(P_{f_1}, P_{f_2}, P_d) = (0.350, 0.315, 0.730)$; and the coordinate of point $B$ is  $(P_{f_1}, P_{f_2}, P_d) = (0.355, 0.730, 0.690)$. We can see even through $P_{f_1}$ and $P_{f_2}$ of point $B$ is larger than that of point $A$, the probability of detection of point $B$ is  smaller than that of point $A$.  
+Now let us consider points $A$ and $B$ on the ROC surface of Fig. \ref{fig: 2.1}, which are marked with '$\bullet$' and '$\blacksquare$', respectively.  The coordinate of point $A$ is $(P_{f_1}, P_{f_2}, P_d) = (0.350, 0.315, 0.730)$; and the coordinate of point $B$ is  $(P_{f_1}, P_{f_2}, P_d) = (0.355, 0.730, 0.690)$. We can see even through $P_{f_1}$ and $P_{f_2}$ of point $B$ is larger than these of point $A$, the $P_d$ of point $B$ is  smaller than that of point $A$.  
 Unlike NP test, where $P_d$ is always non-decreasing with $P_f$, in the case of multiple hypotheses testing (Extended Neyman Pearson Test), $P_d$ is not always a non-decreasing function of  $P_{f_i}$ ($i=1, ..., M$).
 
 Furthermore, we can see in the case of point $B$, the value of $P_d$ is smaller than the value of $P_{f_2}$, i.e. under ENP test framework, $P_d \geq P_{f_i}$  ($i = 1, ..., M$) does not always hold (Qian Zhang arrives at the same conclusion in  \cite{zhang1999design, zhang2000efficient} using a different method). 
@@ -79,7 +77,7 @@ Next we presents three lemmas concerning the properties of the ENP test.
 
 \noindent \textbf{Lemma 1}
 \noindent \textit{
-Let $f_0$, $f_1$, ..., $f_M$ be PDFs defined on set $\mathcal{D}$ and $f_0(x) \neq 0$ holds a.e. on $\mathcal{D}$. For given constants $c_1, ..., c_M \in (0, 1)$, let $\mathcal{C}_\delta$ denote a set of decision rules,  such that for $\delta \in \mathcal{C}_\delta$, we have $P_{f_i} \leq c_i$.
+Let $f_0$, $f_1$, ..., $f_M$ be PDFs defined on set $\mathcal{D}$. For given constants $c_1, ..., c_M \in (0, 1)$, let $\mathcal{C}_\delta$ denote a set of decision rules,  such that for any $\delta \in \mathcal{C}_\delta$, we have $P_{f_i} \leq c_i$, $i = 1, \cdots, M$.
 %No. 1
 %\\\textnormal{(\rmnum{1})} Among all members of $\mathcal{C}_\mathcal{S}$ there exists one that maximizes $P_d$.
 %No.2
@@ -96,19 +94,19 @@ Qian Zhang also arrives at the conclusion that if $P_{f_i} < c_i$, then $k_i = 0
 \newcommand{\bmu}{\boldsymbol{\mu}}
 We start by defining 
  some notations for easy presentation.
-Define $\mathbf{c}^T = [c_1, c_2, ..., c_M]$, $\boldsymbol{\mu}_0^T = [\mu_1, ..., \mu_M]$, $\mathbf{k}^T = [k_1, k_2, ..., k_M]$ and  $\mathbf{P}_f^T = [P_{f_1}, P_{f_2}, ..., P_{f_M}]$ that are vectors in an $M$ dimensional Euclidean  space. Let $\bmu^T = [\bmu_0, \mu_{M+1}]$ denote a vector in $M+1$ dimensional Euclidean space. 
+Define $\mathbf{c}^T = [c_1, c_2, ..., c_M]$, $\boldsymbol{\mu}_0^T = [\mu_1, ..., \mu_M]$, $\mathbf{k}^T = [k_1, k_2, ..., k_M]$ and  $\mathbf{P}_f^T = [P_{f_1}, P_{f_2}, ..., P_{f_M}]$ that are vectors in an $M$ dimensional Euclidean  space. Let $\bmu^T = [\bmu_0^T, \mu_{M+1}]$ denote a vector in $M+1$ dimensional Euclidean space. 
 
 Let $F(\boldsymbol{\mu}_0)$ denote the largest $P_d$ under the constraints $P_{f_i} = \mu_i\;\;i = 1, ..., M$.
 Let $G(\boldsymbol{\mu}_0)$ denote the largest $P_d$ under the constraints $P_{f_i} \leq \mu_i\;\;i = 1, ..., M$.
 Let $P_d(\delta)$, $P_{f_i}(\delta)$ denote the $P_d$ and $P_{f_i}$ achieved by using decision rule $\delta$.
 By $\mathbf{A} \leq \mathbf{B}$, $\mathbf{A} = \mathbf{B}$ and  $\mathbf{A} \geq \mathbf{B}$ we mean that every element of $\mathbf{A}$ is no larger than, equal to and no smaller than its corresponding element of $\mathbf{B}$, respectively. 
 By $\mathbf{A} \neq 0$, we mean that every element of $\mathbf{A}$ is not equal to $0$. 
-Let $G'$ denote the hyper surface in $M+1$ dimensional Euclidean Space defined by 
+Let $G'$ denote the hyper surface in an $M+1$ dimensional Euclidean Space defined by 
 \begin{equation}
  \label{def: G'}
  G' = \{(\bmu_0, \mu_{M+1})  | \bmu_0 \in [0, 1]^M, \mu_{M+1}= G(\bmu_0) \}\,.
 \end{equation}
-Let $G_s$ denote the set of points in $M+1$ Euclidean space defined as 
+Let $G_s$ denote the set of points in an $M+1$ Euclidean space defined as 
 \begin{equation}
   \label{2015feb16n1}
 G_s =  \{(\boldsymbol{\mu}_0, \mu_{M+1}) | \boldsymbol{\mu}_0\in [0, 1]^M, \mu_{M+1} \in [0, G(\mathbf{\bmu_0})]
@@ -122,7 +120,7 @@ G_s =  \{(\boldsymbol{\mu}_0, \mu_{M+1}) | \boldsymbol{\mu}_0\in [0, 1]^M, \mu_{
 \caption{Relationship between $G'$ and $G_s$}
 \label{fig: feb18}
 \end{figure}
-Let us define the set of points in $M+1$ dimensional Euclidean
+Let us define the set of points in an $M+1$ dimensional Euclidean space 
 \begin{equation}
 \begin{split}
   \mathcal{N} = \{(\mu_1, \mu_2, ..., \mu_{M+1}) &| \mu_i = \int_{\mathcal{S}}f_i(x)\mathrm{d}x \;\;i=1, ..., M,\\
@@ -130,21 +128,21 @@ Let us define the set of points in $M+1$ dimensional Euclidean
 \end{split}
 \end{equation}
 We can see that $\mathcal{N}$ is the set of point $(\bmu_0, \mu_{M+1})=(\mathbf{P}_f(\delta), P_d(\delta))$, where $\delta$ is a decision rule. Moreover, from the definition of $\mathcal{N}$ and $F(\bmu_0)$ we can conclude that for a point $(\bmu_0, \mu_{M+1}) \in \mathcal{N}$, we have $\mu_{M+1} \leq F(\bmu_0)$. 
-To see it, assume $\mu_{M+1} > F(\bmu_0)$. Then there is a decision rule $\delta$ such that $P_{f_i}(\delta) = \mu_i$ ($i=1, ..., M$) and $P_d(\delta) > F(\bmu_0)$. This is contradictory with the definition of $F(\bmu_0)$. 
+To see this, assume $\mu_{M+1} > F(\bmu_0)$. Then there is a decision rule $\delta$ such that $P_{f_i}(\delta) = \mu_i$ ($i=1, ..., M$) and $P_d(\delta) > F(\bmu_0)$. This is contradictory to the definition of $F(\bmu_0)$. 
 
 The whole proof consists of the following parts: first we prove $G(\boldsymbol{\mu}_0)$ is a convex, non-decreasing function, and when $\boldsymbol{\mu}_0 > 0$, $G(\boldsymbol{\mu}_0) > 0$;
 secondly it will be shown that $G_s$ is a convex set and $\mathcal{N} \subseteq G_s$; 
-after that we will illustrate for a point $(\mu_1^0, \mu_2^0, ..., \mu_{M+1}^0) \in G'$, there exists a non-negative $\mathbf{k}$ such that 
+after that we will illustrate that for a point $(\mu_1^0, \mu_2^0, ..., \mu_{M+1}^0) \in G'$, there exists a non-negative $\mathbf{k}$ such that 
 \[
 \mu_{M+1} - \sum_{i=1}^{M}k_i\mu_i \leq \mu_{M+1}^0 - \sum_{i=1}^{M}k_i\mu_i^0
 \]
 holds for point $(\mu_1, \mu_2, ..., \mu_{M+1}) \in G_s$;
-in the end, we will show for $\mathbf{c} \in (0, 1)$, there exists non-negative $\mathbf{k}$ such that the optimal decision rule to achieve the largest $P_d$ under constraint $\mathbf{P}_f \leq \mathbf{c}$ can be written in form of 
+at the end, we will show for $\mathbf{c} \in (0, 1)$, there exists a non-negative $\mathbf{k}$ such that the optimal decision rule to achieve the largest $P_d$ under constraint $\mathbf{P}_f \leq \mathbf{c}$ can be written in the form
 \[
 f_0(x) \substack{H_0 \\ > \\ < \\ \bar{H}_0} \sum_{i=1}^{M}k_if_i(x)\,.
 \]
 
-Firstly we will prove $G(\bmu_0)$ is a convex non-decreasing function for $\bmu_0 \in [0, 1]^M$.
+Firstly we will prove $G(\bmu_0)$ is a convex non-decreasing function in each variable $\mu_i$, $i = 1, \cdots, M$.
  Let $\boldsymbol{\mu}^1$ and  $\boldsymbol{\mu}^2$ be two points on $G'$ with coordinates $(\boldsymbol{\mu}^1_0, \mu_{M+1}^1)$ and $(\boldsymbol{\mu}^2_0, \mu_{M+1}^2)$, i.e. $\mu_{M+1}^1 = G(\boldsymbol{\mu}_0^1)$ and $\mu_{M+1}^2 = G(\boldsymbol{\mu}_0^2)$. Let $\delta_1$ be a decision rule which can achieve the largest $P_d$ under the constraint $\mathbf{P}_f \leq \boldsymbol{\mu}_0^1$ and $\delta_2$ be a decision rule which can achieve the largest $P_d$ under the constraint $\mathbf{P}_{f} \leq \boldsymbol{\mu}_0^2$. Thus we can see 
  \begin{subequations}
 \begin{align}
@@ -171,17 +169,17 @@ Let $\delta'$ denote the optimal decision rule for
  \text{s.t.}&\;\;\;\;\mathbf{P}_f \leq 0.5\boldsymbol{\mu}^1_0 + 0.5\boldsymbol{\mu}^2_0
  \end{split}
  \end{equation}
-then obviously $P_d(\delta') \geq P_d(\delta^3)$ (otherwise $\delta'$ cannot be the optimal decision rule for \eqref{1120t}).The optimal $P_d$ of \eqref{1120t} can be written as $G(0.5\boldsymbol{\mu}^1_0 + 0.5\boldsymbol{\mu}^2_0)$, hence we have  
+then obviously $P_d(\delta') \geq P_d(\delta^3)$ (otherwise $\delta'$ cannot be the optimal decision rule for \eqref{1120t}). Since $P_d = G(0.5\boldsymbol{\mu}^1_0 + 0.5\boldsymbol{\mu}^2_0)$, we have  
 \begin{equation}
 \label{1120t2}
 G(0.5\boldsymbol{\mu}^1_0 + 0.5\boldsymbol{\mu}^2_0) \geq  P_d(\delta^3).
 \end{equation}
-Substitute \eqref{1120night1} into above equation, we can see
+Substituting \eqref{1120night1} in \eqref{1120t2} results in
 \begin{equation}
 \label{1120t3}
 G(0.5\boldsymbol{\mu}^1_0 + 0.5\boldsymbol{\mu}^2_0) \geq 0.5 G(\boldsymbol{\mu}^1_0)+ 0.5 G(\boldsymbol{\mu}^2_0)\,.
 \end{equation}
-Equation \eqref{1120t3} implies $G(\bmu_0)$ is a convex function for $\bmu_0 \in [0, 1]^M$.
+showing that  $G(\bmu_0)$ is a convex function for $\bmu_0 \in [0, 1]^M$.
 
 According to the definition of $G(\bmu_0)$, when $\mu_i$ increases, the false alarm constraints are relaxed, 
 so the value of $G(\bmu_0)$ will either remain the same or increase. 
@@ -221,7 +219,7 @@ From \eqref{2015feb09a4} and \eqref{2015feb09a5} we can see the $P_d$ and $P_{f_
     P_{f_i}(\delta^2) = \int_{\mathcal{D}}f_i(x)\mathrm{d}x = 1
 \end{equation}
 
-Let $\mu_{min} = \min(\mu_1, \mu_2, \cdots, \mu_M)$, since $\bmu_0 > 0^M$, it can be seen $\mu_{min} > 0$. Construct a new randomized test $\delta^3$ where $\delta^1$ and $\delta^2$ are used with probability $1 - \mu_{min} $ and $\mu_{min}$. With decision rule $\delta^3$ we have
+Let $\mu_{min} = \min(\mu_1, \mu_2, \cdots, \mu_M)$. Since $\bmu_0 > 0^M$, we know $\mu_i > 0$ for $i = 1, \cdots, M$. Then we have $\min(\mu_1, \cdots, \mu_M) > 0$, i.e. $\mu_{min} > 0$. Construct a new randomized test $\delta^3$ where $\delta^1$ and $\delta^2$ are used with probability $1 - \mu_{min} $ and $\mu_{min}$. With decision rule $\delta^3$ we have
 \begin{equation}
   P_d(\delta^3) = (1 - \mu_{min})P_d(\delta^1) + \mu_{min}P_d(\delta^2) = \mu_{min} > 0
 \end{equation}
@@ -237,7 +235,7 @@ Since $\delta^\ast $ is the optimal decision rule for $\bmu_0$, we can conclude 
 
 
 In the following, we consider the property of $G_s$. First we will prove that $G_s$ is a convex set. 
-Let $\boldsymbol{\mu}^1$ and  $\boldsymbol{\mu}^2$ be two points belongs to $G_s$ with coordinates $(\boldsymbol{\mu}^1_0, \mu_{M+1}^1)$ and $(\boldsymbol{\mu}^2_0, \mu_{M+1}^2)$. According to the definition of $G_s$, we have 
+Let $\boldsymbol{\mu}^1$ and  $\boldsymbol{\mu}^2$ be two points that belong to $G_s$ with coordinates $(\boldsymbol{\mu}^1_0, \mu_{M+1}^1)$ and $(\boldsymbol{\mu}^2_0, \mu_{M+1}^2)$. According to the definition of $G_s$, we have 
 \begin{subequations}
 \label{1120t4}
 \begin{align}
@@ -278,8 +276,8 @@ Using \eqref{1120t3} and \eqref{1120night5} with \eqref{equ:2015feb1a} gives,
 \label{equ: 1120n}
 0 \leq \mu_{M+1}^3 \leq G(0.5 \bmu_0^1 + 0.5\bmu_0^2) = G(\bmu_0^3)\,.
 \end{equation}
-From \eqref{equ: 1120n} and \eqref{equ: 1120n1}, it can be conclude 
- $\bmu^3 \in G_s$, hence $G_s$  is a convex set.  
+From \eqref{equ: 1120n} and \eqref{equ: 1120n1}, it follows that  
+ $\bmu^3 \in G_s$, showing that $G_s$  is a convex set.  
 
 Next we prove $\mathcal{N} \subseteq G_s$. We need to show that if  $\forall (\mu_1, ..., \mu_{M+1}) \in \mathcal{N}$, then this point also belongs to $G_s$.
 Assume $(\mu_1^0, ..., \mu_{M+1}^0)$ is a point in $\mathcal{N}$. 
@@ -292,15 +290,14 @@ This implies $\mu_{M+1}^0 \in [0, G(\bmu_0^0)]$ and we have
 &\mu_{M+1}^0 \in [0, G(\bmu_0^0)]
 \end{split}
 \end{equation}
-The above equation suggests point $(\mu_1^0, ..., \mu_{M+1}^0)$ also belongs to set $G_s$.
+showing that point $(\mu_1^0, ..., \mu_{M+1}^0)$ also belongs to set $G_s$.
 Hence we proved $\mathcal{N} \subseteq G_s$. 
 
 In the following we will show for point $(\mu_1^0, \mu_2^0, ..., \mu_{M+1}^0)$ that belongs to $G'$ ($\mu_i^0 \in (0, 1), i = 1, 2, ..., M$), there exists a non-negative $\mathbf{k}$ such that  
 \[
 \mu_{M+1} - \sum_{i=1}^{M}k_i\mu_i \leq \mu_{M+1}^0 - \sum_{i=1}^{M}k_i\mu_i^0
 \]
-holds for any $(\mu_1, \mu_2, ..., \mu_{M+1}) \in G_s$, 
-
+holds for any $(\mu_1, \mu_2, ..., \mu_{M+1}) \in G_s$. 
 Assume $(\mu_0^0, \mu_1^0, ..., \mu_{M+1}^0)$ is a point on the $G'$ surface, i.e. $\mu_{M+1}^0 = G(\bmu_0^0)$, where $\bmu_0^0 = [\mu_1^0, ..., \mu_{M}^0]$. 
 Also we assume $\mu_1^0, \mu_2^0, ..., \mu_M^0 \in (0, 1)$. 
 According to the definition of $G_s$, for any positive $\epsilon$, point $(\mu_0^0, \mu_1^0, ..., \mu_{M+1}^0+\epsilon) \notin G_s$. Thus point $(\mu_1^0, ..., \mu_{M+1}^0)$ is a boundary point of set $G_s$.  
@@ -369,10 +366,16 @@ Up to now, we have proved that if  $(\bmu_0^0, \mu_{M+1}^0) \in G'$ and $\bmu_0^
 \mu_{M+1} - \sum_{i=1}^{M}k_i\mu_i \leq \mu_{M+1}^0 - \sum_{i=1}^{M}k_i\mu_i^0
 \label{PPI3}
 \end{equation}
-holds for  $(\mu_1, \mu_2, ...\mu_{M+1}) \in G_s$. In the following, we will show that the constants $k_i$ in \eqref{PPI3} must be non-negative.   
+holds for  $(\mu_1, \mu_2, ...\mu_{M+1}) \in G_s$. 
+\eqref{PPI3} suggests that for a point on the surface $G'$ with coordinate $(\bmu_0^0, \mu_{M+1})$, if $\bmu_0^0 \in (0, 1)$, then there exists a hyper  plane $\Pi$ 
+\[
+\mu_{M+1} - \sum_{i=1}^{M}k_i\mu_i =  \mu_{M+1}^0 - \sum_{i=1}^{M}k_i\mu_i^0 
+\]
+such that $G_s$ lies entirely below $\Pi$. 
+
+In the following, we will show that the constants $k_i$ in \eqref{PPI3} must be non-negative.   
 
 Now consider another point on $G'$ with coordinate $(\mu_1^0, ..., \mu_l^0+\epsilon, ..., \mu_M^0, \mu_{M+1}')$, where $\epsilon > 0$ and $l$ is an integer between $1$ and $M$.  Since both points $(\mu_1^0, ..., \mu_l^0, ..., \mu_M^0, \mu_{M+1}^0)$ and $(\mu_1^0, ..., \mu_l^0+\epsilon, ..., \mu_M^0, \mu_{M+1}')$ lies on $G'$, we can conclude $G([\mu_1^0, ..., \mu_l^0, ...., \mu_M^0]) = \mu_{M+1}^0$ and $G([\mu_1^0, ..., \mu_l^0 + \epsilon, ...., \mu_M^0]) = \mu_{M+1}'$. As we proved $G(\bmu_0)$ is a non-decreasing function, we must have  $\mu_{M+1}' \geq \mu_{M+1}^0$.
-
 Substituting $(\mu_1^0, ..., \mu_l^0+\epsilon, ..., \mu_M^0, \mu_{M+1}')$ into the left side of \eqref{PPI3}, we have
 \begin{equation}
 \mu_{M+1}' - k_1\mu_1^0 - ... - k_l(\mu_l^0+\epsilon)- ... - k_M\mu_M^0 \leq \mu_{M+1}^0 - k_1\mu_1^0 - ... - k_l\mu_l^0- ... - k_M\mu_M^0
@@ -396,10 +399,7 @@ As we have proved if  $(\bmu_0^0, \mu_{M+1}^0) \in G'$ and $\bmu_0^0 \in (0, 1)^
 holds for  $(\mu_1, \mu_2, ...\mu_{M+1}) \in G_s$ and the constants $k_1, k_2, \cdots, k_M$ are non-negative,  
 we can conclude 
 if  $(\bmu_0^0, \mu_{M+1}^0) \in G'$ and $\bmu_0^0 \in (0, 1)^M$, there exists constants $k_1, ..., k_M \geq 0 $ such that  
-\begin{equation}
-\mu_{M+1} - \sum_{i=1}^{M}k_i\mu_i \leq \mu_{M+1}^0 - \sum_{i=1}^{M}k_i\mu_i^0
-\label{PPI32015b}
-\end{equation}
+\eqref{PPI32015bc}
 holds for  $(\mu_1, \mu_2, ...\mu_{M+1}) \in G_s$. 
 
 For the given constants $\mathbf{c}$ ($\mathbf{c} \in (0, 1)^M$), 
@@ -408,8 +408,7 @@ For the given constants $\mathbf{c}$ ($\mathbf{c} \in (0, 1)^M$),
 f_0(x) \substack{H_0 \\ > \\ < \\ \bar{H}_0 } \sum_{i=1}^{M}k_if_i(x)\,.
 \]
 
-Let $\bmu_0 = \mathbf{c}$, according to the definition of $G'$, we can see $(\mathbf{c},G(\mathbf{c})) \in G'$.  As $\delta^\ast $ achieves the largest $P_d$ under constraint $\mathbf{P}_f \leq \mathbf{c}$, from the definition of $G(\bmu_0)$ we can see $P_{d}(\delta^\ast) = G(\mathbf{c})$. 
-
+Let $\bmu_0 = \mathbf{c}$. According to the definition of $G'$, we can see that $(\mathbf{c},G(\mathbf{c})) \in G'$.  As $\delta^\ast $ achieves the largest $P_d$ under constraint $\mathbf{P}_f \leq \mathbf{c}$, from the definition of $G(\bmu_0)$ we can see $P_{d}(\delta^\ast) = G(\mathbf{c})$. 
 Since we have proved if $(\bmu_0^0, \mu_{M+1}^0) \in G'$ and $\bmu_0^0 \in (0, 1)^M$, there exists non-negative constants $k_1$, ..., $k_M$ such that
 \begin{equation}
 \mu_{M+1} - \sum_{i=1}^{M}k_i\mu_i \leq \mu_{M+1}^0 - \sum_{i=1}^{M}k_i\mu_i^0
@@ -423,14 +422,14 @@ holds for all points belonging $G_s$ and $(\mathbf{c},G(\mathbf{c})) \in G'$, we
 \mu_{M+1} - \sum_{i=1}^{M}k_i\mu_i \leq G(\mathbf{c}) - \sum_{i=1}^{M}k_ic_i
 \end{equation}
 holds for $(\mu_1, \mu_2, ..., \mu_{M+1}) \in G_s$.
-Since $P_{f_i}(\delta^\ast) \leq c_i$ (for $i=1, ..., M$) and $k_i \geq 0$, we know
+Since $P_{f_i}(\delta^\ast) \leq c_i$ (for $i=1, ..., M$) and $k_i \geq 0$, we have  
 \[
 k_ic_i \geq k_iP_{f_i}(\delta^\ast)
 \]
 \[
 \therefore \sum_{i=1}^{M}k_ic_i \geq \sum_{i=1}^{M}k_iP_{f_i}(\delta^\ast)
 \]
-Hence we have
+Hence 
 \begin{equation}
 \label{con: 1}
 G(\mathbf{c}) - \sum_{i=1}^{M}k_ic_i \leq G(\mathbf{c}) - \sum_{i=1}^{M}k_iP_{f_i}(\delta^\ast)\,.
@@ -460,9 +459,9 @@ According to the definition of $\mathcal{N}$, for $(\mu_1, \mu_2, ..., \mu_{M+1}
 \mu_{M+1} = \int_{\mathcal{S}}f_{0}(x)\mathrm{d}x
 \end{cases}
 \end{equation}
-where $\mathcal{S}$ can be any subset of domain $\mathcal{D}$. 
+where $\mathcal{S}$ can be any subset of the domain $\mathcal{D}$. 
 
-$P_{f_i}(\delta^\ast)$ and $P_{d}(\delta^\ast)$ can be written as
+Since $P_{f_i}(\delta^\ast)$ and $P_{d}(\delta^\ast)$ can be written as
 \begin{equation}
 \label{def: pfd}
 \begin{cases}
@@ -470,7 +469,7 @@ P_{f_i}(\delta^\ast) = \int_{\mathcal{S}^\ast}f_i(x)\mathrm{d}x\;\;\;\;i=1, ...,
 P_d(\delta^\ast) = \int_{\mathcal{S}^\ast}f_0(x)\mathrm{d}x
 \end{cases}
 \end{equation}
-Substituting \eqref{def: mu} and \eqref{def: pfd} into \eqref{TEMP2}, we have: 
+by substituting \eqref{def: mu} and \eqref{def: pfd} into \eqref{TEMP2}, we have: 
 \[
 \int_{\mathcal{S}}f_{0}(x)\mathrm{d}x - \sum_{i=1}^{M}k_i\int_{\mathcal{S}}f_i(x)\mathrm{d}x \leq \int_{\mathcal{S}^\ast}f_{0}(x)\mathrm{d}x - \sum_{i=1}^{M}k_i\int_{\mathcal{S}^\ast}f_i(x)\mathrm{d}x
 \]
@@ -482,8 +481,8 @@ Substituting \eqref{def: mu} and \eqref{def: pfd} into \eqref{TEMP2}, we have:
 \label{TEMP4}
 \therefore \int_{\mathcal{S}}(f_{0}(x)- \sum_{i=1}^{M}k_if_{i}(x))\mathrm{d}x \leq \int_{\mathcal{S}^\ast}(f_{0}(x)- \sum_{i=1}^{M}k_if_{i}(x))\mathrm{d}x 
 \end{equation}
-The integrand of the left-hand \eqref{TEMP4} and right-hand \eqref{TEMP4} are the same. In order to make \eqref{TEMP4} holds for all set $\mathcal{S}$,  
- $\mathcal{S}^\ast$ must  maximize 
+The integrand of the left  and right sides of \eqref{TEMP4} are the same. Hence to have  \eqref{TEMP4} hold for all set $\mathcal{S}$,  
+then  $\mathcal{S}^\ast$ must  maximize 
 \begin{equation}
 \int_{\mathcal{S}}(f_{0}(x)\mathrm{d}x - \sum_{i=1}^{M}k_if_i(x))\mathrm{d}x
   \label{2015feb2a3}
@@ -506,8 +505,9 @@ f_0(x) \substack{H_0 \\ > \\ < \\ \bar{H}_0 } \sum_{i=1}^{M}k_if_i(x)\,.
 Moreover, since \eqref{TEMP} holds for any point $(\mu_1, \mu_2, ..., \mu_{M+1}) \in \mathcal{N}$ and $(\mathbf{P}_f(\delta^\ast), P_d(\delta^\ast)) \in \mathcal{N}$, we can conclude 
 \begin{equation}
 P_d(\delta^\ast) - \sum_{i=1}^{M}k_iP_{f_i}(\delta^\ast) \leq G(\mathbf{c}) - \sum_{i=1}^{M}k_ic_i
+\label{20150422a0}
 \end{equation}
-As we have shown $G(\mathbf{c}) = P_d(\delta^\ast)$, the above equation can be written as
+As we have shown $G(\mathbf{c}) = P_d(\delta^\ast)$, the \eqref{20150422a0} can be written as
 \begin{equation}
  G(\mathbf{c}) - \sum_{i=1}^{M}k_ic_i \geq G(\mathbf{c}) - \sum_{i=1}^{M}k_iP_{f_i}(\delta^\ast)
 \label{TEMP5}
@@ -609,12 +609,12 @@ where $\delta(\bullet)$ is Dirac's delta function defined as following,
 \end{cases} \;\;\;\;
 \end{equation}
 
-Defining $g(x) = f_0(x) - \sum_{j=1}^{M} k_jf_j(x)$, \eqref{pro: component} can be written as $\int_{\mathcal{D}}\delta(g(x))g(x)f_n(x)\mathrm{d}x = 0, n = 1, ..., M$.
+Defining $g(x) = f_0(x) - \sum_{j=1}^{M} k_jf_j(x)$, \eqref{pro: component} can be written as $\int_{\mathcal{D}}\delta(g(x))g(x)f_i(x)\mathrm{d}x = 0, i = 1, ..., M$.
 
 When $g(x) \neq 0$, we have $\delta(g(x)) = 0$ and $\delta(g(x))g(x)f_i(x) = 0$.   When  $g(x) = 0$, we can solve the equation according to the definition of $\delta(\bullet)$ and consider
 \begin{equation}
 \label{pro: important}
-\int_{\{x|g(x)\in (-\frac{\epsilon}{2}, \frac{\epsilon}{2})\}} \frac{1}{\epsilon} g(x)f_n(x) \mathrm{d}x\;\;\;\;n= 1, ..., M
+\int_{\{x|g(x)\in (-\frac{\epsilon}{2}, \frac{\epsilon}{2})\}} \frac{1}{\epsilon} g(x)f_i(x) \mathrm{d}x\;\;\;\;i= 1, ..., M
 \end{equation}
 
 Since when $g(x) \in (-\frac{\epsilon}{2}, \frac{\epsilon}{2})$, $|g(x)| < \frac{\epsilon}{2}$,
