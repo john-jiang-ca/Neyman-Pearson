@@ -1,7 +1,7 @@
 % Energy based spectrum sensing
 \section{Energy based Spectrum Detector for Multiple Primary Users}
 \subsection{System Model}
-We consider a cognitive radio system where the licensed frequency spectrum could be occupied by exactly one of two distinct signals $\{s_A, s_B\}$ or it could be vacant. Let $H_0$ denote the hypothesis under which the channel is free, ${H}_1$ denote the hypothesis under which the channel is occupied by $s_A$ and ${H}_2$ denote the hypothesis under which the channel is occupied by $s_B$. We are interested to test $H_0$ against $\bar{{H}_0}$, where $\bar{H}_0$ denotes the hypothesis under which the channel is not free, using MENP framework.
+We consider a cognitive radio system where the licensed frequency spectrum could be occupied by one of two distinct signals $\{s_A, s_B\}$ or it could be vacant. Let $H_0$ denote the hypothesis under which the channel is free, ${H}_1$ denote the hypothesis under which the channel is occupied by $s_A$ and ${H}_2$ denote the hypothesis under which the channel is occupied by $s_B$. We are interested to test $H_0$ against $\bar{{H}_0}$, where $\bar{H}_0$ denotes the hypothesis under which the channel is not free, using MENP framework.
 
 A block diagram of the system is illustrated in Figure \ref{pic: block diagram}.
 
@@ -12,9 +12,9 @@ A block diagram of the system is illustrated in Figure \ref{pic: block diagram}.
 \label{pic: block diagram}
 \end{figure}
 
-The detector consists a measuring device followed by a testing device. 
-The measuring device observes the noisy version of the signals that could present in the channel and outputs the sum energy of the sampled signals.
-With this energy, the testing device employs MENP framework to decide about the state of the channel.
+The detector consists of a measuring device followed by a testing device. 
+The measuring device observes the noisy version of the received signals and forms the energy of their sampled version.
+With this energy, the testing device employs the MENP framework to decide about the state of the channel.
 The input to the measuring device is 
 \begin{equation}
   \mathbf{x} = \begin{cases}
@@ -55,14 +55,14 @@ thus the distribution of $x_i$ under each hypothesis is given by
 \end{split}
   \label{equ:xdistribution}
 \end{equation}
-where $x_{i_R}$ and $x_{i_I}$ are real and imaginary component of signal $x_i$.
-In our case, the measuring device is an energy detector, the output is given by
+where $x_{i_R}$ and $x_{i_I}$ are real and imaginary components of $x_i$.
+In our case, the measuring device is an energy detector, with output 
 \begin{equation} 
   Y = \sum_{i=0}^{N-1}|x_i|^2 = \sum_{i=0}^{N-1}(x_{i_R}^2+x_{i_I}^2)\,.
   \label{equ: testing device}
 \end{equation}
 By observing $y$, a realization of $Y$, the testing device determines the status of the channel. 
-Since $x_{i_R}, x_{i_I}$ are uncorrelated Gaussian random variable with zero mean and variance $\sigma_i^2$, $\frac{y}{\sigma_i^2} = \sum_{n=0}^{N-1}((\frac{x_{i_R}}{\sigma_i})^2 + (\frac{x_{I_i}}{\sigma_i})^2)$ is governed by a Chi-Square distribution with $2N$ freedom degree under hypothesis $H_i$.
+Since $x_{i_R}, x_{i_I}$ are uncorrelated Gaussian random variable with zero mean and variance $\sigma_i^2$, $\frac{y}{\sigma_i^2} = \sum_{n=0}^{N-1}((\frac{x_{i_R}}{\sigma_i})^2 + (\frac{x_{I_i}}{\sigma_i})^2)$ is governed by a Chi-Square distribution with $2N$ degree of freedom under hypothesis $H_i$.
 Hence the distribution of $Y$ can be expressed as:
 \begin{equation} 
   \label{equ: abstract}
@@ -72,9 +72,9 @@ Hence the distribution of $Y$ can be expressed as:
 	H_2:\;\;\;\;&\frac{Y}{\sigma_2^2}\sim \mathcal{X}(2N)\,,
   \end{split}
 \end{equation}
-where $\mathcal{X}(2N)$ is the Chi-square distribution with $2N$ degree freedom. 
+where $\mathcal{X}(2N)$ is the Chi-square distribution with $2N$ degrees of freedom. 
 
-Let $P_d$ denote the probability of detection, i.e. the probability that the channel is correctly declared vacant ($H_0$ is correctly declared true) and $P_{f_1}$ $P_{f_2}$ denote the probability of false alarm with respect to $s_A$  and $s_B$, i.e. the probability that the channel is declared vacant when signal $s_A$ ( $s_B$) is transmitting. Let $c_i$ ($i = 1, 2$) denotes the specific positive constraints on the probability of false alarm. The performance of the system can be depicted by $P_d$ and $c_i$ ($i = 1, 2$), and we use MENP framework to solve following optimization problem:
+Let $P_d$ denote the probability of detection, i.e. the probability that the channel is correctly declared vacant ($H_0$ is correctly declared true) and $P_{f_1}$ $P_{f_2}$ denote the probability of false alarm with respect to $s_A$  and $s_B$, i.e. the probability that the channel is declared vacant when signal $s_A$ ( $s_B$) is present. Let $c_i$ ($i = 1, 2$) denotes the specific positive constraints on the probability of false alarm. The performance of the system can be depicted by $P_d$ and $c_i$ ($i = 1, 2$), and we use the MENP framework to solve following optimization problem:
 \begin{equation}
   \begin{split}
 	\max\;\;\;\;&P_d\\
@@ -87,7 +87,7 @@ Our goal is to plot M-ROC surface and to find the decision rule for a given $c_1
 
 \subsection{Numerical Results}
 Assume $\sigma_n^2=0.1$ $\sigma_{s_A}^2=0.05$ $\sigma_{s_B}^2=0.15$ and $N=20$. We can see $\sigma_0^2=0.1$ $\sigma_1^2=0.15$ and $\sigma_2^2=0.25$, 
-thus $\sigma_0^2 < \sigma_1^2, \sigma_2^2$. Hence  problem given in \eqref{1129a3} under hypotheses \eqref{equ: abstract} has the same form as that of Chi-Square Example given in chapter 3. 
+thus $\sigma_0^2 < \sigma_1^2, \sigma_2^2$. Hence the problem given in \eqref{1129a3} for hypotheses \eqref{equ: abstract} has the same form as that of Chi-Square Example given in chapter 3. 
 If $y$ is an observation of $Y$, 
 from the conclusion in chapter 3 the optimal  decision rule for a given $c_1, c_2$ is 
 \begin{equation}
@@ -102,7 +102,7 @@ where $V_\tau = \min\{F_1^{-1}(c_1),  F_2^{-1}(c_2)\}$ and function $F_1,  F_2$ 
 
 Similar to energy detection in binary hypothesis testing, energy detection for multiple hypothesis testing differentiates between $H_0$ and $\bar{H}_0$ by comparing the test statistic (in form of energy) with a threshold $V_\tau$. The value of the threshold can be determined by the probability of false alarm constraints.   
 
-We use Matlab to compute the M-ROC for this energy detector. The value of $c_1, c_2$ range from 0 to 0.1 with step 0.001. By using \eqref{equ:1129a4} and \eqref{equ:1129a5}, the value of $P_d$ can be acquired. The M-ROC is illustrate in Figure. \ref{pic:1201a1}.  
+We use Matlab to compute the M-ROC for this energy detector. The value of $c_1, c_2$ range from 0 to 0.1 with step 0.001. By using \eqref{equ:1129a4} and \eqref{equ:1129a5}, the value of $P_d$ can be acquired. The M-ROC is illustrate in Figure. \ref{pic:1201a1}. We can see for any given $c_1, c_2$, we have an associated $P_d$. Besides that, when $c_1$ or $c_2$ changes, the associated $P_d$ may not change. This goes with \textbf{Property 2} in section 3.2. When designing the system, only increase the value of $c_1$ or $c_2$ may not promote the probability of detection. In order to increase $P_d$, we need to increase $V_\tau = \min\{F_1^{-1}(c_1),  F_2^{-1}(c_2)\}$. 
 
 \begin{figure}[!t]
 \centering

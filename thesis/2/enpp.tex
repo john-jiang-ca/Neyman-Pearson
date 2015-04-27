@@ -88,7 +88,7 @@ f_0(x) \substack{H_0 \\ \geq \\ < \\ \bar{H}_0} \sum_{j=1}^{M}k_jf_j(x)
 Moreover, under decision rule $\delta^\ast$ if  $P_{f_i} < c_i$, then $k_i = 0$. 
 }
 
-Qian Zhang also arrives at the conclusion that if $P_{f_i} < c_i$, then $k_i = 0$ in \cite{zhang1999design, zhang2000efficient} through analysing the performance of $P_d$ with respect to $k_i$. In the following we will prove \textbf{Lemma 1} using a mathematical method such that used in \cite{LehmannTest, dantzig1951fundamental} to prove the ENP Lemma (\rmnum{4}).
+In \cite{zhang1999design, zhang2000efficient} Qian Zhang also arrives at the conclusion that if $P_{f_i} < c_i$ then $k_i = 0$, through analysing the change of $P_d$ with respect to $k_i$ (he shows if $P_{f_i} < c_i$ and $k_i > 0$, then the $P_d$ can be further increased through adjusting the value of $k_i$). In the following we will prove \textbf{Lemma 1} using a mathematical method such that used in \cite{LehmannTest, dantzig1951fundamental} to prove the ENP Lemma (\rmnum{4}).
 
 \noindent\textbf{PROOF}
 \newcommand{\bmu}{\boldsymbol{\mu}}
@@ -192,16 +192,16 @@ Let $\delta^\ast$ be the optimal decision rule for $\bmu_0$. By optimal  we mean
 \begin{equation}
   \label{2015feb09a4}
   \delta^1:\;\; \begin{cases}
-    &x \;\;\;\text{belongs to $H_0$ if } x \in \emptyset \\
-    &x \;\;\;\text{belongs to $\bar{H}_0$ if } x \in \mathcal{D}
+    &x \;\;\;\text{ $H_0$ if } x \in \emptyset \\
+    &x \;\;\;\text{ $\bar{H}_0$ if } x \in \mathcal{D}
   \end{cases}
 \end{equation}
 and
 \begin{equation}
   \label{2015feb09a5}
   \delta^2:\;\; \begin{cases}
-    &x \;\;\;\text{belongs to $H_0$ if } x \in \mathcal{D} \\
-    &x \;\;\;\text{belongs to $\bar{H}_0$ if } x \in \emptyset
+    &x \;\;\;\text{ $H_0$ if } x \in \mathcal{D} \\
+    &x \;\;\;\text{ $\bar{H}_0$ if } x \in \emptyset
   \end{cases}
 \end{equation}
 
@@ -280,27 +280,27 @@ From \eqref{equ: 1120n} and \eqref{equ: 1120n1}, it follows that
  $\bmu^3 \in G_s$, showing that $G_s$  is a convex set.  
 
 Next we prove $\mathcal{N} \subseteq G_s$. We need to show that if  $\forall (\mu_1, ..., \mu_{M+1}) \in \mathcal{N}$, then this point also belongs to $G_s$.
-Assume $(\mu_1^0, ..., \mu_{M+1}^0)$ is a point in $\mathcal{N}$. 
-In previous discussion, it has been shown $\mu_i^0 \in [0, 1]$ ($i = 1, ..., M$) and $\mu_{M+1}^0 \in [0, F(\bmu_0^0)]$, where $\bmu_0^0 = [\mu_1^0, ..., \mu_M^0]$. 
-According to the definition of $G(\bmu_0)$ and $F(\bmu_0)$, we can conclude $G(\bmu_0^0) \geq F(\bmu_0^0)$. 
-This implies $\mu_{M+1}^0 \in [0, G(\bmu_0^0)]$ and we have  
+Assume $(\mu_1^N, ..., \mu_{M+1}^N)$ is a point in $\mathcal{N}$. 
+In previous discussion, it has been shown $\mu_i^N \in [0, 1]$ ($i = 1, ..., M$) and $\mu_{M+1}^N \in [0, F(\bmu_0^N)]$, where $\bmu_0^N = [\mu_1^N, ..., \mu_M^N]$. 
+According to the definition of $G(\bmu_0)$ and $F(\bmu_0)$, we can conclude $G(\bmu_0^N) \geq F(\bmu_0^N)$. 
+This implies $\mu_{M+1}^N \in [0, G(\bmu_0^N)]$ and we have  
 \begin{equation}
 \begin{split}
 &\mu_i^0 \in [0, 1]\;\;\;\;(i=1, 2, ..., M)\\
 &\mu_{M+1}^0 \in [0, G(\bmu_0^0)]
 \end{split}
 \end{equation}
-showing that point $(\mu_1^0, ..., \mu_{M+1}^0)$ also belongs to set $G_s$.
+showing that point $(\mu_1^N, ..., \mu_{M+1}^N)$ also belongs to set $G_s$.
 Hence we proved $\mathcal{N} \subseteq G_s$. 
 
-In the following we will show for point $(\mu_1^0, \mu_2^0, ..., \mu_{M+1}^0)$ that belongs to $G'$ ($\mu_i^0 \in (0, 1), i = 1, 2, ..., M$), there exists a non-negative $\mathbf{k}$ such that  
+In the following we will show for a point $(\mu_1^0, \mu_2^0, ..., \mu_{M+1}^0)$ that belongs to $G'$ ($\mu_i^0 \in (0, 1), i = 1, 2, ..., M$), there exists a non-negative $\mathbf{k}$ such that  
 \[
 \mu_{M+1} - \sum_{i=1}^{M}k_i\mu_i \leq \mu_{M+1}^0 - \sum_{i=1}^{M}k_i\mu_i^0
 \]
 holds for any $(\mu_1, \mu_2, ..., \mu_{M+1}) \in G_s$. 
 Assume $(\mu_0^0, \mu_1^0, ..., \mu_{M+1}^0)$ is a point on the $G'$ surface, i.e. $\mu_{M+1}^0 = G(\bmu_0^0)$, where $\bmu_0^0 = [\mu_1^0, ..., \mu_{M}^0]$. 
 Also we assume $\mu_1^0, \mu_2^0, ..., \mu_M^0 \in (0, 1)$. 
-According to the definition of $G_s$, for any positive $\epsilon$, point $(\mu_0^0, \mu_1^0, ..., \mu_{M+1}^0+\epsilon) \notin G_s$. Thus point $(\mu_1^0, ..., \mu_{M+1}^0)$ is a boundary point of set $G_s$.  
+According to the definition of $G_s$, for any positive $\epsilon$, point $(\mu_0^0, \mu_1^0, ..., \mu_{M+1}^0+\epsilon) \notin G_s$. Thus point $(\mu_1^0, ..., \mu_{M+1}^0)$ is a boundary point of the set $G_s$.  
 Since $G_s$ is a convex set and $(\mu_0^0, \mu_1^0, ..., \mu_{M+1}^0)$ is a boundary point of $G_s$,  
 there exists an $M+1$-dimensional hyperplane $\Pi$ through this point such that $\Pi$ contains only boundary points of $G_s$ and $G_s$ lies entirely on one sides of $\Pi$  \cite{dantzig1951fundamental}. 
 There exists $k_i^0$ ($i=1, ..., M+1$) such that the equation defining $\Pi$ can be written as \cite{dantzig1951fundamental}
@@ -309,8 +309,8 @@ There exists $k_i^0$ ($i=1, ..., M+1$) such that the equation defining $\Pi$ can
 k_{M+1}^0\mu_{M+1} - \sum_{i=1}^{M}k_i^0\mu_i = k_{M+1}^0\mu_{M+1}^0 - \sum_{i=1}^{M}k_i^0\mu_i^0
 \end{equation}
 
-As  we have proved when $\mu^0_i\neq 0$ ($i=1, ..., M$), $\mu_{M+1}^0 = G(\bmu_0^0) $ is strictly larger than zero. Hence there exists a $\mu_{M+1}' = \frac{\mu_{M+1}^0}{2}$ such that $\mu_{M+1}' \in (0, \mu_{M+1}^0)$. From the definition of $G_s$, it is easy to see that point $(\mu^0_1, ..., \mu^0_M, \mu_{M+1}')$ also belongs to set $G_s$. Besides that, since $\mu^0_i \in (0, 1)$ ($i=1, ..., M$) and $\mu_{M+1}' \in (0, \mu_{M+1}^0)$, it can be concluded that point $(\mu_1^0, \mu_2^0, ..., \mu_{M+1}')$ is an inner point of $G_s$.
-From previous discussion, we can see point $(\mu^0_1, ..., \mu^0_M, \mu_{M+1}')$ is not contained in hyperplane $\Pi$, i.e.
+In section 2.2.2, we have proved that when $\mu^0_i\neq 0$ ($i=1, ..., M$), $\mu_{M+1}^0 = G(\bmu_0^0) $ is strictly larger than zero, i.e. $\mu_{M+1}^0 > 0$. Hence there exists a $\mu_{M+1}' = \frac{\mu_{M+1}^0}{2}$ such that $\mu_{M+1}' \in (0, \mu_{M+1}^0)$. From the definition of $G_s$, it is easy to see that point $(\mu^0_1, ..., \mu^0_M, \mu_{M+1}')$ also belongs to set $G_s$. Besides that, since $\mu^0_i \in (0, 1)$ ($i=1, ..., M$) and $\mu_{M+1}' \in (0, \mu_{M+1}^0)$, it can be concluded that point $(\mu_1^0, \mu_2^0, ..., \mu_{M+1}')$ is an inner point of $G_s$.
+From previous discussion, we can see that point $(\mu^0_1, ..., \mu^0_M, \mu_{M+1}')$ is not contained in hyperplane $\Pi$, i.e.
 \[
 k_{M+1}^0\mu_{M+1}' - \sum_{i=1}^{M}k_i^0\mu_i^0 \neq k_{M+1}^0\mu_{M+1}^0 - \sum_{i=1}^{M}k_i^0\mu_i^0
 \]
@@ -331,25 +331,19 @@ on equivalently
 \mu_{M+1} - \sum_{i=1}^{M}k_i\mu_i - (\mu_{M+1}^0 - \sum_{i=1}^{M}k_i\mu_i^0) = 0\,.
 \end{equation}
 
-\cite{planeside} shows $\Pi$ divides the space into two parts, on one side of $\Pi$, points satisfy
-\[
-\mu_{M+1} - \sum_{i=1}^{M}k_i\mu_i - (\mu_{M+1}^0 - \sum_{i=1}^{M}k_i\mu_i^0) > 0\,;
-\]
-on the other side of $\Pi$, points satisfy
-\[
-\mu_{M+1} - \sum_{i=1}^{M}k_i\mu_i - (\mu_{M+1}^0 - \sum_{i=1}^{M}k_i\mu_i^0) < 0\,.
-\]
-
-When $(\mu_1, ... ,\mu_M, \mu_{M+1})=(\mu_1^0, ..., \mu_M^0, 0)$, the left-hand of \eqref{PI2} is smaller than the right-hand, i.e.
+From \cite{planeside} we have that $\Pi$ divides the space into two parts, on one side of $\Pi$ consisting of  points that satisfy
 \begin{equation}
-  \begin{split}
- \mu_{M+1} - \sum_{i=1}^{M}k_i\mu_i < \mu_{M+1}^0 - \sum_{i=1}^{M}k_i\mu_i^0\\
- \mu_{M+1} - \sum_{i=1}^{M}k_i\mu_i - (\mu_{M+1}^0 - \sum_{i=1}^{M}k_i\mu_i^0) < 0\,.
- \end{split}
-  \label{2015feb02a1}
+\mu_{M+1} - \sum_{i=1}^{M}k_i\mu_i - (\mu_{M+1}^0 - \sum_{i=1}^{M}k_i\mu_i^0) > 0\,;
+\label{2014apr25a2}
 \end{equation}
- Since $\mu_i^0 \in (0, 1)$, from the definition of $G_s$, we can see that point $(\mu_1, ... ,\mu_M, \mu_{M+1})=(\mu_1^0, ..., \mu_M^0, 0)$ belongs to $G_s$. 
-Since point $(\mu_1, ... ,\mu_M, \mu_{M+1})=(\mu_1^0, ..., \mu_M^0, 0)$ satisfies \eqref{2015feb02a1} and since $G_s$ lies entirely on one side of hyper plane $\Pi$, to make all points belonging to $G_s$ lies on the same side of $\Pi$ as point $(\mu_1, ... ,\mu_M, \mu_{M+1})=(\mu_1^0, ..., \mu_M^0, 0)$ does, we must have
+and the other part on the other side of $\Pi$ consisting of points that satisfy
+\begin{equation}
+\mu_{M+1} - \sum_{i=1}^{M}k_i\mu_i - (\mu_{M+1}^0 - \sum_{i=1}^{M}k_i\mu_i^0) < 0\,.
+\label{2015apr25a3}
+\end{equation}
+
+Consider a point with coordinate $(\mu_1, ... ,\mu_M, \mu_{M+1})=(\mu_1^0, ..., \mu_M^0, 0)$. Since $\mu_{M+1}^0 > 0$, we can see this point satisfy equation \eqref{2015apr25a3}. Since $\mu_i^0 \in (0, 1)$, from the definition of $G_s$, we can see that point $(\mu_1, ... ,\mu_M, \mu_{M+1})=(\mu_1^0, ..., \mu_M^0, 0)$ belongs to $G_s$. 
+Since point $(\mu_1, ... ,\mu_M, \mu_{M+1})=(\mu_1^0, ..., \mu_M^0, 0)$ satisfies \eqref{2015apr25a3} and since $G_s$ lies entirely on one side of hyper plane $\Pi$, to make all points belonging to $G_s$ lies on the same side of $\Pi$ as point $(\mu_1, ... ,\mu_M, \mu_{M+1})=(\mu_1^0, ..., \mu_M^0, 0)$ does, we must have
 %Since $G_s$ lies entirely on one side of \eqref{PI2}, and since when $(\mu_1, ... ,\mu_M, \mu_{M+1})=(\mu_1^0, ..., \mu_M^0, 0)$, the left-hand of \eqref{PI2} is smaller than the right-hand, we must have 
 \begin{equation}
 \mu_{M+1} - \sum_{i=1}^{M}k_i\mu_i -  ( \mu_{M+1}^0 - \sum_{i=1}^{M}k_i\mu_i^0) \leq 0
@@ -367,11 +361,11 @@ Up to now, we have proved that if  $(\bmu_0^0, \mu_{M+1}^0) \in G'$ and $\bmu_0^
 \label{PPI3}
 \end{equation}
 holds for  $(\mu_1, \mu_2, ...\mu_{M+1}) \in G_s$. 
-\eqref{PPI3} suggests that for a point on the surface $G'$ with coordinate $(\bmu_0^0, \mu_{M+1})$, if $\bmu_0^0 \in (0, 1)$, then there exists a hyper  plane $\Pi$ 
+\eqref{PPI3} suggests that for a point on the hyper surface $G'$ with coordinate $(\bmu_0^0, \mu_{M+1}^0)$, if $\bmu_0^0 \in (0, 1)$, then there exists a hyper  plane $\Pi$ 
 \[
 \mu_{M+1} - \sum_{i=1}^{M}k_i\mu_i =  \mu_{M+1}^0 - \sum_{i=1}^{M}k_i\mu_i^0 
 \]
-such that $G_s$ lies entirely below $\Pi$. 
+such that $G_s$ lies entirely on one side of $\Pi$. 
 
 In the following, we will show that the constants $k_i$ in \eqref{PPI3} must be non-negative.   
 

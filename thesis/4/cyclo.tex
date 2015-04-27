@@ -10,7 +10,7 @@ We consider a cognitive radio system where the spectrum can be occupied by exact
   \caption{Block Diagram for  cyclostationary detector.}
   \label{pic:1222a0}
 \end{figure}
-The measuring device observes $M$ samples of the noise version signals that could present in the channel and output a suitable testing statistics. With this statistics, the testing device employs MENP to determine the status of the channel. The input of measuring device is
+The measuring device observes $M$ samples of the received signals and form  a suitable testing statistics. With this statistics, the testing device employs the MENP framework to determine the status of the channel. The input of measuring device is
 \begin{equation}
   \mathbf{x} = \begin{cases}
 	\mathbf{n}\;\;\;\;\;\;&\text{when $H_0$ is true}\\
@@ -29,7 +29,7 @@ where
   \end{cases}
   \label{xssn}
 \end{equation}
-Assume each OFDM frame contains a CP sequence of length $l_C$ followed by a data sequence of length $l_D$, so the total length of an OFDM frame is $l_0 = l_C+l_D$. In general case, when there are signal transmitting, the receiver is not synchronized to the transmitted signal, i.e. $s_{A0}$ ( or $s_{B0}$) is not the first symbol of an OFDM frame. Let $\tau$ represents the synchronization mismatch. That is, when $\tau = 0$, $s_0$ is the first symbol of an OFDM frame; when $\tau = l_C+l_D -1$, $s_0$ is the last symbol of an OFDM frame. Let $M = Kl_0$, we can see when perfect synchronization the detector would observe $K$ complete  OFDM frames (as it is shown in Figure \ref{pic:1222ext0}); otherwise, the detector would observe $K-1$ complete OFDM frames and $2$ incomplete OFDM frames (as it is shown in Figure \ref{pic:1222a2}). 
+Assume each OFDM frame contains a CP sequence of length $l_C$ followed by a data sequence of length $l_D$, so the total length of an OFDM frame is $l_0 = l_C+l_D$. In the general case the receiver is not synchronized to the transmitted signal, i.e. $s_{A0}$ ( or $s_{B0}$) is not the first symbol of a received OFDM frame. Let $\tau$ represents the synchronization mismatch. That is, when $\tau = 0$, $s_0$ is the first symbol of an OFDM frame; when $\tau = l_C+l_D -1$, $s_0$ is the last symbol of an OFDM frame. Let $M = Kl_0$, we can see when perfect synchronization the detector would observe $K$ complete  OFDM frames (as it is shown in Figure \ref{pic:1222ext0}); otherwise, the detector would observe $K-1$ complete OFDM frames and $2$ incomplete OFDM frames (as it is shown in Figure \ref{pic:1222a2}). 
 \begin{figure}[!t]
   \centering 
   \includegraphics[width=\textwidth]{4/fig2.eps}
@@ -44,18 +44,23 @@ Assume each OFDM frame contains a CP sequence of length $l_C$ followed by a data
   \label{pic:1222a2}
 \end{figure}
 Assume $\tau = \tau_0$, let $\Theta_{\tau_0}$ denote the set of subscripts such that if $i \in \Theta_{\tau_0}$,  $s_i$ is a symbol of CP sequence. From Figure \ref{pic:1222ext0} we can see, in the situation of perfect synchronization ( $\tau_0 =0$), when $i \in [Ql_0, Ql_0+l_c-1]$, the associated $s_i$ belongs to CP sequence. 
-From Figure \ref{pic:1222a2}, we can see in the situation of imperfect synchronization, $i \in \Theta_{\tau_0}$ only if $i + \tau_0 \in [Ql_0, Ql_0+l_c -1]$ ($Q = 0, 1, \cdots, K-1$). 
-Let $\Theta_{\tau_0}^k$ denotes set $\Theta_{\tau_0}$ subtract set $\{k\}$ ($k$ is also a subscript), i.e.
+From Figure \ref{pic:1222a2}, we can see in the situation of imperfect synchronization, $i \in \Theta_{\tau_0}$ only if $i + \tau_0 \in [Ql_0, Ql_0+l_c -1]$ ($Q = 0, 1, \cdots, K-1$), i.e.
 \begin{equation}
-  \{i\in \Theta_{\tau_0}^k| i + \tau_0 \in [Ql_0, Ql_0+l_c -1] (Q = 0, 1, \cdots, K-1)\;\;\;\; \text{and}\;\;\;\; i\neq k\}
-  \label{definitionof}
+  \Theta_{\tau_0} = \{
+i | i + \tau_0 \in [Ql_0, Ql_0+l_c -1], Q = 0, \cdots, K-1
+  \}
+\end{equation}
+Let $\Theta_{\tau_0}^k$ denotes set of subscript $i$ such that  $i \in \Theta_{\tau_0}$ and $i \neq k$, i.e.
+\begin{equation}
+  \Theta_{\tau_0}^k =  \{i | i \in \Theta_{\tau_0} \;\;\;\; \text{and}\;\;\;\; i\neq k\}\,.
+  \label{definitionoftau0k}
 \end{equation}
 
-Like in  \cite{axell2011optimal}, we make following assumptions about the noise and signal: (1) all noise samples are i.i.d. mean zero circularly symmetric complex Gaussian (CSCG) with variance $\sigma_n^2$; (2) under hypothesis $H_1$ the transmitted signal symbols in the data sequence are i.i.d. zero mean CSCG with variance $\sigma_{s_A}^2$ (or $\sigma_{s_B}^2$ under hypothesis $H_2$); (3) if $s_i$ is a sample in CP sequence, then we have $s_i = s_{i+l_D}$. 
+Similar to \cite{axell2011optimal}, we make the following assumptions about the noise and signal: (1) all noise samples are i.i.d. mean zero circularly symmetric complex Gaussian (CSCG) with variance $\sigma_n^2$; (2) under hypothesis $H_1$ the transmitted signal symbols in the data sequence are i.i.d. zero mean CSCG with variance $\sigma_{s_A}^2$ (or $\sigma_{s_B}^2$ under hypothesis $H_2$); (3) if $s_i$ is a sample in CP sequence, then we have $s_i = s_{i+l_D}$. 
 
 The CP structure could introduce strong cyclostationarity to the transmitted OFDM signals ($s_A$ or $s_B$) \cite{lunden2010robust}. 
-Let $r_i=x_ix_j^\ast$ ($j=i+l_D$), \cite{lunden2007spectrum} shows $r_i$ exhibit cyclic property at frequency $\alpha = \frac{Q}{l_0}$ ($Q = \pm1, \pm2, \cdots$). In this case, we consider a single cyclic detector at frequency $\alpha = \frac{1}{l_0}$. 
-Let $\mathbf{r}$ denote the vector of $r_i$, since the length of vector $\mathbf{x}$ is $M$, the length of $\mathbf{r}$ is $M - l_D$. For simple representation, let $N = M - l_D$.
+Let $r_i=x_ix_j^\ast$ ($j=i+l_D$), \cite{lunden2007spectrum} shows that $r_i$ exhibit cyclic property at frequency $\alpha = \frac{Q}{l_0}$ ($Q = \pm1, \pm2, \cdots$). In this case, we consider a single cyclic detector at frequency $\alpha = \frac{1}{l_0}$. 
+Let $\mathbf{r}$ denote the vector of $r_i$. Since the length of $\mathbf{x}$ is $M$, the length of $\mathbf{r}$ is $M - l_D$. For simple representation, let $N = M - l_D$.
 Like in most related literature reviews (c.f. \cite{lunden2010robust} \cite{dandawate1994statistical}), the cyclic-covariance estimator for frequency $\alpha$ can be written as
 \begin{equation}
   \hat{R}(l_D, \alpha) = \frac{1}{N}\sum_{i=0}^{N-1} r_ib_i\,.
@@ -79,10 +84,10 @@ and
   I = \Im(\hat{R}(l_D, \alpha))\,.
 \]
 By observing $y$, a realization  of $Y$, the testing device determines the status of the channel.
-According to \cite{lunden2010robust}, $\hat{R}(l_D, \alpha)$ subjects to normal distribution for a large $K$, so $Y$ has the two-dimensional Gaussian distribution \cite{goodman1963statistical}.
+According to \cite{lunden2010robust}, $\hat{R}(l_D, \alpha)$ has a complex normal distribution for a large $K$, so $Y$ has a two-dimensional Gaussian distribution \cite{goodman1963statistical}.
 Let $\bar{c}$ and $\tilde{c}$ denote the real and imaginary parts of a complex number $c$ respectively. Then, $b_i = \bar{b}_i + j\tilde{b}_i$  and $r_i = \bar{r}_i + j\tilde{r}_i$. 
 
-The moment function of $\bar{r}_i, \tilde{r}_i$ are derived in \cite{axell2011optimal} and summarized in Table \ref{Table1} on page \pageref{Table1}.
+The moments of $\bar{r}_i, \tilde{r}_i$ are derived in \cite{axell2011optimal} and summarized in Table \ref{Table1}.
 
 % Please add the following required packages to your document preamble:
 % \usepackage{multirow}
@@ -147,7 +152,7 @@ Since noise samples are governed by i.i.d Gaussian distribution with zero mean a
   \label{equ:Erirk}
 \end{equation} 
 
-Without losing generality, we assume $i < k$. Consider the situation when $k \notin \Theta_{\tau_0}$, in such case $s_k$ is a symbol in data sequence so $s_k$ and $s_{k+l_D}$ are independent, i.e. $s_k$ and $s_l$ are independent. Furether more, it is easy to see $s_l$ is also independent with $s_i$ and $s_j$. Hence \eqref{equ:Erirk} can be written as
+Without losing generality, we assume $i < k$. Consider the situation when $k \notin \Theta_{\tau_0}$, in such case $s_k$ is a symbol in data sequence so $s_k$ and $s_{k+l_D}$ are independent, i.e. $s_k$ and $s_l$ are independent. Furthermore, it is easy to see that $s_l$ is also independent of $s_i$ and $s_j$. Hence \eqref{equ:Erirk} can be written as
 \begin{equation}
   \begin{split}
   E[\bar{r}_i\bar{r}_k] = &E[\bar{s}_i\bar{s}_j\bar{s}_k]E[\bar{s}_l] + E[\bar{s}_i\bar{s}_j\tilde{s}_k]E[\tilde{s}_l] + E[\tilde{s}_i\tilde{s}_j\bar{s}_k]E[\bar{s}_l] + E[\tilde{s}_i\tilde{s}_j\tilde{s}_k]E[\tilde{s}_l]\\
@@ -202,7 +207,7 @@ E[\bar{r}_i\tilde{r}_j] = &E[(\bar{s}_i\bar{s}_j + \bar{s}_i\bar{n}_j +\tilde{s}
 \end{split}
 \label{Eriiiirk}
 \end{equation}
-expand \eqref{Eriiiirk} and eliminate zero value items (items including noise samples), we have 
+Expanding \eqref{Eriiiirk} and eliminating the zero value items (items including noise samples), we have 
  \begin{equation}
    E[\bar{r}_i\tilde{r}_k] = E[\bar{s}_j\tilde{s}_k\bar{s}_i\bar{s}_l] -  E[\bar{s}_j\bar{s}_k\bar{s}_i\tilde{s}_l] + E[\tilde{s}_j\tilde{s}_k\tilde{s}_i\bar{s}_l] - E[\tilde{s}_j\bar{s}_k\tilde{s}_i\tilde{s}_l]\,.
    \label{equ:1213a}
@@ -238,14 +243,14 @@ Next consider $E[\tilde{r}_i\tilde{r}_k]$, which can be written as
   \end{split}
   \label{EEEErrrrr}
 \end{equation}
-expand \eqref{EEEErrrrr} and eliminate zero value items (items including noise samples), we have 
+Expanding \eqref{EEEErrrrr} and eliminating the zero value items (items including noise samples), we have 
 \begin{equation}
   E[\tilde{r}_i\tilde{r}_k] = E[\bar{s}_j\tilde{s}_k\tilde{s}_i\bar{s}_l] -  E[\bar{s}_j\bar{s}_k\tilde{s}_i\tilde{s}_l] - E[\tilde{s}_j\tilde{s}_k\bar{s}_i\bar{s}_l] +E[\tilde{s}_j\bar{s}_k\bar{s}_i\tilde{s}_l]
   \label{1213night}
 \end{equation}
 
-Similar with $E[\bar{r}_i\bar{r}_k]$, when $i$ (or $k$) does not belong to set $\Theta_{\tau_0}$, we can see
-$   E[\tilde{r}_i\tilde{r}_k] = 0$.
+Similar to $E[\bar{r}_i\bar{r}_k]$, when $i$ (or $k$) does not belong to set $\Theta_{\tau_0}$, we can see
+that $   E[\tilde{r}_i\tilde{r}_k] = 0$.
 
 When $i, k \in \Theta_{\tau_0}$, equation \eqref{1213night} can be written as
 \begin{equation}
@@ -257,7 +262,7 @@ When $i, k \in \Theta_{\tau_0}$, equation \eqref{1213night} can be written as
 \end{equation}
 Hence we can conclude $E[\tilde{r}_i\tilde{r}_k] = 0$ when $i \neq k$. 
 
-The statistics of $E[\bar{r}_i\bar{r}_k]$, $E[\bar{r}_i\tilde{r}_k]$ and $E[\tilde{r}_i\tilde{r}_k]$ under hypothesis $H_1$ are summarized in Table \ref{Table3} on page \pageref{Table3}. 
+The statistics of $E[\bar{r}_i\bar{r}_k]$, $E[\bar{r}_i\tilde{r}_k]$ and $E[\tilde{r}_i\tilde{r}_k]$ under hypothesis $H_1$ are summarized in Table \ref{Table3}. 
 \begin{table}[h]
 \centering
 \begin{tabular}{|c|c|c|c|c|}
@@ -303,7 +308,7 @@ Let $a_i = \frac{1}{N}b_i$, then we have
   \label{definitionofRI}
 \end{equation}
 
-Let $\mu_{AR|\tau_0}$ $\mu_{AI|\tau_0}$ denote the mean of $R$ and $I$ with synchronization mismatch $\tau=\tau_0$ respectively. By using the statistics of $r_i$ in Table \ref{Table1}, we compute  $\mu_{AR|\tau_0}$ and  $\mu_{AI|\tau_0}$:
+Let $\mu_{AR|\tau_0}$ $\mu_{AI|\tau_0}$ denote the mean of $R$ and $I$ with synchronization mismatch $\tau=\tau_0$ respectively. By using the statistics of $r_i$ from Table \ref{Table1}, we compute  $\mu_{AR|\tau_0}$ and  $\mu_{AI|\tau_0}$:
 \begin{equation}
   \begin{split}
 	\mu_{AR|\tau_0} =  E[R] = &\sum_{i=0}^{N-1}\bar{a}_iE[\bar{r}_i] - \sum_{i=0}^{N-1}\tilde{a}_iE[\tilde{r}_i]\\
@@ -330,45 +335,60 @@ The  second order statistic of $R$ and $I$ can be computed as
 	= &\sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\bar{a}_i\bar{a}_kE[\bar{r}_i\bar{r}_k] - \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\bar{a}_i\tilde{a}_kE[\bar{r}_i\tilde{r}_k] - \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\bar{a}_i\tilde{a}_kE[\bar{r}_i\tilde{r}_k] + \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\tilde{a}_i\tilde{a}_kE[\tilde{r}_i\tilde{r}_k]\,.
   \end{split}
   \label{ER^2}
-\end{equation}
-Substitute the statistics of $r_i$ in Table \ref{Table1}, Table \ref{Table3} and eliminate the zero elements, we have
-\begin{equation}
+ \end{equation}
+ From Table \ref{Table3}, we can see $E[\bar{r}_i\bar{r}_k]$ is not equal to zero when one of following situation is satisfied: (1) $i = k$; (2) $i, k \in \Theta_{\tau_0}$ and $i \neq k$. Hence  we have 
+ \[
+\sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\bar{a}_i\bar{a}_kE[\bar{r}_i\bar{r}_k] = 
+\sum_{i=0}^{N-1}\bar{a}_i^2E[\bar{r}_i^2] + \sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\bar{a}_kE[\bar{r}_i\bar{r}_k]
+ \]
+ where $\Theta_{\tau_0}^i$ is defined in \eqref{definitionoftau0k}. Similarly from Table \ref{Table3} we have
+ \[
+   E[\bar{r}_i\tilde{r}_k]= 0 
+ \]
+ and
+ \[
+\sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\tilde{a}_i\tilde{a}_kE[\tilde{r}_i\tilde{r}_k]  =  \sum_{i=0}^{N-1}\tilde{a}_i^2E[\tilde{r}_i^2]
+ \]
+
+ Hence \eqref{ER^2} can be written as
+ \begin{equation}
   \begin{split}
 	E[R^2]  
 	= &\sum_{i=0}^{N-1}\bar{a}_i^2E[\bar{r}_i^2] + \sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\bar{a}_kE[\bar{r}_i\bar{r}_k] + \sum_{i=0}^{N-1}\tilde{a}_i^2E[\tilde{r}_i^2]\\
+    = &(\sum_{i\in\Theta_{\tau_0}}\bar{a}_i^2E[\bar{r}_i^2] + \sum_{i\notin\Theta_{\tau_0}}\bar{a}_i^2E[\bar{r}_i^2])  + \sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\bar{a}_kE[\bar{r}_i\bar{r}_k] + (\sum_{i\in\Theta_{\tau_0}}\tilde{a}_i^2E[\tilde{r}_i^2] + \sum_{i\notin\Theta_{\tau_0}}\tilde{a}_i^2E[\tilde{r}_i^2]) \\
 	= &\sum_{i\in\Theta_{\tau_0}}\bar{a}_i^2E[\bar{r}_i^2] + \sum_{i\in\Theta_{\tau_0}}\tilde{a}_i^2E[\tilde{r}_i^2] + \sum_{i\notin\Theta_{\tau_0}}(\bar{a}_i^2E[\bar{r}_i^2]+\tilde{a}_i^2E[\tilde{r}_i^2]) + \sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\bar{a}_kE[\bar{r}_i\bar{r}_k]\\
 	= &\sum_{i\in\Theta_{\tau_0}}\bar{a}_i^2(8\sigma_{s_A}^4+4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4) + \sum_{i\in\Theta_{\tau_0}}\tilde{a}_i^2(4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4) + \sum_{i\notin\Theta_{\tau_0}}(\tilde{a}_i^2+\bar{a}_i^2)2(\sigma_n^2+\sigma_{s_A}^2)^2\\
     &+4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\bar{a}_k\\
   = & \sum_{i\in\Theta_{\tau_0}}(\tilde{a}_i^2 + \bar{a}_i^2)(4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4)+ \sum_{i\in\Theta_{\tau_0}}\bar{a}_i^2 8\sigma_{s_A}^4 + \sum_{i\notin\Theta_{\tau_0}}(\tilde{a}_i^2+\bar{a}_i^2)2(\sigma_n^2+\sigma_{s_A}^2)^2\\
     &+4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\bar{a}_k
   \end{split}
-  \label{}
+  \label{2015apr25a0}
 \end{equation}
 From the definition of $a_i$ and $b_i$, we have
 \begin{equation}
   \bar{a}_i^2 + \tilde{a}_i^2 =\frac{1}{N^2}
   \label{aisquare}
 \end{equation}
-hence \eqref{ER} can be written as
+hence \eqref{2015apr25a0} can be written as
 \begin{equation}
   \begin{split}
 	E[R^2] = &\frac{1}{N^2}\sum_{i\in\Theta_{\tau_0}}  (4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4)+ 8\sum_{i\in\Theta_{\tau_0}}\bar{a}_i^2\sigma_{s_A}^4 + \frac{2}{N^2}\sum_{i\notin\Theta_{\tau_0}}(\sigma_n^2+\sigma_{s_A}^2)^2 + 4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\bar{a}_k\\
-	= &\frac{1}{N^2}\#\Theta_{\tau_0}(4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4) +  8\sum_{i\in\Theta_{\tau_0}}\bar{a}_i^2\sigma_{s_A}^4+ \frac{2}{N^2}(N - \#\Theta_{\tau_0})(\sigma_n^2+\sigma_{s_A}^2)^2\\
+	= &\frac{1}{N^2}|\Theta_{\tau_0}|(4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4) +  8\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\bar{a}_i^2+ \frac{2}{N^2}(N - |\Theta_{\tau_0}|)(\sigma_n^2+\sigma_{s_A}^2)^2\\
     &+4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\bar{a}_k
   \end{split}
   \label{ER2}
 \end{equation}
-where $\#\Theta_{\tau_0}$ is the cardinality of set $\Theta_{\tau_0}$. 
-Let $\sigma_{AR|\tau_0}$ $\sigma_{AI|\tau_0}$ denote the standard deviation of $R$ and $I$ when synchronization mismatch is $\tau_0$, 
+where $|\Theta_{\tau_0}|$ is the cardinality of set $\Theta_{\tau_0}$. 
+Let $\sigma_{AR|\tau_0}$ $\sigma_{AI|\tau_0}$ denote the standard deviation of $R$ and $I$ when the synchronization mismatch is $\tau_0$. Then 
 \begin{equation}
   \begin{split}
 	\sigma_{AR|\tau_0} = &\sqrt{E[R^2] - E[R]^2}\\
-	= &\left(\frac{1}{N^2}\#\Theta_{\tau_0}(4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4) + \frac{2}{N^2}(N - \#\Theta_{\tau_0})(\sigma_n^2+\sigma_{s_A}^2)^2 +  8\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\bar{a}_i^2 \right.\\
+	= &\left(\frac{1}{N^2}|\Theta_{\tau_0}|(4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4) + \frac{2}{N^2}(N - |\Theta_{\tau_0}|)(\sigma_n^2+\sigma_{s_A}^2)^2 +  8\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\bar{a}_i^2 \right.\\
   &\left.+ 4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\bar{a}_k- \mu_{AR|\tau_0}^2\right)^\frac{1}{2}\,.
   \end{split}
   \label{deviationR}
 \end{equation}
-Let $\beta_{\tau_0}^A = \frac{1}{N^2}\#\Theta_{\tau_0}(4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4) + \frac{2}{N^2}(N - \#\Theta_{\tau_0})(\sigma_n^2+\sigma_{s_A}^2)^2$ and above equation can be written as
+Let $\beta_{\tau_0}^A = \frac{1}{N^2}|\Theta_{\tau_0}|(4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4) + \frac{2}{N^2}(N - |\Theta_{\tau_0}|)(\sigma_n^2+\sigma_{s_A}^2)^2$. Then theabove equation can be written as
 \begin{equation}
   \sigma_{AR|\tau_0} = \left(\beta_{\tau_0}^A+  8\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\bar{a}_i^2 
     + 4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\bar{a}_k- \mu_{AR|\tau_0}^2\right)^\frac{1}{2}\,.
@@ -381,7 +401,7 @@ Similarly, we compute $\sigma_{AI|\tau_0}$ and $E[RI]$ as
 	E[I^2] = &E[(\sum_{i=0}^{N-1}\tilde{a}_i\bar{r}_i + \sum_{i=0}^{N-1}\bar{a}_i\tilde{r}_i)(\sum_{i=0}^{N-1}\tilde{a}_i\bar{r}_i + \sum_{i=0}^{N-1}\bar{a}_i\tilde{r}_i)]\\
 	= &\sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\tilde{a}_i\tilde{a}_kE[\bar{r}_i\bar{r}_j] + \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\tilde{a}_i\bar{a}_jE[\bar{r}_i\tilde{r}_j] +\sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\tilde{a}_i\bar{a}_jE[\bar{r}_i\tilde{r}_j] + \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\bar{a}_i\bar{a}_jE[\tilde{r}_i\tilde{r}_j] \\
 	= &\sum_{i=0}^{N-1}(\bar{a}_i^2E[\tilde{r}^2] + \tilde{a}_i^2E[\bar{r}_i^2]) +4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\tilde{a}_i\tilde{a}_k\\
-	= &\frac{1}{N^2}\#\Theta_{\tau_0}(4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4) + \frac{2}{N^2}(N - \#\Theta_{\tau_0})(\sigma_n^2+\sigma_{s_A}^2)^2 +  8\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\tilde{a}_i^2\\
+	= &\frac{1}{N^2}|\Theta_{\tau_0}|(4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4) + \frac{2}{N^2}(N - |\Theta_{\tau_0}|)(\sigma_n^2+\sigma_{s_A}^2)^2 +  8\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\tilde{a}_i^2\\
     &+4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\tilde{a}_i\tilde{a}_k
   \end{split}
   \label{EI^2}
@@ -393,7 +413,7 @@ Similarly, we compute $\sigma_{AI|\tau_0}$ and $E[RI]$ as
 \begin{equation}
   \begin{split}
 	\sigma_{AI|\tau_0} = &\sqrt{E[I^2] - E[I]^2}\\
-	= &\left(\frac{1}{N^2}\#\Theta_{\tau_0}(4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4) + \frac{2}{N^2}(N - \#\Theta_{\tau_0})(\sigma_n^2+\sigma_{s_A}^2)^2 +  8\sum_{i\in\Theta_{\tau_0}}\tilde{a}_i^2\sigma_{s_A}^4 \right.\\
+	= &\left(\frac{1}{N^2}|\Theta_{\tau_0}|(4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4) + \frac{2}{N^2}(N - |\Theta_{\tau_0}|)(\sigma_n^2+\sigma_{s_A}^2)^2 +  8\sum_{i\in\Theta_{\tau_0}}\tilde{a}_i^2\sigma_{s_A}^4 \right.\\
 	&\left.+ 4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\tilde{a}_i\tilde{a}_k- \mu_{AI|\tau_0}^2	\right)^\frac{1}{2}\\
     = &\left(\beta_{\tau_0}^A +  8\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\tilde{a}_i^2+ 4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\tilde{a}_i\tilde{a}_k- \mu_{AI|\tau_0}^2	\right)^\frac{1}{2}\,.
   \end{split}
@@ -409,14 +429,44 @@ Similarly, we compute $\sigma_{AI|\tau_0}$ and $E[RI]$ as
 	= &\sum_{i=0}^{N-1} \sum_{k=0}^{N-1} \bar{a}_i\tilde{a}_kE[\bar{r}_i\bar{r}_k] + 
 	\sum_{i=0}^{N-1} \sum_{k=0}^{N-1} \bar{a}_i\bar{a}_kE[\bar{r}_i\tilde{r}_k] - 
 	\sum_{i=0}^{N-1} \sum_{k=0}^{N-1} \tilde{a}_i\tilde{a}_kE[\tilde{r}_i\bar{r}_k] - 
-	\sum_{i=0}^{N-1} \sum_{k=0}^{N-1} \tilde{a}_i\bar{a}_kE[\tilde{r}_i\tilde{r}_k]\\
-	= &\sum_{i=0}^{N-1}\tilde{a}_i\bar{a}_iE[\bar{r}_i^2] - \sum_{i=0}^{N-1}\tilde{a}_i\bar{a}_iE[\tilde{r}_i^2] + 4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\tilde{a}_k\\
-	= &8\sigma_{s_A}^4\sum_{i\in \Theta_{\tau_0}}\tilde{a}_i\bar{a}_i+ 4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\tilde{a}_k
+	\sum_{i=0}^{N-1} \sum_{k=0}^{N-1} \tilde{a}_i\bar{a}_kE[\tilde{r}_i\tilde{r}_k]
 	\label{ERI}
   \end{split}
 \end{equation}
-The last step comes from the fact that when $i \notin \Theta_{\tau_0}$, $E[\bar{r}_i^2] = E[\tilde{r}_i^2] = 2(\sigma_{s_A}^2 + \sigma_{n}^2)^2$; when $i \notin \Theta_{\tau_0}$, $E[\bar{r}_i^2] - E[\tilde{r}_i^2] = 8\sigma_{s_A}^4$.
-Let $\rho_{A|\tau_0}$ represents the correlation between $R$ and $I$ when synchronization mismatch is $\tau_0$, we have
+ From Table \ref{Table3}, we can see $E[\bar{r}_i\bar{r}_k]$ is not equal to zero when one of following situation is satisfied: (1) $i = k$; (2) $i, k \in \Theta_{\tau_0}$ and $i \neq k$. Hence  we have 
+ \[
+\sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\bar{a}_i\tilde{a}_kE[\bar{r}_i\bar{r}_k] = 
+\sum_{i=0}^{N-1}\bar{a}_i\tilde{a}_kE[\bar{r}_i^2] + \sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\tilde{a}_kE[\bar{r}_i\bar{r}_k]
+ \]
+ where $\Theta_{\tau_0}^i$ is defined in \eqref{definitionoftau0k}. Similarly from Table \ref{Table3} we have
+ \[
+   E[\bar{r}_i\tilde{r}_k]= 0 
+ \]
+ and
+ \[
+   \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\tilde{a}_i\bar{a}_kE[\tilde{r}_i\tilde{r}_k]  =  \sum_{i=0}^{N-1}\tilde{a}_i\bar{a}_kE[\tilde{r}_i^2]
+ \]
+ Hence \eqref{ERI} can be written as
+ \begin{equation}
+   \begin{split}
+     E[RI] = &\sum_{i=0}^{N-1}\tilde{a}_i\bar{a}_iE[\bar{r}_i^2]  + \sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\tilde{a}_kE[\bar{r}_i\bar{r}_k] - \sum_{i=0}^{N-1}\tilde{a}_i\bar{a}_iE[\tilde{r}_i^2]\\
+     = &\sum_{i=0}^{N-1}\tilde{a}_i\bar{a}_iE[\bar{r}_i^2] - \sum_{i=0}^{N-1}\tilde{a}_i\bar{a}_iE[\tilde{r}_i^2] + \sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\tilde{a}_kE[\bar{r}_i\bar{r}_k]
+    \label{2015apr27a1}
+   \end{split}
+ \end{equation}
+ From Table \ref{Table3}, we know: (1) if $i \notin \Theta_{\tau_0}$, we have $E[\bar{r}_i^2] = E[\tilde{r}_i^2]$; (2) if $i \in \Theta_{\tau_0}$, we have $E[\bar{r}_i^2] -  E[\tilde{r}_i^2] = 8\sigma_{s_A}^4$. Hence we have 
+ \begin{equation}
+   \sum_{i=0}^{N-1}\tilde{a}_i\bar{a}_iE[\bar{r}_i^2] - \sum_{i=0}^{N-1}\tilde{a}_i\bar{a}_iE[\tilde{r}_i^2] = 
+8\sigma_{s_A}^4\sum_{i\in \Theta_{\tau_0}}\tilde{a}_i\bar{a}_i
+   \label{2015apr27a0}
+ \end{equation}
+ Substituting \eqref{2015apr27a0} into \eqref{2015apr27a1} leads to 
+ \begin{equation}
+   E[RI] = 8\sigma_{s_A}^4\sum_{i\in \Theta_{\tau_0}}\tilde{a}_i\bar{a}_i+ 4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\tilde{a}_k
+   \label{ERI2015apr27}
+ \end{equation}
+
+Let $\rho_{A|\tau_0}$ represents the correlation coefficient between $R$ and $I$ when synchronization mismatch is $\tau_0$. Then we have
 \begin{equation}
   \begin{split}
 	\rho_{A|\tau_0} = &\frac{E[RI]-\mu_{AR|\tau_0}\mu_{AI|\tau_0}}{\sigma_{AR|\tau_0}\sigma_{AI|\tau_0}}\\
@@ -450,7 +500,7 @@ $\begin{bmatrix}
   \label{disRI}
 \end{multline}
 
-In practise, the synchronization mismatch is governed by discrete niform distribution between $0$ and $l_0-1$. Hence in the situation of unknown $\tau$, the distribution of  
+In practice, the synchronization mismatch is governed by discrete niform distribution between $0$ and $l_0-1$. Hence in the situation of unknown $\tau$, the distribution of  
 $\begin{bmatrix}
   R \\
   I
@@ -464,7 +514,7 @@ under hypothesis $H_1$ can be written in form of
   \end{split}
   \label{f_1underH1}
 \end{equation}
-and the statistic of $R$ and $I$  under hypothesis $H_1$ are summarized in Table \ref{Table2} on page \pageref{Table2}.
+and the statistic of $R$ and $I$  under hypothesis $H_1$ are summarized in Table \ref{Table2}.
 \begin{table}[h]
 \centering
   \begin{tabular}{|c|c|}
@@ -495,7 +545,7 @@ under hypothesis $H_2$ can be written in form of
   \end{split}
   \label{f_2underH2}
 \end{equation}
-Let $\beta_{\tau_0}^B = \frac{1}{N^2}\#\Theta_{\tau_0}(4\sigma_{s_B}^2\sigma_n^2+2\sigma_n^4) + \frac{2}{N^2}(N - \#\Theta_{\tau_0})(\sigma_n^2+\sigma_{s_B}^2)^2$, 
+Let $\beta_{\tau_0}^B = \frac{1}{N^2}|\Theta_{\tau_0}|(4\sigma_{s_B}^2\sigma_n^2+2\sigma_n^4) + \frac{2}{N^2}(N - |\Theta_{\tau_0}|)(\sigma_n^2+\sigma_{s_B}^2)^2$, 
 the statistics of $R$ and $I$ under hypothesis $H_2$ are given in Table \ref{Table4} on page \pageref{Table4}. 
 \begin{table}[h]
 \centering
@@ -545,7 +595,7 @@ The second order statistics of $R$ and $I$ are
     \end{split}
   \label{ER^2noise}
 \end{equation}
-Since all noise samples are independent and $r_i = n_i, r_k = n_k$,  we can see when $i\neq k$ $E[\bar{r}_i\bar{r}_k] = E[\bar{r}_i\tilde{r}_k] = E[\tilde{r}_i\tilde{r}_k] = 0$. Inserting the statistics in Table \ref{Table1} and Table \ref{Table3}, the above equation can be simplified as 
+Since all noise samples are independent and $r_i = n_in_{i+l_D}, r_k = n_kn_{k + l_D}$,  we can see when $i\neq k$ $E[\bar{r}_i\bar{r}_k] = E[\bar{r}_i\tilde{r}_k] = E[\tilde{r}_i\tilde{r}_k] = 0$. Using Table \ref{Table1}, the above equation can be simplified as 
 \begin{equation}
 \begin{split}
 E[R^2] = &\sum_{i=0}^{N-1}(\bar{a}_i^2E[\bar{r}_i^2] + \tilde{a}_i^2E[\tilde{r}_i^2])\\
@@ -589,7 +639,7 @@ and
   \label{deviationR}
 \end{equation}
 
-Further more, since $E[RI] = E[R]E[I]$ = 0 and $R, I$ are combined gaussian distributed,  we know under hypothesis $H_0$ they are independent. Hence the distribution of $\begin{bmatrix}
+Further, since $E[RI] = E[R]E[I]$ = 0 and $R, I$ are jointly Gaussian, we have that under $H_0$ they are independent. Hence the distribution of $\begin{bmatrix}
   R \\
   I
 \end{bmatrix}$ under hypothesis $H_0$ can be written as
@@ -603,8 +653,8 @@ Further more, since $E[RI] = E[R]E[I]$ = 0 and $R, I$ are combined gaussian dist
 \end{equation}
 \subsection{Numerical Results}
 
-Assume $l_c = 4$ $l_d = 16$ $l_0 = 20$ and $K = 50$. We set the variance of noise is $\sigma_n^2 = 0.1$, the variance of signal $s_A$ and $s_B$ are $\sigma_{s_A}^2 = 0.05$ and $\sigma_{s_B}^2 = 0.3$ respectively. 
-The value of $\mu_R$ $\mu_I$ $\sigma_R^2$ $\sigma_I^2$ and $\rho$ under hypotheses $H_1$ and $H_2$ are derived from Table \ref{Table3} and Table \ref{Table2} and illustrated in Table \ref{Table11} on page \pageref{Table11} and Table \ref{Table12} on page \pageref{Table12}. 
+Assume $l_c = 4$ $l_d = 16$ $l_0 = 20$ and $K = 50$. We set the variance of noise to $\sigma_n^2 = 0.1$, and the variance of signal $s_A$ and $s_B$ to $\sigma_{s_A}^2 = 0.05$ and $\sigma_{s_B}^2 = 0.3$ respectively. 
+The value of $\mu_R$ $\mu_I$ $\sigma_R^2$ $\sigma_I^2$ and $\rho$ under hypotheses $H_1$ and $H_2$ are derived from Table \ref{Table3} and Table \ref{Table2} and illustrated in Table \ref{Table11} and Table \ref{Table12}. 
 \begin{table}[h]
 \centering
 \begin{tabular}{|c|c|c|c|c|c|}
