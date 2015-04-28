@@ -22,7 +22,7 @@
 
 
 % Custom packages
-\usepackage[first]{datestamp}	% Datestamp on first page of each chapter
+%\usepackage[first]{datestamp}	% Datestamp on first page of each chapter
 \usepackage[fancyhdr]{McECEThesis}	% Thesis style
 \usepackage{McGillLogo}		% McGill University crest
 
@@ -39,7 +39,7 @@
 % Above margin is space above the header
 % Below margin is space below footer
 \abovemargin = 1.1in
-\belowmargin = 0.75in
+\belowmargin = 0.75in  %0.75in
 
 \newcommand{\rmnum}[1]{\romannumeral #1}
 \newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
@@ -53,26 +53,28 @@
 \begin {document}
 
 %===== Title page
-
+\nopagebreak[4]
 \title{The Extended Neyman-Pearson Hypotheses Testing Framework and its Application to Spectrum Sensing in Cognitive Wireless Communication}
 \author{An Jiang}
 \date{\Month\ \number\year}
 \organization{%
-  \\[0.2in]
+%  \\[0.2in]
   \McGillCrest {!}{1in}\\	% McGill University crest
-  \\[0.1in]
+%  \\[0.1in]
   Department of Electrical \& Computer Engineering\\
   McGill University\\
   Montreal, Canada}
+
 \note{%
   {\color{red} \hrule height 0.4ex}
-  \vskip 3ex
+  \vskip 1ex
   A thesis submitted to McGill University in partial fulfillment of the
   requirements for the degree of Master of Engineering (M.Eng) in Electrical Engineering.
-  \vskip 3ex
+  \vskip 1ex
   \copyright\ \the\year\ An Jiang
 }
 
+  \pagebreak[2]
 \maketitle
 
 %===== Justification, spacing for the main text

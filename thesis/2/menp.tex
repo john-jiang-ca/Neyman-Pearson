@@ -50,7 +50,7 @@ Before we proceed, we will define some notations for easy presentation.
 Define the set 
 \[\mathcal{A}_\mathbf{c} = \{
   \mathbf{P}_f | 0 \leq P_{f_i} \leq c_i
-  \;\;i=1, 2, ..., M\}\,.
+  \;\;i=1,  ..., M\}\,.
 \]
 and the set 
 \[
@@ -60,38 +60,37 @@ As it is defined in section 2.2.2, $F(\mathbf{a})$ denotes the largest $P_d$ tha
 
 \noindent \textbf{Modified Extended Neyman Pearson Test}
 \noindent \textit{
-  For a given $\mathbf{c}$, assume $\delta^\ast$ is the decision rule solving \eqref{equ: problemstate}. 
-  \\\textnormal{(\rmnum{1})} Assume $\mathbf{c} \in \alpha^+$ and $\mathbf{c} \in (0^M, 1^M)$. Then there must be a $\mathbf{k}^0 = [k_1^0, k_2^0, ..., k_M^0]^T$ with $k_i^0 \geq 0\;\;i=1, ..., M$ satisfying
+  \\\textnormal{(\rmnum{1})} Assume $\mathbf{c} \in \alpha^+$. Then there must be a $\mathbf{k}^0 = [k_1^0, k_2^0, ..., k_M^0]^T$ with $k_i^0 \geq 0\;\;i=1, ..., M$ satisfying
 }
 \begin{equation}
 \label{equ:Pf}
   P_{f_i}^0 = \int_{-\infty}^{\infty} u(f_0(x) - \sum_{j=1}^{M}k_j^0f_j(x))f_i(x)\mathrm{d}x = c_i \;\; (i= 1, 2, ..., M)\,.
 \end{equation}
 \textit{
-    and the decision rule $\delta^\ast $ is:
+    and the decision rule $\delta^0$ is:
 }
 \begin{equation}
 \label{equ:decision rule}
-\delta^\ast:\;\;\;\;f_0(x) \substack{H_0 \\ \geq \\ < \\ \bar{H}_0} \sum_{i=1}^{M}k_i^0f_i(x)
+\delta^0:\;\;\;\;f_0(x) \substack{H_0 \\ \geq \\ < \\ \bar{H}_0} \sum_{i=1}^{M}k_i^0f_i(x)
 \end{equation}
 \textit{
-  \noindent \textnormal{(\rmnum{2})} Assume $\mathbf{c} \notin \alpha^+$ and $\mathbf{c} \in (0^M, 1^M)$. Let $\mathcal{C} = \mathcal{A}_{\mathbf{c}} \cap \alpha^+$, and $\mathbf{a}^0 = [a_1^0, a_2^0, ..., a_M^0]^T \in \mathcal{C}$ be such that
+  \noindent \textnormal{(\rmnum{2})} Assume $\mathbf{c} \notin \alpha^+$ and $\mathbf{c} \in (0, 1)^M$. Let $\mathcal{C} = \mathcal{A}_{\mathbf{c}} \cap \alpha^+$, and $\mathbf{a}^0 = [a_1^0, a_2^0, ..., a_M^0]^T \in \mathcal{C}$ be such that
 }
 \begin{equation}
 \label{equ: F0}
 \max_{\mathbf{a} \in \mathcal{C}}\;\;\;\;F(\mathbf{a}) = F(\mathbf{a}^0)\\
 \end{equation}
 \textit{
-Since $\mathbf{a}^0 \in \mathcal{A}_{\mathbf{c}} \cap \alpha^+$, from \textnormal{(\rmnum{1})} we have that there exists a vector $\mathbf{k}^0$ such that \eqref{equ:decision rule}  maximizes $P_d$ under the constraints $P_{f_i} = a_i^0, \;i=1, ..., M$. Hence, since $a_i^0 \leq c_i^0, \;i=1, ..., M$ $\delta^\ast$ solves \eqref{equ: problemstate}.
+Since $\mathbf{a}^0 \in \mathcal{A}_{\mathbf{c}} \cap \alpha^+$, from \textnormal{(\rmnum{1})} we have that there exists a vector $\mathbf{k}^0$ such that \eqref{equ:decision rule}  maximizes $P_d$ under the constraints $P_{f_i} = a_i^0, \;i=1, ..., M$. Hence, since $a_i^0 \leq c_i^0, \;i=1, ..., M$ this decision rule solves \eqref{equ: problemstate}.
 }
 
-There are repetition between the ENP test and MENP test. When $\mathbf{c} \in   \alpha^+$ and $\mathbf{c} \in (0^M, 1^M)$, the ENP test and the MENP test are the same. However, in the situation when $\mathbf{c} \notin \alpha^+$ and $\mathbf{c} \in (0^M, 1^M)$, only the MENP test can provide the solution for \eqref{equ: problemstate}. 
+Comparing the ENP test and the MENP test, we can see there is repetition between them. When $\mathbf{c} \in   \alpha^+$, the ENP test and the MENP test provide the same solution. However, in the situation when $\mathbf{c} \notin \alpha^+$, $\mathbf{c} \in (0, 1)^M$, only the MENP test can provide the solution for \eqref{equ: problemstate}. 
 
-Next we will show that the \textbf{Modified Extended Neyman Pearson Test} can provide an optimal solution for \eqref{equ: problemstate} when $f_0(x) \neq 0$ a.e. on its domain.
+Next we will show that the \textbf{Modified Extended Neyman Pearson Test} can provide an optimal solution for \eqref{equ: problemstate}.
 
 \textbf{PROOF}
 MENP (\rmnum{1}) is a direct conclusion from ENP Lemma (\rmnum{3}). In the following,  we give the proof for MENP (\rmnum{2}). First we will show $\mathcal{C}$ is not an empty set. 
-Let $\delta^\ast$ be the optimal decision rule for \eqref{equ: problemstate}, and hence
+Assume $\delta^\ast$ is the optimal decision rule for \eqref{equ: problemstate}, we have  
 \begin{equation}
 \label{condition 1}
 P_{f_i}(\delta^\ast) \leq c_i\;\;\;\;i=1, 2, ..., M\,.
@@ -125,8 +124,8 @@ and decision rule $\delta^0$ maximizes $P_d$ under the constraints $P_{f_i} = a^
 \] 
 From the definition of $F(\mathbf{a})$, we know $F(\mathbf{a^0}) = P_d(\delta^0)$.
 
-In the following, we  will prove $\delta^0$ is the optimal solution for \eqref{equ: problemstate}. 
-Assume  $\delta^0$ does not achieve the largest $P_d$ under constraints $P_{f_i} \leq c_i$ ($i=1, ..., M$). Since $\delta^\ast $ is defined to be the optimal decision rule for \eqref{equ: problemstate}, we must have 
+In the following, we  will prove $\delta^0$ is the optimal solution for \eqref{equ: problemstate}, i.e. $P_d(\delta^0) = P_d(\delta^\ast)$. 
+Assume  $\delta^0$ does not achieve the largest $P_d$ under constraints $P_{f_i} \leq c_i$ ($i=1, ..., M$). Then  we must have 
 \begin{equation}
 \label{condition 2}
 P_{d}(\delta^\ast) > P_d(\delta^0)\,.
@@ -142,7 +141,7 @@ As $\mathbf{a}' \in \mathcal{C}$ and $F(\mathbf{a'}) > F(\mathbf{a^0})$, it is c
 
 Hence we conclude $\delta^0$ is the optimal solution for \eqref{equ: problemstate}. $\blacksquare$
 
-Both MENP (\rmnum{1}) and MNEP (\rmnum{2}) defined to be the show that the optimal decision rule for \eqref{equ: problemstate} is an ENP decision rule  with non-negative parameters such that: (a) its $P_{f_i}$ is smaller or equal to its associated constraints; (b) it maximizes $P_d$ among all ENP decision rule with non-negative parameters satisfying (a).
+Both MENP (\rmnum{1}) and MNEP (\rmnum{2}) show that the optimal decision rule for \eqref{equ: problemstate} is an ENP decision rule  with non-negative parameters such that: (a) its $P_{f_i}$ is smaller or equal to its associated constraints; (b) it maximizes $P_d$ among all ENP decision rule with non-negative parameters satisfying (a).
 
 Base on above discussion, 
 next we present a look-up table method of finding $\mathbf{k}$. For a specific $\mathbf{c}$, we conduct an exhaustive search over a grid of $k_1, ..., k_M$ ($k_i \geq 0$) depending on the required accuracy and store these results ($P_d, \mathbf{P}_f, \mathbf{k}$) into a lookup table $T_1$. 

@@ -1,7 +1,7 @@
 % This is chapter 2 section 2
 
 \section{Properties of ENP Test}
-This section presents an example and three Lemmas to illustrate the properties of the ENP test. 
+This section presents an example and four Lemmas to illustrate the properties of the ENP test. 
 \subsection{An Example}
 Assume three hypotheses given as:
 \begin{equation}
@@ -23,10 +23,10 @@ From \eqref{equ: pf and pd} we have
   \label{2015jan29a1}
 \end{equation}
 
-By separately increasing $k_1$ and $k_2$ from $-30$ to $30$ with steps $0.05$, we can calculate the associated $P_{f_1}, P_{f_2}$ and $P_d$ with \eqref{2015jan29a1}. 
-Plotting $P_d$ as a function of $P_{f_1}$ and $P_{f_2}$ results in the ROC surface illustrated in Fig. \ref{fig: 2.1} and Fig. \ref{fig: 2.2mar9}. The contour of the ROC surface is given in Fig. \ref{fig: 2.3mar9}. The region enclosed by the two dash lines in Fig. \ref{fig: 2.1}, Fig. \ref{fig: 2.2mar9} and Fig. \ref{fig: 2.3mar9} are the set of points achieved by non-negative $k_1, k_2$.  
+By separately increasing $k_1$ and $k_2$ from $-30$ to $30$ with steps $0.01$, we can calculate the associated $P_{f_1}, P_{f_2}$ and $P_d$ using \eqref{2015jan29a1}. 
+Plotting $P_d$ as a function of $P_{f_1}$ and $P_{f_2}$ results in the ROC surface illustrated in Fig. \ref{fig: 2.1} and Fig. \ref{fig: 2.2mar9}. Fig. \ref{fig: 2.1} and Fig. \ref{fig: 2.2mar9} are the ROC surface when observing from different viewpoint. The contour of the ROC surface is given in Fig. \ref{fig: 2.3mar9}. The region enclosed by the two dash lines in Fig. \ref{fig: 2.1}, Fig. \ref{fig: 2.2mar9} and Fig. \ref{fig: 2.3mar9} are the set of points when $k_1, k_2$ in \eqref{2015jan29a1} are non-negative.  
 
-It is interesting to observe that under the ENP test framework, not all $(P_{f_1}, P_{f_2})$  ($P_{f_1}, P_{f_2}\in [0, 1]$) value may have an associated $P_d$. This is because for a given $c_1, c_2 \in [0, 1]$, it is possible that no decision rule can satisfy
+It is interesting to observe that under the ENP test framework, not all $(P_{f_1}, P_{f_2})$  ($P_{f_1}, P_{f_2}\in [0, 1]$) values may have an associated $P_d$. This is because for a given $c_1, c_2 \in [0, 1]$, it is possible that no decision rule can satisfy
 \[
   P_{f_1} = \int_{\mathcal{S}}f_1(x)\mathrm{d}x =  c_1
 \]
@@ -70,12 +70,17 @@ Recall in the case of binary hypotheses testing (Traditional Neyman Pearson Test
 Now let us consider points $A$ and $B$ on the ROC surface of Fig. \ref{fig: 2.1}, which are marked with '$\bullet$' and '$\blacksquare$', respectively.  The coordinate of point $A$ is $(P_{f_1}, P_{f_2}, P_d) = (0.350, 0.315, 0.730)$; and the coordinate of point $B$ is  $(P_{f_1}, P_{f_2}, P_d) = (0.355, 0.730, 0.690)$. We can see even through $P_{f_1}$ and $P_{f_2}$ of point $B$ is larger than these of point $A$, the $P_d$ of point $B$ is  smaller than that of point $A$.  
 Unlike NP test, where $P_d$ is always non-decreasing with $P_f$, in the case of multiple hypotheses testing (Extended Neyman Pearson Test), $P_d$ is not always a non-decreasing function of  $P_{f_i}$ ($i=1, ..., M$).
 
-Furthermore, we can see in the case of point $B$, the value of $P_d$ is smaller than the value of $P_{f_2}$, i.e. under ENP test framework, $P_d \geq P_{f_i}$  ($i = 1, ..., M$) does not always hold (Qian Zhang arrives at the same conclusion in  \cite{zhang1999design, zhang2000efficient} using a different method). 
+Furthermore, we can see in the case of point $B$, the value of $P_d$ is smaller than the value of $P_{f_2}$, i.e. under the ENP framework, $P_d \geq P_{f_i}$  ($i = 1, ..., M$) does not always hold (Qian Zhang arrives at the same conclusion in  \cite{zhang1999design, zhang2000efficient} using a different method). 
 
-\subsection{Three Lemmas for the ENP Test}
-Next we presents three lemmas concerning the properties of the ENP test.
+\subsection{Four Lemmas for the ENP Test}
+Next we presents four lemmas concerning the properties of the ENP test.
 
-\noindent \textbf{Lemma 1}
+%LEMMA 1
+\newcommand{\bmu}{\boldsymbol{\mu}}
+\typeout{}
+\input{2/exist}
+
+\noindent \textbf{Lemma 2}
 \noindent \textit{
 Let $f_0$, $f_1$, ..., $f_M$ be PDFs defined on set $\mathcal{D}$. For given constants $c_1, ..., c_M \in (0, 1)$, let $\mathcal{C}_\delta$ denote a set of decision rules,  such that for any $\delta \in \mathcal{C}_\delta$, we have $P_{f_i} \leq c_i$, $i = 1, \cdots, M$.
 %No. 1
@@ -91,14 +96,11 @@ Moreover, under decision rule $\delta^\ast$ if  $P_{f_i} < c_i$, then $k_i = 0$.
 In \cite{zhang1999design, zhang2000efficient} Qian Zhang also arrives at the conclusion that if $P_{f_i} < c_i$ then $k_i = 0$, through analysing the change of $P_d$ with respect to $k_i$ (he shows if $P_{f_i} < c_i$ and $k_i > 0$, then the $P_d$ can be further increased through adjusting the value of $k_i$). In the following we will prove \textbf{Lemma 1} using a mathematical method such that used in \cite{LehmannTest, dantzig1951fundamental} to prove the ENP Lemma (\rmnum{4}).
 
 \noindent\textbf{PROOF}
-\newcommand{\bmu}{\boldsymbol{\mu}}
-We start by defining 
- some notations for easy presentation.
-Define $\mathbf{c}^T = [c_1, c_2, ..., c_M]$, $\boldsymbol{\mu}_0^T = [\mu_1, ..., \mu_M]$, $\mathbf{k}^T = [k_1, k_2, ..., k_M]$ and  $\mathbf{P}_f^T = [P_{f_1}, P_{f_2}, ..., P_{f_M}]$ that are vectors in an $M$ dimensional Euclidean  space. Let $\bmu^T = [\bmu_0^T, \mu_{M+1}]$ denote a vector in $M+1$ dimensional Euclidean space. 
+We start by defining some notations for easy presentation.
+Define $\mathbf{c}^T = [c_1, c_2, ..., c_M]$ and  $\mathbf{k}^T = [k_1, k_2, ..., k_M]$  are vectors in an $M$ dimensional Euclidean  space. Let $\bmu^T = [\bmu_0^T, \mu_{M+1}]$ denote a vector in $M+1$ dimensional Euclidean space. 
 
 Let $F(\boldsymbol{\mu}_0)$ denote the largest $P_d$ under the constraints $P_{f_i} = \mu_i\;\;i = 1, ..., M$.
 Let $G(\boldsymbol{\mu}_0)$ denote the largest $P_d$ under the constraints $P_{f_i} \leq \mu_i\;\;i = 1, ..., M$.
-Let $P_d(\delta)$, $P_{f_i}(\delta)$ denote the $P_d$ and $P_{f_i}$ achieved by using decision rule $\delta$.
 By $\mathbf{A} \leq \mathbf{B}$, $\mathbf{A} = \mathbf{B}$ and  $\mathbf{A} \geq \mathbf{B}$ we mean that every element of $\mathbf{A}$ is no larger than, equal to and no smaller than its corresponding element of $\mathbf{B}$, respectively. 
 By $\mathbf{A} \neq 0$, we mean that every element of $\mathbf{A}$ is not equal to $0$. 
 Let $G'$ denote the hyper surface in an $M+1$ dimensional Euclidean Space defined by 
@@ -120,14 +122,8 @@ G_s =  \{(\boldsymbol{\mu}_0, \mu_{M+1}) | \boldsymbol{\mu}_0\in [0, 1]^M, \mu_{
 \caption{Relationship between $G'$ and $G_s$}
 \label{fig: feb18}
 \end{figure}
-Let us define the set of points in an $M+1$ dimensional Euclidean space 
-\begin{equation}
-\begin{split}
-  \mathcal{N} = \{(\mu_1, \mu_2, ..., \mu_{M+1}) &| \mu_i = \int_{\mathcal{S}}f_i(x)\mathrm{d}x \;\;i=1, ..., M,\\
-                                            &  \mu_{M+1}=\int_{\mathcal{S}}f_{0}(x)\mathrm{d}x \;\;\text{ for an $\mathcal{S}$}\}
-\end{split}
-\end{equation}
-We can see that $\mathcal{N}$ is the set of point $(\bmu_0, \mu_{M+1})=(\mathbf{P}_f(\delta), P_d(\delta))$, where $\delta$ is a decision rule. Moreover, from the definition of $\mathcal{N}$ and $F(\bmu_0)$ we can conclude that for a point $(\bmu_0, \mu_{M+1}) \in \mathcal{N}$, we have $\mu_{M+1} \leq F(\bmu_0)$. 
+As we defined in \eqref{2015apr28a0}, $\mathcal{N}$ is the set of point $(\bmu_0, \mu_{M+1})=(\mathbf{P}_f(\delta), P_d(\delta))$, where $\delta$ is a decision rule.
+From the definition of $\mathcal{N}$ and $F(\bmu_0)$ we can conclude that for a point $(\bmu_0, \mu_{M+1}) \in \mathcal{N}$, we have $\mu_{M+1} \leq F(\bmu_0)$. 
 To see this, assume $\mu_{M+1} > F(\bmu_0)$. Then there is a decision rule $\delta$ such that $P_{f_i}(\delta) = \mu_i$ ($i=1, ..., M$) and $P_d(\delta) > F(\bmu_0)$. This is contradictory to the definition of $F(\bmu_0)$. 
 
 The whole proof consists of the following parts: first we prove $G(\boldsymbol{\mu}_0)$ is a convex, non-decreasing function, and when $\boldsymbol{\mu}_0 > 0$, $G(\boldsymbol{\mu}_0) > 0$;
@@ -187,13 +183,13 @@ This suggests $G(\bmu_0)$ is a non-decreasing function of $\bmu_0$.
 This is not contradictory with the conclusion that 
 $P_d$ is not always increasing with $P_{f_i}\;\;(i=1, 2, \cdots, M)$  (we arrived at this conclusion in Chapter 2 section 1.1 on page 12).  This is because $\bmu_0$ is not the probability of false alarms but rather the constraints of the probability of false alarm. 
 
-Next we will show when $\boldsymbol{\mu}_0 > 0^M$, the value of $G(\boldsymbol{\mu}_0)$ is strictly larger than zero.
+Next we will show when $\boldsymbol{\mu}_0 > 0^M$, then $G(\boldsymbol{\mu}_0)$ is strictly larger than zero.
 Let $\delta^\ast$ be the optimal decision rule for $\bmu_0$. By optimal  we mean that this decision rule provides the largest $P_d$ under the constraints $\mathbf{P}_f \leq \bmu_0$, i.e. $P_d(\delta^\ast) = G(\bmu_0)$. Consider two decision rule $\delta^1$ and $\delta^2$ defined as 
 \begin{equation}
   \label{2015feb09a4}
   \delta^1:\;\; \begin{cases}
-    &x \;\;\;\text{ $H_0$ if } x \in \emptyset \\
-    &x \;\;\;\text{ $\bar{H}_0$ if } x \in \mathcal{D}
+    & \;\;\;\text{ $H_0$ if } x \in \emptyset \\
+    & \;\;\;\text{ $\bar{H}_0$ if } x \in \mathcal{D}
   \end{cases}
 \end{equation}
 and
@@ -286,14 +282,14 @@ According to the definition of $G(\bmu_0)$ and $F(\bmu_0)$, we can conclude $G(\
 This implies $\mu_{M+1}^N \in [0, G(\bmu_0^N)]$ and we have  
 \begin{equation}
 \begin{split}
-&\mu_i^0 \in [0, 1]\;\;\;\;(i=1, 2, ..., M)\\
-&\mu_{M+1}^0 \in [0, G(\bmu_0^0)]
+&\mu_i^N \in [0, 1]\;\;\;\;(i=1, 2, ..., M)\\
+&\mu_{M+1}^N \in [0, G(\bmu_0^N)]
 \end{split}
 \end{equation}
 showing that point $(\mu_1^N, ..., \mu_{M+1}^N)$ also belongs to set $G_s$.
 Hence we proved $\mathcal{N} \subseteq G_s$. 
 
-In the following we will show for a point $(\mu_1^0, \mu_2^0, ..., \mu_{M+1}^0)$ that belongs to $G'$ ($\mu_i^0 \in (0, 1), i = 1, 2, ..., M$), there exists a non-negative $\mathbf{k}$ such that  
+In the following we will show for any point $(\mu_1^0, \mu_2^0, ..., \mu_{M+1}^0)$ that belongs to $G'$ ($\mu_i^0 \in (0, 1), i = 1, 2, ..., M$), there exists a non-negative $\mathbf{k}$ such that  
 \[
 \mu_{M+1} - \sum_{i=1}^{M}k_i\mu_i \leq \mu_{M+1}^0 - \sum_{i=1}^{M}k_i\mu_i^0
 \]
@@ -310,7 +306,7 @@ k_{M+1}^0\mu_{M+1} - \sum_{i=1}^{M}k_i^0\mu_i = k_{M+1}^0\mu_{M+1}^0 - \sum_{i=1
 \end{equation}
 
 In section 2.2.2, we have proved that when $\mu^0_i\neq 0$ ($i=1, ..., M$), $\mu_{M+1}^0 = G(\bmu_0^0) $ is strictly larger than zero, i.e. $\mu_{M+1}^0 > 0$. Hence there exists a $\mu_{M+1}' = \frac{\mu_{M+1}^0}{2}$ such that $\mu_{M+1}' \in (0, \mu_{M+1}^0)$. From the definition of $G_s$, it is easy to see that point $(\mu^0_1, ..., \mu^0_M, \mu_{M+1}')$ also belongs to set $G_s$. Besides that, since $\mu^0_i \in (0, 1)$ ($i=1, ..., M$) and $\mu_{M+1}' \in (0, \mu_{M+1}^0)$, it can be concluded that point $(\mu_1^0, \mu_2^0, ..., \mu_{M+1}')$ is an inner point of $G_s$.
-From previous discussion, we can see that point $(\mu^0_1, ..., \mu^0_M, \mu_{M+1}')$ is not contained in hyperplane $\Pi$, i.e.
+From previous discussion about hyperplane $\Pi$, we can see that point $(\mu^0_1, ..., \mu^0_M, \mu_{M+1}')$ is not contained in hyperplane $\Pi$, i.e.
 \[
 k_{M+1}^0\mu_{M+1}' - \sum_{i=1}^{M}k_i^0\mu_i^0 \neq k_{M+1}^0\mu_{M+1}^0 - \sum_{i=1}^{M}k_i^0\mu_i^0
 \]
@@ -342,8 +338,9 @@ and the other part on the other side of $\Pi$ consisting of points that satisfy
 \label{2015apr25a3}
 \end{equation}
 
-Consider a point with coordinate $(\mu_1, ... ,\mu_M, \mu_{M+1})=(\mu_1^0, ..., \mu_M^0, 0)$. Since $\mu_{M+1}^0 > 0$, we can see this point satisfy equation \eqref{2015apr25a3}. Since $\mu_i^0 \in (0, 1)$, from the definition of $G_s$, we can see that point $(\mu_1, ... ,\mu_M, \mu_{M+1})=(\mu_1^0, ..., \mu_M^0, 0)$ belongs to $G_s$. 
-Since point $(\mu_1, ... ,\mu_M, \mu_{M+1})=(\mu_1^0, ..., \mu_M^0, 0)$ satisfies \eqref{2015apr25a3} and since $G_s$ lies entirely on one side of hyper plane $\Pi$, to make all points belonging to $G_s$ lies on the same side of $\Pi$ as point $(\mu_1, ... ,\mu_M, \mu_{M+1})=(\mu_1^0, ..., \mu_M^0, 0)$ does, we must have
+Since point $(\mu_1^0, ..., \mu_M^0, \mu_{M+1}')$ is not contained in hyperplane $\Pi$, it either satisfies \eqref{2014apr25a2} or \eqref{2015apr25a3}. From the condition that $\mu_{M+1}' = \frac{\mu_{M+1}^0}{2}$ and $\mu_{M+1}^0 > 0$, we can see point  $(\mu_1^0, ..., \mu_M^0, \mu_{M+1}')$ satisfies \eqref{2015apr25a3}.  
+Furthermore, since $\mu_i^0 \in (0, 1)$, from the definition of $G_s$, we can see that point $(\mu_1^0, ..., \mu_M^0, \mu_{M+1}')$ belongs to set $G_s$. 
+Since point $(\mu_1^0, ..., \mu_M^0, \mu_{M+1}')$ satisfies \eqref{2015apr25a3} and since $G_s$ lies entirely on one side of hyper plane $\Pi$, to make all points belonging to $G_s$ lies on the same side of $\Pi$ as point $(\mu_1^0, ..., \mu_M^0, \mu_{M+1}')$ does, we must have
 %Since $G_s$ lies entirely on one side of \eqref{PI2}, and since when $(\mu_1, ... ,\mu_M, \mu_{M+1})=(\mu_1^0, ..., \mu_M^0, 0)$, the left-hand of \eqref{PI2} is smaller than the right-hand, we must have 
 \begin{equation}
 \mu_{M+1} - \sum_{i=1}^{M}k_i\mu_i -  ( \mu_{M+1}^0 - \sum_{i=1}^{M}k_i\mu_i^0) \leq 0
@@ -361,7 +358,7 @@ Up to now, we have proved that if  $(\bmu_0^0, \mu_{M+1}^0) \in G'$ and $\bmu_0^
 \label{PPI3}
 \end{equation}
 holds for  $(\mu_1, \mu_2, ...\mu_{M+1}) \in G_s$. 
-\eqref{PPI3} suggests that for a point on the hyper surface $G'$ with coordinate $(\bmu_0^0, \mu_{M+1}^0)$, if $\bmu_0^0 \in (0, 1)$, then there exists a hyper  plane $\Pi$ 
+\eqref{PPI3} suggests that for a point on the hyper surface $G'$ with coordinate $(\bmu_0^0, \mu_{M+1}^0)$, where $\bmu_0^0 \in (0, 1)$, then there exists a hyper  plane $\Pi$ 
 \[
 \mu_{M+1} - \sum_{i=1}^{M}k_i\mu_i =  \mu_{M+1}^0 - \sum_{i=1}^{M}k_i\mu_i^0 
 \]
@@ -369,19 +366,19 @@ such that $G_s$ lies entirely on one side of $\Pi$.
 
 In the following, we will show that the constants $k_i$ in \eqref{PPI3} must be non-negative.   
 
-Now consider another point on $G'$ with coordinate $(\mu_1^0, ..., \mu_l^0+\epsilon, ..., \mu_M^0, \mu_{M+1}')$, where $\epsilon > 0$ and $l$ is an integer between $1$ and $M$.  Since both points $(\mu_1^0, ..., \mu_l^0, ..., \mu_M^0, \mu_{M+1}^0)$ and $(\mu_1^0, ..., \mu_l^0+\epsilon, ..., \mu_M^0, \mu_{M+1}')$ lies on $G'$, we can conclude $G([\mu_1^0, ..., \mu_l^0, ...., \mu_M^0]) = \mu_{M+1}^0$ and $G([\mu_1^0, ..., \mu_l^0 + \epsilon, ...., \mu_M^0]) = \mu_{M+1}'$. As we proved $G(\bmu_0)$ is a non-decreasing function, we must have  $\mu_{M+1}' \geq \mu_{M+1}^0$.
-Substituting $(\mu_1^0, ..., \mu_l^0+\epsilon, ..., \mu_M^0, \mu_{M+1}')$ into the left side of \eqref{PPI3}, we have
+Now consider another point on $G'$ with coordinate $(\mu_1^0, ..., \mu_l^0+\epsilon, ..., \mu_M^0, \mu_{M+1}'')$, where $\epsilon > 0$ and $l$ is an integer between $1$ and $M$.  Since both points $(\mu_1^0, ..., \mu_l^0, ..., \mu_M^0, \mu_{M+1}^0)$ and $(\mu_1^0, ..., \mu_l^0+\epsilon, ..., \mu_M^0, \mu_{M+1}'')$ lies on $G'$, we can conclude $G([\mu_1^0, ..., \mu_l^0, ...., \mu_M^0]) = \mu_{M+1}^0$ and $G([\mu_1^0, ..., \mu_l^0 + \epsilon, ...., \mu_M^0]) = \mu_{M+1}''$. As we proved $G(\bmu_0)$ is a non-decreasing function, we must have  $\mu_{M+1}'' \geq \mu_{M+1}^0$.
+Substituting $(\mu_1^0, ..., \mu_l^0+\epsilon, ..., \mu_M^0, \mu_{M+1}'')$ into the left side of \eqref{PPI3}, we have
 \begin{equation}
-\mu_{M+1}' - k_1\mu_1^0 - ... - k_l(\mu_l^0+\epsilon)- ... - k_M\mu_M^0 \leq \mu_{M+1}^0 - k_1\mu_1^0 - ... - k_l\mu_l^0- ... - k_M\mu_M^0
+\mu_{M+1}'' - k_1\mu_1^0 - ... - k_l(\mu_l^0+\epsilon)- ... - k_M\mu_M^0 \leq \mu_{M+1}^0 - k_1\mu_1^0 - ... - k_l\mu_l^0- ... - k_M\mu_M^0
 \end{equation}
 \begin{equation}
-\therefore \mu_{M+1}' - k_l(\mu_l^0+\epsilon)\leq \mu_{M+1}^0 - k_l\mu_l^0
+\therefore \mu_{M+1}'' - k_l(\mu_l^0+\epsilon)\leq \mu_{M+1}^0 - k_l\mu_l^0
 \end{equation}
 \begin{equation}
-\mu_{M+1}' - \mu_{M+1}^0 \leq k_l\epsilon
+\mu_{M+1}'' - \mu_{M+1}^0 \leq k_l\epsilon
 \end{equation}
 \begin{equation}
-\therefore k_l \geq \frac{\mu_{M+1}' - \mu_{M+1}^0}{\epsilon} \geq 0 \;\;\;\;l = 1, 2, \cdots, M
+\therefore k_l \geq \frac{\mu_{M+1}'' - \mu_{M+1}^0}{\epsilon} \geq 0 \;\;\;\;l = 1, 2, \cdots, M
 \label{2015feb16a1}
 \end{equation}
 From \eqref{2015feb16a1} we can see that the constants $k_l$ ($l = 1, 2, \cdots, M$) in \eqref{PPI3} are non-negative.
@@ -524,7 +521,7 @@ Upon examination  the optimal decision rule for a given probability of false ala
 \noindent Let $f_i(x) \;\;i=0, 1, ..., M$ be the PDF induced by hypothesis $H_i$, and define $g(x) = f_0(x) - \sum_{j=1}^{M} k_jf_j(x)$ where $k_i$  ($i = 1, 2, ..., M$) are real numbers. Let $\mathcal{D} \in \mathbb{R}$ be an open set such that $\int_{\bar{\mathcal{D}}}f_i(x)=0\;\;i = 1, 2, ..., M$. Furthermore,  if $x_0$ is a solution  for $g(x) = 0 \;\;(x \in \mathcal{D})$, then there exists an integer $n$ such that  the $n$-th order derivative of $g(x_0)$ is not equal to zero $(g^{(n)}(x_0) \neq 0)$.
 }
 
-\noindent \textbf{Lemma 2}
+\noindent \textbf{Lemma 3}
 \textit{
 \noindent Under}
 \textbf{Condition 1}
@@ -644,7 +641,7 @@ proving that \eqref{pro: component} holds.
 
 Q.E.D.
 
-\noindent \textbf{Lemma 3}
+\noindent \textbf{Lemma 4}
 \textit{
 \noindent
 Under}

@@ -1,0 +1,57 @@
+\noindent \textbf{Lemma 1}
+\noindent \textit{Let $f_0$, $f_1$, ..., $f_M$ be PDFs defined on set $\mathcal{D}$. For given constants $c_1, ..., c_M \in (0, 1)$, let $\mathcal{C}_\delta$ denote a set of decision rules,  such that for $\delta \in \mathcal{C}_\delta$, we have $P_{f_i} \leq c_i$, $i = 1, \cdots, M$. Then:
+ among all members of $\mathcal{C}_\delta$ there exists one that maximizes $P_d$.}
+
+\noindent \textbf{PROOF}
+Define $\boldsymbol{\mu}_0^T = [\mu_1, ..., \mu_M]$  and  $\mathbf{P}_f^T = [P_{f_1}, P_{f_2}, ..., P_{f_M}]$ that are vectors in an $M$ dimensional Euclidean  space. Let $\bmu^T = [\bmu_0^T, \mu_{M+1}]$ denote a vector in $M+1$ dimensional Euclidean space. 
+
+Let $P_d(\delta)$, $P_{f_i}(\delta)$ denote the $P_d$ and $P_{f_i}$ achieved by using decision rule $\delta$.
+%By $\mathbf{A} \leq \mathbf{B}$, $\mathbf{A} = \mathbf{B}$ and  $\mathbf{A} \geq \mathbf{B}$ we mean that every element of $\mathbf{A}$ is no larger than, equal to and no smaller than its corresponding element of $\mathbf{B}$, respectively. 
+%By $\mathbf{A} \neq 0$, we mean that every element of $\mathbf{A}$ is not equal to $0$. 
+
+Let us define the set of points in $M+1$ dimensional Euclidean
+\begin{equation}
+\begin{split}
+\label{2015apr28a0}
+  \mathcal{N} = \{(\mu_1, \mu_2, ..., \mu_{M+1}) &| \mu_i = \int_{\mathcal{S}}f_i(x)\mathrm{d}x \;\;i=1, ..., M,\\
+                                            &  \mu_{M+1}=\int_{\mathcal{S}}f_{0}(x)\mathrm{d}x \;\;\text{ for an $\mathcal{S}$}\}
+\end{split}
+\end{equation}
+We can see that $\mathcal{N}$ is the set of point $(\bmu_0, \mu_{M+1})=(\mathbf{P}_f(\delta), P_d(\delta))$, where $\delta$ is a decision rule. According to \cite{LehmannTest}, set $\mathcal{N}$ is a closed set. We consider one special point in set $\mathcal{N}$. When $\mathcal{S} = \emptyset$, we have $\mu_i = 0$, $i = 1, ..., M+1$, i.e. point $(\mu_1, ..., \mu_{M+1}) = (0, ..., 0)$ is an element of set $\mathcal{N}$.
+
+Define the set of points in $M+1$ dimensional Euclidean Space 
+\begin{equation}
+\mathcal{P} = \{
+(\mu_1, \mu_2, ..., \mu_{M+1}) | \bmu_0 \in [0^M, \mathbf{c}], \mu_{M+1} \in [0, 1]
+\}\,.
+\end{equation}
+Clearly set $\mathcal{P}$ is also a closed set and point $(\mu_1, ..., \mu_{M+1}) = (0, ..., 0)$ is also an element  of set $\mathcal{P}$.
+
+
+Let $\mathcal{K} = \mathcal{N} \cap \mathcal{P}$, i.e.
+\begin{equation}
+\label{apr14a0}
+\mathcal{K} = \{
+(\mu_1, \mu_2, ..., \mu_{M+1}) | (\bmu_0, \mu_{M+1}) \in \mathcal{N} \text{ and } \bmu_0 \in [0^M, \mathbf{c}], \mu_{M+1} \in [0, 1]
+\}\,.
+\end{equation}
+
+Point $(\mu_1, ..., \mu_{M+1}) = (0, ..., 0)$ belongs to both $\mathcal{N}$ and $\mathcal{P}$, hence it belongs to set $\mathcal{K}$. This suggests set $\mathcal{K}$ is not an empty set.
+
+As both $\mathcal{N}$ and $\mathcal{K}$ are closed set, $\mathcal{K}$ is also closed. Besides that, for any point  $(\mu_1, \mu_2, ..., \mu_{M+1}) \in \mathcal{K}$, we have $\mu_i \in [0, c_i]$ and $\mu_{M+1} \in [0,1]$. Thus we can conclude set $\mathcal{K}$ is a bounded set. As $\mathcal{K}$ is a closed and bounded set in $M+1$ Euclidean Space, it is compact \cite{johnsonbaugh2012foundations}. 
+
+Define function $f: \mathbf{R^{M+1}} \rightarrow \mathbf{R}$ as
+\begin{equation}
+f(\mu_1, \mu_2, ..., \mu_{M+1}) = \mu_{M+1}\,.
+\end{equation}
+
+It is easy to see $f$ is a continuous function. According to \cite{johnsonbaugh2012foundations}, $f$ attains a maximum and minimum value on set $\mathcal{K}$. 
+Without losing generality, assume $f(\bmu^0)  = \mu_{M+1}^0$ (where $\bmu^0 = (\mu_1^0, \cdots, \mu_{M+1}^0)$ and $\bmu^0 \in \mathcal{K}$) achieve this maximum value. 
+Since $\bmu^0 \in \mathcal{K}$ and $\mathcal{K}  \subseteq  \mathcal{N}$, from the definition of $\mathcal{N}$, there exists a decision rule $\delta^\ast$ such that $(\mathbf{P}_{f}(\delta^\ast), P_d(\delta^\ast)) = \bmu^0$.  
+Furthermore, since $\bmu^0 \in \mathcal{K} $, from the definition of $\mathcal{K}$ we know $\mathbf{P}_{f}(\delta^\ast) \leq \mathbf{c}$, 
+i.e. $\delta^\ast$ is a member of $\mathcal{C}_\delta$. 
+Let $\delta' $ be another decision rule in set $\mathcal{C}_\delta$, we have $(\mathbf{P}_f(\delta'), P_d(\delta')) \in \mathcal{N}$ and $(\mathbf{P}_f(\delta'), P_d(\delta')) \in \mathcal{P}$, i.e. $(\mathbf{P}_f(\delta'), P_d(\delta')) \in \mathcal{K}$.
+Since $f(\bmu^0) = \mu_{M+1}^0$ achieves the maximum value for $\bmu \in \mathcal{K}$, we have
+$f((\mathbf{P}_f(\delta'), P_d(\delta')))  = P_d(\delta') \leq  f(\bmu^0) = \mu_{M+1}^0 =  P_d(\delta^\ast)$, i.e. $\delta^\ast$ maximize $P_d$ among all members of $\mathcal{C}_\delta$.
+
+Q.E.D.
