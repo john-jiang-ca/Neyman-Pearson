@@ -1,10 +1,9 @@
 \noindent \textbf{Lemma 1}
-\noindent \textit{Let $f_0$, $f_1$, ..., $f_M$ be PDFs defined on set $\mathcal{D}$. For given constants $c_1, ..., c_M \in (0, 1)$, let $\mathcal{C}_\delta$ denote a set of decision rules,  such that for $\delta \in \mathcal{C}_\delta$, we have $P_{f_i} \leq c_i$, $i = 1, \cdots, M$. Then:
+\noindent \textit{Let $f_0$, $f_1$, ..., $f_M$ be PDFs defined on set $\mathcal{D}$. For given constants $c_1, ..., c_M \in [0, 1]$, let $\mathcal{C}_\delta$ denote a set of decision rules,  such that for $\delta \in \mathcal{C}_\delta$, we have $P_{f_i} \leq c_i$, $i = 1, \cdots, M$. Then:
  among all members of $\mathcal{C}_\delta$ there exists one that maximizes $P_d$.}
 
 \noindent \textbf{PROOF}
 Define $\boldsymbol{\mu}_0^T = [\mu_1, ..., \mu_M]$  and  $\mathbf{P}_f^T = [P_{f_1}, P_{f_2}, ..., P_{f_M}]$ that are vectors in an $M$ dimensional Euclidean  space. Let $\bmu^T = [\bmu_0^T, \mu_{M+1}]$ denote a vector in $M+1$ dimensional Euclidean space. 
-
 Let $P_d(\delta)$, $P_{f_i}(\delta)$ denote the $P_d$ and $P_{f_i}$ achieved by using decision rule $\delta$.
 %By $\mathbf{A} \leq \mathbf{B}$, $\mathbf{A} = \mathbf{B}$ and  $\mathbf{A} \geq \mathbf{B}$ we mean that every element of $\mathbf{A}$ is no larger than, equal to and no smaller than its corresponding element of $\mathbf{B}$, respectively. 
 %By $\mathbf{A} \neq 0$, we mean that every element of $\mathbf{A}$ is not equal to $0$. 
@@ -37,8 +36,7 @@ Let $\mathcal{K} = \mathcal{N} \cap \mathcal{P}$, i.e.
 \end{equation}
 
 Point $(\mu_1, ..., \mu_{M+1}) = (0, ..., 0)$ belongs to both $\mathcal{N}$ and $\mathcal{P}$, hence it belongs to set $\mathcal{K}$. This suggests set $\mathcal{K}$ is not an empty set.
-
-As both $\mathcal{N}$ and $\mathcal{K}$ are closed set, $\mathcal{K}$ is also closed. Besides that, for any point  $(\mu_1, \mu_2, ..., \mu_{M+1}) \in \mathcal{K}$, we have $\mu_i \in [0, c_i]$ and $\mu_{M+1} \in [0,1]$. Thus we can conclude set $\mathcal{K}$ is a bounded set. As $\mathcal{K}$ is a closed and bounded set in $M+1$ Euclidean Space, it is compact \cite{johnsonbaugh2012foundations}. 
+As both $\mathcal{N}$ and $\mathcal{K}$ are closed set, $\mathcal{K}$ is also closed \cite{rudin1964principles}. Besides that, for any point  $(\mu_1, \mu_2, ..., \mu_{M+1}) \in \mathcal{K}$, we have $\mu_i \in [0, c_i]$ and $\mu_{M+1} \in [0,1]$. Thus we can conclude set $\mathcal{K}$ is a bounded set. As $\mathcal{K}$ is a closed and bounded set in $M+1$ Euclidean Space, it is compact \cite{johnsonbaugh2012foundations}. 
 
 Define function $f: \mathbf{R^{M+1}} \rightarrow \mathbf{R}$ as
 \begin{equation}
