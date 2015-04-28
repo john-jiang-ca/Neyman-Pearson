@@ -49,7 +49,7 @@ Recall in the case of binary hypotheses testing (Traditional Neyman Pearson Test
 \begin{figure}[!t]
 \centering
 \includegraphics[width = 10cm, height=16cm]{2/ex1.eps}
-\caption{The ROC surface for $k_1$, $k_2$ range from $-30$ to $30$ with step $0.05$.}
+\caption{The ROC surface for $k_1$, $k_2$ range from $-30$ to $30$ with step $0.01$.}
 \label{fig: 2.1}
 \end{figure}
 
@@ -67,7 +67,7 @@ Recall in the case of binary hypotheses testing (Traditional Neyman Pearson Test
 \label{fig: 2.3mar9}
 \end{figure}
 
-Now let us consider points $A$ and $B$ on the ROC surface of Fig. \ref{fig: 2.1}, which are marked with '$\bullet$' and '$\blacksquare$', respectively.  The coordinate of point $A$ is $(P_{f_1}, P_{f_2}, P_d) = (0.350, 0.315, 0.730)$; and the coordinate of point $B$ is  $(P_{f_1}, P_{f_2}, P_d) = (0.355, 0.730, 0.690)$. We can see even through $P_{f_1}$ and $P_{f_2}$ of point $B$ is larger than these of point $A$, the $P_d$ of point $B$ is  smaller than that of point $A$.  
+Now let us consider points $A$ and $B$ on the ROC surface of Fig. \ref{fig: 2.1}, which are marked with '$\bullet$' and '$\blacklozenge$', respectively.  The coordinate of point $A$ is $(P_{f_1}, P_{f_2}, P_d) = (0.350, 0.315, 0.730)$; and the coordinate of point $B$ is  $(P_{f_1}, P_{f_2}, P_d) = (0.355, 0.730, 0.690)$. We can see even through $P_{f_1}$ and $P_{f_2}$ of point $B$ is larger than these of point $A$, the $P_d$ of point $B$ is  smaller than that of point $A$.  
 Unlike NP test, where $P_d$ is always non-decreasing with $P_f$, in the case of multiple hypotheses testing (Extended Neyman Pearson Test), $P_d$ is not always a non-decreasing function of  $P_{f_i}$ ($i=1, ..., M$).
 
 Furthermore, we can see in the case of point $B$, the value of $P_d$ is smaller than the value of $P_{f_2}$, i.e. under the ENP framework, $P_d \geq P_{f_i}$  ($i = 1, ..., M$) does not always hold (Qian Zhang arrives at the same conclusion in  \cite{zhang1999design, zhang2000efficient} using a different method). 
@@ -478,7 +478,7 @@ then  $\mathcal{S}^\ast$ must  maximize
 \int_{\mathcal{S}}(f_{0}(x)\mathrm{d}x - \sum_{i=1}^{M}k_if_i(x))\mathrm{d}x
   \label{2015feb2a3}
 \end{equation}
-among all $\mathcal{S}$. To maximize \eqref{2015feb2a3}, $\mathcal{S}^\ast$ should include all the integral set when $f_{0}(x)- \sum_{i=1}^{M}k_if_{i}(x) > 0$ and exclude the integral set when $f_{0}(x)- \sum_{i=1}^{M}k_if_{i}(x) < 0$, i.e.   
+among all $\mathcal{S}$. To maximize \eqref{2015feb2a3}, $\mathcal{S}^\ast$ should include all the domain that $f_{0}(x)- \sum_{i=1}^{M}k_if_{i}(x) > 0$ and exclude the domain that $f_{0}(x)- \sum_{i=1}^{M}k_if_{i}(x) < 0$, i.e.   
  $\mathcal{S}^\ast$ satisfies
 \[
 x \in \mathcal{S}^\ast\;\;\;\;\text{if}\;\;\;\;f_{0}(x)- \sum_{i=1}^{M}k_if_{i}(x) > 0
@@ -510,7 +510,7 @@ G(\mathbf{c}) - \sum_{i=1}^{M}k_iP_{f_i}(\delta^\ast) =  G(\mathbf{c}) - \sum_{i
 \[
 \therefore  \sum_{i=1}^{M}k_iP_{f_i}(\delta^\ast) =  \sum_{i=1}^{M}k_ic_i
 \]
-Since $k_iP_{f_i}(\delta^\ast) \leq k_ic_i$ (for $i=1, ..., M$), the above equation can be fulfilled only if $k_iP_{f_i}(\delta^\ast) = k_ic_i$ (for $i=1, ..., M$). When for a certain $i$ $P_{f_i}(\delta^\ast) < c_i$, then $k_i$ must be zero.
+Since $k_iP_{f_i}(\delta^\ast) \leq k_ic_i$ (for $i=1, ..., M$), the above equation can be fulfilled only if $k_iP_{f_i}(\delta^\ast) = k_ic_i$ (for $i=1, ..., M$). When for a certain $i$, if $P_{f_i}(\delta^\ast) < c_i$, then $k_i$ must be zero.
 
 Q.E.D.
 
