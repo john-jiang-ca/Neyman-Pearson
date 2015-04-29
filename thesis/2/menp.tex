@@ -93,7 +93,7 @@ MENP (\rmnum{1}) is a direct conclusion from ENP Lemma (\rmnum{3}). In the follo
 Assume $\delta^\ast$ is the optimal decision rule for \eqref{equ: problemstate} (According to \textbf{Lemma 1}, such decision rule always exists), we have  
 \begin{equation}
 \label{condition 1}
-P_{f_i}(\delta^\ast) \leq c_i\;\;\;\;i=1, 2, ..., M\,.
+P_{f_i}(\delta^\ast) \leq c_i\;\;\;\;i=1,  ..., M\,.
 \end{equation}
 From \textbf{Lemma 2}, there exists non-negative constants $k_1^\ast, ..., k_M^\ast$ such that $\delta^\ast$ can be written in form of 
 \begin{equation}
@@ -124,7 +124,9 @@ and decision rule $\delta^0$ maximizes $P_d$ under the constraints $P_{f_i} = a^
 \] 
 From the definition of $F(\mathbf{a})$, we know $F(\mathbf{a^0}) = P_d(\delta^0)$.
 
-In the following, we  will prove $\delta^0$ is the optimal solution for \eqref{equ: problemstate}, i.e. $P_d(\delta^0) = P_d(\delta^\ast)$. 
+In the following, we  will prove $\delta^0$ is the optimal solution for \eqref{equ: problemstate}.
+To prove $\delta^0$ is the optimal solution for \eqref{equ: problemstate}, we only need to show $P_d(\delta^0) = P_d(\delta^\ast)$. This is because for any decision rule $\delta'$ whose associated $\mathbf{P}_f \leq \mathbf{c}$, we have $P_d(\delta^\ast) \geq P_d(\delta')$. If $P_d(\delta^0) = P_d(\delta^\ast)$, then we can conclude $\delta^0$ achieves the largest $P_d$ among all decision rules whose associated $\mathbf{P}_f$ is no larger than $\mathbf{c}$, i.e. $\delta^0$ is the optimal solution for \eqref{equ: problemstate}. Next, we will show $P_d(\delta^0) = P_d(\delta^\ast)$.   
+
 Assume  $\delta^0$ does not achieve the largest $P_d$ under constraints $P_{f_i} \leq c_i$ ($i=1, ..., M$). Then  we must have 
 \begin{equation}
 \label{condition 2}
@@ -132,7 +134,7 @@ P_{d}(\delta^\ast) > P_d(\delta^0)\,.
 \end{equation}
 
 Let $\mathbf{a}' = \mathbf{P}_f(\delta^\ast)$. 
-Since $\delta^\ast$ can be written in form of \eqref{2015feb20a1}, from ENP Lemma (\rmnum{2}), we know decision rule achieve the largest $P_d$ while keeping $\mathbf{P}_f = \mathbf{a}'$, i.e.  
+Since $\delta^\ast$ can be written in form of \eqref{2015feb20a1}, from ENP Lemma (\rmnum{2}), we know decision rule $\delta^\ast$ achieves the largest $P_d$ while keeping $\mathbf{P}_f = \mathbf{a}'$, i.e.  
 $F(\mathbf{a}') = P_d(\delta^\ast)$. 
 
 Since $P_d(\delta^\ast) > P_d(\delta^0)$, $F(\mathbf{a}^0) = P_d(\delta^0)$ and  $F(\mathbf{a}') = P_d(\delta^\ast)$, we have $F(\mathbf{a'}) > F(\mathbf{a^0})$. 
@@ -147,4 +149,5 @@ Base on above discussion,
 next we present a look-up table method of finding $\mathbf{k}$. For a specific $\mathbf{c}$, we conduct an exhaustive search over a grid of $k_1, ..., k_M$ ($k_i \geq 0$) depending on the required accuracy and store these results ($P_d, \mathbf{P}_f, \mathbf{k}$) into a lookup table $T_1$. 
 %Then we check if there exists a item in table $T_1$ satisfying $\mathbf{P}_f = \mathbf{c}$. If so, get the item's associated $\mathbf{k}$ as the MENP parameters. If not,  
 Then we iterate every item in Table $T_1$ (each item includes the information of $\mathbf{k}$ and its associated $P_d$ and $\mathbf{P}_f$) and put the item into table $T_2$ if the item satisfies:  $\mathbf{P}_f \leq \mathbf{c}$. At last, we iterate every item in $T_2$ and get the largest $P_d$ and its decision rule $\mathbf{k}$.
+
 

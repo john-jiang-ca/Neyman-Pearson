@@ -1,28 +1,28 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces The ROC surface for $k_1$, $k_2$ range from $-30$ to $30$ with step $0.01$.}}{14}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces The ROC surface for problem \textup {\hbox {\mathsurround \z@ \normalfont (\ignorespaces 2.12\hbox {}\unskip \@@italiccorr )}}.}}{15}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces The contour for the ROC surface.}}{16}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Relationship between $G'$ and $G_s$}}{20}
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Change of $P_{f_1}$, $P_{f_2}$ after each iteration.}}{49}
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Change of $P_d$ after each iteration.}}{50}
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Change of $P_{f_1}$, $P_{f_2}$ after each iteration.}}{53}
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Change of $P_d$ after each iteration.}}{54}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces The ROC surface for $k_1$, $k_2$ range from $-30$ to $30$ with step $0.01$.}}{13}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces The ROC surface for problem \textup {\hbox {\mathsurround \z@ \normalfont (\ignorespaces 2.12\hbox {}\unskip \@@italiccorr )}}.}}{14}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces The contour for the ROC surface.}}{15}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Relationship between $G'$ and $G_s$}}{19}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Change of $P_{f_1}$, $P_{f_2}$ after each iteration.}}{48}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Change of $P_d$ after each iteration.}}{49}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Change of $P_{f_1}$, $P_{f_2}$ after each iteration.}}{52}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Change of $P_d$ after each iteration.}}{53}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Region that can be achieved by Neyman Pearson testing with $k_i \geq 0 (i=1, ..., M)$.}}{61}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Region that can be achieved by Neyman Pearson testing with $k_i \geq 0 (i=1, ..., M)$.}}{62}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces The M-ROC surface for Gaussian Hypotheses.}}{66}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces The M-ROC for Gaussian distribution with same variance.}}{68}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces The M-ROC for the Chi-square example.}}{71}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Region that can be achieved by Neyman Pearson testing with $k_i \geq 0 (i=1, ..., M)$.}}{60}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Region that can be achieved by Neyman Pearson testing with $k_i \geq 0 (i=1, ..., M)$.}}{61}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces The M-ROC surface for Gaussian Hypotheses.}}{65}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces The M-ROC for Gaussian distribution with same variance.}}{67}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces The M-ROC for the Chi-square example.}}{70}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Block Diagram for Spectrum Sensing}}{73}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces M-ROC surface for $\sigma _n^2 = 0.1$, $\sigma _{s_A}^2=0.05$, $\sigma _{s_B}^2=0.15$ and $N = 20$.}}{77}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Block Diagram for cyclostationary detector.}}{78}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Received signal for perfect synchronization.}}{79}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Received signal for synchronization mismatch $\tau _0$.}}{79}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces PDF under hypothesis $H_0$.}}{101}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces PDF under hypothesis $H_1$.}}{102}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces PDF under hypothesis $H_2$.}}{103}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces M-ROC surface for cyclostationary detector.}}{104}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Block Diagram for Spectrum Sensing}}{72}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces M-ROC surface for $\sigma _n^2 = 0.1$, $\sigma _{s_A}^2=0.05$, $\sigma _{s_B}^2=0.15$ and $N = 20$.}}{76}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Block Diagram for cyclostationary detector.}}{77}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Received signal for perfect synchronization.}}{78}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Received signal for synchronization mismatch $\tau _0$.}}{78}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces PDF under hypothesis $H_0$.}}{100}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces PDF under hypothesis $H_1$.}}{101}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces PDF under hypothesis $H_2$.}}{102}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces M-ROC surface for cyclostationary detector.}}{103}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
