@@ -94,11 +94,11 @@ f_0(x) \substack{H_0 \\ \geq \\ < \\ \bar{H}_0} \sum_{j=1}^{M}k_jf_j(x)
 Moreover, under decision rule $\delta^\ast$ if  $P_{f_i} < c_i$, then $k_i = 0$. 
 }
 
-In \cite{zhang1999design, zhang2000efficient} Qian Zhang also arrives at the conclusion that if $P_{f_i} < c_i$ then $k_i = 0$, through analysing the change of $P_d$ with respect to $k_i$ (he shows if $P_{f_i} < c_i$ and $k_i > 0$, then the $P_d$ can be further increased through adjusting the value of $k_i$). In the following we will prove \textbf{Lemma 1} using a mathematical method such that used in \cite{LehmannTest, dantzig1951fundamental} to prove the ENP Lemma (\rmnum{4}).
+In \cite{zhang1999design, zhang2000efficient} Qian Zhang also arrives at the conclusion that if $P_{f_i} < c_i$ then $k_i = 0$, through analyzing the change of $P_d$ with respect to $k_i$ (he shows if $P_{f_i} < c_i$ and $k_i > 0$, then the $P_d$ can be further increased through adjusting the value of $k_i$). In the following we will prove \textbf{Lemma 2} using a mathematical method such that used in \cite{LehmannTest, dantzig1951fundamental} to prove the ENP Lemma (\rmnum{4}).
 
 \noindent\textbf{PROOF}
 We start by defining some notations for easy presentation.
-Define $\mathbf{c}^T = [c_1, c_2, ..., c_M]$ and  $\mathbf{k}^T = [k_1, k_2, ..., k_M]$  are vectors in an $M$ dimensional Euclidean  space. Let $\bmu^T = [\bmu_0^T, \mu_{M+1}]$ denote a vector in $M+1$ dimensional Euclidean space. 
+Define $\mathbf{c}^T = [c_1, c_2, ..., c_M]$ and  $\mathbf{k}^T = [k_1, k_2, ..., k_M]$ that are vectors in an $M$ dimensional Euclidean  space. Let $\bmu^T = [\bmu_0^T, \mu_{M+1}]$ denote a vector in $M+1$ dimensional Euclidean space. 
 
 Let $F(\boldsymbol{\mu}_0)$ denote the largest $P_d$ under the constraints $P_{f_i} = \mu_i\;\;i = 1, ..., M$.
 Let $G(\boldsymbol{\mu}_0)$ denote the largest $P_d$ under the constraints $P_{f_i} \leq \mu_i\;\;i = 1, ..., M$.
@@ -189,16 +189,16 @@ Let $\delta^\ast$ be the optimal decision rule for $\bmu_0$. By optimal  we mean
 \begin{equation}
   \label{2015feb09a4}
   \delta^1:\;\; \begin{cases}
-    & \;\;\;\text{ $H_0$ if } x \in \emptyset \\
-    & \;\;\;\text{ $\bar{H}_0$ if } x \in \mathcal{D}
+    & \text{ $H_0$ if } x \in \emptyset \\
+    & \text{ $\bar{H}_0$ if } x \in \mathcal{D}
   \end{cases}
 \end{equation}
 and
 \begin{equation}
   \label{2015feb09a5}
   \delta^2:\;\; \begin{cases}
-    &x \;\;\;\text{ $H_0$ if } x \in \mathcal{D} \\
-    &x \;\;\;\text{ $\bar{H}_0$ if } x \in \emptyset
+    & \text{ $H_0$ if } x \in \mathcal{D} \\
+    & \text{ $\bar{H}_0$ if } x \in \emptyset
   \end{cases}
 \end{equation}
 
@@ -216,7 +216,7 @@ From \eqref{2015feb09a4} and \eqref{2015feb09a5} we can see the $P_d$ and $P_{f_
     P_{f_i}(\delta^2) = \int_{\mathcal{D}}f_i(x)\mathrm{d}x = 1
 \end{equation}
 
-Let $\mu_{min} = \min(\mu_1, \mu_2, \cdots, \mu_M)$. Since $\bmu_0 > 0^M$, we know $\mu_i > 0$ for $i = 1, \cdots, M$. Then we have $\min(\mu_1, \cdots, \mu_M) > 0$, i.e. $\mu_{min} > 0$. Construct a new randomized test $\delta^3$ where $\delta^1$ and $\delta^2$ are used with probability $1 - \mu_{min} $ and $\mu_{min}$. With decision rule $\delta^3$ we have
+Let $\mu_{min} = \min(\mu_1, \mu_2, \cdots, \mu_M)$. Since $\bmu_0 > 0^M$, we know $\mu_i > 0$ for $i = 1, \cdots, M$. Thus we have $\min(\mu_1, \cdots, \mu_M) > 0$, i.e. $\mu_{min} > 0$. Construct a new randomized test $\delta^3$ where $\delta^1$ and $\delta^2$ are used with probability $1 - \mu_{min} $ and $\mu_{min}$. With decision rule $\delta^3$ we have
 \begin{equation}
   P_d(\delta^3) = (1 - \mu_{min})P_d(\delta^1) + \mu_{min}P_d(\delta^2) = \mu_{min} > 0
 \end{equation}
@@ -290,7 +290,7 @@ This implies $\mu_{M+1}^N \in [0, G(\bmu_0^N)]$ and we have
 showing that point $(\mu_1^N, ..., \mu_{M+1}^N)$ also belongs to set $G_s$.
 Hence we proved $\mathcal{N} \subseteq G_s$. 
 
-In the following we will show for any point $(\mu_1^0, \mu_2^0, ..., \mu_{M+1}^0)$ that belongs to $G'$ ($\mu_i^0 \in (0, 1), i = 1, 2, ..., M$), there exists a non-negative $\mathbf{k}$ such that  
+In the following we will show for a point $(\mu_1^0, \mu_2^0, ..., \mu_{M+1}^0)$ that belongs to $G'$ ($\mu_i^0 \in (0, 1), i = 1, 2, ..., M$), there exists a non-negative $\mathbf{k}$ such that  
 \[
 \mu_{M+1} - \sum_{i=1}^{M}k_i\mu_i \leq \mu_{M+1}^0 - \sum_{i=1}^{M}k_i\mu_i^0
 \]
@@ -299,14 +299,14 @@ Assume $(\mu_0^0, \mu_1^0, ..., \mu_{M+1}^0)$ is a point on the $G'$ surface, i.
 Also we assume $\mu_1^0, \mu_2^0, ..., \mu_M^0 \in (0, 1)$. 
 According to the definition of $G_s$, for any positive $\epsilon$, point $(\mu_0^0, \mu_1^0, ..., \mu_{M+1}^0+\epsilon) \notin G_s$. Thus point $(\mu_1^0, ..., \mu_{M+1}^0)$ is a boundary point of the set $G_s$.  
 Since $G_s$ is a convex set and $(\mu_0^0, \mu_1^0, ..., \mu_{M+1}^0)$ is a boundary point of $G_s$,  
-there exists an $M+1$-dimensional hyperplane $\Pi$ through this point such that $\Pi$ contains only boundary points of $G_s$ and $G_s$ lies entirely on one sides of $\Pi$  \cite{dantzig1951fundamental}. 
+there exists an $M+1$ dimensional hyperplane $\Pi$ through this point such that $\Pi$ contains only boundary points of $G_s$ and $G_s$ lies entirely on one sides of $\Pi$  \cite{dantzig1951fundamental}. 
 There exists $k_i^0$ ($i=1, ..., M+1$) such that the equation defining $\Pi$ can be written as \cite{dantzig1951fundamental}
 \begin{equation}
 \label{PI}
 k_{M+1}^0\mu_{M+1} - \sum_{i=1}^{M}k_i^0\mu_i = k_{M+1}^0\mu_{M+1}^0 - \sum_{i=1}^{M}k_i^0\mu_i^0
 \end{equation}
 
-In section 2.2.2, we have proved that when $\mu^0_i\neq 0$ ($i=1, ..., M$), $\mu_{M+1}^0 = G(\bmu_0^0) $ is strictly larger than zero, i.e. $\mu_{M+1}^0 > 0$. Hence there exists a $\mu_{M+1}' = \frac{\mu_{M+1}^0}{2}$ such that $\mu_{M+1}' \in (0, \mu_{M+1}^0)$. From the definition of $G_s$, it is easy to see that point $(\mu^0_1, ..., \mu^0_M, \mu_{M+1}')$ also belongs to set $G_s$. Besides that, since $\mu^0_i \in (0, 1)$ ($i=1, ..., M$) and $\mu_{M+1}' \in (0, \mu_{M+1}^0)$, it can be concluded that point $(\mu_1^0, \mu_2^0, ..., \mu_{M+1}')$ is an inner point of $G_s$.
+In section 2.2.2, we have proved that when $\mu^0_i >  0$ ($i=1, ..., M$), $\mu_{M+1}^0 = G(\bmu_0^0) $ is strictly larger than zero, i.e. $\mu_{M+1}^0 > 0$. Hence there exists a $\mu_{M+1}' = \frac{\mu_{M+1}^0}{2}$ such that $\mu_{M+1}' \in (0, \mu_{M+1}^0)$. From the definition of $G_s$, it is easy to see that point $(\mu^0_1, ..., \mu^0_M, \mu_{M+1}')$ also belongs to set $G_s$. Besides that, since $\mu^0_i \in (0, 1)$ ($i=1, ..., M$) and $\mu_{M+1}' \in (0, \mu_{M+1}^0)$, it can be concluded that point $(\mu_1^0, \mu_2^0, ..., \mu_{M+1}')$ is an inner point of $G_s$.
 From previous discussion about hyperplane $\Pi$, we can see that point $(\mu^0_1, ..., \mu^0_M, \mu_{M+1}')$ is not contained in hyperplane $\Pi$, i.e.
 \[
 k_{M+1}^0\mu_{M+1}' - \sum_{i=1}^{M}k_i^0\mu_i^0 \neq k_{M+1}^0\mu_{M+1}^0 - \sum_{i=1}^{M}k_i^0\mu_i^0
@@ -339,7 +339,7 @@ and the other part on the other side of $\Pi$ consisting of points that satisfy
 \label{2015apr25a3}
 \end{equation}
 
-Since point $(\mu_1^0, ..., \mu_M^0, \mu_{M+1}')$ is not contained in hyperplane $\Pi$, it either satisfies \eqref{2014apr25a2} or \eqref{2015apr25a3}. From the condition that $\mu_{M+1}' = \frac{\mu_{M+1}^0}{2}$ and $\mu_{M+1}^0 > 0$, we can see point  $(\mu_1^0, ..., \mu_M^0, \mu_{M+1}')$ satisfies \eqref{2015apr25a3}.  
+Since point $(\mu_1^0, ..., \mu_M^0, \mu_{M+1}')$ is not contained in hyperplane $\Pi$, it either satisfies \eqref{2014apr25a2} or \eqref{2015apr25a3}. From the condition that $\mu_{M+1}' = \frac{\mu_{M+1}^0}{2}$ and $\mu_{M+1}^0 > 0$, we can see point  $(\mu_1, \cdots, \mu_{M+1}) = (\mu_1^0, ..., \mu_M^0, \mu_{M+1}')$ satisfies \eqref{2015apr25a3}.  
 Furthermore, since $\mu_i^0 \in (0, 1)$, from the definition of $G_s$, we can see that point $(\mu_1^0, ..., \mu_M^0, \mu_{M+1}')$ belongs to set $G_s$. 
 Since point $(\mu_1^0, ..., \mu_M^0, \mu_{M+1}')$ satisfies \eqref{2015apr25a3} and since $G_s$ lies entirely on one side of hyper plane $\Pi$, to make all points belonging to $G_s$ lies on the same side of $\Pi$ as point $(\mu_1^0, ..., \mu_M^0, \mu_{M+1}')$ does, we must have
 %Since $G_s$ lies entirely on one side of \eqref{PI2}, and since when $(\mu_1, ... ,\mu_M, \mu_{M+1})=(\mu_1^0, ..., \mu_M^0, 0)$, the left-hand of \eqref{PI2} is smaller than the right-hand, we must have 
@@ -359,7 +359,7 @@ Up to now, we have proved that if  $(\bmu_0^0, \mu_{M+1}^0) \in G'$ and $\bmu_0^
 \label{PPI3}
 \end{equation}
 holds for  $(\mu_1, \mu_2, ...\mu_{M+1}) \in G_s$. 
-\eqref{PPI3} suggests that for a point on the hyper surface $G'$ with coordinate $(\bmu_0^0, \mu_{M+1}^0)$, where $\bmu_0^0 \in (0, 1)$, then there exists a hyper  plane $\Pi$ 
+\eqref{PPI3} suggests that for a point $(\bmu_0^0, \mu_{M+1}^0)$ ($\bmu_0^0 \in (0, 1)$) on the hyper surface $G'$, there exists a hyperplane $\Pi$ 
 \[
 \mu_{M+1} - \sum_{i=1}^{M}k_i\mu_i =  \mu_{M+1}^0 - \sum_{i=1}^{M}k_i\mu_i^0 
 \]
@@ -479,7 +479,7 @@ then  $\mathcal{S}^\ast$ must  maximize
 \int_{\mathcal{S}}(f_{0}(x)\mathrm{d}x - \sum_{i=1}^{M}k_if_i(x))\mathrm{d}x
   \label{2015feb2a3}
 \end{equation}
-among all $\mathcal{S}$. To maximize \eqref{2015feb2a3}, $\mathcal{S}^\ast$ should include all the domain that $f_{0}(x)- \sum_{i=1}^{M}k_if_{i}(x) > 0$ and exclude the domain that $f_{0}(x)- \sum_{i=1}^{M}k_if_{i}(x) < 0$, i.e.   
+among all $\mathcal{S}$. To maximize \eqref{2015feb2a3}, $\mathcal{S}^\ast$ should include the domain that $f_{0}(x)- \sum_{i=1}^{M}k_if_{i}(x) > 0$ and exclude the domain that $f_{0}(x)- \sum_{i=1}^{M}k_if_{i}(x) < 0$, i.e.   
  $\mathcal{S}^\ast$ satisfies
 \[
 x \in \mathcal{S}^\ast\;\;\;\;\text{if}\;\;\;\;f_{0}(x)- \sum_{i=1}^{M}k_if_{i}(x) > 0
