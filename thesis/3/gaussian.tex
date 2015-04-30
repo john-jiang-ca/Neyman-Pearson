@@ -28,8 +28,8 @@ we have
 \end{split}
 \end{equation}
 We use Matlab to compute the M-ROC for region $M_0$. The values of $k_1$ and $k_2$ range from $0$ to $100$ in steps of $0.01$. Substituting the value of $k_1$ and $k_2$ into \eqref{1125c0}, results in the corresponding $P_d$ $P_{f_1}$ and $P_{f_2}$.  The set $M_0$ is illustrated in Figure \ref{pic: surface for m0 gaussian}. 
-From the definition of $M_0$, we know its projection on the $c_1, c_2$ plane is $\alpha^+$.  
- The set $\alpha^+$ is illustrated in Figure \ref{pic: contour for m0 gaussian}. 
+From the definition of $M_0$, we know its projection on the $c_1-c_2$ plane is $\alpha^+$.  
+ The set $\alpha^+$ for this example is illustrated in Figure \ref{pic: contour for m0 gaussian}. 
 
 \begin{figure}[!t]
 \centering
@@ -101,26 +101,27 @@ In Section 2.2.2,  we have shown $G(\mathbf{c})$ is a non-decreasing function fo
 
 As it is shown in Figure \ref{pic: contour for m0 gaussian}, A is a point in region ${N}_1$ with coordinates $(c_1, c_2) = (c_{1_A}, c_{2_A})$. In the following we will derive its optimal decision rule through MENP test. By optimal decision rule, we mean   it achieves the largest $P_d$ while keeping $\mathbf{P}_f \leq \mathbf{c}$.  
 As point A does not belong to $\alpha^+$, we should use MNEP (\rmnum{2}) to get its decision rule. To do it, the first step is to determine set $\mathcal{C}$, which is the intersection of $\mathcal{A}_c$ and $\alpha^+$. In this case, set $\mathcal{C}$ is plotted in Figure \ref{pic: regionC}.
-After we have set $\mathcal{C}$, we need to find $\mathbf{c}^0 \in \mathcal{C}$ such that it maximum $F(\mathbf{c})$ among all $\mathbf{c} \in \mathcal{C}$.
+After we have $\mathcal{C}$, we need to find $\mathbf{c}^0 \in \mathcal{C}$ such that it maximum $F(\mathbf{c})$ among all $\mathbf{c} \in \mathcal{C}$.
 Figure \ref{pic: contour for m0 gaussian} and Figure \ref{pic: regionC} shows that point B (with coordinate $(c_{1_B}, c_{2_B})$ where $c_{1_B} = c_{1_A}$) has the largest $c_1$ $c_2$ components among all $\mathbf{c} \in \mathcal{C}$. Since $F(\mathbf{c})$ is a non-decreasing function for $c_1$ and $c_2$ on set $\alpha^+$, it is easy to see
-\[
+\begin{equation}
   \max_{\mathbf{c} \in \mathcal{C}}\;\;\;\;F(\mathbf{c}) = F(c_{1_B}, c_{2_B})\,.
-\]
+  \label{2015apr30a0}
+\end{equation}
  As point B is in set $\mathcal{C}$, there exists decision rule
  \[
 \delta^\ast:\;\;\;\;f_0(x) \substack{H_0 \\ \geq \\ < \\ \bar{H}_0} k_1^\ast f_1(x) + k_2^\ast f_2(x) \;\;\;\;(k_1^\ast, k_2^\ast \geq 0)
  \]
  such that under $\delta^\ast$ we have  $P_{f_1}(\delta^\ast) = c_{1_B}$ and  $P_{f_2}(\delta^\ast) = c_{2_B}$. 
  From ENP (\rmnum{3}), it is easy to see $\delta^\ast$ is the optimal decision rule for point B.
-Using MENP (\rmnum{2}), we know $\delta^\ast$ is also the optimal decision rule for point A. Thus we can see the optimal decision rule for point A and point B are the same. Since point A lies in region $N_1$, point B lies in region $L_1$ and $c_{1_A} = c_{1_B}$, we can conclude for two points respectively belongs to $N_1$ and $L_1$, if they have the same $c_1$ component, they have the same decision rule and same $P_d$. 
+ Since point B satisfies \eqref{2015apr30a0}, by using MENP (\rmnum{2}), we know $\delta^\ast$ is also the optimal decision rule for point A. Thus we can see the optimal decision rule for point A and point B are the same. Since point A lies in region $N_1$, point B lies in region $L_1$ and $c_{1_A} = c_{1_B}$, we can conclude for two points respectively belongs to $N_1$ and $L_1$, if they have the same $c_1$ component, they have the same decision rule and same $P_d$. 
 
-Furthermore, we can see as long as A is in region $N_1$ its decision rule only depends on the value of $c_{1}$.  In other words, as long as A is still in region $N_1$, with $c_1 = c_{1_A}$ fixed,  when $c_{2}$ changes, its optimal decision rule and $P_d$ remain the same. Hence we can conclude all points belonging to region $N_1$ or curve $L_1$, if they have the same $c_1$, they have the same decision rule and same $P_d$.
+Furthermore, we can see as long as A is in region $N_1$ its decision rule only depends on the value of $c_{1}$.  In other words, as long as A is in region $N_1$, with $c_1 = c_{1_A}$ fixed,  when $c_{2}$ changes, its optimal decision rule and $P_d$ remain the same. Hence we can conclude all points belonging to region $N_1$ or curve $L_1$, if they have the same $c_1$, they have the same decision rule and same $P_d$.
 
 In the same way, we can prove: For points belong to region $N_2$ or curve $L_2$, if they have the same $c_2$ value, they have the same decision rule and same $P_d$.
 
 Q.E.D
 
-Since we have computed $P_d$ for $(c_1, c_2) \in N_0$ and curves $L_1$ and $L_2$ belong to $N_0$, we can get $P_d$ for $(c_1, c_2)$ belongs to $N_1$ or $N_2$ through Property 2. M-ROC surface for this example is given in Figure  \ref{pic: LJS}. 
+Since we have computed $P_d$ for $(c_1, c_2) \in N_0$ and curves $L_1$ and $L_2$ belong to $N_0$, we can get $P_d$ for $(c_1, c_2)$ belongs to $N_1$ or $N_2$ through \textbf{Property 2}. M-ROC surface for this example is given in Figure  \ref{pic: LJS}. 
 From Figure \ref{pic: surface for m0 gaussian}, we can see the ENP test works only when the given $(c_1, c_2)$ belongs to set $\alpha^+$. For the case when $(c_1, c_2) \notin \alpha^+$, it cannot provide a solution.  However,  from Figure \ref{pic: LJS}, it can be seen by using the MENP test, we can get the decision rule for all $(c_1, c_2)$. 
 In other words, the achievable region of the MENP test is larger than that of the ENP test. 
 Besides that, we can see when $(c_1, c_2) \in \alpha^+$, the ENP test and the MENP test provides the same $P_d$. This results from the repetition between the two framework.  
@@ -178,7 +179,7 @@ where $x_0 = \min\{F_1^{-1}(c_1), ..., F_M^{-1}(c_M)\}$. The associated probabil
 P_d = F_0(x_0)
 \]
 
-Figure \ref{pic: surface for same variance} shows the M-ROC surface for $M=2$, $\mu_0 = 0$, $\mu_1 = 1$, $\mu_2 = 2$ and $\sigma_0^2 = \sigma_1^2 = \sigma_2^2 = 1$. The bold curve is region $M_0$. From the definition of $M_0$, we know $M_0$ is the region can also be achieved by both ENP test and the MENP test. We can see, comparing to the ENP test, the MENP test has a much larger achievable region (the MENP test can achieve the $P_d$ for the whole $c_1, c_2$ plane, while the ENP test can only achieve the $P_d$ when $c_1$, $c_2$ lies in $\alpha^+$, which is also a curve because $\alpha^+$ is the projection of $M_0$). 
+Figure \ref{pic: surface for same variance} shows the M-ROC surface for $M=2$, $\mu_0 = 0$, $\mu_1 = 1$, $\mu_2 = 2$ and $\sigma_0^2 = \sigma_1^2 = \sigma_2^2 = 1$. The bold curve is region $M_0$. From the definition of $M_0$, we know $M_0$ is the region can also be achieved by both ENP test and MENP test. We can see, comparing to the ENP test, the MENP test has a much larger achievable region (the MENP test can achieve the $P_d$ for the whole $c_1-c_2$ plane, while the ENP test can only achieve the $P_d$ when $(c_1, c_2)$ lies in $\alpha^+$, which is also a curve because $\alpha^+$ is the projection of $M_0$). 
 
 \begin{figure}[!t]
 \centering

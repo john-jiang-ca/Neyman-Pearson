@@ -73,7 +73,7 @@ Obviously points in $M_0$ can be achieved by MENP (\rmnum{1}) and points in $M_1
   As $P_d$ is an increasing function with respect to $x_0$, in order to acquire the maximum $P_d$ we need to achieve the largest $x_0$ while keeping 
   \begin{equation}
 	P_{f_i} \leq c_i\;\;\;\;(i = 1, 2, ..., M)\,.
-	\label{2015apr30a1}
+	\lable{2015apr30a1}
   \end{equation}
   Substitute \eqref{equ: pd under x0} into \eqref{2015apr30a1}, we have
   \begin{equation}
