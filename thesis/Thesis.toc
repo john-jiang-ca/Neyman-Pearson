@@ -14,13 +14,13 @@
 \contentsline {section}{\numberline {3.1}Modified Receiver Operating Characteristic of MENP test}{55}
 \contentsline {section}{\numberline {3.2}The M-ROC Surface under Gaussian Hypotheses}{58}
 \contentsline {section}{\numberline {3.3}MROC Surface under Chi-Square Hypotheses}{68}
-\contentsline {chapter}{\numberline {4}Application of MENP Framework in Spectrum Sensing and Simulation Results}{71}
-\contentsline {section}{\numberline {4.1}Energy based Spectrum Detector for Multiple Primary Users}{71}
-\contentsline {subsection}{\numberline {4.1.1}System Model}{71}
-\contentsline {subsection}{\numberline {4.1.2}Numerical Results}{75}
-\contentsline {section}{\numberline {4.2}Cyclostationary Detection for multiple Primary Users}{76}
-\contentsline {subsection}{\numberline {4.2.1}System Model}{76}
-\contentsline {subsection}{\numberline {4.2.2}Numerical Results}{97}
-\contentsline {chapter}{\numberline {5}Conclusions}{104}
-\contentsline {chapter}{\numberline {A}Numerical Results Program Guide}{106}
-\contentsline {chapter}{References}{109}
+\contentsline {chapter}{\numberline {4}Application of MENP Framework in Spectrum Sensing and Simulation Results}{72}
+\contentsline {section}{\numberline {4.1}Energy based Spectrum Detector for Multiple Primary Users}{72}
+\contentsline {subsection}{\numberline {4.1.1}System Model}{72}
+\contentsline {subsection}{\numberline {4.1.2}Numerical Results}{76}
+\contentsline {section}{\numberline {4.2}Cyclostationary Detection for multiple Primary Users}{77}
+\contentsline {subsection}{\numberline {4.2.1}System Model}{77}
+\contentsline {subsection}{\numberline {4.2.2}Numerical Results}{98}
+\contentsline {chapter}{\numberline {5}Conclusions}{105}
+\contentsline {chapter}{\numberline {A}Numerical Results Program Guide}{107}
+\contentsline {chapter}{References}{110}

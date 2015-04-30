@@ -44,6 +44,13 @@ We use Matlab to compute the M-ROC for region $M_0$. The values of $k_1$ and $k_
 \label{pic: contour for m0 gaussian}
 \end{figure}
 
+\begin{figure}[!t]
+\centering
+\includegraphics[width=12cm, height = 16cm]{3/singlecontour2.eps}
+\caption{The region $\mathcal{C}$ when $c_1 = 0.2$ and $c_2 = 0.8$.}
+\label{pic: region C}
+\end{figure}
+
 In Figure \ref{pic: contour for m0 gaussian} $N_0$ is the projection of $M_0$ on the $c_1, c_2$ plane. Since $M_0$ is the set of points with $[c_1, c_2] \in \alpha^+$, $N_0$ is the set of points belonging to $\alpha^+$.
 Define curve $L_1$ as the set of points 
 \[
@@ -90,13 +97,11 @@ Since $k_1, k_2 \geq 0$, according to \textbf{ENP Lemma (\rmnum{3})}, $\delta$ a
 \label{1125a2}
 \end{equation}
 From \eqref{1125c1} and \eqref{1125a2} we can see $F(\mathbf{c}) = G(\mathbf{c})$ for $\mathbf{c} \in \alpha^+$.
-In the proof of \textbf{Lemma 1} in Chapter 2 Section 2.2,  we have shown $G(\mathbf{c})$ is a non-decreasing function with  $\mathbf{c}$, it can be concluded that $F(\mathbf{c})$ is a non-decreasing function for $\mathbf{c} \in \alpha^+$.
+In the proof of \textbf{Lemma 1} in Chapter 2 Section 2.2,  we have shown $G(\mathbf{c})$ is a non-decreasing function for each variable of $\mathbf{c}$, it can be concluded that $F(\mathbf{c})$ is a non-decreasing function for each variable of $\mathbf{c}$ on set $\alpha^+$.
 
-Now consider point A in region ${N}_1$ with coordinates $(c_1, c_2) = (c_{1_A}, c_{2_A})$. As it is shown in \ref{pic: contour for m0 gaussian}, the decision rule for point A can be computed through MENP (\rmnum{2}). To do it,  we need to determine the set $\mathcal{C}$, which is the intersection of $\mathcal{A}_c$ and $\alpha^+$. According to the definition of $\mathcal{A}_c$ and $\alpha^+$, we can see that $\mathcal{C}$ is the set of points enclosed by curves $L_1$, $L_2$ and line $c_1 = c_{1_A}$, $c_2$. Then we need to find $\mathbf{c}^0 \in \mathcal{C}$ such that it maximum $F(\mathbf{c})$ among all $\mathbf{c} \in \mathcal{C}$. As it has been proved $F(\mathbf{c})$ is a   non-decreasing function for $\mathbf{c} \in \alpha^+$, $\mathbf{c}^0$ must have the largest components $c_1$ and $c_2$ among all $\mathbf{c} \in \mathcal{C}$. 
-
-It can be observed from Figure \ref{pic: contour for m0 gaussian} point B ( with coordinate $(c_{1_B}, c_{2_B})$ and we can see $c_{1_A} = c_{1_B}$) has the largest $c_1$, $c_2$ components among all points belong to set $\mathcal{C}$. 
-Let $\delta_B$ be the optimal decision rule for point B, by optimal solution we mean $\delta_B$ acquires the maximum $P_d$ while keeping $P_{f_1} \leq c_{1_B}$ $P_{f_2} \leq c_{2_B}$.
-From \textbf{MENP (\rmnum{2})} we know  $\delta_B$ is also the optimal decision rule for point A, i.e. it maximum $P_d$ while keeping $P_{f_1} \leq c_{1_A}$ $P_{f_2} \leq c_{2_A}$. Since both points use the same decision rule, the probability of detection for both points are the same. Besides that, since point B belongs to $N_0$ and for any positive $\epsilon$ $(c_{1_B}, c_{2_B} + \epsilon)$ does not belong to $N_0$, we can conclude point B is on curve $L_1$. As point B has the largest $c_1$ component among all points belong to $\mathcal{C}$, we can see $c_{1B} = c_{1A}$. Hence we can conclude for two points respectively belong to $N_1$ and $L_1$, if they have the same $c_1$ component, they have the same decision rule and same $P_d$. 
+Now consider point A in region ${N}_1$ with coordinates $(c_1, c_2) = (c_{1_A}, c_{2_A})$. As it is shown in \ref{pic: contour for m0 gaussian}, the decision rule for point A can be computed through MENP (\rmnum{2}). To do it,  we need to determine the set $\mathcal{C}$, which is the intersection of $\mathcal{A}_c$ and $\alpha^+$.  In this case, set $\mathcal{C}$ is plotted in Fig. \ref{pif: regionC}.
+According to MENP (\rmnum{2}), we need to find $\mathbf{c}^0 \in \mathcal{C}$ such that it maximum $F(\mathbf{c})$ among all $\mathbf{c} \in \mathcal{C}$.
+Figure \ref{pic: contour for m0 gaussian} and Figure \ref{pic: regionC} shows that point B (with coordinate $(c_{1_B}, c_{2_B})$ where $c_{1_B} = c_{1_A}$) has the largest $c_1$ $c_2$ components among all $\mathbf{c} \in \mathcal{C}$. Since $F(\mathbf{c})$ is a non-decreasing function for $c_1$ and $c_2$ on set $\alpha^+$, it can be concluded that for a $\mathbf{c} \in \mathcal{C}$, we have $F(c_{1_B, c_{2_B}}) \geq F(\mathbf{c})$. As point B is in set $\mathcal{C}$, there exists an ENP decision rule with non-negative parameters $\delta^\ast$ such that $P_{f_1}(\delta^\ast) = c_1$ and  $P_{f_2}(\delta^\ast) = c_2$. From MENP (\rmnum{2}), we can conclude $\delta^\ast$ is the optimal decision rule for point A. Thus we can see the optimal decision rule for point A and point B are the same. Since point A lies in region $N_1$, point B lies in region $L_1$ and $c_{1_A} = c_{1_B}$, we can conclude for two points respectively belong to $N_1$ and $L_1$, if they have the same $c_1$ component, they have the same decision rule and same $P_d$. 
 
 Furthermore, we can see as long as A is in region $N_1$ its decision rule only depends on the value of $c_{1}$.  In other words, as long as A is still in region $N_1$, with $c_1 = c_{1_A}$ fixed,  when $c_{2}$ changes, the decision rule and $P_d$ remain the same. Hence we can conclude all points belonging to region $N_1$ or curve $L_1$, if they have the same $c_1$, they have the same decision rule and same $P_d$.
 
@@ -104,7 +109,7 @@ In the same way, we can prove: For points belong to region $N_2$ or curve $L_2$,
 
 Q.E.D
 
-Since we have computed $P_d$ for $(c_1, c_2) \in N_0$ and curves $L_1$ and $L_2$ belong to $N_0$, we can get $P_d$ for $(c_1, c_2)$ belongs to $N_1$ and $N_2$ through \textbf{Property 2}. M-ROC surface for this example is given in Figure  \ref{pic: LJS}.
+Since we have computed $P_d$ for $(c_1, c_2) \in N_0$ and curves $L_1$ and $L_2$ belong to $N_0$, we can get $P_d$ for $(c_1, c_2)$ belongs to $N_1$ and $N_2$ through \textbf{Property 2}. M-ROC surface for this example is given in Figure  \ref{pic: LJS}. Comparing Figure \ref{pic: surface for m0 gaussian} and Figure \ref{pic: LJS}, we can see the achievable region of the ENP test is much smaller than that of the MENP test. Besides that, it can be seen that the region achieved by the ENP test (region $M_0$) is part of the MENP test, which results from the repetition between the two tests.  
 
 \begin{figure}[!t]
 \centering
@@ -160,7 +165,7 @@ where $x_0 = \min\{F_1^{-1}(c_1), ..., F_M^{-1}(c_M)\}$. The associated probabil
 P_d = F_0(x_0)
 \]
 
-Figure \ref{pic: surface for same variance} shows the M-ROC surface for $M=2$, $\mu_0 = 0$, $\mu_1 = 1$, $\mu_2 = 2$ and $\sigma_0^2 = \sigma_1^2 = \sigma_2^2 = 1$. The bold curve is region $M_0$. From the definition of $M_0$, we know $M_0$ is the region can also be achieved by ENP test. Comparing to the ENP test, the MENP test can achieve the $P_d$ for the whole $c_1, c_2$ plane, while the region achieved by the ENP test is a curve.   
+Figure \ref{pic: surface for same variance} shows the M-ROC surface for $M=2$, $\mu_0 = 0$, $\mu_1 = 1$, $\mu_2 = 2$ and $\sigma_0^2 = \sigma_1^2 = \sigma_2^2 = 1$. The bold curve is region $M_0$. From the definition of $M_0$, we know $M_0$ is the region can also be achieved by both ENP test and the MENP test. We can see, comparing to the ENP test, the MENP test has a much larger achievable region (the MENP test can achieve the $P_d$ for the whole $c_1, c_2$ plane, while the ENP test can only achieve the $P_d$ when $c_1$, $c_2$ lies on region $N_0$, which is also a curve because $N_0$ is the projection of $M_0$). 
 
 \begin{figure}[!t]
 \centering
