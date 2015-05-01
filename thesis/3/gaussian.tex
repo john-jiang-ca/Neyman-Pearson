@@ -122,7 +122,7 @@ In the same way, we can prove: For points belong to region $N_2$ or curve $L_2$,
 Q.E.D
 
 Since we have computed $P_d$ for $(c_1, c_2) \in N_0$ and curves $L_1$ and $L_2$ belong to $N_0$, we can get $P_d$ for $(c_1, c_2)$ belongs to $N_1$ or $N_2$ through \textbf{Property 2}. M-ROC surface for this example is given in Figure  \ref{pic: LJS}.
-As we can observe from Figure \ref{pic: LJS}, when one of $c_1$, $c_2$ increases and the other does not change, the value of $P_d$ will either remain the same or increase; when both $c_1$ and $c_2$ increase, $P_d$ will increase. Besides that, it can also be seen, for a given $P_d \in (0, 1)$, there are countable $c_1, c_2$ combinations can achieve this $P_d$.   
+The whole M-ROC is divided into three regions ($M_1$, $M_0$ and $M_2$) to simplify our analysis. In region $M_1$, $P_d$ increases if and only if the value of $c_1$ increases, the value of $c_2$ does not affect $P_d$. On the opposite, in region $M_2$, $P_d$ increases if and only if the value of $c_1$ increases, it does not change with $c_2$. In region $M_0$, when one of $c_1$ or $c_2$ increases, $P_d$ will increase. In all these three regions, $P_d$ is non-decreasing with respect to $c_1$ and $c_2$. 
 
 Next we discuss the different between the ENP test and MENP test concerning this example. 
 From Figure \ref{pic: surface for m0 gaussian}, we can see the ENP test works only when the given $(c_1, c_2)$ belongs to set $\alpha^+$. For the case when $(c_1, c_2) \notin \alpha^+$, it cannot provide a solution.  However,  from Figure \ref{pic: LJS}, it can be seen by using the MENP test, we can get the decision rule for all $(c_1, c_2)$. 
@@ -182,8 +182,10 @@ where $x_0 = \min\{F_1^{-1}(c_1), ..., F_M^{-1}(c_M)\}$. The associated probabil
 P_d = F_0(x_0)
 \]
 
-Figure \ref{pic: surface for same variance} shows the M-ROC surface for $M=2$, $\mu_0 = 0$, $\mu_1 = 1$, $\mu_2 = 2$ and $\sigma_0^2 = \sigma_1^2 = \sigma_2^2 = 1$. The bold curve is region $M_0$. 
-As we can observe from Figure \ref{pic: surface for same variance}, when one of $c_1$ or $c_2$ increase and the other remain the same, the value of $P_d$ will either remain the same or increase. When both $c_1$ and $c_2$ increase, $P_d$ will increase. Besides that, it can also be seen, for a given $P_d \in (0, 1)$, there are countable $c_1, c_2$ combinations can achieve this $P_d$.   
+Figure \ref{pic: surface for same variance} shows the M-ROC surface for $M=2$, $\mu_0 = 0$, $\mu_1 = 1$, $\mu_2 = 2$ and $\sigma_0^2 = \sigma_1^2 = \sigma_2^2 = 1$. The bold curve is region $M_0$.
+To simplify the analysis, the whole M-ROC surface is devided into 3 regions ($M_1$, $M_0$ and $M_2$) as it is shown in Figure \ref{pic: surface for same variance}.  In region $M_1$, $P_d$ increases if and only if the value of $c_1$ increases, the value of $c_2$ does not affect $P_d$. On the opposite, in region $M_2$, $P_d$ increases if and only if the value of $c_1$ increases, it does not change with $c_2$. In region $M_0$, $P_d$ increases if and only if both $c_1$ and $c_2$ increase (This is different from Example 1, because in this case, region $M_0$ degenerates to a curve). 
+In all these three regions, $P_d$ is non-decreasing with respect to $c_1$ and $c_2$. 
+
 From the definition of $M_0$, we know $M_0$ is the region can also be achieved by both ENP test and MENP test. We can see, comparing to the ENP test, the MENP test has a much larger achievable region (the MENP test can achieve the $P_d$ for the whole $c_1-c_2$ plane, while the ENP test can only achieve the $P_d$ when $(c_1, c_2)$ lies in $\alpha^+$, which is also a curve because $\alpha^+$ is the projection of $M_0$). 
 
 \begin{figure}[!t]
