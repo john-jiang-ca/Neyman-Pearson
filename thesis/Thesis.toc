@@ -11,7 +11,7 @@
 \contentsline {section}{\numberline {2.5}Determining the decision rule under the MENP framework}{42}
 \contentsline {subsection}{\numberline {2.5.1}An Example}{47}
 \contentsline {chapter}{\numberline {3}The ROC Surface of Modified Extended Neyman Pearson Test}{55}
-\contentsline {section}{\numberline {3.1}Modified Receiver Operating Characteristic of the MENP test}{55}
+\contentsline {section}{\numberline {3.1}The Receiver Operating Characteristic of the MENP test}{55}
 \contentsline {section}{\numberline {3.2}The M-ROC Surface under Gaussian Hypotheses}{58}
 \contentsline {section}{\numberline {3.3}MROC Surface under Chi-Square Hypotheses}{69}
 \contentsline {chapter}{\numberline {4}Application of MENP Framework in Spectrum Sensing and Simulation Results}{72}

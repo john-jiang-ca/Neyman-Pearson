@@ -29,7 +29,7 @@ we have
 \end{equation}
 We use Matlab to compute the M-ROC for region $M_0$. The values of $k_1$ and $k_2$ range from $0$ to $100$ in steps of $0.01$. Substituting the value of $k_1$ and $k_2$ into \eqref{1125c0}, results in the corresponding $P_d$ $P_{f_1}$ and $P_{f_2}$.  The set $M_0$ is illustrated in Figure \ref{pic: surface for m0 gaussian}. 
 From the definition of $M_0$, we know its projection on the $c_1-c_2$ plane is $\alpha^+$.  
- The set $\alpha^+$ for this example is illustrated in Figure \ref{pic: contour for m0 gaussian}. 
+ The set $\alpha^+$ for this example is presented in Figure \ref{pic: contour for m0 gaussian}. 
 
 \begin{figure}[!t]
 \centering
@@ -121,7 +121,10 @@ In the same way, we can prove: For points belong to region $N_2$ or curve $L_2$,
 
 Q.E.D
 
-Since we have computed $P_d$ for $(c_1, c_2) \in N_0$ and curves $L_1$ and $L_2$ belong to $N_0$, we can get $P_d$ for $(c_1, c_2)$ belongs to $N_1$ or $N_2$ through \textbf{Property 2}. M-ROC surface for this example is given in Figure  \ref{pic: LJS}. 
+Since we have computed $P_d$ for $(c_1, c_2) \in N_0$ and curves $L_1$ and $L_2$ belong to $N_0$, we can get $P_d$ for $(c_1, c_2)$ belongs to $N_1$ or $N_2$ through \textbf{Property 2}. M-ROC surface for this example is given in Figure  \ref{pic: LJS}.
+As we can observe from Figure \ref{pic: LJS}, when one of $c_1$, $c_2$ increases and the other does not change, the value of $P_d$ may remain the same; when both $c_1$ and $c_2$ increase, $P_d$ will increase. Besides that, it can also be seen, for a given $P_d \in (0, 1)$, there are countable $c_1, c_2$ combinations can achieve this $P_d$.   
+
+Next we discuss the different between the ENP test and MENP test concerning this example. 
 From Figure \ref{pic: surface for m0 gaussian}, we can see the ENP test works only when the given $(c_1, c_2)$ belongs to set $\alpha^+$. For the case when $(c_1, c_2) \notin \alpha^+$, it cannot provide a solution.  However,  from Figure \ref{pic: LJS}, it can be seen by using the MENP test, we can get the decision rule for all $(c_1, c_2)$. 
 In other words, the achievable region of the MENP test is larger than that of the ENP test. 
 Besides that, we can see when $(c_1, c_2) \in \alpha^+$, the ENP test and the MENP test provides the same $P_d$. This results from the repetition between the two framework.  
@@ -179,7 +182,9 @@ where $x_0 = \min\{F_1^{-1}(c_1), ..., F_M^{-1}(c_M)\}$. The associated probabil
 P_d = F_0(x_0)
 \]
 
-Figure \ref{pic: surface for same variance} shows the M-ROC surface for $M=2$, $\mu_0 = 0$, $\mu_1 = 1$, $\mu_2 = 2$ and $\sigma_0^2 = \sigma_1^2 = \sigma_2^2 = 1$. The bold curve is region $M_0$. From the definition of $M_0$, we know $M_0$ is the region can also be achieved by both ENP test and MENP test. We can see, comparing to the ENP test, the MENP test has a much larger achievable region (the MENP test can achieve the $P_d$ for the whole $c_1-c_2$ plane, while the ENP test can only achieve the $P_d$ when $(c_1, c_2)$ lies in $\alpha^+$, which is also a curve because $\alpha^+$ is the projection of $M_0$). 
+Figure \ref{pic: surface for same variance} shows the M-ROC surface for $M=2$, $\mu_0 = 0$, $\mu_1 = 1$, $\mu_2 = 2$ and $\sigma_0^2 = \sigma_1^2 = \sigma_2^2 = 1$. The bold curve is region $M_0$. 
+As we can observe from Figure \ref{pic: surface for same variance}, when increase one of $c_1$, $c_2$, the value of $P_d$ will remain the same. Only when both $c_1$ and $c_2$ increase, $P_d$ will increase. Besides that, it can also be seen, for a given $P_d \in (0, 1)$, there are countable $c_1, c_2$ combinations can achieve this $P_d$.   
+From the definition of $M_0$, we know $M_0$ is the region can also be achieved by both ENP test and MENP test. We can see, comparing to the ENP test, the MENP test has a much larger achievable region (the MENP test can achieve the $P_d$ for the whole $c_1-c_2$ plane, while the ENP test can only achieve the $P_d$ when $(c_1, c_2)$ lies in $\alpha^+$, which is also a curve because $\alpha^+$ is the projection of $M_0$). 
 
 \begin{figure}[!t]
 \centering
