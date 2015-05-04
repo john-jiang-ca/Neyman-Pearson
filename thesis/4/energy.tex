@@ -94,7 +94,12 @@ from the conclusion in chapter 3 the optimal  decision rule for a given $c_1, c_
   y \substack{H_0 \\ < \\ > \\ \bar{H}_0} V_\tau
   \label{equ:1129a4}
 \end{equation}
-where $V_\tau = \min\{F_1^{-1}(c_1),  F_2^{-1}(c_2)\}$ and function $F_1,  F_2$ are the CDFs of $Y$ under hypothesis $H_1, H_2$ respectively. The expression of $P_d$ is 
+where 
+\begin{equation}
+  V_\tau = \min\{F_1^{-1}(c_1),  F_2^{-1}(c_2)\}
+  \label{equ:2015may1a2}
+\end{equation}
+and function $F_1,  F_2$ are the CDFs of $Y$ under hypothesis $H_1, H_2$ respectively. The expression of $P_d$ is 
 \begin{equation}
   P_d = F_0(V_\tau)\,.
   \label{equ:1129a5}
@@ -102,12 +107,49 @@ where $V_\tau = \min\{F_1^{-1}(c_1),  F_2^{-1}(c_2)\}$ and function $F_1,  F_2$ 
 
 Similar to energy detection in binary hypothesis testing, energy detection for multiple hypothesis testing differentiates between $H_0$ and $\bar{H}_0$ by comparing the test statistic (in form of energy) with a threshold $V_\tau$. The value of the threshold can be determined by the probability of false alarm constraints.   
 
-We use Matlab to compute the M-ROC for this energy detector. The value of $c_1, c_2$ range from 0 to 0.1 with step 0.001. By using \eqref{equ:1129a4} and \eqref{equ:1129a5}, the value of $P_d$ can be acquired. The M-ROC is illustrate in Figure. \ref{pic:1201a1}. We can see for any given $c_1, c_2$, we have an associated $P_d$. Besides that, when $c_1$ or $c_2$ changes, the associated $P_d$ may not change. This goes with \textbf{Property 2} in section 3.2. When designing the system, only increase the value of $c_1$ or $c_2$ may not promote the probability of detection. In order to increase $P_d$, we need to increase $V_\tau = \min\{F_1^{-1}(c_1),  F_2^{-1}(c_2)\}$. 
+We use Matlab to compute the M-ROC for this energy detector. The value of $c_1, c_2$ range from $0.0001$ to $0.2$ with step $0.0001$. By using \eqref{equ:1129a4} and \eqref{equ:1129a5}, the value of $P_d$ can be acquired. The M-ROC is illustrate in Figure. \ref{pic:1201a1}. We can see for any given $c_1, c_2$, we have an associated $P_d$. Besides that, when $c_1$ or $c_2$ changes, the associated $P_d$ may not change. This goes with \textbf{Property 2} in section 3.2. When designing the system, only increase the value of $c_1$ or $c_2$ may not promote the probability of detection. In order to increase $P_d$, we need to increase $V_\tau = \min\{F_1^{-1}(c_1),  F_2^{-1}(c_2)\}$. 
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=12cm, height=16cm]{4/energy.eps}
+\includegraphics[width=12cm, height=16cm]{4/mathc1c2pd.eps}
 \caption{M-ROC surface for $\sigma_n^2 = 0.1$, $\sigma_{s_A}^2=0.05$, $\sigma_{s_B}^2=0.15$ and $N = 20$.}
 \label{pic:1201a1}
+\end{figure}
+
+\subsection{Simulation Results}
+The simulation results presented in this thesis were obtained by using Monte Carlo techniques. All of Matlab code for the programs required to reproduce the simulation results are contained in the attached CD. Appendix B presents a brief tutorial on the uses of the various files for the simulation. The system parameters are the same with numerical analysis.
+
+The simulation presents the performance of energy detector when $c_1$ and $c_2$ separately increase from $0.005$ to $0.2$ with steps $0.005$. For a specified $c_1$ and $c_2$, we first calculate the associated MENP decision rule, which is given by \eqref{equ:1129a4} and \eqref{equ:2015may1a2}. 
+The relationship between $V_\tau$ and $c_1$, $c_2$ is depicted in Fig. \ref{pic:2015may1a0}.   Points for  $c_1 = 0$, $c_2$ and $c_2 = 0$, $c_1$ are not part of the computation results. These points are plotted to better present the figure.  %As we can see, $V_\tau$ is a non-decreasing function with respect to $c_1$ and $c_2$.   For different $c_1$ and $c_2$, the value of $V_\tau$ could be the same. 
+
+For each decision rule, we use Monte Carlo simulation to get its associated $P_d$, $P_{f_1}$ and $P_{f_2}$.   
+In order to ensure highly accurate results, a minimum of 300 events and 100000 experiments are required to get the $P_d$, $P_{f_1}$ and $P_{f_2}$ for each $c_1$, $c_2$.   The simulation result of the M-ROC surface is presented in Fig. \ref{pic:2015may1}. 
+ $P_d$ is acquired through simulation for each intersection of the mesh, except for points $c_1 = 0$, $c_2$ and $c_2 = 0$, $c_1$, 
+which are plotted to better illustrate the M-ROC surface. 
+In Fig. \ref{pic:2015may1a1}, the relationship between $P_{f_1}$, $P_{f_2}$ and $P_d$ are presented. For each decision rule, the $P_{f_1}$, $P_{f_2}$ and $P_d$ are plotted as $\bullet$.
+
+From Fig. \ref{pic:2015may1} and Fig. \ref{pic:2015may1a1}, we can find for the same $V_\tau$, the simulation results of its $P_d$ $P_{f_1}$ and $P_{f_2}$  are not always the same. This is because the $P_d$ $P_{f_1}$ and $P_{f_2}$ is acquired through Monte Carlo simulation. For a limit times of experiments, the results could be different. Compare Fig. \ref{pic:2015may1} and  Fig. \ref{pic:2015may1a1} with Fig. \ref{pic:1201a1}, we can see the simulation result accords with the numerical analysis, which verify our theoretical analysis.
+
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=12cm, height=16cm]{4/c1c2t.eps}
+\caption{Relationship Between $c_1$ $c_2$ and $V_\tau$}
+\label{pic:2015may1a0}
+\end{figure}
+
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=12cm, height=16cm]{4/c1c2pd.eps}
+\caption{Simulation results of M-ROC surface for $\sigma_n^2 = 0.1$, $\sigma_{s_A}^2=0.05$, $\sigma_{s_B}^2=0.15$ and $N = 20$.}
+\label{pic:2015may1}
+\end{figure}
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=12cm, height=16cm]{4/pdpf1pf2.eps}
+\caption{Relationship between $P_{f_1}$, $P_{f_2}$ and $P_d$.}
+\label{pic:2015may1a1}
 \end{figure}
 
