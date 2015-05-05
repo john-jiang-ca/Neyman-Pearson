@@ -3,10 +3,10 @@
 \subsection{System Model}
 
 We consider a cognitive radio system where the spectrum can be occupied by exactly one of two distinct primary signals $\{s_A, s_B\}$ or it could be vacant. Let $H_0$ denote the situation under which the channel is free, $H_1$ denote the hypothesis under which the channel is occupied by signal $s_A$ and $H_2$ denote the hypothesis under which the channel is occupied by signals $s_B$.  
-A typical cyclostationary sensing system consists of a measuring device (which outputs testing statistics, e.g. cyclic-covariance or cyclic-spectrum, to represent the degree of cyclostationarity of the received signal) and a testing device (which determines the channel status according to the outputs of the measuring device using a proper hypotheses testing theory, e.g.  the generalized likelihood ratio test) \cite{dandawate1994statistical, lunden2010robust, lunden2007spectrum}.
+%A typical cyclostationary sensing system consists of a measuring device (which outputs testing statistics, e.g. cyclic-covariance or cyclic-spectrum, to represent the degree of cyclostationarity of the received signal) and a testing device (which determines the channel status according to the outputs of the measuring device using a proper hypotheses testing theory, e.g.  the generalized likelihood ratio test) \cite{dandawate1994statistical, lunden2010robust, lunden2007spectrum}.
 
 In this case, we assume $s_A, s_B$ are OFDM signals with same frame structure.
-We assume we have all the knowledge of $s_A$, $s_B$ and noise.   
+We also assume we have all the knowledge of $s_A$, $s_B$ and noise.   
 The block diagram of our system is illustrated in Figure \ref{pic:1222a0}.
 \begin{figure}[!t]
   \centering 
@@ -14,7 +14,7 @@ The block diagram of our system is illustrated in Figure \ref{pic:1222a0}.
   \caption{Block Diagram for  cyclostationary detector.}
   \label{pic:1222a0}
 \end{figure}
-Similar to \cite{lunden2007spectrum}, in our system the measuring device observes the noisy version of the received signals and forms the cyclic-covariance of their sampled version. With this statistics, the testing device employs the MENP framework to determine the status of the channel. The input of measuring device is
+Similar to \cite{lunden2007spectrum, lunden2010robust}, in our system the measuring device observes the noisy version of the received signals and forms the cyclic-covariance \cite{dandawate1994statistical} of their sampled version. With this statistics, the testing device employs the MENP framework to determine the status of the channel. The input of measuring device is
 \begin{equation}
   \mathbf{x} = \begin{cases}
 	\mathbf{n}\;\;\;\;\;\;&\text{when $H_0$ is true}\\
@@ -33,7 +33,9 @@ where
   \end{cases}
   \label{xssn}
 \end{equation}
-Assume each OFDM frame contains a CP sequence of length $l_C$ followed by a data sequence of length $l_D$, so the total length of an OFDM frame is $l_0 = l_C+l_D$. In the general case the receiver is not synchronized to the transmitted signal, i.e. $s_{A0}$ ( or $s_{B0}$) is not the first symbol of a received OFDM frame. Let $\tau$ represents the synchronization mismatch. That is, when $\tau = 0$, $s_0$ is the first symbol of an OFDM frame; when $\tau = l_C+l_D -1$, $s_0$ is the last symbol of an OFDM frame. Let $M = Kl_0$, we can see when perfect synchronization the detector would observe $K$ complete  OFDM frames (as it is shown in Figure \ref{pic:1222ext0}); otherwise, the detector would observe $K-1$ complete OFDM frames and $2$ incomplete OFDM frames (as it is shown in Figure \ref{pic:1222a2}). 
+Assume each OFDM frame contains a CP sequence of length $l_C$ followed by a data sequence of length $l_D$, so the total length of an OFDM frame is $l_0 = l_C+l_D$. 
+From \cite{goldsmith2005wireless}, we know $l_D$ is equal to the number of subcarriers in OFDM system. 
+In the general case the receiver is not synchronized to the transmitted signal, i.e. $s_{A0}$ ( or $s_{B0}$) is not the first symbol of a received OFDM frame. Let $\tau$ represents the synchronization mismatch. That is, when $\tau = 0$, $s_0$ is the first symbol of an OFDM frame; when $\tau = l_C+l_D -1$, $s_0$ is the last symbol of an OFDM frame. Let $M = Kl_0$, we can see with perfect synchronization the detector would observe $K$ complete  OFDM frames (as it is shown in Figure \ref{pic:1222ext0}); otherwise, the detector would observe $K-1$ complete OFDM frames and $2$ incomplete OFDM frames (as it is shown in Figure \ref{pic:1222a2}). 
 \begin{figure}[!t]
   \centering 
   \includegraphics[width=\textwidth]{4/fig2.eps}
@@ -47,7 +49,7 @@ Assume each OFDM frame contains a CP sequence of length $l_C$ followed by a data
   \caption{Received signal for synchronization mismatch $\tau_0$.}
   \label{pic:1222a2}
 \end{figure}
-Assume $\tau = \tau_0$, let $\Theta_{\tau_0}$ denote the set of subscripts such that if $i \in \Theta_{\tau_0}$,  $s_i$ is a symbol of CP sequence. From Figure \ref{pic:1222ext0} we can see, in the situation of perfect synchronization ( $\tau_0 =0$), when $i \in [Ql_0, Ql_0+l_c-1]$, the associated $s_i$ belongs to CP sequence. 
+Assume $\tau = \tau_0$, let $\Theta_{\tau_0}$ denote the set of subscripts such that if $i \in \Theta_{\tau_0}$,  $s_i$ is a symbol of CP sequence. From Figure \ref{pic:1222ext0} we can see, in the situation of perfect synchronization ( $\tau_0 =0$), when $i \in [Ql_0, Ql_0+l_c-1]$ ($Q = 0, 1, \cdots, K-1$), the associated $s_i$ belongs to CP sequence. 
 From Figure \ref{pic:1222a2}, we can see in the situation of imperfect synchronization, $i \in \Theta_{\tau_0}$ only if $i + \tau_0 \in [Ql_0, Ql_0+l_c -1]$ ($Q = 0, 1, \cdots, K-1$), i.e.
 \begin{equation}
   \Theta_{\tau_0} = \{
@@ -60,11 +62,30 @@ Let $\Theta_{\tau_0}^k$ denotes set of subscript $i$ such that  $i \in \Theta_{\
   \label{definitionoftau0k}
 \end{equation}
 
-Similar to \cite{axell2011optimal}, we make the following assumptions about the noise and signal: (1) all noise samples are i.i.d. mean zero circularly symmetric complex Gaussian (CSCG) with variance $\sigma_n^2$; (2) under hypothesis $H_1$ the transmitted signal symbols in the data sequence are i.i.d. zero mean CSCG with variance $\sigma_{s_A}^2$ (or $\sigma_{s_B}^2$ under hypothesis $H_2$); (3) if $s_i$ is a sample in CP sequence, then we have $s_i = s_{i+l_D}$. 
+Similar to \cite{axell2011optimal}, we make the following assumptions about the noise and signal: (1) all noise samples are i.i.d. mean zero circularly symmetric complex Gaussian (CSCG) with variance $2\sigma_n^2$, i.e. $n_i \sim \mathcal{CN}(0, 2\sigma_n)^2$; (2) when the number of subcarriers is large enough ($l_D$ is large enough), under hypothesis $H_1$ ($H_2$) the transmitted signal symbols in the data sequence are i.i.d. zero mean CSCG with variance $2\sigma_{s_A}^2$ (or $2\sigma_{s_B}^2$ under hypothesis $H_2$), i.e. $s_{Ai} \sim \mathcal{CN}(0, 2\sigma_{s_A}^2)$ $s_{Bi} \sim \mathcal{CN}(0, 2\sigma_{s_B}^2)$; (3) if $s_i$ is a sample in CP sequence, then we have $s_i = s_{i+l_D}$. 
 
 Cyclostationary processes are random processes for which the statistical properties such as the mean and autocorrelation change periodically as a function of time \cite{gardner1986statistical}. 
 The CP structure could introduce strong cyclostationarity to the transmitted OFDM signals ($s_A$ or $s_B$) \cite{lunden2010robust}. 
 Let $r_i=x_ix_j^\ast$ ($j=i+l_D$). The moments of $\bar{r}_i, \tilde{r}_i$ are derived in \cite{axell2011optimal} and summarized in Table \ref{Table1}. 
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+\begin{table}[h]
+\centering
+  \begin{tabular}{|c|c|c|c|c|c|}
+	\hline
+	\multirow{2}{*}{}           & \multirow{2}{*}{$H_0$} & \multicolumn{2}{c|}{$H_1$}                                                               & \multicolumn{2}{c|}{$H_2$}                                                               \\ \cline{3-6} 
+	&                        & $i \in \Theta_{\tau_0}$                                                   & $i\notin \Theta_{\tau_0}$                          & $i\in \Theta_{\tau_0}$                                                   & $i\notin \Theta_{\tau_0}$                          \\ \hline
+	$E[\bar{r}_i]$              & $0$                    & $2\sigma_{s_A}^2$                                       & $0$                            & $2\sigma_{s_B}^2$                                                         & $0$                            \\ \hline
+	$E[\tilde{r}_i]$            & $0$                    & $0$                                                     & $0$                            & $0$                                                     & $0$                            \\ \hline
+	$E[\bar{r}_i^2]$            & $2\sigma_n^4$          & $8\sigma_{s_A}^4+4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4$ & $2(\sigma_n^2+\sigma_{s_A}^2)^2$ & $8\sigma_{s_B}^4+4\sigma_{s_B}^2\sigma_n^2+2\sigma_n^4$ & $2(\sigma_n^2+\sigma_{s_B}^2)^2$ \\ \hline
+	$E[\tilde{r}_i^2]$          & $2\sigma_n^4$          & $4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4$                 & $2(\sigma_n^2+\sigma_{s_A}^2)^2$ & $4\sigma_{s_B}^2\sigma_n^2+2\sigma_n^4$                 & $2(\sigma_n^2+\sigma_{s_B}^2)^2$ \\ \hline
+	$E[\bar{r}_i\tilde{r}_i]$   & $0$                    & $0$                                                     & $0$                            & $0$                                                     & $0$                            \\ \hline
+  \end{tabular}
+  \caption{The moments of $r_i$}
+  \label{Table1}
+\end{table}
+
 From the definition of $\Theta_{\tau_0}$, we can see under both $H_1$ or $H_2$, the autocorrelation of $s_A$ or $s_B$ change periodically as a function of $i$. Hence we can conclude the OFDM signals is cyclostationary.  
 \cite{lunden2007spectrum} shows that $r_i$ exhibit cyclic property at frequency $\alpha = \frac{Q}{l_0}$ ($Q = \pm1, \pm2, \cdots$) under hypotheses $H_1$ or $H_2$. In this case, to simplify our analysis, we consider a single cyclic detector at frequency $\alpha = \frac{1}{l_0}$. 
 Let $\mathbf{r}$ denote the vector of $r_i$. Since the length of $\mathbf{x}$ is $M$, the length of $\mathbf{r}$ is $M - l_D$. For simple representation, let $N = M - l_D$.
@@ -94,23 +115,6 @@ By observing $y$, a realization  of $Y$, the testing device determines the statu
 According to \cite{lunden2010robust}, $\hat{R}(l_D, \alpha)$ has a complex normal distribution for a large $K$, so $Y$ has a two-dimensional Gaussian distribution \cite{goodman1963statistical}.
 Let $\bar{c}$ and $\tilde{c}$ denote the real and imaginary parts of a complex number $c$ respectively. Then, $b_i = \bar{b}_i + j\tilde{b}_i$  and $r_i = \bar{r}_i + j\tilde{r}_i$. 
 
-% Please add the following required packages to your document preamble:
-% \usepackage{multirow}
-\begin{table}[h]
-\centering
-  \begin{tabular}{|c|c|c|c|c|c|}
-	\hline
-	\multirow{2}{*}{}           & \multirow{2}{*}{$H_0$} & \multicolumn{2}{c|}{$H_1$}                                                               & \multicolumn{2}{c|}{$H_2$}                                                               \\ \cline{3-6} 
-	&                        & $i \in \Theta_{\tau_0}$                                                   & $i\notin \Theta_{\tau_0}$                          & $i\in \Theta_{\tau_0}$                                                   & $i\notin \Theta_{\tau_0}$                          \\ \hline
-	$E[\bar{r}_i]$              & $0$                    & $2\sigma_{s_A}^2$                                       & $0$                            & $2\sigma_{s_B}^2$                                                         & $0$                            \\ \hline
-	$E[\tilde{r}_i]$            & $0$                    & $0$                                                     & $0$                            & $0$                                                     & $0$                            \\ \hline
-	$E[\bar{r}_i^2]$            & $2\sigma_n^4$          & $8\sigma_{s_A}^4+4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4$ & $2(\sigma_n^2+\sigma_{s_A}^2)^2$ & $8\sigma_{s_B}^4+4\sigma_{s_B}^2\sigma_n^2+2\sigma_n^4$ & $2(\sigma_n^2+\sigma_{s_B}^2)^2$ \\ \hline
-	$E[\tilde{r}_i^2]$          & $2\sigma_n^4$          & $4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4$                 & $2(\sigma_n^2+\sigma_{s_A}^2)^2$ & $4\sigma_{s_B}^2\sigma_n^2+2\sigma_n^4$                 & $2(\sigma_n^2+\sigma_{s_B}^2)^2$ \\ \hline
-	$E[\bar{r}_i\tilde{r}_i]$   & $0$                    & $0$                                                     & $0$                            & $0$                                                     & $0$                            \\ \hline
-  \end{tabular}
-  \caption{The moments of $r_i$}
-  \label{Table1}
-\end{table}
 
 Next we compute $E[\bar{r}_i\bar{r}_k]$, $E[\bar{r}_i\tilde{r}_k]$ and $E[\tilde{r}_i\tilde{r}_k]$ when $i \neq k$ under hypothesis $H_1$. For easy presentation, let $j = i+l_D$ and $l=k+l_D$.
  The expression of $r_i$ can be written as
@@ -341,25 +345,41 @@ The  second order statistic of $R$ and $I$ can be computed as
   \end{split}
   \label{ER^2}
  \end{equation}
- From Table \ref{Table3}, we can see $E[\bar{r}_i\bar{r}_k]$ is not equal to zero when one of following situation is satisfied: (1) $i = k$; (2) $i, k \in \Theta_{\tau_0}$ and $i \neq k$. Hence  we have 
+ From Table \ref{Table3}, we can see $E[\bar{r}_i\bar{r}_k]$ is not equal to zero when one of following situation is satisfied: (1) $i = k$; (2) $i, k \in \Theta_{\tau_0}$ and $i \neq k$. Hence we have 
  \[
 \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\bar{a}_i\bar{a}_kE[\bar{r}_i\bar{r}_k] = 
 \sum_{i=0}^{N-1}\bar{a}_i^2E[\bar{r}_i^2] + \sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\bar{a}_kE[\bar{r}_i\bar{r}_k]
  \]
- where $\Theta_{\tau_0}^i$ is defined in \eqref{definitionoftau0k}. Similarly from Table \ref{Table3} we have
+ where $\Theta_{\tau_0}^i$ is defined in \eqref{definitionoftau0k}. 
+ According to whether or not $i \in \Theta_{\tau_0}$,  $\sum_{i=0}^{N-1}\bar{a}_i^2E[\bar{r}_i^2]$  can be written as
  \[
+\sum_{i=0}^{N-1}\bar{a}_i^2E[\bar{r}_i^2]=
+\sum_{i\in\Theta_{\tau_0}}\bar{a}_i^2E[\bar{r}_i^2] + \sum_{i\notin\Theta_{\tau_0}}\bar{a}_i^2E[\bar{r}_i^2]
+ \]
+lends to 
+\begin{equation}
+\sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\bar{a}_i\bar{a}_kE[\bar{r}_i\bar{r}_k] = 
+\sum_{i\in\Theta_{\tau_0}}\bar{a}_i^2E[\bar{r}_i^2] + \sum_{i\notin\Theta_{\tau_0}}\bar{a}_i^2E[\bar{r}_i^2] + \sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\bar{a}_kE[\bar{r}_i\bar{r}_k]
+  \label{equ:2015may04a0}
+\end{equation}
+Similarly, from Table \ref{Table3} we have
+ \begin{equation}
    E[\bar{r}_i\tilde{r}_k]= 0 
- \]
- and
- \[
-\sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\tilde{a}_i\tilde{a}_kE[\tilde{r}_i\tilde{r}_k]  =  \sum_{i=0}^{N-1}\tilde{a}_i^2E[\tilde{r}_i^2]
- \]
+   \label{equ:2015may04a1}
+ \end{equation}
+and
+\begin{equation}
+  \begin{split}
+\sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\tilde{a}_i\tilde{a}_kE[\tilde{r}_i\tilde{r}_k]  =&  \sum_{i=0}^{N-1}\tilde{a}_i^2E[\tilde{r}_i^2]\\
+=& \sum_{i\in\Theta_{\tau_0}}\tilde{a}_i^2E[\tilde{r}_i^2] + \sum_{i\notin\Theta_{\tau_0}}\tilde{a}_i^2E[\tilde{r}_i^2]
+  \end{split}
+  \label{equ:2015may04a2}
+\end{equation}
 
- Hence \eqref{ER^2} can be written as
+Substituting \eqref{equ:2015may04a0}, \eqref{equ:2015may04a1} and \eqref{equ:2015may04a2} into \eqref{ER^2} leads to 
  \begin{equation}
   \begin{split}
 	E[R^2]  
-	= &\sum_{i=0}^{N-1}\bar{a}_i^2E[\bar{r}_i^2] + \sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\bar{a}_kE[\bar{r}_i\bar{r}_k] + \sum_{i=0}^{N-1}\tilde{a}_i^2E[\tilde{r}_i^2]\\
     = &(\sum_{i\in\Theta_{\tau_0}}\bar{a}_i^2E[\bar{r}_i^2] + \sum_{i\notin\Theta_{\tau_0}}\bar{a}_i^2E[\bar{r}_i^2])  + \sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\bar{a}_kE[\bar{r}_i\bar{r}_k] + (\sum_{i\in\Theta_{\tau_0}}\tilde{a}_i^2E[\tilde{r}_i^2] + \sum_{i\notin\Theta_{\tau_0}}\tilde{a}_i^2E[\tilde{r}_i^2]) \\
 	= &\sum_{i\in\Theta_{\tau_0}}\bar{a}_i^2E[\bar{r}_i^2] + \sum_{i\in\Theta_{\tau_0}}\tilde{a}_i^2E[\tilde{r}_i^2] + \sum_{i\notin\Theta_{\tau_0}}(\bar{a}_i^2E[\bar{r}_i^2]+\tilde{a}_i^2E[\tilde{r}_i^2]) + \sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\bar{a}_kE[\bar{r}_i\bar{r}_k]\\
 	= &\sum_{i\in\Theta_{\tau_0}}\bar{a}_i^2(8\sigma_{s_A}^4+4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4) + \sum_{i\in\Theta_{\tau_0}}\tilde{a}_i^2(4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4) + \sum_{i\notin\Theta_{\tau_0}}(\tilde{a}_i^2+\bar{a}_i^2)2(\sigma_n^2+\sigma_{s_A}^2)^2\\
@@ -393,7 +413,7 @@ Let $\sigma_{AR|\tau_0}$ $\sigma_{AI|\tau_0}$ denote the standard deviation of $
   \end{split}
   \label{deviationR}
 \end{equation}
-Let $\beta_{\tau_0}^A = \frac{1}{N^2}|\Theta_{\tau_0}|(4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4) + \frac{2}{N^2}(N - |\Theta_{\tau_0}|)(\sigma_n^2+\sigma_{s_A}^2)^2$. Then theabove equation can be written as
+Let $\beta_{\tau_0}^A = \frac{1}{N^2}|\Theta_{\tau_0}|(4\sigma_{s_A}^2\sigma_n^2+2\sigma_n^4) + \frac{2}{N^2}(N - |\Theta_{\tau_0}|)(\sigma_n^2+\sigma_{s_A}^2)^2$. Then the above equation can be written as
 \begin{equation}
   \sigma_{AR|\tau_0} = \left(\beta_{\tau_0}^A+  8\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\bar{a}_i^2 
     + 4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\bar{a}_k- \mu_{AR|\tau_0}^2\right)^\frac{1}{2}\,.
@@ -438,20 +458,38 @@ Similarly, we compute $\sigma_{AI|\tau_0}$ and $E[RI]$ as
 	\label{ERI}
   \end{split}
 \end{equation}
- From Table \ref{Table3}, we can see $E[\bar{r}_i\bar{r}_k]$ is not equal to zero when one of following situation is satisfied: (1) $i = k$; (2) $i, k \in \Theta_{\tau_0}$ and $i \neq k$. Hence  we have 
+
+ From Table \ref{Table3}, we can see $E[\bar{r}_i\bar{r}_k]$ is not equal to zero when one of following situation is satisfied: (1) $i = k$; (2) $i, k \in \Theta_{\tau_0}$ and $i \neq k$. Hence we have 
  \[
 \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\bar{a}_i\tilde{a}_kE[\bar{r}_i\bar{r}_k] = 
-\sum_{i=0}^{N-1}\bar{a}_i\tilde{a}_kE[\bar{r}_i^2] + \sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\tilde{a}_kE[\bar{r}_i\bar{r}_k]
+\sum_{i=0}^{N-1}\bar{a}_i\tilde{a}_iE[\bar{r}_i^2] + \sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\tilde{a}_kE[\bar{r}_i\bar{r}_k]
  \]
- where $\Theta_{\tau_0}^i$ is defined in \eqref{definitionoftau0k}. Similarly from Table \ref{Table3} we have
+ where $\Theta_{\tau_0}^i$ is defined in \eqref{definitionoftau0k}. 
+ According to whether or not $i \in \Theta_{\tau_0}$, we have  
  \[
+   \sum_{i=0}^{N-1}\bar{a}_i\tilde{a}_iE[\bar{r}_i^2]=
+   \sum_{i\in\Theta_{\tau_0}}\bar{a}_i\tilde{a}_iE[\bar{r}_i^2] + \sum_{i\notin\Theta_{\tau_0}}\bar{a}_i\tilde{a}_iE[\bar{r}_i^2]
+ \]
+lends to 
+\begin{equation}
+\sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\bar{a}_i\tilde{a}_kE[\bar{r}_i\bar{r}_k] = 
+   \sum_{i\in\Theta_{\tau_0}}\bar{a}_i\tilde{a}_iE[\bar{r}_i^2] + \sum_{i\notin\Theta_{\tau_0}}\bar{a}_i\tilde{a}_iE[\bar{r}_i^2]
++ \sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\tilde{a}_kE[\bar{r}_i\bar{r}_k]
+  \label{equ:2015may04a3}
+\end{equation}
+Similarly, from Table \ref{Table3} we have
+ \begin{equation}
    E[\bar{r}_i\tilde{r}_k]= 0 
- \]
- and
- \[
-   \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\tilde{a}_i\bar{a}_kE[\tilde{r}_i\tilde{r}_k]  =  \sum_{i=0}^{N-1}\tilde{a}_i\bar{a}_kE[\tilde{r}_i^2]
- \]
- Hence \eqref{ERI} can be written as
+   \label{equ:2015may04a4}
+ \end{equation}
+and
+\begin{equation}
+  \begin{split}
+    \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\tilde{a}_i\bar{a}_kE[\tilde{r}_i\tilde{r}_k]  =&  \sum_{i=0}^{N-1}\tilde{a}_i\bar{a}_iE[\tilde{r}_i^2]\\
+  \end{split}
+  \label{equ:2015may04a5}
+\end{equation}
+Substituting \eqref{equ:2015may04a3} \eqref{equ:2015may04a4} and \eqref{equ:2015may04a5} into \eqref{ERI} leads to  
  \begin{equation}
    \begin{split}
      E[RI] = &\sum_{i=0}^{N-1}\tilde{a}_i\bar{a}_iE[\bar{r}_i^2]  + \sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\tilde{a}_kE[\bar{r}_i\bar{r}_k] - \sum_{i=0}^{N-1}\tilde{a}_i\bar{a}_iE[\tilde{r}_i^2]\\
@@ -482,13 +520,13 @@ Let $\rho_{A|\tau_0}$ represents the correlation coefficient between $R$ and $I$
 From \eqref{ER} and \eqref{EI} we have 
 \begin{equation}
   \begin{split}
-  \mu_{AR|\tau_0}\mu_{AI|\tau_0} = &4\sigma_{s_A}^4(\sum_{i\in\Theta_{\tau_0}}\bar{a}_i)(\sum_{i\in\Theta_{\tau_0}}\bar{a}_i)\\
+  \mu_{AR|\tau_0}\mu_{AI|\tau_0} = &4\sigma_{s_A}^4(\sum_{i\in\Theta_{\tau_0}}\bar{a}_i)(\sum_{i\in\Theta_{\tau_0}}\tilde{a}_i)\\
   = &4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}}\bar{a}_i\tilde{a}_k\\
   = &4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\tilde{a}_k + 4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\bar{a}_i\tilde{a}_i
 \end{split}
   \label{equ:1219n1}
 \end{equation}
-thus \eqref{ERI} can be written as
+Substituting \eqref{equ:1219n1} into \eqref{RIcorrelation} leads to 
 \begin{equation}
   \rho_{A|\tau_0}= \frac{4\sigma_{s_A}^4\sum_{i\in\Theta_{\tau_0}}\bar{a}_i\tilde{a}_i}{\sigma_{AR|\tau_0}\sigma_{AI|\tau_0}}\,.
   \label{ERI2}
@@ -551,7 +589,7 @@ under hypothesis $H_2$ can be written in form of
   \label{f_2underH2}
 \end{equation}
 Let $\beta_{\tau_0}^B = \frac{1}{N^2}|\Theta_{\tau_0}|(4\sigma_{s_B}^2\sigma_n^2+2\sigma_n^4) + \frac{2}{N^2}(N - |\Theta_{\tau_0}|)(\sigma_n^2+\sigma_{s_B}^2)^2$, 
-the statistics of $R$ and $I$ under hypothesis $H_2$ are given in Table \ref{Table4} on page \pageref{Table4}. 
+the statistics of $R$ and $I$ under hypothesis $H_2$ are given in Table \ref{Table4}. 
 \begin{table}[h]
 \centering
   \begin{tabular}{|c|c|}
@@ -575,7 +613,7 @@ $\begin{bmatrix}
   I
 \end{bmatrix}$
 under hypothesis $H_0$. 
-According to the expression of $R$ and $I$ given in \eqref{R} and \eqref{I}, $\mu_R$ and $\mu_I$ can be computed as
+According to the expression of $R$ and $I$ given in \eqref{R} and \eqref{I}, $\mu_R$ and $\mu_I$ can be computed  through Table \ref{Table1} 
 \begin{equation}
   \begin{split}
 	\mu_R =E[R] = &\sum_{i=0}^{N-1}\bar{a}_iE[\bar{r}_i] - \sum_{i=0}^{N-1}\tilde{a}_iE[\tilde{r}_i] \\
@@ -600,7 +638,7 @@ The second order statistics of $R$ and $I$ are
     \end{split}
   \label{ER^2noise}
 \end{equation}
-Since all noise samples are independent and $r_i = n_in_{i+l_D}, r_k = n_kn_{k + l_D}$,  we can see when $i\neq k$ $E[\bar{r}_i\bar{r}_k] = E[\bar{r}_i\tilde{r}_k] = E[\tilde{r}_i\tilde{r}_k] = 0$. Using Table \ref{Table1}, the above equation can be simplified as 
+Since all noise samples are independent and $r_i = n_in_{i+l_D}, r_k = n_kn_{k + l_D}$,  it easy to see  when $i\neq k$, we have  $E[\bar{r}_i\bar{r}_k] = E[\bar{r}_i\tilde{r}_k] = E[\tilde{r}_i\tilde{r}_k] = 0$; when $i=k$, we have $E[\bar{r}_i\tilde{r}_k] = E[\tilde{r}_i\bar{r}_k] = 0$.  Using Table \ref{Table1} and eliminating zero value items, the above equation can be simplified as 
 \begin{equation}
 \begin{split}
 E[R^2] = &\sum_{i=0}^{N-1}(\bar{a}_i^2E[\bar{r}_i^2] + \tilde{a}_i^2E[\tilde{r}_i^2])\\
