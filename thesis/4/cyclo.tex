@@ -696,7 +696,9 @@ Further, since $E[RI] = E[R]E[I]$ = 0 and $R, I$ are jointly Gaussian, we have t
 \end{equation}
 \subsection{Numerical Results}
 
-Assume $l_c = 4$ $l_d = 16$ $l_0 = 20$ and $K = 50$. We set the variance of noise to $\sigma_n^2 = 0.1$, and the variance of signal $s_A$ and $s_B$ to $\sigma_{s_A}^2 = 0.05$ and $\sigma_{s_B}^2 = 0.3$ respectively. 
+Assume $l_c = 4$ $l_d = 16$ $l_0 = 20$ and $K = 50$. 
+
+We set the variance of noise to $\sigma_n^2 = 0.3$, and the variance of signal $s_A$ and $s_B$ to $\sigma_{s_A}^2 = 0.18$ and $\sigma_{s_B}^2 = 0.15$ respectively. 
 The value of $\mu_R$ $\mu_I$ $\sigma_R^2$ $\sigma_I^2$ and $\rho$ under hypotheses $H_1$ and $H_2$ are derived from Table \ref{Table2} and Table \ref{Table4} and illustrated in Table \ref{Table11} and Table \ref{Table12}. 
 \begin{table}[h]
 \centering
@@ -783,7 +785,7 @@ substitute \eqref{f_1underH1}, \eqref{f_2underH2} and \eqref{f0R0} into above eq
 \right) \substack{\bar{H}_0 \\ \geq \\ < \\ H_0}1\,.
 \end{split}
 \end{equation}
-The expression of $P_d$ $P_{f_1}$ and $P_{f_2}$ can be written as
+From \eqref{equ: pf and pd}, the expression of $P_d$ $P_{f_1}$ and $P_{f_2}$ can be written as
 \begin{equation}
   \begin{cases}
     P_d = \int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty} u(f_0(R,I) - k_1f_1(R,I) - k_2f_2(R,I))f_0(R,I)\mathrm{d}R\mathrm{d}I\\ 
@@ -793,7 +795,9 @@ The expression of $P_d$ $P_{f_1}$ and $P_{f_2}$ can be written as
   \label{asdffghj}
 \end{equation}
 
-We use look-up table method proposed in chapter 2 to compute the whole M-ROC.  Let $k_1$ $k_2$ separately increase from $0.1$ to $100$ with step $0.001$ and store the corresponding $P_d, P_{f_1}$ and $P_{f_2}$ value in table $T_1$. For a given $c_1, c_2$, we iterate every item in table $T_1$ and put the item in table $T_2$ if the item satisfies: $P_{f_1} \leq c_1$ and $P_{f_2}\leq c_2$. After that, we iterate every item in table $T_2$ and get the largest $P_d$. The M-ROC is illustrated in figure \ref{pic:1221n0}.  
+We use the look-up table method of section 2.4 to compute the M-ROC surface (Not Qian's algorithm given in section 2.5).  Let $k_1$ $k_2$ separately increase from $0.1$ to $100$ with step $0.001$ and store the $k_1, k_2$ and its associated $P_d, P_{f_1}$ and $P_{f_2}$ value in table $T_1$. 
+Then we check every item in Table $T_1$ (each item includes the information of $k_1, k_2$ and its associated $P_d$, $P_{f_1}, P_{f_2}$) and put the item into Table $T_2$ if the item satisfy $P_{f_1} \leq c_1$ and $P_{f_2} \leq c_2$. At last we check every item in table $T_2$ and get the largest $P_d$ value in table $T_2$.  
+The M-ROC is illustrated in figure \ref{pic:1221n0}.  
 
 \begin{figure}[!t]
   \centering 
