@@ -7,14 +7,14 @@ We consider a cognitive radio system where the spectrum can be occupied by exact
 
 In this case, we assume $s_A, s_B$ are OFDM signals with same frame structure.
 We also assume we have all the knowledge of $s_A$, $s_B$ and noise.   
-The block diagram of our system is illustrated in Figure \ref{pic:1222a0}.
+Similar to the model given in \cite{lunden2007spectrum, lunden2010robust}, the block diagram of our system is illustrated in Figure \ref{pic:1222a0}.
 \begin{figure}[!t]
   \centering 
   \includegraphics[width=\textwidth]{4/fig1.eps}
   \caption{Block Diagram for  cyclostationary detector.}
   \label{pic:1222a0}
 \end{figure}
-Similar to \cite{lunden2007spectrum, lunden2010robust}, in our system the measuring device observes the noisy version of the received signals and forms the cyclic-covariance \cite{dandawate1994statistical} of their sampled version. With this statistics, the testing device employs the MENP framework to determine the status of the channel. The input of measuring device is
+Like in \cite{lunden2007spectrum, lunden2010robust}, in our system the measuring device observes the noisy version of the received signals and forms an estimator of cyclic-autocorrelation (cyclic-autocorrelation is the Fourier coefficients of the signals' time-varying autocorrelation with respect to time \cite{dandawate1994statistical, lunden2007spectrum, lunden2010robust}) of their sampled version. With this statistics, the testing device employs the MENP framework to determine the status of the channel. The input of measuring device is
 \begin{equation}
   \mathbf{x} = \begin{cases}
 	\mathbf{n}\;\;\;\;\;\;&\text{when $H_0$ is true}\\
@@ -86,16 +86,16 @@ Let $r_i=x_ix_j^\ast$ ($j=i+l_D$). The moments of $\bar{r}_i, \tilde{r}_i$ are d
   \label{Table1}
 \end{table}
 
-From the definition of $\Theta_{\tau_0}$, we can see under both $H_1$ or $H_2$, the autocorrelation of $s_A$ or $s_B$ change periodically as a function of $i$. Hence we can conclude the OFDM signals is cyclostationary.  
+From the definition of $\Theta_{\tau_0}$ and Table \ref{Table1}, we can see under both $H_1$ or $H_2$, we have $E[s_is_j^\ast] = E[s_{i+l_0}s_{j+l_0}^\ast]$, i.e. the autocorrelation of $s_A$ or $s_B$ change periodically as a function of $i$. Hence we can conclude the OFDM signals is cyclostationary.  
 \cite{lunden2007spectrum} shows that $r_i$ exhibit cyclic property at frequency $\alpha = \frac{Q}{l_0}$ ($Q = \pm1, \pm2, \cdots$) under hypotheses $H_1$ or $H_2$. In this case, to simplify our analysis, we consider a single cyclic detector at frequency $\alpha = \frac{1}{l_0}$. 
 Let $\mathbf{r}$ denote the vector of $r_i$. Since the length of $\mathbf{x}$ is $M$, the length of $\mathbf{r}$ is $M - l_D$. For simple representation, let $N = M - l_D$.
-Like in most related literature reviews (c.f. \cite{lunden2010robust} \cite{dandawate1994statistical}), the cyclic-covariance estimator for frequency $\alpha$ can be written as
+Like in most related literature reviews (c.f. \cite{lunden2010robust} \cite{dandawate1994statistical}), the cyclic-autocorrelation estimator for frequency $\alpha$ can be written as
 \begin{equation}
   \hat{R}(l_D, \alpha) = \frac{1}{N}\sum_{i=0}^{N-1} r_ib_i\,.
   \label{cyclicR}
 \end{equation}
 where $b_i = \exp(-j2\pi\alpha i)$. 
-The output of the measuring device is the real and imaginary part of the cyclic covariance estimator, i.e. 
+The output of the measuring device is the real and imaginary part of the cyclic-autocorrelation estimator, i.e. 
 \begin{equation}
   Y = \begin{bmatrix}
 	R \\
@@ -345,7 +345,7 @@ The  second order statistic of $R$ and $I$ can be computed as
   \end{split}
   \label{ER^2}
  \end{equation}
- From Table \ref{Table3}, we can see $E[\bar{r}_i\bar{r}_k]$ is not equal to zero when one of following situation is satisfied: (1) $i = k$; (2) $i, k \in \Theta_{\tau_0}$ and $i \neq k$. Hence we have 
+ From Table \ref{Table3}, we can see $E[\bar{r}_i\bar{r}_k]$ is not equal to zero when one of following two situations is satisfied: (1) $i = k$; (2) $i, k \in \Theta_{\tau_0}$ and $i \neq k$. Hence we have 
  \[
 \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\bar{a}_i\bar{a}_kE[\bar{r}_i\bar{r}_k] = 
 \sum_{i=0}^{N-1}\bar{a}_i^2E[\bar{r}_i^2] + \sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\bar{a}_kE[\bar{r}_i\bar{r}_k]
@@ -356,7 +356,7 @@ The  second order statistic of $R$ and $I$ can be computed as
 \sum_{i=0}^{N-1}\bar{a}_i^2E[\bar{r}_i^2]=
 \sum_{i\in\Theta_{\tau_0}}\bar{a}_i^2E[\bar{r}_i^2] + \sum_{i\notin\Theta_{\tau_0}}\bar{a}_i^2E[\bar{r}_i^2]
  \]
-lends to 
+leads to 
 \begin{equation}
 \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\bar{a}_i\bar{a}_kE[\bar{r}_i\bar{r}_k] = 
 \sum_{i\in\Theta_{\tau_0}}\bar{a}_i^2E[\bar{r}_i^2] + \sum_{i\notin\Theta_{\tau_0}}\bar{a}_i^2E[\bar{r}_i^2] + \sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\bar{a}_kE[\bar{r}_i\bar{r}_k]
@@ -459,7 +459,7 @@ Similarly, we compute $\sigma_{AI|\tau_0}$ and $E[RI]$ as
   \end{split}
 \end{equation}
 
- From Table \ref{Table3}, we can see $E[\bar{r}_i\bar{r}_k]$ is not equal to zero when one of following situation is satisfied: (1) $i = k$; (2) $i, k \in \Theta_{\tau_0}$ and $i \neq k$. Hence we have 
+ From Table \ref{Table3}, we can see $E[\bar{r}_i\bar{r}_k]$ is not equal to zero when one of following two situations is satisfied: (1) $i = k$; (2) $i, k \in \Theta_{\tau_0}$ and $i \neq k$. Hence we have 
  \[
 \sum_{i=0}^{N-1}\sum_{k=0}^{N-1}\bar{a}_i\tilde{a}_kE[\bar{r}_i\bar{r}_k] = 
 \sum_{i=0}^{N-1}\bar{a}_i\tilde{a}_iE[\bar{r}_i^2] + \sum_{i\in\Theta_{\tau_0}}\sum_{k\in\Theta_{\tau_0}^i}\bar{a}_i\tilde{a}_kE[\bar{r}_i\bar{r}_k]
@@ -613,7 +613,7 @@ $\begin{bmatrix}
   I
 \end{bmatrix}$
 under hypothesis $H_0$. 
-According to the expression of $R$ and $I$ given in \eqref{R} and \eqref{I}, $\mu_R$ and $\mu_I$ can be computed  through Table \ref{Table1} 
+According to the expression of $R$ and $I$ given in \eqref{R} and \eqref{I}, $\mu_R$ and $\mu_I$ can be computed  through Table \ref{Table1} and written as 
 \begin{equation}
   \begin{split}
 	\mu_R =E[R] = &\sum_{i=0}^{N-1}\bar{a}_iE[\bar{r}_i] - \sum_{i=0}^{N-1}\tilde{a}_iE[\tilde{r}_i] \\
@@ -697,7 +697,7 @@ Further, since $E[RI] = E[R]E[I]$ = 0 and $R, I$ are jointly Gaussian, we have t
 \subsection{Numerical Results}
 
 Assume $l_c = 4$ $l_d = 16$ $l_0 = 20$ and $K = 50$. We set the variance of noise to $\sigma_n^2 = 0.1$, and the variance of signal $s_A$ and $s_B$ to $\sigma_{s_A}^2 = 0.05$ and $\sigma_{s_B}^2 = 0.3$ respectively. 
-The value of $\mu_R$ $\mu_I$ $\sigma_R^2$ $\sigma_I^2$ and $\rho$ under hypotheses $H_1$ and $H_2$ are derived from Table \ref{Table3} and Table \ref{Table2} and illustrated in Table \ref{Table11} and Table \ref{Table12}. 
+The value of $\mu_R$ $\mu_I$ $\sigma_R^2$ $\sigma_I^2$ and $\rho$ under hypotheses $H_1$ and $H_2$ are derived from Table \ref{Table2} and Table \ref{Table4} and illustrated in Table \ref{Table11} and Table \ref{Table12}. 
 \begin{table}[h]
 \centering
 \begin{tabular}{|c|c|c|c|c|c|}
@@ -768,19 +768,19 @@ By using \eqref{f_1underH1}, \eqref{f_2underH2} and \eqref{f0R0} we can compute 
 \end{bmatrix}$ under hypotheses $H_0$ $H_1$ and $H_2$, which are illustrated in Figure \ref{pic:1218n0} Figure \ref{pic:1218n1} Figure \ref{pic:1218n2} respectively. 
 According to ENP lemma, the decision rule can be written in form of 
 \begin{equation}
-  \frac{f_0(R,I)}{k_1f_1(R,I)+k_2f_2(R,I)} \substack{H_0 \\ \geq \\ < \\ \bar{H}_0}1\,,
+  \frac{k_1f_1(R,I)+k_2f_2(R,I)}{f_0(R,I)}\substack{\bar{H}_0 \\ \geq \\ < \\ H_0} 1\,,
 \end{equation}
 substitute \eqref{f_1underH1}, \eqref{f_2underH2} and \eqref{f0R0} into above equation we have 
 \begin{equation}
 \begin{split}
-\sum_{\tau_0=0}^{l_0-1}\frac{N}{2k_1\sigma_n^4}l_0\sigma_{AR|\tau_0}\sigma_{AI|\tau_0}\sqrt{1-\rho_{A|\tau_0}^2}\exp\left(\frac{1}{2(1-\rho_{A|\tau_0}^2)}\left[ \frac{(R-\mu_{AR|\tau_0})^2}{\sigma_{AR|\tau_0}^2}+\frac{(I-\mu_{AI|\tau_0})^2}{\sigma_{AI|\tau_0}^2} \right. \right. \\
-\left. \left.  - \frac{2\rho_{A|\tau_0}(R-\mu_{AR|\tau_0})(I-\mu_{AI|\tau_0})}{\sigma_{AR|\tau_0}\sigma_{AI|\tau_0}} \right] -\frac{NI^2+NR^2}{4\sigma_n^4}\right)
+\sum_{\tau_0=0}^{l_0-1}\frac{2k_1\sigma_n^4}{Nl_0\sigma_{AR|\tau_0}\sigma_{AI|\tau_0}\sqrt{1-\rho_{A|\tau_0}^2}}\exp\left(-\frac{1}{2(1-\rho_{A|\tau_0}^2)}\left[ \frac{(R-\mu_{AR|\tau_0})^2}{\sigma_{AR|\tau_0}^2}+\frac{(I-\mu_{AI|\tau_0})^2}{\sigma_{AI|\tau_0}^2} \right. \right. \\
+\left. \left.  - \frac{2\rho_{A|\tau_0}(R-\mu_{AR|\tau_0})(I-\mu_{AI|\tau_0})}{\sigma_{AR|\tau_0}\sigma_{AI|\tau_0}} \right] +\frac{NI^2+NR^2}{4\sigma_n^4}\right)
 +\\
-\sum_{\tau_0=0}^{l_0-1}\frac{N}{2k_2\sigma_n^4}l_0\sigma_{BR|\tau_0}\sigma_{BI|\tau_0}\sqrt{1-\rho_{B|\tau_0}^2}\exp\left(
-\frac{1}{2(1-\rho_{B|\tau_0}^2)}\left[ \frac{(R-\mu_{BR|\tau_0})^2}{\sigma_{BR|\tau_0}^2}+\frac{(I-\mu_{BI|\tau_0})^2}{\sigma_{BI|\tau_0}^2} \right. \right. \\
+\sum_{\tau_0=0}^{l_0-1}\frac{2k_2\sigma_n^4}{Nl_0\sigma_{BR|\tau_0}\sigma_{BI|\tau_0}\sqrt{1-\rho_{B|\tau_0}^2}}\exp\left(
+-\frac{1}{2(1-\rho_{B|\tau_0}^2)}\left[ \frac{(R-\mu_{BR|\tau_0})^2}{\sigma_{BR|\tau_0}^2}+\frac{(I-\mu_{BI|\tau_0})^2}{\sigma_{BI|\tau_0}^2} \right. \right. \\
 \left. \left. - \frac{2\rho_{B|\tau_0}(R-\mu_{BR|\tau_0})(I-\mu_{BI|\tau_0})}{\sigma_{BR|\tau_0}\sigma_{BI|\tau_0}}  
-\right] -\frac{NI^2+NR^2}{4\sigma_n^4}
-\right) \substack{H_0 \\ \geq \\ < \\ \bar{H}_0}1\,.
+\right] +\frac{NI^2+NR^2}{4\sigma_n^4}
+\right) \substack{\bar{H}_0 \\ \geq \\ < \\ H_0}1\,.
 \end{split}
 \end{equation}
 The expression of $P_d$ $P_{f_1}$ and $P_{f_2}$ can be written as
@@ -793,7 +793,7 @@ The expression of $P_d$ $P_{f_1}$ and $P_{f_2}$ can be written as
   \label{asdffghj}
 \end{equation}
 
-We use look-up table method proposed in chapter 2 to compute the whole M-ROC.  Let $k_1$ $k_2$ increase from $0.1$ to $10000$ with step $0.1$ and store the corresponding $P_d, P_{f_1}$ and $P_{f_2}$ value in table $T_1$. For a given $c_1, c_2$, we iterate every item in table $T_1$ and put the item in table $T_2$ if the item satisfies: $P_{f_1} \leq c_1$ and $P_{f_2}\leq c_2$. After that, we iterate every item in table $T_2$ and get the largest $P_d$. The M-ROC is illustrated in figure \ref{pic:1221n0}.  
+We use look-up table method proposed in chapter 2 to compute the whole M-ROC.  Let $k_1$ $k_2$ separately increase from $0.1$ to $100$ with step $0.001$ and store the corresponding $P_d, P_{f_1}$ and $P_{f_2}$ value in table $T_1$. For a given $c_1, c_2$, we iterate every item in table $T_1$ and put the item in table $T_2$ if the item satisfies: $P_{f_1} \leq c_1$ and $P_{f_2}\leq c_2$. After that, we iterate every item in table $T_2$ and get the largest $P_d$. The M-ROC is illustrated in figure \ref{pic:1221n0}.  
 
 \begin{figure}[!t]
   \centering 
