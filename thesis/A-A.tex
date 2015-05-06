@@ -4,7 +4,7 @@
 \label{A:LaTeXmacros}
 
 %\section{}
-This section explains how to use the Matlab code that were used to generate the numerical results in this thesis. The capabilities are also discussed. The following table provides an overview of each source code file. All of these files can be found on the attached CD. 
+This section explains how to use the Matlab code that was developed to generate the numerical results in this thesis.  The following table provides an overview of each source code file. All of these files can be found on the attached CD. 
 
 \begin{table}[h]
 \begin{tabular}{l|p{350pt}}
@@ -27,29 +27,29 @@ plotfigure.m             & Plot ROC or MROC figure. \\
 \end{table}
 
 To run a program, all of the files in Table A.1 must be placed in the Matlab current work folder. These programs have been successfully run using Matlab 2013b and Matlab 2014a on Linux platform with 12 GB RAM.  
-To generate ROC surface for Gaussian situation, run gau\_roc.m. This can be done by running the following command in Matlab command line.
+To generate ROC surface for a Gaussian case, run gau\_roc.m. This can be done by running the following command in Matlab command line.
 \\\texttt{Matlab$>$ gau\_roc}
 
 The file loads configurations from init.txt file. When the computation finishes file gau\_roc.mat stores the results and plotfigure.m excutes automatically to print the ROC surface on the screen.
 
 
-To generate MROC surface for general Gaussian situation, run general\_gau.m. This can be done by running the following command in Matlab command line.
+To generate the M-ROC surface for general Gaussian case, run general\_gau.m. This can be done by running the following command in Matlab command line.
 \\\texttt{Matlab$>$ genaral\_gau}
 
 The file loads configurations from init.txt file. When the computation finishes file general\_gau.mat stores the results and plotfigure.m excutes automatically to print the MROC surface on the screen.
 
 
-To generate MROC surface for Gaussian distribution with equal variance, run gau\_equvar.m. This can be done by running the following command in Matlab command line.
+To generate the M-ROC surface for the Gaussian case with equal variance, run gau\_equvar.m. This can be done by running the following command in Matlab command line.
 \\\texttt{Matlab$>$ gau\_equvar}
 
-The file loads configurations from init.txt file. When the computation finishes file gau\_equvar.mat stores the results and plotfigure.m excutes automatically to print the MROC surface on the screen.
+The file loads configurations from init.txt file. When the computation finishes the file gau\_equvar.mat stores the results and plotfigure.m excutes automatically to print the MROC surface on the screen.
 
-To generate MROC surface for Chi-Square situation, run mychisquare.m. This can be done by running the following command in Matlab command line.
+To generate the M-ROC surface for Chi-Square situation, run mychisquare.m. This can be done by running the following command in Matlab command line.
 \\\texttt{Matlab$>$ mychisquare}
 
 The file loads configurations from init.txt file. When the computation finishes file mychisquare.mat stores the results and plotfigure.m excutes automatically to print the MROC surface on the screen.
 
-To generate MROC surface cyclostationary detection, run cyclo.m. This can be done by running the following command in Matlab command line.
+To generate the M-ROC surface cyclostationary detection, run cyclo.m. This can be done by running the following command in Matlab command line.
 \\\texttt{Matlab$>$ cyclo}
 
 The file loads configurations from init.txt file. When the computation finishes file PDFs.mat stores the PDFs for each hypothesis and  cyclo.mat stores the MROC data.
@@ -57,7 +57,7 @@ The file loads configurations from init.txt file. When the computation finishes 
 To compute MENP parameters for specific false alarm constraints, run QZ\_Algorithm.m with the false alarm constraints as arguments. This can be done by running following command in Matlab command line.
 \\\texttt{Matlab$>$ QZ\_Algorithm(c1, c2)}
 
-After the computation, the program would print the MENP parameters on the screen. 
+After the computation, the program prints the MENP parameters on the screen. 
 
 The adjustable parameters for ENP (MENP) test are listed in Table A.2. 
 \begin{table}[h]

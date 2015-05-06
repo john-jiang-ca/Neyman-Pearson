@@ -18,15 +18,15 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Block Diagram for Spectrum Sensing}}{74}
 \contentsline {figure}{\numberline {4.2}{\ignorespaces M-ROC surface for $\sigma _n^2 = 0.1$, $\sigma _{s_A}^2=0.05$, $\sigma _{s_B}^2=0.15$ and $N = 20$.}}{79}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Relationship Between $c_1$ $c_2$ and $V_\tau $}}{80}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Simulation results of M-ROC surface for $\sigma _n^2 = 0.1$, $\sigma _{s_A}^2=0.05$, $\sigma _{s_B}^2=0.15$ and $N = 20$.}}{81}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Relationship between $P_{f_1}$, $P_{f_2}$ and $P_d$.}}{82}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Block Diagram for cyclostationary detector.}}{83}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Received signal for perfect synchronization.}}{85}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Received signal for synchronization mismatch $\tau _0$.}}{85}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces PDF under hypothesis $H_0$.}}{107}
-\contentsline {figure}{\numberline {4.10}{\ignorespaces PDF under hypothesis $H_1$.}}{108}
-\contentsline {figure}{\numberline {4.11}{\ignorespaces PDF under hypothesis $H_2$.}}{109}
-\contentsline {figure}{\numberline {4.12}{\ignorespaces M-ROC surface for cyclostationary detector.}}{110}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Simulation results of M-ROC surface for $\sigma _n^2 = 0.1$, $\sigma _{s_A}^2=0.05$, $\sigma _{s_B}^2=0.15$ and $N = 20$.}}{81}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Relationship between $P_{f_1}$, $P_{f_2}$ and $P_d$.}}{82}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Relationship Between $V_\tau $ and its associated $P_d$.}}{83}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Block Diagram for cyclostationary detector.}}{84}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Received signal for perfect synchronization.}}{86}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Received signal for synchronization mismatch $\tau _0$.}}{86}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces PDF under hypothesis $H_0$.}}{108}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces PDF under hypothesis $H_1$.}}{109}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces PDF under hypothesis $H_2$.}}{110}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces M-ROC surface for cyclostationary detector.}}{111}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
