@@ -107,13 +107,13 @@ and function $F_1,  F_2$ are the CDFs of $Y$ under hypothesis $H_1, H_2$ respect
 
 Similar to energy detection in binary hypothesis testing, energy detection for multiple hypothesis testing differentiates between $H_0$ and $\bar{H}_0$ by comparing the test statistic (in form of energy) with a threshold $V_\tau$. The value of the threshold can be determined by the probability of false alarm constraints.   
 
-We use Matlab to compute the M-ROC for this energy detector. The value of $c_1, c_2$ range from $0.0001$ to $0.2$ with step $0.0001$. By using \eqref{equ:1129a4} \eqref{equ:2015may1a2} and \eqref{equ:1129a5}, the value of $P_d$ can be acquired. The M-ROC is illustrate in Figure. \ref{pic:1201a1}. 
+We use Matlab to compute the M-ROC for this energy detector. The value of $c_1, c_2$ range from $0.0001$ to $0.2$ with step $0.0001$. By using \eqref{equ:1129a4} \eqref{equ:2015may1a2} and \eqref{equ:1129a5}, the value of $P_d$ can be acquired. The M-ROC is illustrate in Figure. \ref{pic:1201a1}. The bold curve in the middle is region $M_0$ ($M_0$ is defined in section 3.1). 
 
 In the context of spectrum sensing, for a given $c_1, c_2$, it means: for primary user $s_A$ (or $s_B$), the probability of being interfered by secondary user is less than $c_1$ (or $c_2$). Hence we can see, when designing the spectrum sensing system,  $c_1, c_2$ can be used to measure how much of protection that the system can provide to primary user $s_A$ and $s_B$.  The lower $c_1$ ($c_2$) is, the more protection the system can provide to primary user $s_A$ ($s_B$). $P_d$ can be used to describe the system's ability of detecting a free channel.   First we can observe from Figure \ref{pic:1201a1} that for any $c_1, c_2$ the system provides an associated $P_d$ and $P_d$ is non-decreasing with respect to $c_1$ and $c_2$. This accords with intuitive and the theoretical proof in section 2.2.     
 Next we concern some specific points on the M-ROC surface. For $c_1 = 0.075$ and $c_2  = 0.1$, the largest $P_d$ can be achieved is $0.609$. And when $c_2$ decreases to $0.005$ and  $c_1$ remains the same, the $P_d$ does not change.   
  It means properly increasing the level to protection to one primary user (in this case, we increase the protection to primary user $s_B$ by decreasing $c_2$), the system's performance may not be jeopardized ($P_d$ does not decrease).  
 Then consider the situation when $c_1 = 0.115$ and $c_2 = 0.100$. In such case, the associated $P_d$ is $0.711$. Now increase $c_2$ to $0.150$, we can see the associated $P_d$ is still $0.711$. We can see even though we decrease the protection to primary user $s_B$, the system's performance is not increased.  
-This suggests blindly decreasing the level of protection to one primary user (increase the value of $c_1$ or $c_2$) may not help increasing the performance of the system (increasing $P_d$). To increase $P_d$, we should check the M-ROC surface to choose a proper $c_1$ and $c_2$ combination.
+This suggests blindly decreasing the level of protection to one primary user (by increasing the value of $c_1$ or $c_2$) may not help increasing the performance of the system (increasing $P_d$). To increase $P_d$, we should check the M-ROC surface to choose a proper $c_1$ and $c_2$ combination.
 
 \begin{figure}[!t]
 \centering
@@ -123,7 +123,7 @@ This suggests blindly decreasing the level of protection to one primary user (in
 \end{figure}
 
 \subsection{Simulation Results}
-The simulation results presented in this thesis were obtained by using Monte Carlo techniques. All of Matlab code for the programs required to reproduce the simulation results are contained in the attached CD. Appendix B presents a brief tutorial on the uses of the various files for the simulation. The system model and parameters are the same with numerical analysis.
+The simulation results presented in this thesis were obtained by using Monte Carlo techniques. All of Matlab code for the programs required to reproduce the simulation results are contained in the attached CD. Appendix B presents a brief tutorial on the uses of the various files for the simulation. The system model and parameters are the same with the numerical analysis.
 
 The simulation presents the performance of energy detector when $c_1$ and $c_2$ separately increase from $0.005$ to $0.2$ with steps $0.005$. For a specified $c_1$ and $c_2$, we compute  its associated MENP decision rule, which is given by \eqref{equ:1129a4} and \eqref{equ:2015may1a2}. 
 
