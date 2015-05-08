@@ -81,7 +81,7 @@ As it is defined in section 2.2.2, $F(\mathbf{a})$ denotes the largest $P_d$ tha
 \max_{\mathbf{a} \in \mathcal{C}}\;\;\;\;F(\mathbf{a}) = F(\mathbf{a}^0)\\
 \end{equation}
 \textit{
-Since $\mathbf{a}^0 \in \mathcal{A}_{\mathbf{c}} \cap \alpha^+$, from \textnormal{(\rmnum{1})} we have that there exists a vector $\mathbf{k}^0$ such that \eqref{equ:decision rule}  maximizes $P_d$ under the constraints $P_{f_i} = a_i^0, \;i=1, ..., M$. Hence, since $a_i^0 \leq c_i^0, \;i=1, ..., M$ this decision rule solves \eqref{equ: problemstate}.
+Since $\mathbf{a}^0 \in \mathcal{A}_{\mathbf{c}} \cap \alpha^+$, from \textnormal{(\rmnum{1})} we have that there exists a vector $\mathbf{k}^0$ such that \eqref{equ:decision rule}  maximizes $P_d$ under the constraints $P_{f_i} = a_i^0, \;i=1, ..., M$. Hence, since $a_i^0 \leq c_i^0, \;i=1, ..., M$, this decision rule solves \eqref{equ: problemstate}.
 }
 
 Comparing the ENP test and the MENP test, we can see there is repetition between them. When $\mathbf{c} \in   \alpha^+$, the ENP test and the MENP test provide the same solution. However, in the situation when $\mathbf{c} \notin \alpha^+$, $\mathbf{c} \in (0, 1)^M$, only the MENP test can provide the solution for \eqref{equ: problemstate}. 
@@ -104,8 +104,8 @@ and thus $P_d(\delta^\ast)$ and $P_{f_i}(\delta^\ast)$ can be written as
 \begin{equation}
 \begin{cases}
 \label{TEMP10}
-P_{d}(\delta^\ast) &= \int_{-\infty}^{\infty} u(f_0(x) - \sum_{i=1}^{M}k_i^\ast f_i(x)) f_0(x) \mathrm{d}x\\
-P_{f_i}(\delta^\ast) &= \int_{-\infty}^{\infty} u(f_0(x) - \sum_{i=1}^{M}k_i^\ast f_i(x)) f_i(x) \mathrm{d}x
+P_{d}(\delta^\ast) &= \int_{-\infty}^{\infty} u(f_0(x) - \sum_{j=1}^{M}k_j^\ast f_j(x)) f_0(x) \mathrm{d}x\\
+P_{f_i}(\delta^\ast) &= \int_{-\infty}^{\infty} u(f_0(x) - \sum_{j=1}^{M}k_j^\ast f_j(x)) f_i(x) \mathrm{d}x
 \end{cases}
 \end{equation}
 where $k_i^\ast \geq 0$.
@@ -148,6 +148,6 @@ Both MENP (\rmnum{1}) and MNEP (\rmnum{2}) show that the optimal decision rule f
 Base on above discussion, 
 next we present a look-up table method of finding $\mathbf{k}$. For a specific $\mathbf{c}$, we conduct an exhaustive search over a grid of $k_1, ..., k_M$ ($k_i \geq 0$) depending on the required accuracy and store these results ($P_d, \mathbf{P}_f, \mathbf{k}$) into a lookup table $T_1$. 
 %Then we check if there exists a item in table $T_1$ satisfying $\mathbf{P}_f = \mathbf{c}$. If so, get the item's associated $\mathbf{k}$ as the MENP parameters. If not,  
-Then we iterate every item in Table $T_1$ (each item includes the information of $\mathbf{k}$ and its associated $P_d$ and $\mathbf{P}_f$) and put the item into table $T_2$ if the item satisfies:  $\mathbf{P}_f \leq \mathbf{c}$. At last, we iterate every item in $T_2$ and get the largest $P_d$ and its decision rule $\mathbf{k}$.
+Then we check each item in Table $T_1$ (each item includes the information of $\mathbf{k}$ and its associated $P_d$ and $\mathbf{P}_f$) and put the item into table $T_2$ if the item satisfies: $\mathbf{P}_f \leq \mathbf{c}$. At last, we check each item in $T_2$ and find the item whose $P_d$ is the largest among all items in Table $T_2$. Since this item contains the MENP parameters to achieve this $P_d$, we can get the corresponding $\mathbf{k}$. 
 
 

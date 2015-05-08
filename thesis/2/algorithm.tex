@@ -28,7 +28,7 @@ The algorithm contains four steps: (\rmnum{1}) initialization; (\rmnum{2}) weigh
 
 In initialization, $\omega_i$ ($i=1, 2, ..., M$)  is assigned arbitrary values on condition that $\sum_{i=1}^{M}\omega_i = 1$. Using this $\bom$, the algorithm find the initial value of threshold $t$ such that among all possible $t$, it maximize $P_d$ while keeping $P_{f_i} \leq c_i$. 
 To do this, the algorithm iteratively decreases $t$ from positive infinity until a probability of false alarm is equal to its associated constraint and other probability of false alarms are either below or equal to their associated constraints.   
-After the initialization, we derived a feasible decision rule for \eqref{equ: problemstate}. However this may not be the optimal solution for \eqref{equ: problemstate}. This is because the value of $\bom$ is randomly set and it is possible that when $\bom$ changes, the associated $P_d$ will increase while keeping $\mathbf{P}_f$ is no larger than $\mathbf{c}$. Hence in order to derive the optimal decision rule, the algorithm will further adjust the weights and thresholds in the following steps. 
+After the initialization, we derived a feasible decision rule for \eqref{equ: problemstate}. However this may not be the optimal solution for \eqref{equ: problemstate}. This is because the value of $\bom$ is randomly set and it is possible that when $\bom$ changes, the associated $P_d$ increases while keeping $\mathbf{P}_f$ is no larger than $\mathbf{c}$. Hence in order to derive the optimal decision rule, the algorithm will further adjust the weights and thresholds in the following steps. 
 
 After initialization, the algorithm will begin the weights adjustment process. 
 Assume before this process, the weight is $\bom_0$, the threshold is $t_0$ and the associated probability of detection is $P_d^0$.
@@ -36,7 +36,7 @@ In this step, with the probability of detection fixed, the algorithm modifies th
 Let $\delta\bom$ denote the perturbations of $\bom_0$ and let $\bom'$ denote the modified weight, i.e. $\bom' = \bom_0 + \delta\bom$.  It is shown in \cite{zhang2000efficient} that in order to make $\mathbf{P}_f < \mathbf{c}$ while keeping $P_d$ unchanged, $\bom'$ should ensure $\theta(\mathbf{P}_f, \mathbf{c})$ decrease ($\theta(\mathbf{A}, \mathbf{B})$ denotes the angle between vectors $\mathbf{A}$ and $\mathbf{B}$, i.e. 
 $\cos (\theta(\mathbf{A}, \mathbf{B})) =$ 
 $\frac{\mathbf{A}\bullet \mathbf{B}}{|\mathbf{A}||\mathbf{B}|}$,
-here $|\mathbf{A}|$ and $|\mathbf{B}|$ denote the length of vector $\mathbf{A}$ and $\mathbf{B}$ and $\mathbf{A}\bullet \mathbf{B}$ denotes the dot product of $\mathbf{A}$ and $\mathbf{B}$). To make $\theta(\mathbf{P}_f, \mathbf{c})$ decrease, \cite{zhang2000efficient} proved that the direction of $\delta\bom$ must be the same as
+here $|\mathbf{A}|$ and $|\mathbf{B}|$ denote the length of vector $\mathbf{A}$, $\mathbf{B}$ and $\mathbf{A}\bullet \mathbf{B}$ denotes the dot product of $\mathbf{A}$ and $\mathbf{B}$). To make $\theta(\mathbf{P}_f, \mathbf{c})$ decrease, \cite{zhang2000efficient} proved that the direction of $\delta\bom$ must be the same as
 \begin{equation}
 \label{direction}
 \mathbf{D} - m_\mathbf{D}\bom_0
@@ -52,7 +52,7 @@ and $m_{\mathbf{D}}$ represents the arithmetic sum of the elements of $\mathbf{D
 \end{equation}
 where $\lambda$ is a value associated with the magnitude of $\delta\bom$.
 According to \cite{zhang2000efficient}, a too large $\lambda$ may result in a  $\theta(\mathbf{P}_f, \mathbf{c})$ increase, which is undesirable, while a too small value can not decrease $\theta(\mathbf{P}_f, \mathbf{c})$ very much. The algorithm chooses the value of $\lambda$ by trial and error. To do this, the algorithm choose the arithmetic average of $\mathbf{P}_f$ as the initial value of $\lambda$ and compute the new weights $\bom'$ through \eqref{om expression}. 
-If any element of $\bom'$ is negative, the negative element will be changed to zero, e.g. if $\omega_i < 0$, the algorithm will set $\omega_i = 0$. This is because a negative  $\omega_i$ is not considered in this method.  
+If any element of $\bom'$ is negative, the negative element will be changed to zero, e.g. if $\omega_i < 0$, the algorithm will use $\omega_i = 0$. This is because a negative  $\omega_i$ is not considered in this method.  
 Then the algorithm uses $\bom'$ to find the $t'$ such that under the new decision rule the probability of detection is equal to  $P_d^0$. To do this, with $\bom'$ fixed, the algorithm iteratively decreases the value of $t'$ from positive infinity until $P_d = P_d^0$ is satisfied. Under the new decision rule, if $\mathbf{P}_f$ is strictly below $\mathbf{c}$, the weight adjustment is finished and the algorithm will process to  threshold adjustment; otherwise, the algorithm reduces the value of $\lambda$ and recomputes $\bom'$ and $t'$ through \eqref{om expression} until $\mathbf{P}_f < \mathbf{c}$  is satisfied. 
 
  The algorithm performs the threshold adjustment process after weight adjustment. Since all probabilities of false alarm are strictly below its associated constraint, by appropriately revising the threshold, the probability of detection can be further improved while maintaining $\mathbf{P}_f \leq \mathbf{c}$. In this process, with $\omega_i$ ($i=1, 2, ..., M$) fixed, the algorithm iteratively decreases the value of $t$ to increase the value of $P_d$ until a probability of false alarm is equal to its associated constraint.  
@@ -61,7 +61,7 @@ The last step is tolerance checking. From \cite{zhang2000efficient} we have that
 Let $I$ be the set of subscripts such that $i \in I$ if and only if $\omega_i > 0$. 
 Hence in the tolerance check, the algorithm checks whether $|c_i - P_{f_i}|$ ($i \in I$) is within a prescribed tolerance value . 
 (Due to the accuracy limitation of numerical integration, for a given decision rule, the computer cannot provides an accurate value for its associated $\mathbf{P}_f$ and $P_d$. When $|c_i - P_{f_i}|$ are within the tolerance value, we treat them to be equal.) 
-If so, it means the decision rule is closed enough to the theoretical solution and the algorithm will output the threshold and weight.  If not the algorithm will start a new cycle of weight adjustment - threshold adjustment - tolerance checking process. 
+If so, it means the decision rule is closed enough to the theoretical solution  and the algorithm will output the threshold and weight (the theoretical solution of $k_i$, $i= 1, \cdots, M$ may be a real number, but computer can only use rational number, in such case the computer can only output an approximate solution).  If not the algorithm will start a new cycle of weight adjustment - threshold adjustment - tolerance checking process. 
 
 For each cycle, let $P_d^0$ represents the probability of detection before the cycle starts, and let $P_d^1$ represents the probability of detection after the cycle ends. In the weight adjustment process, the weight and threshold are refined such that the probability of detection is fixed. In the threshold adjustment process, the algorithm revise the threshold such that the probability of detection increases. Hence we can see $P_d^0$ is strictly below $P_d^1$, i.e. after each cycle, the probability of detection increases. Let $P_d^\ast$ denote the theoretical solution. As long as $P_d^0 < P_d^\ast$  the algorithm can bring the probability of detection closer to the theoretical solution  through changing the threshold $t$ and weight $\bom$.
 
@@ -84,7 +84,7 @@ First we consider the case when $c_1 = 0.15$ and $c_2 = 0.2$.
 After the initialization, the weights and threshold are set to $\omega_1 = \omega_2 = 0.5$, $t =2.3544$. 
 Since $\omega_i = \frac{k_i}{t}$ ($i = 1, 2$), we have $k_1 = 1.1772$ and $k_2 = 1.1772$. 
 The corresponding performance measures can be computed through \eqref{equ: pf and pd} and we get $P_{f_1}  = 0.1500$, $P_{f_2} = 0.1445$ and $P_d = 0.4520$. The algorithm performs $163$ iterations of weight threshold adjustments. In Fig. \ref{fig: 2.3} the $(P_{f_1}, P_{f_2})$  points after each iteration are represented as `$\bullet$'. 
-The $(P_{f_1}, P_{f_2})$ point of the initialization is plotted as  a `o' and the $(P_{f_1}, P_{f_2})$ point of the final solution is plotted as a `$\square$'. For each iteration, both $P_{f_1}$ and $P_{f_2}$ have changed. But due to the resolution of Figure \ref{fig: 2.3}, the change of $P_{f_2}$ is not showed. 
+The $(P_{f_1}, P_{f_2})$ point of the initialization is plotted as  a `o' and the $(P_{f_1}, P_{f_2})$ point of the final solution is plotted as a `$\square$'. For each iteration, both $P_{f_1}$ and $P_{f_2}$ have changed. But due to the resolution of Figure \ref{fig: 2.3}, the change of $P_{f_2}$ is not obvious. 
 In Figure \ref{fig: 2.2}, the change of $P_d$ with respect to the iteration times is depicted through a curve marked with stars.   
 The dotted line in Figure \ref{fig: 2.2} represents the theoretical value of $P_d$ under constraint $\mathbf{P}_f \leq \mathbf{c}$. This value was calculated by the look-up table method approached in last section. We can see, after each cycle of weight-threshold adjustment, the corresponding $P_d$ converges to the theoretical solution. 
 
@@ -134,8 +134,8 @@ We can see, $P_{f_1}$ is equal to its associated constraint $c_1$  while $P_{f_2
 
 Then we consider an ENP test for $c_1 = 0.2$ and $c_2 = 0.4$.
 After the initiation, the weight and threshold are $\omega_1 = \omega_2 = 0.5$, $t =2.0278$, and the corresponding performance measures are $P_{f_1}  = 0.2000$, $P_{f_2} = 0.1720$ and $P_d = 0.5367$. The algorithm carries $14$ iterations of weight  threshold adjustment. The corresponding $(P_{f_1}, P_{f_2})$ are   
-marked as '*' and connected by a dotted line in Fig. \ref{fig: 2.4}. 
-The $(P_{f_1}, P_{f_2})$ point of the initialization is plotted as  a 'o' and the $(P_{f_1}, P_{f_2})$ point of the final solution are plotted as a '$\square$'. The change of $P_d$ after each iteration is plotted in Figure \ref{fig: 2.5}. 
+marked as `*' and connected by a dotted line in Fig. \ref{fig: 2.4}. 
+The $(P_{f_1}, P_{f_2})$ point of the initialization is plotted as  a `o' and the $(P_{f_1}, P_{f_2})$ point of the final solution are plotted as a `$\square$'. The change of $P_d$ after each iteration is plotted in Figure \ref{fig: 2.5}. 
 The dotted line in Figure \ref{fig: 2.5} represents the theoretical probability of detection under constraint $\mathbf{P}_f \leq \mathbf{c}$. This value was calculated by the exhaustive search method approached last section.  
 
 

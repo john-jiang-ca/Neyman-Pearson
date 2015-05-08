@@ -189,16 +189,16 @@ Let $\delta^\ast$ be the optimal decision rule for $\bmu_0$. By optimal  we mean
 \begin{equation}
   \label{2015feb09a4}
   \delta^1:\;\; \begin{cases}
-    & \text{ $H_0$ if } x \in \emptyset \\
-    & \text{ $\bar{H}_0$ if } x \in \mathcal{D}
+    &\text{$H_0$ if } x \in \emptyset \\
+    &\text{$\bar{H}_0$ if } x \in \mathcal{D}
   \end{cases}
 \end{equation}
 and
 \begin{equation}
   \label{2015feb09a5}
   \delta^2:\;\; \begin{cases}
-    & \text{ $H_0$ if } x \in \mathcal{D} \\
-    & \text{ $\bar{H}_0$ if } x \in \emptyset
+    &\text{$H_0$ if } x \in \mathcal{D} \\
+    &\text{$\bar{H}_0$ if } x \in \emptyset
   \end{cases}
 \end{equation}
 
@@ -290,13 +290,12 @@ This implies $\mu_{M+1}^N \in [0, G(\bmu_0^N)]$ and we have
 showing that point $(\mu_1^N, ..., \mu_{M+1}^N)$ also belongs to set $G_s$.
 Hence we proved $\mathcal{N} \subseteq G_s$. 
 
-In the following we will show for a point $(\mu_1^0, \mu_2^0, ..., \mu_{M+1}^0)$ that belongs to $G'$ ($\mu_i^0 \in (0, 1), i = 1, 2, ..., M$), there exists a non-negative $\mathbf{k}$ such that  
+In the following we will show for a point $(\mu_1^0, \mu_2^0, ..., \mu_{M+1}^0)$ ($\mu_i^0 \in (0, 1), i = 1, 2, ..., M$) that belongs to $G'$, there exists a non-negative $\mathbf{k}$ such that  
 \[
 \mu_{M+1} - \sum_{i=1}^{M}k_i\mu_i \leq \mu_{M+1}^0 - \sum_{i=1}^{M}k_i\mu_i^0
 \]
 holds for any $(\mu_1, \mu_2, ..., \mu_{M+1}) \in G_s$. 
-Assume $(\mu_0^0, \mu_1^0, ..., \mu_{M+1}^0)$ is a point on the $G'$ surface, i.e. $\mu_{M+1}^0 = G(\bmu_0^0)$, where $\bmu_0^0 = [\mu_1^0, ..., \mu_{M}^0]$. 
-Also we assume $\mu_1^0, \mu_2^0, ..., \mu_M^0 \in (0, 1)$. 
+Assume $(\mu_0^0, \mu_1^0, ..., \mu_{M+1}^0)$ ($\mu_i^0 \in (0, 1), i = 1, 2, ..., M$) is a point on the $G'$ surface, i.e. $\mu_{M+1}^0 = G(\bmu_0^0)$, where $\bmu_0^0 = [\mu_1^0, ..., \mu_{M}^0]$. 
 According to the definition of $G_s$, for any positive $\epsilon$, point $(\mu_0^0, \mu_1^0, ..., \mu_{M+1}^0+\epsilon) \notin G_s$. Thus point $(\mu_1^0, ..., \mu_{M+1}^0)$ is a boundary point of the set $G_s$.  
 Since $G_s$ is a convex set and $(\mu_0^0, \mu_1^0, ..., \mu_{M+1}^0)$ is a boundary point of $G_s$,  
 there exists an $M+1$ dimensional hyperplane $\Pi$ through this point such that $\Pi$ contains only boundary points of $G_s$ and $G_s$ lies entirely on one sides of $\Pi$  \cite{dantzig1951fundamental}. 
@@ -479,7 +478,7 @@ then  $\mathcal{S}^\ast$ must  maximize
 \int_{\mathcal{S}}(f_{0}(x)\mathrm{d}x - \sum_{i=1}^{M}k_if_i(x))\mathrm{d}x
   \label{2015feb2a3}
 \end{equation}
-among all $\mathcal{S}$. To maximize \eqref{2015feb2a3}, $\mathcal{S}^\ast$ should include the domain that $f_{0}(x)- \sum_{i=1}^{M}k_if_{i}(x) > 0$ and exclude the domain that $f_{0}(x)- \sum_{i=1}^{M}k_if_{i}(x) < 0$, i.e.   
+among all $\mathcal{S}$. To maximize \eqref{2015feb2a3}, $\mathcal{S}^\ast$ should include the domain that $f_{0}(x)- \sum_{i=1}^{M}k_if_{i}(x) > 0$ and exclude the domain that $f_{0}(x)- \sum_{i=1}^{M}k_if_{i}(x) < 0$ \cite{LehmannTest}, i.e.   
  $\mathcal{S}^\ast$ satisfies
 \[
 x \in \mathcal{S}^\ast\;\;\;\;\text{if}\;\;\;\;f_{0}(x)- \sum_{i=1}^{M}k_if_{i}(x) > 0
