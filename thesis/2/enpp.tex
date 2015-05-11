@@ -24,7 +24,7 @@ From \eqref{equ: pf and pd} we have
 \end{equation}
 
 By separately increasing $k_1$ and $k_2$ from $-30$ to $30$ with steps $0.01$, we can calculate the associated $P_{f_1}, P_{f_2}$ and $P_d$ using \eqref{2015jan29a1}. 
-Plotting $P_d$ as a function of $P_{f_1}$ and $P_{f_2}$ results in the ROC surface illustrated in Fig. \ref{fig: 2.1} and Fig. \ref{fig: 2.2mar9}. Fig. \ref{fig: 2.1} and Fig. \ref{fig: 2.2mar9} present the ROC surface from different viewpoint. The contour of the ROC surface is given in Fig. \ref{fig: 2.3mar9}. The region enclosed by the two dash lines in Fig. \ref{fig: 2.1}, Fig. \ref{fig: 2.2mar9} and Fig. \ref{fig: 2.3mar9} are the set of points 
+Plotting $P_d$ as a function of $P_{f_1}$ and $P_{f_2}$ results in the ROC surface illustrated in Figure \ref{fig: 2.1} and Figure \ref{fig: 2.2mar9}. Figure \ref{fig: 2.1} and Figure \ref{fig: 2.2mar9} present the ROC surface from different viewpoint. The contour of the ROC surface is given in Figure \ref{fig: 2.3mar9}. The region enclosed by the two dash lines in Figure \ref{fig: 2.1}, Figure \ref{fig: 2.2mar9} and Figure \ref{fig: 2.3mar9} are the set of points 
 achieved by \eqref{2015jan29a1} using non-negative $k_1, k_2$.
 
 It is interesting to observe that under the ENP test framework, not all $(P_{f_1}, P_{f_2})$  ($P_{f_1}, P_{f_2}\in [0, 1]$) values may have an associated $P_d$. This is because for a given $c_1, c_2 \in [0, 1]$, it is possible that no decision rule can satisfy
@@ -68,13 +68,13 @@ Recall in the case of binary hypotheses testing (Traditional Neyman Pearson Test
 \label{fig: 2.3mar9}
 \end{figure}
 
-Now let us consider points $A$ and $B$ on the ROC surface of Fig. \ref{fig: 2.1}, which are marked with '$\bullet$' and '$\blacklozenge$', respectively.  The coordinate of point $A$ is $(P_{f_1}, P_{f_2}, P_d) = (0.350, 0.315, 0.730)$; and the coordinate of point $B$ is  $(P_{f_1}, P_{f_2}, P_d) = (0.355, 0.730, 0.690)$. We can see even through $P_{f_1}$ and $P_{f_2}$ of point $B$ is larger than these of point $A$, the $P_d$ of point $B$ is  smaller than that of point $A$.  
+Now let us consider points $A$ and $B$ on the ROC surface of Figure \ref{fig: 2.1}, which are marked with '$\bullet$' and '$\blacklozenge$', respectively.  The coordinate of point $A$ is $(P_{f_1}, P_{f_2}, P_d) = (0.350, 0.315, 0.730)$; and the coordinate of point $B$ is  $(P_{f_1}, P_{f_2}, P_d) = (0.355, 0.730, 0.690)$. We can see even through $P_{f_1}$ and $P_{f_2}$ of point $B$ is larger than these of point $A$, the $P_d$ of point $B$ is  smaller than that of point $A$.  
 Unlike NP test, where $P_d$ is always non-decreasing with $P_f$, in the case of multiple hypotheses testing (Extended Neyman Pearson Test), $P_d$ is not always a non-decreasing function of  $P_{f_i}$ ($i=1, ..., M$).
 
 Furthermore, we can see in the case of point $B$, the value of $P_d$ is smaller than the value of $P_{f_2}$, i.e. under the ENP framework, $P_d \geq P_{f_i}$  ($i = 1, ..., M$) does not always hold (Qian Zhang arrives at the same conclusion in  \cite{zhang1999design, zhang2000efficient} using a different method). 
 
 \subsection{Four Lemmas for the ENP Test}
-Next we presents four lemmas concerning the properties of the ENP test.
+In this section we present four lemmas. The first two lemmas examine a necessary proof for the ENP lemma. The last two lemmas concerning the ROC surface of the ENP test.  
 
 %LEMMA 1
 \newcommand{\bmu}{\boldsymbol{\mu}}
@@ -94,7 +94,7 @@ f_0(x) \substack{H_0 \\ \geq \\ < \\ \bar{H}_0} \sum_{j=1}^{M}k_jf_j(x)
 Moreover, under decision rule $\delta^\ast$ if  $P_{f_i} < c_i$, then $k_i = 0$. 
 }
 
-In \cite{zhang1999design, zhang2000efficient} Qian Zhang also arrives at the conclusion that if $P_{f_i} < c_i$ then $k_i = 0$, through analyzing the change of $P_d$ with respect to $k_i$ (he shows if $P_{f_i} < c_i$ and $k_i > 0$, then the $P_d$ can be further increased through adjusting the value of $k_i$). In the following we will prove \textbf{Lemma 2} using a mathematical method such that used in \cite{LehmannTest, dantzig1951fundamental} to prove the ENP Lemma (\rmnum{4}).
+In \cite{zhang1999design, zhang2000efficient}, Qian Zhang also arrives at the conclusion that if $P_{f_i} < c_i$ then $k_i = 0$, through analyzing the change of $P_d$ with respect to $k_i$. In the following we will prove \textbf{Lemma 2} using a mathematical method such that used in \cite{LehmannTest, dantzig1951fundamental} to prove the ENP Lemma (\rmnum{4}).
 
 \noindent\textbf{PROOF}
 We start by defining some notations for easy presentation.
@@ -115,7 +115,7 @@ Let $G_s$ denote the set of points in an $M+1$ Euclidean space defined as
 G_s =  \{(\boldsymbol{\mu}_0, \mu_{M+1}) | \boldsymbol{\mu}_0\in [0, 1]^M, \mu_{M+1} \in [0, G(\mathbf{\bmu_0})]
     \}\,.
   \end{equation}
-  From \eqref{def: G'} and \eqref{2015feb16n1}, it can be seen $G' \in G_s$. Fig. \ref{fig: feb18} depicts the relationship between $G'$ and $G_s$ when $M=2$. In Fig. \ref{fig: feb18}, $G'$ is the surface enclosed by curve $\stackrel\frown{AC}$, curve $\stackrel\frown{AD}$, segment $\overline{OC}$ and segment $\overline{OD}$. Set $G_s$ is the space enclosed by plane $ABC$, plane $ABD$, plane $COD$ and surface $G'$.  
+  From \eqref{def: G'} and \eqref{2015feb16n1}, it can be seen $G' \in G_s$. Figure \ref{fig: feb18} depicts the relationship between $G'$ and $G_s$ when $M=2$. In Figure \ref{fig: feb18}, $G'$ is the surface enclosed by curve $\stackrel\frown{AC}$, curve $\stackrel\frown{AD}$, segment $\overline{OC}$ and segment $\overline{OD}$. Set $G_s$ is the space enclosed by plane $ABC$, plane $ABD$, plane $COD$ and surface $G'$.  
 
 \begin{figure}[!t]
 \centering
@@ -277,8 +277,8 @@ From \eqref{equ: 1120n} and \eqref{equ: 1120n1}, it follows that
  $\bmu^3 \in G_s$, showing that $G_s$  is a convex set.  
 
 Next we prove $\mathcal{N} \subseteq G_s$. We need to show that if  $\forall (\mu_1, ..., \mu_{M+1}) \in \mathcal{N}$, then this point also belongs to $G_s$.
-Assume $(\mu_1^N, ..., \mu_{M+1}^N)$ is a point in $\mathcal{N}$. 
-In previous discussion, it has been shown $\mu_i^N \in [0, 1]$ ($i = 1, ..., M$) and $\mu_{M+1}^N \in [0, F(\bmu_0^N)]$, where $\bmu_0^N = [\mu_1^N, ..., \mu_M^N]$. 
+Assume $(\mu_1^N, ..., \mu_{M+1}^N)$ is a point in $\mathcal{N}$. From the definition of $\mathcal{N}$, we can see 
+ $\mu_i^N \in [0, 1]$ ($i = 1, ..., M$) and $\mu_{M+1}^N \in [0, F(\bmu_0^N)]$, where $\bmu_0^N = [\mu_1^N, ..., \mu_M^N]$. 
 According to the definition of $G(\bmu_0)$ and $F(\bmu_0)$, we can conclude $G(\bmu_0^N) \geq F(\bmu_0^N)$. 
 This implies $\mu_{M+1}^N \in [0, G(\bmu_0^N)]$ and we have  
 \begin{equation}

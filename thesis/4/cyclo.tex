@@ -14,7 +14,7 @@ Similar to the model given in \cite{lunden2007spectrum, lunden2010robust}, the b
   \caption{Block Diagram for  cyclostationary detector.}
   \label{pic:1222a0}
 \end{figure}
-Like in \cite{lunden2007spectrum, lunden2010robust}, in our system the measuring device observes the noisy version of the received signals and forms an estimator of cyclic-autocorrelation (cyclic-autocorrelation is the Fourier coefficients of the signals' time-varying autocorrelation with respect to time \cite{dandawate1994statistical, lunden2007spectrum, lunden2010robust}) of their sampled version. With this statistics, the testing device employs the MENP framework to determine the status of the channel. The input of measuring device is
+Like in \cite{lunden2007spectrum, lunden2010robust}, in our system the measuring device observes the noisy version of the received signals and forms an estimator of cyclic-autocorrelation (cyclic-autocorrelation is the Fourier coefficients of the signals' time-varying autocorrelation with respect to time \cite{lunden2007spectrum, lunden2010robust, dandawate1994statistical}) of their sampled version. With this statistics, the testing device employs the MENP framework to determine the status of the channel. The input of measuring device is
 \begin{equation}
   \mathbf{x} = \begin{cases}
 	\mathbf{n}\;\;\;\;\;\;&\text{when $H_0$ is true}\\
@@ -697,7 +697,6 @@ Further, since $E[RI] = E[R]E[I]$ = 0 and $R, I$ are jointly Gaussian, we have t
 \subsection{Numerical Results}
 
 Assume $l_c = 4$ $l_d = 16$ $l_0 = 20$ and $K = 50$. 
-
 We set the variance of noise to $\sigma_n^2 = 0.3$, and the variance of signal $s_A$ and $s_B$ to $\sigma_{s_A}^2 = 0.18$ and $\sigma_{s_B}^2 = 0.15$ respectively. 
 The value of $\mu_R$ $\mu_I$ $\sigma_R^2$ $\sigma_I^2$ and $\rho$ under hypotheses $H_1$ and $H_2$ are derived from Table \ref{Table2} and Table \ref{Table4} and illustrated in Table \ref{Table11} and Table \ref{Table12}. 
 \begin{table}[h]
@@ -795,9 +794,9 @@ From \eqref{equ: pf and pd}, the expression of $P_d$ $P_{f_1}$ and $P_{f_2}$ can
   \label{asdffghj}
 \end{equation}
 
-We use the look-up table method of section 2.4 to compute the M-ROC surface (Not Qian's algorithm given in section 2.5).  Let $k_1$ $k_2$ separately increase from $0.1$ to $100$ with step $0.001$ and store the $k_1, k_2$ and its associated $P_d, P_{f_1}$ and $P_{f_2}$ value in table $T_1$. 
-Then we do an exhaustive search on Table $T_1$. 
-To do it, we check every item in Table $T_1$ (each item includes the information of $k_1, k_2$ and its associated $P_d$, $P_{f_1}, P_{f_2}$) and put the item into Table $T_2$ if the item satisfies $P_{f_1} \leq c_1$ and $P_{f_2} \leq c_2$. At last we check every item in table $T_2$ and get the largest $P_d$ value in table $T_2$.  
+
+We use Matlab to compute the M-ROC for this cyclostationary detector. The value of $c_1$ and $c_2$ increase from $0$ to $0.2$ with step $0.005$. In practise, we do not consider the situation when $c_1 = 0$ or $c_2 = 0$.  In this case we consider such situation in order to better illustrate the M-ROC surface. For the case when $c_1$ or $c_2$ is zero, we cannot utilize the MENP framework to get the associated $P_d$.  However, as we have shown in section 4.1, when $c_1 = 0$ or $c_2 = 0$, the associated $P_d=0$.   For the situation when $c_1 \neq 0$ and $c_2 \neq 0$, we use the look-up table method of section 2.4 to compute the M-ROC surface (Not Qian's algorithm section 2.5).  For a given $c_1, c_2$ value, let $k_1$ $k_2$ separately increase from $0.1$ to $100$ with step $0.001$ and store the $k_1, k_2$ and its associated $P_d, P_{f_1}$ and $P_{f_2}$ value in table $T_1$. 
+Then we check every item in Table $T_1$ (each item includes the information of $k_1, k_2$ and its associated $P_d$, $P_{f_1}, P_{f_2}$) and put the item into Table $T_2$ if the item satisfies $P_{f_1} \leq c_1$ and $P_{f_2} \leq c_2$. At last we check every item in table $T_2$ and get the largest $P_d$ value in table $T_2$.  
 The M-ROC is illustrated in Figure \ref{pic:1221n0}. The bold curve is region $M_0$. 
 
 We can see, for cyclostationary detector, region $M_0$ also degenerates to a curve. Besides that, it can also be observed from Figure \ref{pic:1221n0} that for any $c_1$, $c_2$ the system provides an associated $P_d$ and $P_d$ is non-decreasing with respect to $c_1$ and $c_2$.
@@ -830,4 +829,65 @@ In order to increase $P_d$, we should check the M-ROC surface and choose a prope
   \includegraphics[width=12cm, height=16cm]{4/ROCsurface.eps}
   \caption{M-ROC surface for cyclostationary detector.}
   \label{pic:1221n0}
+\end{figure}
+
+\subsection{Simulation Results}
+The simulation results presented in this thesis were obtained by using Monte Carlo techniques. All of Matlab code for the programs required to reproduce the simulation results are contained in the attached CD. Appendix B presents a brief tutorial on the uses of the various files for the simulation.
+
+Assume signal $s_A$ $s_B$ are OFDM signals with $16$ subcarriers ($l_D = 16$) and the length of the CP part is $\frac{1}{4}$ of the useful symbol data (in 802.11a standard, the CP part is also 1/4 length of the useful symbol data). 
+The subcarrier modulation employed QPSK. Similar to numerical analysis, let $K=50$, $\sigma_{s_A} = 0.18$, $\sigma_{s_B} = 0.15$ and $\sigma_{n} = 0.3$. 
+  
+Since $l_D$ is not large, we cannot assume the OFDM signals to be governed by i.i.d. Gaussian distribution. This is different from the theoretical analysis, thus it may induce deviation between the simulation results and the numerical results. In reality, $l_D$ usually be a much larger number, e.g. in 802.11a standard, $l_D = 64$ and  in DVB-T standard, $l_D = 2048$ or $8192$, in such situations the deviation between the numerical analysis and the simulation results will be smaller than that in this example.
+
+The simulation presents the performance of cyclostationary detector when $c_1$ and $c_2$ separately increase from $0.005$ to $0.2$ with steps $0.005$. For a specified $c_1$ and $c_2$, we utilize Qian's algorithm of section 2.5 to calculate its MENP parameters $k_1$, $k_2$.
+
+For each decision rule calculated through Qian's algorithm, we use Monte Carlo simulation to get its associated $P_d$, $P_{f_1}$ and $P_{f_2}$.   
+In order to ensure highly accurate results, a minimum of 1000 events and 400000 experiments are required. The simulation result of the M-ROC surface is presented in Fig. \ref{pic:15may09a1}. $P_d$ is acquired through simulation for each intersection of the mesh in Fig. \ref{pic:15may09a1}, except for points $c_1 = 0$, $c_2$ and $c_1$, $c_2 = 0$, which are plotted to better illustrate the M-ROC surface. 
+Compare Fig. \ref{pic:15may09a1} with Fig. \ref{pic:1221n0}, we can see the simulation result accords with the numerical analysis, i.e. the deviation brought by the mismatch between the mathematical model and the practice signals is negligible.
+ 
+Fig. \ref{pic:15may10a1} depicts the relationship between  $P_d$ and $k_1$ $k_2$ ($k_1$, $k_2$ are MENP parameters computed through Qian's algorithm of section 2.5).
+For each $c_1, c_2$, the associated $(k_1, k_2, P_d)$ is plotted as `o'. The curve in Fig. \ref{pic:15may10a1} is the theoretical relationship between $P_d$ and $k_1$, $k_2$. It is calculated through \eqref{equ: pf and pd}. Fig. \ref{pic:15may10a2} is the projection of Fig. \ref{pic:15may10a1} on $k_1-k_2$ plane.
+Since $c_1$ and $c_2$ are discrete, points $(k_1, k_2)$ are also discrete, which can be seen from Fig. \ref{pic:15may10a1} and Fig. \ref{pic:15may10a2}. 
+Furthermore, for different $(c_1, c_2)$, the value of $(k_1, k_2)$ may be the same, 
+e.g. for $(c_1, c_2) = (0.1, 0.1)$, the value of $V_\tau$ is $4.358$; for $(c_1, c_2) = (0.1, 0.2)$, we have $V_\tau = 4.358$.  
+In our program, we use Monte Carlo simulations to acquire the $P_d$ for each $(c_1, c_2)$.  For  $(c_1, c_2) = (0.1, 0.1)$, the $P_d$ we acquired is $0.67819$; for $(c_1, c_2) = (0.1, 0.2)$, the $P_d$ we acquired through simulation is $0.67823$. There are some slight difference between the two $P_d$ (even though the MENP parameters, so is the decision rule, are the same). This is because when the experiments times is not unlimited, the simulation results could be slightly different from each other. This explains why in Fig. \ref{pic:15may10a1} for the same $(k_1, k_2)$, there may be multiple $P_d$ corresponds with it.  
+We can also observe from Fig. \ref{pic:15may10a1} and Fig. \ref{pic:15may10a2} that except for point A, all other points either satisfy $k_1 = 0$ or $k_2 = 0$. This is reasonable. From the discussion in section 2.5 and in \cite{zhang2000efficient}, when $(c_1, c_2) \notin \alpha^+$, we have either $k_1 = 0$ or $k_2 = 0$. From Fig. \ref{pic:1221n0}, we know region $M_0$ degenerates to a curve. Since $\alpha^+$ is the projection of $M_0$ on $c_1-c_2$ plane, it is easy to see set $\alpha^+$ also degenerates to a curve in $c_1-c_2$ plane. In our example, $c_1$ and $c_2$ increase from 0.005 to 0.2 with steps 0.2, it is plausible that only few $(c_1, c_2)$ lies in region $\alpha^+$. This explain why for most of the points in Fig. \ref{pic:15may10a1} and Fig. \ref{pic:15may10a2} we have either $k_1 = 0$ or $k_2 = 0$.
+From Fig. \ref{pic:15may10a1}, we can see even though there is some deviation between the mathematical model and the practice signals, the simulation results accords with the numerical results well. 
+
+Fig. \ref{pic:15may10a3} depicts the relationship between $P_{f_1}$, $P_{f_2}$ and $P_d$ for each decision rule computed through Qian's algorithm.  
+For each $c_1, c_2$, the associated $(P_{f_1}, P_{f_2}, P_d) $ is plotted as `o'.
+The curve in Fig. \ref{pic:15may10a3} is the theoretical relationship between $P_{f_1}$ $P_{f_2}$ and $P_d$. This curve is computed through \eqref{equ: pf and pd}. 
+As we have discussed, for one decision rule, there could be multiple simulation results for $(P_{f_1}, P_{f_2}, P_d)$, and these simulation results may be slight different due to the experiments times' limitation. 
+This explains why in Fig. \ref{pic:15may10a3} for some $(P_{f_1}, P_{f_2}, P_d)$ points, there are several  `o' near the theoretical curve.
+By comparing the simulation results and the theoretical curve, we can see the simulation result accords with the numerical analysis. 
+
+From the above analysis we can see even though there are some mismatch between the mathematical model and the practice signals, the simulation results still accords with the numerical results. In reality, e.g. 802.11a standard or DVB-T standard, the subcarrier number is much larger than 16, hence the difference between the numerical results and the simulation results should be  smaller. 
+
+
+\begin{figure}[!t]
+  \centering 
+  \includegraphics[width=12cm, height=16cm]{4/Cyc1c2pd.eps}
+  \caption{Simulation results of M-ROC surface for cyclostationary detector.}
+  \label{pic:15may09a1}
+\end{figure}
+
+\begin{figure}[!t]
+  \centering 
+  \includegraphics[width=12cm, height=16cm]{4/k1k2pd.eps}
+  \caption{Relationship between $k_1$, $k_2$ and $P_d$.}
+  \label{pic:15may10a1}
+\end{figure}
+
+\begin{figure}[!t]
+  \centering 
+  \includegraphics[width=12cm, height=16cm]{4/k1k2.eps}
+  \caption{MENP parameters calculated through Qian's algorithm.}
+  \label{pic:15may10a2}
+\end{figure}
+
+\begin{figure}[!t]
+  \centering 
+  \includegraphics[width=12cm, height=16cm]{4/Cypf1pf2pd.eps}
+  \caption{Relationship between $P_{f_1}$, $P_{f_2}$ and $P_d$.}
+  \label{pic:15may10a3}
 \end{figure}
