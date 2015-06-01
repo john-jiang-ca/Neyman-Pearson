@@ -25,4 +25,5 @@
 \contentsline {subsection}{\numberline {4.2.3}Simulation Results}{109}
 \contentsline {chapter}{\numberline {5}Conclusions}{120}
 \contentsline {chapter}{\numberline {A}Numerical Results Program Guide}{122}
-\contentsline {chapter}{References}{125}
+\contentsline {chapter}{\numberline {B}Computer Simulations Program Guide}{125}
+\contentsline {chapter}{References}{127}
