@@ -23,7 +23,10 @@
 \contentsline {subsection}{\numberline {4.2.1}System Model}{85}
 \contentsline {subsection}{\numberline {4.2.2}Numerical Results}{105}
 \contentsline {subsection}{\numberline {4.2.3}Simulation Results}{109}
-\contentsline {chapter}{\numberline {5}Conclusions}{120}
-\contentsline {chapter}{\numberline {A}Numerical Results Program Guide}{122}
-\contentsline {chapter}{\numberline {B}Computer Simulations Program Guide}{125}
-\contentsline {chapter}{References}{127}
+\contentsline {chapter}{\numberline {5}Comparison between the MENP framework and the traditional hypothesis testing framework}{120}
+\contentsline {section}{\numberline {5.1}Energy Detection with no Side Information}{121}
+\contentsline {subsection}{\numberline {5.1.1}System Model}{121}
+\contentsline {chapter}{\numberline {6}Conclusions}{128}
+\contentsline {chapter}{\numberline {A}Numerical Results Program Guide}{130}
+\contentsline {chapter}{\numberline {B}Computer Simulations Program Guide}{133}
+\contentsline {chapter}{References}{135}
