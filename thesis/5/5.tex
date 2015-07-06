@@ -1,12 +1,12 @@
-\chapter{Comparison between the MENP framework and the traditional hypothesis testing framework}
-Chapter 4 showed that the MENP framework can be applied to spectrum sensing to achieve the largest probability of detection under any possible probability of false alarm constraints. This chapter conducts a comparison between the MNEP framework and the traditional hypothesis testing framework when applied to energy detector in the presence of two primary signals. Two situations, one assuming the detector has no side information of primary users (for a given time slot, the detector does not know which primary signal could occupy the channel) and the other assuming the detector has perfect side information of primary users (for a given time slot, the detector knows which primary user could occupy the channel), are considered.  
-Performance analysis results, which illustrate the performance of both framework, are presented.
+\chapter{Comparison Between the MENP Framework and Traditional Hypothesis Testing Framework}
+Chapter 4 showed that the MENP framework can be applied to spectrum sensing to achieve the largest probability of detection under any possible probability of false alarm constraints. This chapter conducts a comparison between the MNEP framework and traditional hypothesis testing framework when applied to energy detection in the presence of two primary users. Two situations, one assuming the detector has no side information of primary users (for a given time slot, the detector does not know which primary signal could occupy the channel) and the other assuming the detector has perfect side information of primary users (for a given time slot, the detector knows which primary user could occupy the channel), are considered.  
+Performance analysis results, which illustrate the performance for both frameworks, are presented.
 
-\section{Energy Detection with no Side Information}
+\section{Energy Detection Without Side Information}
 \subsection{System Model}
 We consider a cognitive radio system where the licensed frequency spectrum could be occupied by one of two distinct signals $\{s_A, s_B\}$ or it could be vacant. 
 Let $H_0$ denote the hypothesis under which the channel is free, $H_1$ denote the hypothesis under which the channel is occupied by $s_A$ or $s_B$.
-Under hypothesis $H_1$, the channel is occupied by signal $s_A$ with probability $q$ and the channel is occupied by signal $s_B$ with probability $1-q$. %However, the value of $q$ is unknown for the detector.   
+Under hypothesis $H_1$, the channel is occupied by signal $s_A$ with probability $q$ and the channel is occupied by signal $s_B$ with probability $1-q$, i.e. $Pr(s_A|H_1) = q$ and  $Pr(s_B|H_1) = 1-q$. Here $q$ is an unknown parameter for the detector. 
 We are interested to test $H_0$ against $\bar{H}_0$. The block diagram of the system is illustrated in Figure \ref{pic: ch5 diagram}.  
 
 \begin{figure}[!hbp]
@@ -16,7 +16,7 @@ We are interested to test $H_0$ against $\bar{H}_0$. The block diagram of the sy
 \label{pic: ch5 diagram}
 \end{figure}
 
-The detector consists of a measuring device followed by a testing device. The measuring device observes the noises version of the received signals and forms the energy of their sampled version. With this energy, the testing device employs a proper hypothesis testing framework to decide about the state of the channel. We assume during the detection, the channel status does not change. The input to the measuring device can be modeled as 
+The detector consists of a measuring device followed by a testing device. The measuring device observes the noise version of the received signals and forms the energy of their sampled version. With this energy, the testing device employs a proper hypothesis testing framework to decide about the state of the channel. We assume during the detection, the channel status does not change. The input of the measuring device can be modeled as 
 \begin{eqnarray}
   \mathbf{x} = \begin{cases}
     &\mathbf{n}\;\;\;\;\;\;\text{when $H_0$ is true}\\
@@ -58,9 +58,9 @@ since the noise and signal are independent, $s_i+ n_i \sim \mathcal{CN}(0, 2(\si
 thus we have 
 \begin{equation}
    \begin{split}
-     &\begin{pmatrix} x_{i_R} \\ x_{i_I} \end{pmatrix} \sim \mathcal{N}\Big( \begin{bmatrix} 0 \\ 0 \end{bmatrix}, \begin{bmatrix} \sigma_0^2 & 0\\ 0 & \sigma_0^2 \end{bmatrix} \Big) \text{when no signal is presented}\\
-     &\begin{pmatrix} x_{i_R} \\ x_{i_I} \end{pmatrix} \sim \mathcal{N}\Big( \begin{bmatrix} 0 \\ 0 \end{bmatrix}, \begin{bmatrix} \sigma_1^2 & 0\\ 0 & \sigma_1^2 \end{bmatrix} \Big) \text{when $s_A$ is presented}\\
-     &\begin{pmatrix} x_{i_R} \\ x_{i_I} \end{pmatrix} \sim \mathcal{N}\Big( \begin{bmatrix} 0 \\ 0 \end{bmatrix}, \begin{bmatrix} \sigma_2^2 & 0\\ 0 & \sigma_2^2 \end{bmatrix} \Big) \text{when $s_B$ is presented}
+     &\begin{pmatrix} x_{i_R} \\ x_{i_I} \end{pmatrix} \sim \mathcal{N}\Big( \begin{bmatrix} 0 \\ 0 \end{bmatrix}, \begin{bmatrix} \sigma_0^2 & 0\\ 0 & \sigma_0^2 \end{bmatrix} \Big) \text{when channel is free}\\
+     &\begin{pmatrix} x_{i_R} \\ x_{i_I} \end{pmatrix} \sim \mathcal{N}\Big( \begin{bmatrix} 0 \\ 0 \end{bmatrix}, \begin{bmatrix} \sigma_1^2 & 0\\ 0 & \sigma_1^2 \end{bmatrix} \Big) \text{when channel is occupied by $s_A$}\\
+     &\begin{pmatrix} x_{i_R} \\ x_{i_I} \end{pmatrix} \sim \mathcal{N}\Big( \begin{bmatrix} 0 \\ 0 \end{bmatrix}, \begin{bmatrix} \sigma_2^2 & 0\\ 0 & \sigma_2^2 \end{bmatrix} \Big) \text{when channel is occupied by $s_B$}
 \end{split}
   \label{equ:xdistribution2}
 \end{equation}
@@ -75,26 +75,37 @@ By observing $y$, a realization of $Y$, the testing device determines the status
 \def \CHISQUY[#1]{\frac{1}{#1 2^N\Gamma(N)}\left(\frac{y}{#1}\right)^{N-1}\exp\left(-\frac{y}{2#1}\right)}
 \begin{equation}
   \begin{split}
-   &f_0(y) = \CHISQUY[\sigma_0^2]\\
-  &f_1(y|s_A)=  \CHISQUY[\sigma_1^2]\\
-  &f_1(y|s_B)=  \CHISQUY[\sigma_2^2]\,;
+   &f(y|H_0) = \CHISQUY[\sigma_0^2]\\
+  &f(y|H_1, s_A)=  \CHISQUY[\sigma_1^2]\\
+  &f(y|H_1, s_B)=  \CHISQUY[\sigma_2^2]\,;
 \end{split}
   \label{20150621a4}
 \end{equation} 
 and
 \begin{equation}
   \begin{split}
-    F_0(y) &= F_{\chi^2(2N)}(\frac{y}{\sigma_0^2})\\
-    F_1(y|s_A) &= F_{\chi^2(2N)}(\frac{y}{\sigma_1^2})\\
-    F_2(y|s_B) &= F_{\chi^2(2N)}(\frac{y}{\sigma_2^2})\,,
+    F(y|H_0) &= F_{\chi^2(2N)}(\frac{y}{\sigma_0^2})\\
+    F(y|H_1, s_A) &= F_{\chi^2(2N)}(\frac{y}{\sigma_1^2})\\
+    F(y|H_1, s_B) &= F_{\chi^2(2N)}(\frac{y}{\sigma_2^2})\,,
   \end{split}
 \end{equation}
-where $F_{\chi^2(2N)}$ is the CDF of chi-square distribution with $2N$ degrees of freedom. 
+where $F_{\chi^2(2N)}$ is the CDF of Chi-Square distribution with $2N$ degrees of freedom. 
+For easy presentation, let $f_0(y) = f(y|H_0)$, $f_1(y|s_A) = f(y|H_1, s_A)$, $f_1(y|s_B) = f(y|H_1, s_B)$, $F_0(y) = F(y|H_0)$, $F_1(y|s_A) = F(y|H_1, s_A)$ and $F_1(y|s_B) = F(y|H_1, s_B)$. 
+Since $\sigma_0^2 < \sigma_1^2 < \sigma_2^2$, we have 
+\begin{equation}
+  F_{\chi^2(2N)}(\frac{y}{\sigma_0^2}) \geq F_{\chi^2(2N)}(\frac{y}{\sigma_1^2}) \geq  F_{\chi^2(2N)}(\frac{y}{\sigma_2^2})
+  \label{20150701a0}
+\end{equation}
+\begin{equation} 
+\therefore  F_0(y) \geq F_1(y|s_A) \geq F_1(y|s_B)
+  \label{20150623a1}
+\end{equation}
+the equality holds only when $y \rightarrow +\infty$.
 
-From above discussion, we can see under hypothesis $H_1$ the distribution of $Y$ can be written as
+From above discussion, it can be seen under hypothesis $H_1$ the distribution of $Y$ can be written as
 \begin{equation}
   \begin{split}
-    f_1(y) &= f_1(y|s_A)\text{Pr}(s_A) + f_1(y|s_B)\text{Pr}(s_B)\\
+    f_1(y) &= f_1(y|s_A)\text{Pr}(s_A|H_1) + f_1(y|s_B)\text{Pr}(s_B|H_1)\\
          &= f_1(y|s_A)q + f_1(y|s_B)(1-q)\,,
 \end{split}
   \label{20150621a7}
@@ -105,37 +116,37 @@ and thus we have
     H_0:\;\;\;\;\;&f_0(y) = \CHISQUY[\sigma_0^2]\\
     H_1:\;\;\;\;\;&f_1(y) = q\CHISQUY[\sigma_1^2] + (1-q)\CHISQUY[\sigma_2^2]\,.
   \end{split}
-  \label{20150621a8}
+  \label{20150621a81}
 \end{equation}
 
 As we can see, $H_0$ is a simple hypothesis and $H_1$ is a composite hypothesis with unknown parameter $p \in [0, 1]$. 
-The Neyman Pearson decision rule for \eqref{20150621a8} is
+The LR test for problem  \eqref{20150621a81} is
 \begin{equation}
   \frac{f_1(y)}{f_0(y)} \substack{H_1 \\ \geq \\ < \\ H_0} \tau\,.
 \end{equation}
 Substitute $f_0(y)$ and $f_1(y)$ into above equation, we have 
 \begin{equation}
-  q\left(\frac{\sigma_0^2}{\sigma_1^2}\right)^N\exp\left( (\frac{1}{2\sigma_0^2} -  \frac{1}{2\sigma_1^2}  )y^2 \right)
-+ (1-q) \left(\frac{\sigma_0^2}{\sigma_2^2}\right)^N\exp\left( (\frac{1}{2\sigma_0^2} -  \frac{1}{2\sigma_2^2}  )y^2 \right)
+  q\left(\frac{\sigma_0^2}{\sigma_1^2}\right)^N\exp\left( (\frac{1}{2\sigma_0^2} -  \frac{1}{2\sigma_1^2}  )y \right)
++ (1-q) \left(\frac{\sigma_0^2}{\sigma_2^2}\right)^N\exp\left( (\frac{1}{2\sigma_0^2} -  \frac{1}{2\sigma_2^2}  )y \right)
 \substack{H_1 \\ \geq \\ < \\ H_0} \tau\,.
 \label{20150622a0}
 \end{equation}
-Define 
+For a specific $q$, define 
 \begin{equation}
-  g(y) = q\left(\frac{\sigma_0^2}{\sigma_1^2}\right)^N\exp\left( (\frac{1}{2\sigma_0^2} -  \frac{1}{2\sigma_1^2}  )y^2 \right)
-+ (1-q) \left(\frac{\sigma_0^2}{\sigma_2^2}\right)^N\exp\left( (\frac{1}{2\sigma_0^2} -  \frac{1}{2\sigma_2^2}  )y^2 \right)\,
+  g_q(y) = q\left(\frac{\sigma_0^2}{\sigma_1^2}\right)^N\exp\left( (\frac{1}{2\sigma_0^2} -  \frac{1}{2\sigma_1^2}  )y \right)
++ (1-q) \left(\frac{\sigma_0^2}{\sigma_2^2}\right)^N\exp\left( (\frac{1}{2\sigma_0^2} -  \frac{1}{2\sigma_2^2}  )y \right)\,
 \end{equation}
 and \eqref{20150622a0} can be written as
 \begin{equation}
-  g(y) \substack{H_1 \\ \geq \\ < \\ H_0} \tau\,.
+  g_q(y) \substack{H_1 \\ \geq \\ < \\ H_0} \tau\,.
   \label{20150622a1}
 \end{equation}
-Since $q, 1-q \geq 0$ and $(\frac{1}{2\sigma_0^2} -  \frac{1}{2\sigma_1^2}  ), (\frac{1}{2\sigma_0^2} -  \frac{1}{2\sigma_2^2}  ) >  0$, we know $g(y)$ is a monotonic increasing function and $g^{-1}(y) $ exists.  
-Let $V_\tau = g^{-1}(\tau)$, since $g(y)$ is a monotonic increasing function, we have 
+Since $q, 1-q \geq 0$ and $(\frac{1}{2\sigma_0^2} -  \frac{1}{2\sigma_1^2}  ), (\frac{1}{2\sigma_0^2} -  \frac{1}{2\sigma_2^2}  ) >  0$, we know $g_q(y)$ is a monotonic increasing function and $g^{-1}_q(y) $ exists.  
+Let $V_\tau = g^{-1}_q(\tau)$, since $g(y)$ is a monotonic increasing function, we have 
 \begin{equation}
   \begin{cases}
-    &y > V_\tau\;\;\;\;g(y) > \tau\\
-    &y < V_\tau\;\;\;\;g(y) < \tau\,.
+    &y > V_\tau\;\;\;\;g(y)_q > \tau\\
+    &y < V_\tau\;\;\;\;g(y)_q < \tau\,.
   \end{cases}
 \end{equation}
 Hence \eqref{20150622a1} can be written in form of 
@@ -146,39 +157,136 @@ Hence \eqref{20150622a1} can be written in form of
 
 By using decision rule \eqref{20150622a2}, the probability of detection and the probability of false alarm can be written in form of 
 \begin{equation}
+  P_d = \int_{0}^{V_\tau} f_0(y) \mathrm{d}y = F_0(V_\tau)
+  \label{20150701a3}
+\end{equation}
+\begin{equation}
   \begin{split}
-  P_d &= \int_{0}^{V_\tau} f_0(y) \mathrm{d}y = F_0(V_\tau)\\
-  P_{f,q} &= \int_{0}^{V_\tau} qf_1(y|s_A) + \int_0^{V_\tau}(1-q)f_1(y|s_B)\mathrm{d}y\\
+  P_{f,q} &= \int_{0}^{V_\tau} (qf_1(y|s_A) + (1-q)f_1(y|s_B))\mathrm{d}y\\
+  &= q\int_{0}^{V_\tau} f_1(y|s_A)\mathrm{d}y  + (1-q)\int_0^{V_\tau}f_1(y|s_B)\mathrm{d}y\\
       &= qF_1(V_\tau|s_A) + (1-q)F_1(V_\tau|s_B)\,.
     \end{split}
     \label{20150622a3}
   \end{equation}
   Here we use $P_{f,q}$ to present the probability of false alarm for a specific $q$.
-  As we can see,  $P_{f,q}$ depends on both $V_\tau$ and $q$.   
-In the following we will show the UMP test of size $c$ ($c \in (0, 1)$) exists and can be written in form of 
+  As we can see from \eqref{20150622a3},  $P_{f,q}$ depends on both $V_\tau$ and $q$.  
+  First assume the detector knows $q$, in such situations \eqref{20150622a2} is a Neyman Pearson decision rule and  we can adjust the value of $V_\tau$ to construct a NP test with $P_{f,q} = c$.
+  For example, let $q = 1$ and $V_\tau$ is chosen such that $F_1(V_\tau|s_A) = c$, i.e. $V_\tau = F_1^{-1}(c|s_A)$. From \eqref{20150622a3} we have 
 \begin{equation}
-\delta^\ast:  y \substack{H_1 \\ \geq \\ < \\ H_0} V_\tau\;\;\;\;\;\;\text{where $F_1(V_\tau|s_A) = c$}\,.
+  P_{f,1} = F_1(V_\tau|s_A) = c\,.
+  \label{20150623a0}
 \end{equation}
+Thus it can be concluded that when $q = 1$ decision rule 
+\begin{equation}
+\delta^\ast \;\;\;\;y \substack{H_1 \\ \geq \\ < \\ H_0} V_\tau\;\;\;\;\;\;\text{where $V_\tau = F_1^{-1}(c|s_A)$}
+\label{20150705a0}
+\end{equation}
+is NP decision rule with  $P_{f, 1} = c$. Let $\delta$ be any other decision rule such that $P_{f, 1}(\delta) \leq c$ is satisfied, from the property of NP test, it can be concluded that $P_d(\delta^\ast) \geq P_d(\delta')$.  
 
-According to the definition given in \cite{LehmannTest},  $\delta^\ast$ is a UMP test of size $c$ if:
-\\(a) for any $q \in [0, 1]$, we have $P_f(\delta^\ast) \leq c$;
-\\(b) Assume $\delta'$ is a decision rule satisfy condition (a), we have $P_d(\delta^\ast) \geq P_d(\delta')$.  
+In practice the value of $q$ is unknown for the detector. In such case, we will show $ \delta^\ast$ given in \eqref{20150705a0} is the uniformly most powerful (UMP) test of size $c$ ($c \in (0, 1)$). 
+ 
+ The \textbf{uniformly most powerful (UMP) test} of size $c$ is defined as \cite{LehmannTest}:
+[To Be Revised]
+\textit{
+Let $f(x|H_0, \theta_0)$ $f(x|H_1, \theta_1)$ be PDFs under hypotheses $H_0$ and $H_1$. $\theta_0, \theta_1$ are unknown deterministic parameter and $\theta_0 \in \Theta_0, \theta_1 \in \Theta_1$. A UMP test:}
+  \begin{equation}
+    \begin{split}
+      &\max\;\;\;\;P_{d,\theta_1}\;\;\;\;\forall \theta_1 \in \Theta_1\\
+      &\;\;\text{s.t.}\;\;\;\;P_{f,\theta_2} \leq c\;\;\;\;\forall \theta_2 \in \Theta_2\,.
+    \end{split}
+    \label{20150701a1}
+  \end{equation}
 
-First, we will show decision rule $\delta^\ast$ satisfy condition (a). From \eqref{20150622a3}, we have 
+
+Thus we can see,  $\delta$ is a UMP decision rule if: 
+  \\(1) $\forall \theta_1 \in \Theta_1$, we have $P_{f, \theta_1}(\delta) \leq c$;
+  \\(2) Let $\delta'$ be a decision rule satisfying (1), then  $\forall \theta_0 \in \Theta_0$, we have $P_{d,\theta_0}(\delta) \geq P_{d, \theta_0}(\delta')$. 
+
+In our case, $H_1$ is a composite hypothesis with unknown parameter $q \in [0, 1]$ and $H_0$ is a simple hypothesis. From the definition of UMP test,  we can see $\delta^\ast$ is a UMP test of size $c$ if:
+\\(a) for any $q \in [0, 1]$, we have $P_{f,q}(\delta^\ast) \leq c$;
+\\(b) Assume $\delta'$ is a decision rule satisfying condition (a), we have $P_d(\delta^\ast) \geq P_d(\delta')$.  
+
+First, we will show decision rule $\delta^\ast$ satisfies condition (a). From \eqref{20150623a1}, \eqref{20150622a3} and \eqref{20150623a0}, we have 
 \begin{equation}
   \begin{split}
-    P_f(\delta^\ast) &= qF_1(V_\tau|s_A) + (1-q)F_1(V_\tau|s_B)\\
-    &= qF_1(V_\tau|s_A) + (1-q)F_1(V_\tau|s_A)\\
+    P_{f,q}(\delta^\ast) &= qF_1(V_\tau|s_A) + (1-q)F_1(V_\tau|s_B)\\
+    &\leq qF_1(V_\tau|s_A) + (1-q)F_1(V_\tau|s_A)\\
     &= F_1(V_\tau|s_A) = c\,.
   \end{split}
 \end{equation}
-Thus we can see for all $q \in [0, 1]$, $P_f \leq c$ is satisfied.
+\begin{equation}
+  \therefore P_{f,q}(\delta^\ast) \leq c
+  \label{20150705a1}
+\end{equation}
+Thus we can see by using decision rule $\delta^\ast$, for all $q \in [0, 1]$, $P_{f,q}(\delta^\ast) \leq c$ is satisfied.
 
 Next we will show for any decision rule $\delta'$ satisfying condition (a), we have $P_d(\delta^\ast) \geq P_d(\delta')$.  
-Let $q = 1$, from \eqref{20150622a3} we have 
-\begin{equation}
-  P_f(\delta^\ast) = F_1(V_\tau|s_A) = c\,.
-\end{equation}
-Hence we can see for the situation $q=1$,  $\delta^\ast$ is the Neyman Pearson decision rule of size $c$, i.e. when $q=1$, there is no decision rule can achieve a larger $P_d$ while keeping $P_f \leq c$.  
+Assume $\delta'$ is a decision rule satisfying condition (a), then we have  $P_{f,1}(\delta') \leq c$.
+We proved for any decision rule $\delta$ satisfying $P_{f, 1}(\delta) \leq c$, we have $P_d(\delta) \leq P_d(\delta^\ast)$.  
+Hence it  can be concluded that  $P_d(\delta^\ast) \geq P_d(\delta')$, i.e. 
+decision rule $\delta^\ast$ also satisfies condition (b). Since decision rule $\delta^\ast$ satisfies both condition (a) and (b), it is the UMP test of size $c$.    
 
-Assume $\delta'$ is a decision rule satisfying condition (a), hence we have when $q = 1$ $P_f(\delta') \leq c$. From above discussion we know $P_d(\delta') \leq P_d(\delta^\ast)$. We can conclude decision rule $\delta^\ast$ also satisfies condition (b). Since decision rule $\delta^\ast$ satisfies both condition (a) and (b), it is the UMP test of size $c$.    
+
+%\subsection{A Comparison Between the MENP Test and the UMP Test for Energy Detector with no Side Information}
+%A comparison between the MENP test and the UMP test for energy detection without side information is summarized in Table 5.1.
+
+%\begin{table}[]
+%\centering
+%\label{my-label}
+%\resizebox{\textwidth}{!}{%
+%\begin{tabular}{|l|l|l|}
+%\hline
+%                                                                 & MENP Test                                                                                                                                                                  & UMP Test                                                                                                                                                                 \\ \hline
+%\begin{tabular}[c]{@{}l@{}}Hypotheses\\ Description\end{tabular} & \begin{tabular}[c]{@{}l@{}}$H_0:$   The channel is ideal;\\ $H_1:$   The channel is occupied by $s_A$;\\ $H_2:$   The channel is occupied by $s_B$.\end{tabular}           & \begin{tabular}[c]{@{}l@{}}$H_0:$  The channel is ideal;\\ $H_1:$  The channel is occupied by $s_A$ or $s_B$.\end{tabular}                                               \\ \hline
+%Object                                                           & \begin{tabular}[c]{@{}l@{}}A MENP decision rule achieve the largest \\ $P_d$ among all decision rules satisfying \\ $P_{f_1} \leq c_1$ and $P_{f_2} \leq c_2$\end{tabular} & \begin{tabular}[c]{@{}l@{}}A UMP decision rule achieve the largest \\ $P_d$  among all decision rules satisfying \\ $\forall q \in [0, 1]$ $P_{f,q} \leq c$\end{tabular} \\ \hline
+%\begin{tabular}[c]{@{}l@{}}Decision \\ Rule\end{tabular}         & $y \substack{ H_0 \\ \leq \\ > \\ \bar{H}_0} V_{\tau, MENP}$                                                                                                                & $y \substack{H_0 \\ \leq \\ > \\ \bar{H}_0} V_{\tau, UMP}$                                                                                                               \\ \hline
+%$V_\tau$                                                         & $\min \{F_1^{-1}(c_1 | s_A), F_1^{-1}(c_2 | s_B) \}$                                                                                                                       & $F_1^{-1}(c | s_A)$                                                                                                                                                      \\ \hline
+%$P_d$                                                            & $F_0(V_{\tau, MENP})$                                                                                                                                                      & $F_0(V_{\tau, UMP})$                                                                                                                                                     \\ \hline
+%$P_f$                                                            & $P_{f_1} = F_1(V_{\tau, MENP} | s_A), P_{f_2} = F_1(V_{\tau, MENP} | s_B)$                                                                                                                 & $P_{f,q} = q F_1(V_{\tau, UMP} | s_A) + (1-q) F_1(V_{\tau, UMP} | s_B)$                                                                                                                \\ \hline
+%\end{tabular}
+%}
+%\caption{A comparison between MENP test and UMP test when applying to energy detection}
+%\end{table}
+
+%From Table 5.1 we can see the MENP test are designed to provide different protection to different primary users while the UMP test 
+%As we can see, for both MENP test and UMP test the decision rule has the same form, but the values of threshold ($V_{\tau, MENP}$, $V_{\tau, UMP}$) are different.  If $V_{\tau, MENP} \geq V_{\tau, UMP}$, the probability of detection achieved by MNEP is larger than that of UMP test, vice versa. 
+
+
+
+
+\subsection{Performance Comparison}
+In this section, we compare the performance of UMP test with the performance of MENP test when the detector has no side information.
+Similar to section 4.1.2, we set $\sigma_n^2= 0.1$, $\sigma_{s_A}^2 = 0.05$ $\sigma_{s_B}^2 = 0.15$ and $N=20$. We can see $\sigma_0^2 = 0.1$, $\sigma_1^2=0.15$ and $\sigma_2^2 = 0.25$. 
+First we consider the performance of UMP tests. 
+Let the value of $c$ increase from $0$ to $0.2$ with step $10^{-6}$. For each $c$, we use $V_\tau = F_1^{-1}(c|s_A)$ to compute its corresponding $V_\tau$. By substituting $V_\tau$ into \eqref{20150701a3} we can get the associated $P_d$. The performance of the UMP test is illustrated in Figure \ref{pic:20150701a0}. 
+The performance of energy detection using MENP framework is also shown in Figure \ref{pic:20150701a0}. Under MENP framework, $P_d$ is related to both $c_1$ and $c_2$. In Figure \ref{pic:20150701a0}, we plot the relationship between $P_d$ and $c_1$ when $c_2$ is fixed. Then we illustrate the relationship between $P_d$ and $c_2$ when $c_1$ is fixed.   
+
+\begin{figure}[!hbp]
+\centering
+\includegraphics[width = 12cm]{5/noSI.eps}
+\caption{A comparison between the UMP test and MENP test}
+\label{pic:20150701a0}
+\end{figure}
+
+As we can observe, when $c_1$ is fixed to $0.15$ and $c_2$ smaller than $0.15$, the performance of MENP test is better than the UMP test. This is not contradictory with the definition of UMP test. As we have discussed in section 5.1.1, a UMP decision rule is a decision rule such that among all decision rules satisfying $\forall q \in [0, 1]$ $P_{f,q} \leq c$, it maximize $P_d$. For MENP test, it does not ensure $\forall q \in [0, 1]$$P_{f,q} \leq c$, hence it is possible that the MENP test outperforms the UMP test.   
+
+Furthermore, for both MENP test and UMP test, the decision rule can be written in form of
+\begin{equation}
+  y \substack{\bar{H}_0\\ \geq\\ < \\ H_0 } V_\tau\,,
+  \label{20150701a4}
+\end{equation}
+and the probability of detection is 
+\begin{equation}
+  P_d = F_0(V_\tau)\,.
+  \label{20150701a5}
+\end{equation}
+
+In the MENP test, $V_\tau$ is determined by $V_{\tau MENP}= \min (F_1^{-1}(c_1|s_A), F_1^{-1}(c_2|s_B))$; in the UMP test, $V_\tau$ is determined by $V_{\tau UMP} = F_1^{-1}(c|s_A)$. When $V_{\tau MENP}  \geq V_{\tau UMP}$, then the $P_d$ achieved by MENP test is larger than that achieved by UMP test; vice versa. 
+With MENP test, when $c_2$ is fixed and $c_1 = c$, we have $\min (F_1^{-1}(c_1|s_A), F_1^{-1}(c_2|s_B)) \leq F_1^{-1}(c_1|s_A) = F_1^{-1}(c|s_A) $, i.e. 
+$V_{\tau MENP} \leq V_{\tau UMP}$.
+Hence we can conclude that when $c_2$ is fixed and $c_1 = c$, the $P_d$ achieved by MENP test is no larger than that achieved by UMP test. This can be observed from Figure \ref{pic:20150701a0}. 
+
+In the end, we consider the performance of MENP test when $c_1$ is fixed to $0.15$. As we can observe in such case  when $c_2$ is smaller than $0.15$ the performance of MENP test is better than the UMP test. This is because when $c_2 = c  \leq 0.15$, $\min (F_1^{-1}(0.15|s_A), F_1^{-1}(c_2|s_B)) > F_1^{-1}(c|s_A)$, i.e. $V_{\tau MENP} \geq V_{\tau UMP }$.   Hence the $P_d$ achieved by MENP test is larger than that achieved by UMP test. 
+
+\typeout{}
+\input{5/perfectsi}
