@@ -181,22 +181,19 @@ Thus it can be concluded that when $q = 1$ decision rule
 \delta^\ast \;\;\;\;y \substack{H_1 \\ \geq \\ < \\ H_0} V_\tau\;\;\;\;\;\;\text{where $V_\tau = F_1^{-1}(c|s_A)$}
 \label{20150705a0}
 \end{equation}
-is NP decision rule with  $P_{f, 1} = c$. Let $\delta$ be any other decision rule such that $P_{f, 1}(\delta) \leq c$ is satisfied, from the property of NP test, it can be concluded that $P_d(\delta^\ast) \geq P_d(\delta')$.  
+is NP decision rule with  $P_{f, 1} = c$. Let $\delta$ be any other decision rule such that $P_{f, 1}(\delta) \leq c$ is satisfied, from the property of NP test, it can be concluded that $P_d(\delta^\ast) \geq P_d(\delta)$.  
 
 In practice the value of $q$ is unknown for the detector. In such case, we will show $ \delta^\ast$ given in \eqref{20150705a0} is the uniformly most powerful (UMP) test of size $c$ ($c \in (0, 1)$). 
  
- The \textbf{uniformly most powerful (UMP) test} of size $c$ is defined as \cite{LehmannTest}:
-[To Be Revised]
+ The \textbf{uniformly most powerful (UMP) test} of size $c$ is defined as following \cite{LehmannTest, poor1994introduction}:
 \textit{
-Let $f(x|H_0, \theta_0)$ $f(x|H_1, \theta_1)$ be PDFs under hypotheses $H_0$ and $H_1$. $\theta_0, \theta_1$ are unknown deterministic parameter and $\theta_0 \in \Theta_0, \theta_1 \in \Theta_1$. A UMP test:}
-  \begin{equation}
-    \begin{split}
-      &\max\;\;\;\;P_{d,\theta_1}\;\;\;\;\forall \theta_1 \in \Theta_1\\
-      &\;\;\text{s.t.}\;\;\;\;P_{f,\theta_2} \leq c\;\;\;\;\forall \theta_2 \in \Theta_2\,.
-    \end{split}
-    \label{20150701a1}
-  \end{equation}
-
+  Let $f(x|H_0, \theta_0)$ $f(x|H_1, \theta_1)$ be PDFs under hypotheses $H_0$ and $H_1$. $\theta_0, \theta_1$ are unknown deterministic parameter and $\theta_0 \in \Theta_0, \theta_1 \in \Theta_1$. A UMP test would be one test that maximizes $P_{d, \theta_0}$ for every  $\theta_0 \in \Theta_0$ subject to the constraint $(P_{f,\theta_1} \leq c\;\;\;\;\forall \theta_1 \in \Theta_1)$, i.e. }
+\begin{equation}
+  \begin{split}
+    \max\;\;\;\;&P_{d, \theta_0}\;\;\;\theta_0 \in \Theta_0\\
+    \text{s.t.}\;\;\;\;&P_{f, \theta_1} \leq c\;\;\;\theta_1 \in \Theta_1
+  \end{split}
+\end{equation}
 
 Thus we can see,  $\delta$ is a UMP decision rule if: 
   \\(1) $\forall \theta_1 \in \Theta_1$, we have $P_{f, \theta_1}(\delta) \leq c$;
