@@ -102,7 +102,7 @@ Since $\sigma_0^2 < \sigma_1^2 < \sigma_2^2$, we have
 \end{equation}
 the equality holds only when $y \rightarrow +\infty$.
 
-From above discussion, it can be seen under hypothesis $H_1$ the distribution of $Y$ can be written as
+From above discussion, it can be seen under hypothesis $H_1$ the PDF of $Y$ can be written as
 \begin{equation}
   \begin{split}
     f_1(y) &= f_1(y|s_A)\text{Pr}(s_A|H_1) + f_1(y|s_B)\text{Pr}(s_B|H_1)\\
@@ -185,7 +185,7 @@ is NP decision rule with  $P_{f, 1} = c$. Let $\delta$ be any other decision rul
 
 In practice the value of $q$ is unknown for the detector. In such case, we will show $ \delta^\ast$ given in \eqref{20150705a0} is the uniformly most powerful (UMP) test of size $c$ ($c \in (0, 1)$). 
  
- The \textbf{uniformly most powerful (UMP) test} of size $c$ is defined as following \cite{LehmannTest, poor1994introduction}:
+ The \textbf{uniformly most powerful (UMP) test} of size $c$ is defined as following \cite{LehmannTest, poor1994introduction, casella2002statistical}:
 \textit{
   Let $f(x|H_0, \theta_0)$ $f(x|H_1, \theta_1)$ be PDFs under hypotheses $H_0$ and $H_1$. $\theta_0, \theta_1$ are unknown deterministic parameter and $\theta_0 \in \Theta_0, \theta_1 \in \Theta_1$. A UMP test would be one test that maximizes $P_{d, \theta_0}$ for every  $\theta_0 \in \Theta_0$ subject to the constraint $(P_{f,\theta_1} \leq c\;\;\;\;\forall \theta_1 \in \Theta_1)$, i.e. }
 \begin{equation}
@@ -219,7 +219,7 @@ Thus we can see by using decision rule $\delta^\ast$, for all $q \in [0, 1]$, $P
 
 Next we will show for any decision rule $\delta'$ satisfying condition (a), we have $P_d(\delta^\ast) \geq P_d(\delta')$.  
 Assume $\delta'$ is a decision rule satisfying condition (a), then we have  $P_{f,1}(\delta') \leq c$.
-We proved for any decision rule $\delta$ satisfying $P_{f, 1}(\delta) \leq c$, we have $P_d(\delta) \leq P_d(\delta^\ast)$.  
+We proved for any decision rule $\delta$ satisfying $P_{f, 1}(\delta) \leq c$, $P_d(\delta) \leq P_d(\delta^\ast)$ holds.  
 Hence it  can be concluded that  $P_d(\delta^\ast) \geq P_d(\delta')$, i.e. 
 decision rule $\delta^\ast$ also satisfies condition (b). Since decision rule $\delta^\ast$ satisfies both condition (a) and (b), it is the UMP test of size $c$.    
 
@@ -260,7 +260,7 @@ The performance of energy detection using MENP framework is also shown in Figure
 
 \begin{figure}[!hbp]
 \centering
-\includegraphics[width = 12cm]{5/noSI.eps}
+\includegraphics[width = 14cm]{5/noSI.eps}
 \caption{A comparison between the UMP test and MENP test}
 \label{pic:20150701a0}
 \end{figure}
