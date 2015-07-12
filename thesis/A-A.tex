@@ -20,6 +20,9 @@ cycloPDFs.m              & Compute PDFs for cyclostationary detection.          
 general\_pdfs.m           & Compute MROC for given PDFs.                                 \\
 cyclo.m				     & Compute MROC for cyclostationary detection.             \\		
 plotfigure.m             & Plot ROC or MROC figure. \\
+no\_side\_info.m           & Compare the MENP test with the UMP test. \\
+side\_info1.m            & Compare the MNEP test with the NP test during time slot $T_A$.\\
+side\_info2.m            & Compare the MNEP test with the NP test during time slot $T_B$.\\
 init.txt                   & Record the adjustable parameters for above programs.         \\
 \hline
 \end{tabular}
@@ -59,6 +62,15 @@ To compute MENP parameters for specific false alarm constraints, run QZ\_Algorit
 \\\texttt{Matlab$>$ QZ\_Algorithm(c1, c2)}
 
 After the computation, the program prints the MENP parameters on the screen. 
+
+To compare the MENP test with the UMP test for energy detection with no side information, run no\_side\_info.m. This can be done by running following command in Matlab command line.
+\\\texttt{Matlab$>$ no\_side\_info}
+
+To compare the MENP test with the NP test for energy detection with perfect side information during time slot $T_A$, run side\_info1.m. This can be done by running following command in Matlab command line.
+\\\texttt{Matlab $>$ side\_info1}
+
+To compare the MENP test with the NP test for energy detection with perfect side information during time slot $T_B$, run side\_info2.m. This can be done by running following command in Matlab command line.
+\\\texttt{Matlab $>$ side\_info2}
 
 The adjustable parameters for ENP (MENP) test are recorded in init.txt file and listed in Table A.2. 
 \begin{table}[h]

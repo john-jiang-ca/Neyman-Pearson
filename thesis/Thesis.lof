@@ -1,42 +1,42 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces The ROC surface for $k_1$, $k_2$ range from $-30$ to $30$ with step $0.01$.}}{13}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces The ROC surface for problem \textup {\hbox {\mathsurround \z@ \normalfont (\ignorespaces 2.12\hbox {}\unskip \@@italiccorr )}}.}}{14}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces The contour for the ROC surface.}}{15}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Relationship between $G'$ and $G_s$}}{19}
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Change of $P_{f_1}$, $P_{f_2}$ after each iteration.}}{48}
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Change of $P_d$ after each iteration.}}{49}
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Change of $P_{f_1}$, $P_{f_2}$ after each iteration.}}{52}
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Change of $P_d$ after each iteration.}}{53}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces The ROC surface for $k_1$, $k_2$ range from $-30$ to $30$ with step $0.01$.}}{14}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces The ROC surface for problem \textup {\hbox {\mathsurround \z@ \normalfont (\ignorespaces 2.12\hbox {}\unskip \@@italiccorr )}}.}}{15}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces The contour for the ROC surface.}}{16}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Relationship between $G'$ and $G_s$}}{20}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Change of $P_{f_1}$, $P_{f_2}$ after each iteration.}}{49}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Change of $P_d$ after each iteration.}}{50}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Change of $P_{f_1}$, $P_{f_2}$ after each iteration.}}{53}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Change of $P_d$ after each iteration.}}{54}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Region that can be achieved by Neyman Pearson testing with $k_i \geq 0 (i=1, ..., M)$.}}{60}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Region that can be achieved by Neyman Pearson testing with $k_i \geq 0 (i=1, ..., M)$.}}{61}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces The region $\mathcal {C}$ when $c_1 = 0.2$ and $c_2 = 0.8$.}}{62}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces The M-ROC surface for Gaussian Hypotheses.}}{66}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces The M-ROC for Gaussian distribution with same variance.}}{69}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces The M-ROC for the Chi-square example.}}{72}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Region that can be achieved by Neyman Pearson testing with $k_i \geq 0\tmspace +\thickmuskip {.2777em}\tmspace +\thickmuskip {.2777em}\tmspace +\thickmuskip {.2777em}\tmspace +\thickmuskip {.2777em} (i=1, ..., M)$.}}{61}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Region that can be achieved by Neyman Pearson testing with $k_i \geq 0 (i=1, ..., M)$.}}{62}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces The region $\mathcal {C}$ when $c_1 = 0.2$ and $c_2 = 0.8$.}}{63}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces The M-ROC surface for Gaussian Hypotheses.}}{67}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces The M-ROC for Gaussian distribution with same variance.}}{70}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces The M-ROC for the Chi-square example.}}{73}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Block Diagram for Spectrum Sensing}}{74}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces M-ROC surface for $\sigma _n^2 = 0.1$, $\sigma _{s_A}^2=0.05$, $\sigma _{s_B}^2=0.15$ and $N = 20$.}}{80}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Simulation results of M-ROC surface for $\sigma _n^2 = 0.1$, $\sigma _{s_A}^2=0.05$, $\sigma _{s_B}^2=0.15$ and $N = 20$.}}{82}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Relationship Between $V_\tau $ and its associated $P_d$.}}{83}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Relationship between $P_{f_1}$, $P_{f_2}$ and $P_d$.}}{84}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Block Diagram for cyclostationary detector.}}{85}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Received signal for perfect synchronization.}}{87}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Received signal for synchronization mismatch $\tau _0$.}}{87}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces PDF under hypothesis $H_0$.}}{110}
-\contentsline {figure}{\numberline {4.10}{\ignorespaces PDF under hypothesis $H_1$.}}{111}
-\contentsline {figure}{\numberline {4.11}{\ignorespaces PDF under hypothesis $H_2$.}}{112}
-\contentsline {figure}{\numberline {4.12}{\ignorespaces M-ROC surface for cyclostationary detector.}}{113}
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Simulation results of M-ROC surface for cyclostationary detector.}}{116}
-\contentsline {figure}{\numberline {4.14}{\ignorespaces Relationship between $k_1$, $k_2$ and $P_d$.}}{117}
-\contentsline {figure}{\numberline {4.15}{\ignorespaces MENP parameters calculated through Qian's algorithm.}}{118}
-\contentsline {figure}{\numberline {4.16}{\ignorespaces Relationship between $P_{f_1}$, $P_{f_2}$ and $P_d$.}}{119}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Block Diagram for Spectrum Sensing}}{75}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces M-ROC surface for $\sigma _n^2 = 0.1$, $\sigma _{s_A}^2=0.05$, $\sigma _{s_B}^2=0.15$ and $N = 20$.}}{81}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Simulation results of M-ROC surface for $\sigma _n^2 = 0.1$, $\sigma _{s_A}^2=0.05$, $\sigma _{s_B}^2=0.15$ and $N = 20$.}}{83}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Relationship Between $V_\tau $ and its associated $P_d$.}}{84}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Relationship between $P_{f_1}$, $P_{f_2}$ and $P_d$.}}{85}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Block Diagram for cyclostationary detector.}}{86}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Received signal for perfect synchronization.}}{88}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Received signal for synchronization mismatch $\tau _0$.}}{88}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces PDF under hypothesis $H_0$.}}{112}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces PDF under hypothesis $H_1$.}}{113}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces PDF under hypothesis $H_2$.}}{114}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces M-ROC surface for cyclostationary detector.}}{115}
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Simulation results of M-ROC surface for cyclostationary detector.}}{118}
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Relationship between $k_1$, $k_2$ and $P_d$.}}{119}
+\contentsline {figure}{\numberline {4.15}{\ignorespaces MENP parameters calculated through Qian's algorithm.}}{120}
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Relationship between $P_{f_1}$, $P_{f_2}$ and $P_d$.}}{121}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Block Diagram for Energy Detection}}{121}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces A comparison between the UMP test and MENP test}}{129}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces A comparison between the NP test and MENP test during time slot $T_A$.}}{137}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces A comparison between the NP test and MENP test during time slot $T_B$.}}{140}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Block Diagram for Energy Detection}}{123}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces A comparison between the UMP test and MENP test}}{132}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces A comparison between the NP test and MENP test during time slot $T_A$.}}{140}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces A comparison between the NP test and MENP test during time slot $T_B$.}}{143}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
