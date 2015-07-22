@@ -95,8 +95,9 @@ Since $\sigma_0^2 < \sigma_1^2 < \sigma_2^2$, we have
 \begin{equation}
   \frac{y}{\sigma_0^2} \geq \frac{y}{\sigma_1^2} \geq \frac{y}{\sigma_2^2}
 \end{equation}
+and since the CDF is monotonically non-decreasing, we have 
 \begin{equation}
-\therefore  F_{\chi^2(2N)}(\frac{y}{\sigma_0^2}) \geq F_{\chi^2(2N)}(\frac{y}{\sigma_1^2}) \geq  F_{\chi^2(2N)}(\frac{y}{\sigma_2^2})
+  F_{\chi^2(2N)}(\frac{y}{\sigma_0^2}) \geq F_{\chi^2(2N)}(\frac{y}{\sigma_1^2}) \geq  F_{\chi^2(2N)}(\frac{y}{\sigma_2^2})
   \label{20150701a0}
 \end{equation}
 \begin{equation} 
@@ -202,7 +203,7 @@ Thus we can see,  $\delta$ of \eqref{20150623a0}  is a UMP decision rule if:
   \\(1) $\forall \theta_1 \in \Theta_1$, we have $P_{f, \theta_1}(\delta) \leq c$;
   \\(2) Let $\delta'$ be a decision rule satisfying (1), then  $\forall \theta_0 \in \Theta_0$, we have $P_{d,\theta_0}(\delta) \geq P_{d, \theta_0}(\delta')$. 
 
-In our case, $H_1$ is a composite hypothesis with unknown parameter $q \in [0, 1]$ and $H_0$ is a simple hypothesis. From the definition of the UMP test,  we can see $\delta^\ast$ is a UMP test of size $c$ if:
+  In our case, $H_1$ is a composite hypothesis with unknown parameter $q \in [0, 1]$ and $H_0$ is a simple hypothesis. From the definition of the UMP test,  we can see $\delta^\ast$ of \eqref{20150705a0} is a UMP test of size $c$ if:
 \\(a) for any $q \in [0, 1]$, we have $P_{f,q}(\delta^\ast) \leq c$;
 \\(b) Assume $\delta'$ is a decision rule satisfying condition (a), we have $P_d(\delta^\ast) \geq P_d(\delta')$.  
 
@@ -257,7 +258,7 @@ Hence decision rule $\delta^\ast$ also satisfies condition (b). Since decision r
 \subsection{Performance Comparison}
 In this section, we compare the performance of the UMP test with the performance of the MENP test when the detector has no side information.
 Similar to section 4.1.2, we set $\sigma_n^2= 0.1$, $\sigma_{s_A}^2 = 0.05$ $\sigma_{s_B}^2 = 0.15$ and $N=20$, leading to  $\sigma_0^2 = 0.1$, $\sigma_1^2=0.15$ and $\sigma_2^2 = 0.25$. 
-First we consider the performance of the UMP tests. 
+First we consider the performance of the UMP test. 
 We let $c$ increase from $0$ to $0.2$ in steps of $10^{-6}$. For each value of $c$, we use $V_\tau = F_1^{-1}(c|s_A)$ to compute the corresponding threshold $V_\tau$. By substituting $V_\tau$ into \eqref{20150701a3} we can get the associated $P_d$. The performance of the UMP test is illustrated in Figure \ref{pic:20150701a0}. 
 The performance of energy detection using MENP framework is also shown in Figure \ref{pic:20150701a0}. Under MENP framework, $P_d$ is related to both $c_1$ and $c_2$. In Figure \ref{pic:20150701a0}, we plot the relationship between $P_d$ and $c_1$ when $c_2$ is fixed (In this case we set $c_1 = c$). Then we illustrate the relationship between $P_d$ and $c_2$ when $c_1$ is fixed (In this case we set $c_2 = c$).   
 
@@ -268,7 +269,7 @@ The performance of energy detection using MENP framework is also shown in Figure
 \label{pic:20150701a0}
 \end{figure}
 
-As we can observe, when $c_1$ is fixed to $0.15$ and $c_2$ smaller than $0.15$, the performance of MENP test is better than the UMP test. This is not contradictory with the definition of the UMP test. As we have discussed in section 5.1.1, a UMP decision rule is a decision rule such that among all decision rules satisfying $\forall q \in [0, 1]$ $P_{f,q} \leq c$, it maximize $P_d$. With the MENP test, for $\forall q \in [0, 1]$ we cannot necessarily have $P_{f,q} \leq c$, hence it is possible that the $P_d$ MENP test outperforms the UMP test.  For example, when $c_2 = c = 0.05$ and $c_1 = 0.15$, with the UNP test we have $P_d = 0.5192$; with the MENP test we have $P_d = 0.7711$. However by using this MENP test, when $q = 1$ we have $P_f = 0.15 > c = 0.05$, i.e. $P_{f,1} > c$.   
+As we can observe, when $c_1$ is fixed to $0.15$ and $c_2$ smaller than $0.15$, the performance of MENP test is better than the UMP test. This is not contradictory with the definition of the UMP test. As we have discussed in section 5.1.1, a UMP decision rule is a decision rule such that among all decision rules satisfying $\forall q \in [0, 1]$ $P_{f,q} \leq c$, it maximizes $P_d$. With the MENP test, for $\forall q \in [0, 1]$ we cannot necessarily have $P_{f,q} \leq c$, hence it is possible that the $P_d$ for the MENP test is larger than the $P_d$ for the UMP test.  For example, when $c_2 = c = 0.05$ and $c_1 = 0.15$, with the UMP test we have $P_d = 0.5192$; with the MENP test we have $P_d = 0.7711$. However by using this MENP test, when $q = 1$ we have $P_f = 0.15 > c = 0.05$, i.e. $P_{f,1} > c$.   
 
 Furthermore, for both the MENP and the UMP tests, the decision rule can be written in form of
 \begin{equation}
@@ -281,7 +282,7 @@ and the probability of detection is
   \label{20150701a5}
 \end{equation}
 
-In the MENP test, $V_\tau$ is determined by $V_{\tau MENP}= \min (F_1^{-1}(c_1|s_A), F_1^{-1}(c_2|s_B))$; in the UMP test, $V_\tau$ is determined by $V_{\tau UMP} = F_1^{-1}(c|s_A)$. When $V_{\tau MENP}  \geq V_{\tau UMP}$, then the $P_d$ achieved by MENP test is no smaller than that achieved by UMP test; When $V_{\tau MENP}  \leq V_{\tau UMP}$, then the $P_d$ achieved by MENP test is no larger than that achieved by UMP test 
+In the MENP test, $V_\tau$ is determined by $V_{\tau MENP}= \min (F_1^{-1}(c_1|s_A), F_1^{-1}(c_2|s_B))$; in the UMP test, $V_\tau$ is determined by $V_{\tau UMP} = F_1^{-1}(c|s_A)$. When $V_{\tau MENP}  \geq V_{\tau UMP}$, then the $P_d$ achieved by the MENP test is no smaller than that achieved by UMP test. When $V_{\tau MENP}  \leq V_{\tau UMP}$, then the $P_d$ achieved by MENP test is no larger than that achieved by UMP test. 
 With the MENP test, when $c_2$ is fixed and $c_1 = c$, we have $\min (F_1^{-1}(c_1|s_A), F_1^{-1}(c_2|s_B)) \leq F_1^{-1}(c_1|s_A) = F_1^{-1}(c|s_A) $, i.e. 
 $V_{\tau MENP} \leq V_{\tau UMP}$.
 Hence we can conclude that when $c_2$ is fixed and $c_1 = c$, the $P_d$ achieved by MENP test is no larger than that achieved by UMP test. When $F_1^{-1}(c_1|s_A) \geq F_2^{-1}(c_2|s_B)$, i.e. $\min (F_1^{-1}(c_1|s_A), F_1^{-1}(c_2|s_B)) = F_1^{-1}(c_1|s_A) = F_1^{-1}(c|s_A) $, the equality holds.  For example when $c_2 $ is fixed to $0.15$, when $c_1 = c \in [0, 0.2]$, we have $F_1^{-1}(c_1|s_A) \geq F_2^{-1}(c_2|s_B)$ and the performance of the MENP test and the UMP test are equal. 
@@ -290,7 +291,7 @@ Above conclusions can be verified in Figure \ref{pic:20150701a0}.
 Finally, we consider the performance of the MENP test when $c_1$ is fixed to $0.15$. As we observe in this case when $c_2$ is smaller than $0.15$ the performance of MENP test is better than the UMP test. This is because when $c_2 = c  \leq 0.15$, $\min (F_1^{-1}(0.15|s_A), F_1^{-1}(c_2|s_B)) > F_1^{-1}(c|s_A)$, i.e. $V_{\tau MENP} \geq V_{\tau UMP }$.   Hence the $P_d$ achieved by MENP test is larger than that achieved by UMP test. 
 
 
-From above discussion we can conclude that with $c_2$ fixed and $c_1 = c$, the UMP outperforms the MENP test (when $F_1^{-1}(c_1|s_A) \geq F_2^{-1}(c_2|s_B)$, the performance of MENP test and UMP test are the same); with $c_1$ fixed and $c_2  = c$, it is possible that the MENP test outperforms the UMP test.    
-
+From above discussion we can conclude that with $c_2$ fixed and $c_1 = c$, the UMP outperforms the MENP test, however when $F_1^{-1}(c_1|s_A) \geq F_2^{-1}(c_2|s_B)$, the performance of MENP test and UMP test are the same. With $c_1$ fixed and $c_2  = c$, it is possible that the MENP test outperforms the UMP test. This is because the UMP test maximizes $P_d$ among all decision rules satisfying $\forall q \in [0, 1] $ $P_{f,q} \leq c$, but 
+in the MENP test $P_d$ is associated with two parameters $c_1, c_2$.  As we have shown in section 3.3, when $c_1$ (or $c_2$) increases and $c_2$ (or $c_1$) remains the same, $P_d$ will either remain the same or increases. When we set $c_2 = c$ and $c_1$ is large enough, it is possible that the $P_d$ achieved by the MENP test is larger than the $P_d$ achieved by the UMP test.
 \typeout{}
 \input{5/perfectsi}

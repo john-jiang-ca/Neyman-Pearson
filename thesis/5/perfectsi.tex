@@ -12,7 +12,7 @@ H_2:\;\;\;\;\text{channel is occupied by $s_B$}\,.
 
 During time slot $T_A$, we  test $H_0$ against $H_1$; during time slot $T_B$, we test $H_0$ against $H_2$. 
 Even though there are three hypotheses, for a specific time slot, it is still a two hypotheses testing problem.  
-For both $T_A$ and $T_B$, we use an energy detector to decide the status of the channel. Let $\mathbf{x}$ denote the input of the detector, $Y$ denote the testing statistics of the received signal (in this case, $Y$ is the energy of the sampled signal), $n$  denote the system noise and $s_A$ ($s_B$) denote the transmitted signal, hence we have
+For both $T_A$ and $T_B$, we use an energy detector to decide the status of the channel. Let $\mathbf{x}$ denote the input of the detector, $Y$ denote the testing statistics of the received signal (in this case, $Y$ is the energy of the sampled signal), $n$  denote the system noise and $s_A$ or $s_B$ denotes the transmitted signal. Hence we have
 \begin{eqnarray}
   \mathbf{x} = \begin{cases}
     &\mathbf{n}\;\;\;\;\;\;\text{when the channel is free}\\
@@ -71,7 +71,7 @@ where $\chi^2(2N)$ is the Chi-square distribution with $2N$ degrees of freedom. 
   \label{20150621a8}
 \end{equation}
 
-We use Neyman Pearson decision rule to test $H_0$ against $H_1$, and hence the decision rule can be written as
+We use the Neyman Pearson decision rule to test $H_0$ against $H_1$, and hence the decision rule can be written as
 \begin{equation}
   \frac{f_1(y)}{f_0(y)} \substack{\bar{H}_0 \\ \geq \\ < \\ H_0} \tau\,.
 \end{equation}
@@ -82,12 +82,12 @@ Substituting \eqref{20150621a8} into above equation leads to
 \begin{equation}
   \left(\frac{\sigma_0^2}{\sigma_1^2}\right)^N\exp\left( (\frac{1}{2\sigma_0^2} -  \frac{1}{2\sigma_1^2}  )y \right)\substack{\bar{H}_0 \\ \geq \\ < \\ H_0} \tau
 \end{equation}
-Define 
+Defining 
 \begin{equation}
   g(y) = \left(\frac{\sigma_0^2}{\sigma_1^2}\right)^N\exp\left( (\frac{1}{2\sigma_0^2} -  \frac{1}{2\sigma_1^2}  )y \right)
   \label{20150629a0}
 \end{equation}
-and \eqref{20150629a0} can be written as
+\eqref{20150629a0} can be written as
 \begin{equation}
   g(y) \substack{\bar{H}_0 \\ \geq \\ < \\ H_0} \tau\,.
   \label{20150622a12}
@@ -137,7 +137,7 @@ thus we have
   \end{split}
 \end{equation}
 
-By using the mathematical method such that used in deriving the Neyman Pearson decision rule for time slot $T_A$, we can get the Neyman Pearson decision rule for testing $H_0$ against $H_2$:
+By using the same method as in deriving the Neyman Pearson decision rule for time slot $T_A$, we can get the Neyman Pearson decision rule for testing $H_0$ against $H_2$:
 \begin{equation}
   y  \substack{\bar{H}_0 \\ \geq \\ < \\ H_0} V_\tau'\,,
   \label{20150628a0}
@@ -168,13 +168,13 @@ and
     F_0(V_\tau')\;\;\;\;&\text{during time slot $T_B$}\,,
   \end{cases}
   \label{20150702b2}
-\end{equation}
+\end{equation} 
 \begin{equation}
-  P_f(\delta_{NP}) = c.
+  P_f(\delta_{NP}) = c\;\;\;\;\text{during time slot $T_A$ or $T_B$}\,.\;\;\;\;
 \end{equation}
 
 \subsection{Performance Comparison}
-In this section, we compare the performance of NP test with the performance of MENP test for both time slot $T_A$ and $T_B$. For easy presentation, let $\delta_{M}$ denote the MENP decision rule and $P_d(\delta_M)$ denote the probability of detection achieved by decision rule $\delta_{M}$.  
+In this section, we compare the performance of the NP test with the performance of the MENP test for both time slot $T_A$ and $T_B$. For easy presentation, let $\delta_{M}$ denote the MENP decision rule and $P_d(\delta_M)$ denote the probability of detection achieved by decision rule $\delta_{M}$.  
 Let $\delta_{NP} $ denote the NP decision rule and $P_d(\delta_{NP})$ denote the probability of detection achieved by decision rule $\delta_{NP}$. 
 Similar to section 4.1.2, we set $\sigma_n^2= 0.1$, $\sigma_{s_A}^2 = 0.05$ $\sigma_{s_B}^2 = 0.15$ and $N=20$. We can see $\sigma_0^2 = 0.1$, $\sigma_1^2=0.15$ and $\sigma_2^2 = 0.25$. First we consider the performance of NP test during time slot $T_A$. We let the value of $c$ increase from $0$ to $0.2$ in steps of $10^{-6}$. For each $c$, we use \eqref{20150702b1} and \eqref{20150702b2} to compute the $V_\tau$ and the associated $P_d$.  
 The performance of the NP test with perfect side information is illustrated in Figure \ref{pic:20150702a0}.  
@@ -182,14 +182,14 @@ The performance of the NP test with perfect side information is illustrated in F
 \begin{figure}[!hbp]
   \centering
   \includegraphics[width = 14cm]{5/SIa.eps}
-  \caption{A comparison between the NP test and MENP test during time slot $T_A$.} 
+  \caption{A comparison between the NP test and the MENP test during time slot $T_A$.} 
   \label{pic:20150702a0}
 \end{figure} 
 
-During Time slot $T_A$, only primary signal $s_A$ could be present in the channel. Under MENP framework, $P_{f_1}$ is the probability that the detector recognizes the channel is free while $s_A$ is present. 
-Hence under the MENP framework, we consider the relationship between $P_d$ and $c_1$. The performance of MENP test is also illustrated in Figure \ref{pic:20150702a0}.  
+During time slot $T_A$, only primary signal $s_A$ could be present in the channel. Under the MENP framework, $P_{f_1}$ is the probability that the detector recognizes that the channel is free while $s_A$ is present. 
+Hence under the MENP framework, we consider the relationship between $P_d$ and $c_1$. The performance of the MENP test is illustrated in Figure \ref{pic:20150702a0}.  
 
-As we can observe, with $c_2$  fixed to $0.001$ (or $0.0015$), when $c_1$ is smaller than $0.12$ (or $0.15$) the performance of MENP test and NP test are the same; when $c_1$ is larger than $0.12$ (or $0.15$) the NP test has better performance. This is reasonable.  
+As we can observe, with $c_2$  fixed to $0.001$ (or $0.0015$), when $c_1$ is smaller than $0.12$ (or $0.15$) the performance of the MENP test and the NP test are the same; when $c_1$ is larger than $0.12$ (or $0.15$) the NP test has better performance. This is reasonable.  
 For both MENP and NP tests with perfect side information, the decision rule can be written in form of
 \begin{equation}
   y  \substack{\bar{H}_0 \\ \geq \\ < \\ H_0} V_\tau
@@ -202,21 +202,21 @@ The above equation suggests $P_d$ is an increasing function with $V_\tau$.
 In the MENP test, $V_\tau$ is determined by $V_{\tau MENP}= \min (F_1^{-1}(c_1), F_2^{-1}(c_2))$; in the NP test with perfect side information, during time slot $T_A$, $V_\tau$ is determined by $V_{\tau NP A} = F_1^{-1}(c)$. When $c_1 \leq F_1(F_2^{-1}(c_2))$, i.e. $F_1^{-1}(c_1) \leq  F_2^{-1}(c_2)$, we have  $V_{\tau MENP} = F_1^{-1}(c_1)$. Since $V_{\tau NP A} = F_1^{-1}(c)$, when $c = c_1$, we have $V_{\tau MENP} = V_{\tau NPA}$, i.e.  $P_d(\delta_M) = P_d(\delta_{NP})$.    
 When $c_1 > F_1(F_2^{-1}(c_2))$, i.e. $F_1^{-1}(c_1) > F_2^{-1}(c_2)$, we have  $V_{\tau MENP} = F_2^{-1}(c_2) < F_1^{-1}(c_1)$. Since $V_{\tau NP A} = F_1^{-1}(c)$, when $c = c_1$, we have 
 $V_{\tau MENP} < V_{\tau NP}$, i.e.  $P_d(\delta_M) < P_d(\delta_{NP})$.
-Hence for MENP test, with $c_2$ fixed, when $c_1$ is smaller than $F_1( F_2^{-1}(c_2) ) $, $P_d(\delta_M) = P_d(\delta_{NP})$; when $c_1$ is larger than $ F_1( F_2^{-1}(c_2))$, $P_d(\delta_M) < P_d(\delta_{NP})$. 
-However for the situation when  $c_2$ is fixed to $0.15$, for $c_1 \in [0, 0.2]$, $c_1 <  F_1(F_2^{-1}(c_2))$ is always holds. Hence for the situation when $c_2$ is fixed to $0.15$ and $c_1 = c \leq 0.2$, the performance of MENP test and NP test are the same. This is seen in Figure \ref{pic:20150702a0}. 
+Hence for the MENP test, with $c_2$ fixed, when $c_1$ is smaller than $F_1( F_2^{-1}(c_2) ) $, $P_d(\delta_M) = P_d(\delta_{NP})$; when $c_1$ is larger than $ F_1( F_2^{-1}(c_2))$, $P_d(\delta_M) < P_d(\delta_{NP})$. 
+However for the situation when  $c_2$ is fixed to $0.15$, for $c_1 \in [0, 0.2]$, $c_1 <  F_1(F_2^{-1}(c_2))$ is always holds. Hence for the situation when $c_2$ is fixed to $0.15$ and $c_1 = c \leq 0.2$, the performance of the MENP test and the NP test are the same. This is seen in Figure \ref{pic:20150702a0}. 
 
-Next we consider the performance of NP the test and MENP test during time slot $T_B$.
-The performance of NP test and MNEP test are shown in Figure \ref{pic:20150704a0}. During time slot $T_B$, only primary user $s_B$ could present in the channel. Under MENP framework, $P_{f_2}$ is the probability that the detector recognizes the channel is free while $s_B$ is present. Hence under the MENP framework, we consider the relationship between $P_d$ and $c_2$.
+Next we consider the performance of the NP test and the MENP test during time slot $T_B$.
+The performance of the NP and the MNEP tests are shown in Figure \ref{pic:20150704a0}. During time slot $T_B$, only primary user $s_B$ could present in the channel. Under the MENP framework, $P_{f_2}$ is the probability that the detector recognizes the channel is free while $s_B$ is present. Hence under the MENP framework, we consider the relationship between $P_d$ and $c_2$.
 
 \begin{figure}[!hbp]
   \centering
   \includegraphics[width = 14cm]{5/SIb.eps}
-  \caption{A comparison between the NP test and MENP test during time slot $T_B$.} 
+  \caption{A comparison between the NP test and the MENP test during time slot $T_B$.} 
   \label{pic:20150704a0}
 \end{figure} 
 
-As we can observe, with $c_1$  fixed, when $c_2$ is small the performance of MENP test and NP test are the same; when $c_2$ becomes larger the NP test has better performance. This is reasonable. In the MENP test, $V_\tau$ is determined by $V_{\tau MENP}= \min (F_1^{-1}(c_1), F_2^{-1}(c_2))$; in the NP test with perfect side information, during time slot $T_B$, $V_\tau$ is determined by $V_{\tau NP B} = F_2^{-1}(c)$. When $c_2 \leq F_2(F_1^{-1}(c_1))$, i.e. $F_1^{-1}(c_1) \geq  F_2^{-1}(c_2)$, we have  $V_{\tau MENP} = F_2^{-1}(c_2)$. Since $V_{\tau NP B} = F_2^{-1}(c)$, when $c = c_2$, we have $V_{\tau MENP} = V_{\tau NP B}$, i.e. $P_d(\delta_M) = P_d(\delta_{NP})$.    
+As we can observe, with $c_1$  fixed, when $c_2$ is small the performance of the MENP test and the NP test are the same; when $c_2$ becomes larger the NP test has better performance. This is reasonable. In the MENP test, $V_\tau$ is determined by $V_{\tau MENP}= \min (F_1^{-1}(c_1), F_2^{-1}(c_2))$; in the NP test with perfect side information, during time slot $T_B$, $V_\tau$ is determined by $V_{\tau NP B} = F_2^{-1}(c)$. When $c_2 \leq F_2(F_1^{-1}(c_1))$, i.e. $F_1^{-1}(c_1) \geq  F_2^{-1}(c_2)$, we have  $V_{\tau MENP} = F_2^{-1}(c_2)$. Since $V_{\tau NP B} = F_2^{-1}(c)$, when $c = c_2$, we have $V_{\tau MENP} = V_{\tau NP B}$, i.e. $P_d(\delta_M) = P_d(\delta_{NP})$.    
 When $c_2 > F_1(F_2^{-1}(c_1))$, i.e. $F_1^{-1}(c_1) < F_2^{-1}(c_2)$, we have  $V_{\tau MENP} = F_1^{-1}(c_1) < F_2^{-1}(c_2)$. Since $V_{\tau NP B} = F_2^{-1}(c)$, when $c = c_2$, we have  $V_{\tau MENP} < V_{\tau NP B}$, i.e.  $P_d(\delta_M) < P_d(\delta_{NP})$.
-Hence for MENP test, with $c_1$ fixed, when $c_2$ is smaller than $ F_2( F_1^{-1}(c_1)) $, $P_d(\delta_M) = P_d(\delta_{NP})$; when $c_2$ is larger than $ F_2( F_1^{-1}(c_1)) $, $P_d(\delta_M) < P_d(\delta_{NP})$. 
+Hence for the MENP test, with $c_1$ fixed, when $c_2$ is smaller than $ F_2( F_1^{-1}(c_1)) $, $P_d(\delta_M) = P_d(\delta_{NP})$; when $c_2$ is larger than $ F_2( F_1^{-1}(c_1)) $, $P_d(\delta_M) < P_d(\delta_{NP})$. 
 
 From the above discussion, we can conclude that the NP test outperforms the MENP test when the detector has perfect side information. With $c_1$ ($c_2$) fixed, when $c_2$ ($c_1$) is small the performance of the  MENP test and the NP test are the same; when $c_2$ ($c_1$) becomes larger the NP test has better performance.  

@@ -112,7 +112,7 @@ Source File Name                  & Description                                 
 energyPD.m                  &       Implements energy detector and get $P_d$ point. \\
 energyPF1.m                 &        Implements energy detector and get $P_{f_1}$ point. \\
 energyPF2.m                 &        Implements energy detector and get $P_{f_2}$ point. \\
-gridNPk.m                   &       Compute the MENP parameters on the specified $c_1, c_2$ grid.\\
+gridNPK.m                   &       Compute the MENP parameters on the specified $c_1, c_2$ grid.\\
 generateOFDM.m              &       Generate OFDM signals.                          \\
 cyclicPD.m                  &       Implements cyclostationary detector and get $P_d$ point.    \\
 cyclicPF1.m                 &       Implements cyclostationary detector and get $P_{f_1}$ point.    \\
@@ -132,12 +132,12 @@ To simulate the energy detector, run energyPD.m, energyPF1.m and energyPF2.m. Th
 
 After the simulations finish, file PD.mat, PF1.mat, PF2.mat and VT.mat  stores the simulation results.
 
-To simulate the cyclostationary detector, we should first run gridNPk.m. This can be done by running the following command:
-\\\texttt{Linux$>$ matlab -nodisplay -nosplash -r gridNPk}
+To simulate the cyclostationary detector, we should first run gridNPK.m. This can be done by running the following command:
+\\\texttt{Linux$>$ matlab -nodisplay -nosplash -r gridNPK}
 
-After the computation finish, file NPk.mat stores the results. Then we should run cyclicPD.m, cyclicPF1.m and cyclicPF2.m. This can be done by running the following commands:
+After the computation finish, file paraK.mat stores the results. Then we should run cyclicPD.m, cyclicPF1.m and cyclicPF2.m. This can be done by running the following commands:
 \\\texttt{Linux$>$ matlab -nodisplay -nosplash -r cyclicPD\&}
 \\\texttt{Linux$>$ matlab -nodisplay -nosplash -r cyclicPF1\&}
 \\\texttt{Linux$>$ matlab -nodisplay -nosplash -r cyclicPF2\&}
 
-These files load parameters from NPk.mat file. When the simulations finish, file cPD.mat, cPF1.mat and cPF2.mat store the results. 
+These files load parameters from paraK.mat file. When the simulations finish, file cPD.mat, cPF1.mat and cPF2.mat store the results. 
