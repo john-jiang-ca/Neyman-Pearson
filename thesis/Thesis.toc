@@ -1,3 +1,6 @@
+\select@language {french}
+\select@language {frenchb}
+\select@language {english}
 \contentsline {chapter}{\numberline {1}Introduction}{1}
 \contentsline {section}{\numberline {1.1}Thesis Objectives}{4}
 \contentsline {section}{\numberline {1.2}Thesis Organization and Contribution}{5}
@@ -33,4 +36,4 @@
 \contentsline {chapter}{\numberline {6}Conclusions}{144}
 \contentsline {chapter}{\numberline {A}Numerical Results Program Guide}{146}
 \contentsline {chapter}{\numberline {B}Computer Simulations Program Guide}{150}
-\contentsline {chapter}{References}{152}
+\contentsline {chapter}{Bibliography}{152}
